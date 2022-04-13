@@ -1,0 +1,25 @@
+﻿
+Microsoft Visual Studio Solution File, Format Version 12.00
+# Blend for Visual Studio Version 16
+VisualStudioVersion = 16.0.31515.178
+MinimumVisualStudioVersion = 10.0.40219.1
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "PROMETEUS LAST EDITION", "PROMETEUS LAST EDITION\PROMETEUS LAST EDITION.csproj", "{59C265F6-1CD7-4F6E-98F1-08CD63C1BB8E}"
+EndProject
+Global
+	GlobalSection(SolutionConfigurationPlatforms) = preSolution
+		Debug|Any CPU = Debug|Any CPU
+		Release|Any CPU = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(ProjectConfigurationPlatforms) = postSolution
+		{59C265F6-1CD7-4F6E-98F1-08CD63C1BB8E}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{59C265F6-1CD7-4F6E-98F1-08CD63C1BB8E}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{59C265F6-1CD7-4F6E-98F1-08CD63C1BB8E}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{59C265F6-1CD7-4F6E-98F1-08CD63C1BB8E}.Release|Any CPU.Build.0 = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(SolutionProperties) = preSolution
+		HideSolutionNode = FALSE
+	EndGlobalSection
+	GlobalSection(ExtensibilityGlobals) = postSolution
+		SolutionGuid = {374E4341-CD38-4CDB-8A4A-918D2E6A3F65}
+	EndGlobalSection
+EndGlobal

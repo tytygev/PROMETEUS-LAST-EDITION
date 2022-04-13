@@ -1,0 +1,586 @@
+﻿<Window x:Class="PROMETEUS_LAST_EDITION.MainWindow"
+        xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+        xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+        xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+        xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+        xmlns:local="clr-namespace:PROMETEUS_LAST_EDITION"
+        mc:Ignorable="d"
+        Title="MainWindow"  MinHeight="768" MinWidth="1024"  Height="768" Width="1024" >
+   
+    
+    
+  
+    <Grid Margin="0">
+        <Grid.ColumnDefinitions>
+            <ColumnDefinition x:Name="MainMenuCel" Width="Auto" />
+            <ColumnDefinition x:Name="MainWindowCel" Width="*"/>
+        </Grid.ColumnDefinitions>
+        <Grid.RowDefinitions>
+            <RowDefinition x:Name="MenuFooterCel" Height="*"/>
+            <RowDefinition x:Name="MainFooterCel" Height="Auto" />
+        </Grid.RowDefinitions>
+        <Grid.Background>
+            <SolidColorBrush Color="{DynamicResource ColorMain}"/>
+        </Grid.Background>
+        <ProgressBar Margin="10" Grid.ColumnSpan="1" Grid.Row="1" BorderThickness="1" IsTabStop="False">
+            <ProgressBar.BorderBrush>
+                <SolidColorBrush Color="{DynamicResource ColorSub}"/>
+            </ProgressBar.BorderBrush>
+            <ProgressBar.Foreground>
+                <SolidColorBrush Color="{DynamicResource ColorAltNuans}"/>
+            </ProgressBar.Foreground>
+            <ProgressBar.Background>
+                <SolidColorBrush Color="{DynamicResource ColorSub}"/>
+            </ProgressBar.Background>
+        </ProgressBar>
+        <TextBlock Margin="10" TextWrapping="WrapWithOverflow" Text="Описание &#xA;Доп описание " Height="Auto" Grid.Column="1" Grid.Row="1" VerticalAlignment="Center">
+            <TextBlock.Foreground>
+                <SolidColorBrush Color="{DynamicResource ColorFont}"/>
+            </TextBlock.Foreground>
+        </TextBlock>
+        <Grid HorizontalAlignment="Center" Margin="0">
+            <Grid.RowDefinitions>
+                <RowDefinition Height="*"/>
+                <RowDefinition Height="auto "/>
+            </Grid.RowDefinitions>
+            <StackPanel Margin="0,15,0,0" VerticalAlignment="Top" Grid.RowSpan="3" >
+                <StackPanel Margin="20,5,0,5" Orientation="Horizontal" VerticalAlignment="Center">
+                    <StackPanel.Background>
+                        <SolidColorBrush Color="{DynamicResource ColorSub}"/>
+                    </StackPanel.Background>
+                    <Image Margin="0" VerticalAlignment="Center" Source="_KitSet_o.png" HorizontalAlignment="Center" Height="48" Width="48" />
+                    <TextBlock Margin="0,0,30,0" TextWrapping="Wrap" Text="Путевые листы" VerticalAlignment="Center" HorizontalAlignment="Left" FontSize="16">
+                        <TextBlock.Foreground>
+                            <SolidColorBrush Color="{DynamicResource ColorFont}"/>
+                        </TextBlock.Foreground>
+                    </TextBlock>
+                </StackPanel>
+                <StackPanel Margin="20,5,0,5" Orientation="Horizontal">
+                    <StackPanel.Background>
+                        <SolidColorBrush Color="{DynamicResource ColorMain}"/>
+                    </StackPanel.Background>
+                    <Image Margin="0" VerticalAlignment="Center" Source="_Price_o.png" HorizontalAlignment="Center" Width="48" Height="48"/>
+                    <TextBlock Margin="0,0,30,0" TextWrapping="Wrap" Text="Наряды" VerticalAlignment="Center" HorizontalAlignment="Left" FontSize="16">
+                        <TextBlock.Foreground>
+                            <SolidColorBrush Color="{DynamicResource ColorFont}"/>
+                        </TextBlock.Foreground>
+                    </TextBlock>
+                </StackPanel>
+                <StackPanel Margin="20,5,0,5" Orientation="Horizontal">
+                    <StackPanel.Background>
+                        <SolidColorBrush Color="{DynamicResource ColorMain}"/>
+                    </StackPanel.Background>
+                    <Image Margin="0" VerticalAlignment="Center" Source="_DBedit_o.png" HorizontalAlignment="Center" Width="48"/>
+                    <TextBlock Margin="0,0,30,0" TextWrapping="Wrap" Text="Редактор БД" VerticalAlignment="Center" HorizontalAlignment="Left" FontSize="16">
+                        <TextBlock.Foreground>
+                            <SolidColorBrush Color="{DynamicResource ColorFont}"/>
+                        </TextBlock.Foreground>
+                    </TextBlock>
+                </StackPanel>
+                <StackPanel Margin="20,5,0,5" Orientation="Horizontal">
+                    <StackPanel.Background>
+                        <SolidColorBrush Color="{DynamicResource ColorMain}"/>
+                    </StackPanel.Background>
+                    <Image Margin="0" VerticalAlignment="Center" Source="_Settings_o.png" HorizontalAlignment="Center" Height="48"/>
+                    <TextBlock Margin="0,0,30,0" TextWrapping="Wrap" Text="Настройки" VerticalAlignment="Center" HorizontalAlignment="Left" FontSize="16">
+                        <TextBlock.Foreground>
+                            <SolidColorBrush Color="{DynamicResource ColorFont}"/>
+                        </TextBlock.Foreground>
+                    </TextBlock>
+                </StackPanel>
+                <StackPanel Margin="20,5,0,5" Orientation="Horizontal">
+                    <StackPanel.Background>
+                        <SolidColorBrush Color="{DynamicResource ColorMain}"/>
+                    </StackPanel.Background>
+                    <Image Margin="0" VerticalAlignment="Center" Source="_About_o.png" HorizontalAlignment="Center" Height="48" Width="48"/>
+                    <TextBlock Margin="0,0,30,0" TextWrapping="Wrap" Text="О программе" VerticalAlignment="Center" HorizontalAlignment="Left" FontSize="16">
+                        <TextBlock.Foreground>
+                            <SolidColorBrush Color="{DynamicResource ColorFont}"/>
+                        </TextBlock.Foreground>
+                    </TextBlock>
+                </StackPanel>
+            </StackPanel>
+            <StackPanel Margin="0" VerticalAlignment="Top" Grid.Row="1" >
+                <StackPanel Margin="20,5" Orientation="Horizontal">
+                    <StackPanel.Background>
+                        <SolidColorBrush Color="{DynamicResource ColorMain}"/>
+                    </StackPanel.Background>
+                    <Image Margin="0" VerticalAlignment="Center" Source="_Exit_o.png" HorizontalAlignment="Center" Height="48"/>
+                    <TextBlock Margin="0,0,30,0" TextWrapping="Wrap" Text="Выход" VerticalAlignment="Center" HorizontalAlignment="Left" FontSize="16">
+                        <TextBlock.Foreground>
+                            <SolidColorBrush Color="{DynamicResource ColorFont}"/>
+                        </TextBlock.Foreground>
+                    </TextBlock>
+                </StackPanel>
+                <TextBlock HorizontalAlignment="Right" Margin="0,5,20,5" TextWrapping="Wrap" Text="ver.: {0.0.0.0a}" VerticalAlignment="Top" FontSize="10">
+                    <TextBlock.Foreground>
+                        <SolidColorBrush Color="{DynamicResource ColorFont}"/>
+                    </TextBlock.Foreground>
+                </TextBlock>
+            </StackPanel>
+        </Grid>
+        <Grid x:Name="KitSetBrowse" Grid.Column="1" Margin="0">
+            <Grid.Background>
+                <SolidColorBrush Color="{DynamicResource ColorSub}"/>
+            </Grid.Background>
+            <Grid.RowDefinitions>
+                <RowDefinition Height="Auto"/>
+                <RowDefinition Height="*"/>
+            </Grid.RowDefinitions>
+            <StackPanel Margin="0" Orientation="Horizontal">
+                <StackPanel Margin="5" HorizontalAlignment="Center" VerticalAlignment="Center">
+                    <Image Margin="5,5,4,5" Source="_New32_o.png" HorizontalAlignment="Center" VerticalAlignment="Center" Width="32" Height="32"/>
+                </StackPanel>
+                <StackPanel Margin="5" HorizontalAlignment="Center" VerticalAlignment="Center">
+                    <Image Margin="5" Source="_Open32_o.png" HorizontalAlignment="Center" VerticalAlignment="Center" Width="32" Height="32"/>
+                </StackPanel>
+                <StackPanel Margin="5" HorizontalAlignment="Center" VerticalAlignment="Center">
+                    <Image Margin="5" Source="_Save32_o.png" HorizontalAlignment="Center" VerticalAlignment="Center" Height="32" Width="32"/>
+                </StackPanel>
+                <StackPanel Margin="5" HorizontalAlignment="Center" VerticalAlignment="Center">
+                    <Image Margin="5" Source="_SaveAs32_o.png" HorizontalAlignment="Center" VerticalAlignment="Center" Height="32" Width="32"/>
+                </StackPanel>
+                <StackPanel Margin="5" HorizontalAlignment="Center" VerticalAlignment="Center">
+                    <Image Margin="5" Source="_Print32_o.png" VerticalAlignment="Center" HorizontalAlignment="Center" Height="32" Width="32"/>
+                </StackPanel>
+                <StackPanel Margin="5" HorizontalAlignment="Center" VerticalAlignment="Center">
+                    <Image Margin="5" Source="_PrintF32_o.png" HorizontalAlignment="Center" VerticalAlignment="Center" Height="32" Width="32"/>
+                </StackPanel>
+            </StackPanel>
+            <GroupBox Margin="10,0,10,10" Grid.Row="1" ScrollViewer.VerticalScrollBarVisibility="Auto" ScrollViewer.HorizontalScrollBarVisibility="Auto" HorizontalContentAlignment="Stretch" VerticalContentAlignment="Stretch" FontSize="14" Header="[новый]*" BorderThickness="1" Padding="0" UseLayoutRounding="False" FontWeight="Bold">
+                <GroupBox.BorderBrush>
+                    <SolidColorBrush Color="{DynamicResource ColorNuans}"/>
+                </GroupBox.BorderBrush>
+                <GroupBox.Foreground>
+                    <SolidColorBrush Color="{DynamicResource ColorAltFont}"/>
+                </GroupBox.Foreground>
+
+                <Grid Margin="10" HorizontalAlignment="Left">
+                    <Grid.ColumnDefinitions>
+                        <ColumnDefinition Width="auto"/>
+                        <ColumnDefinition Width="auto"/>
+                    </Grid.ColumnDefinitions>
+                    <StackPanel HorizontalAlignment="Left" Margin="0,0,10,0" VerticalAlignment="Top">
+                        <TextBlock HorizontalAlignment="Left" Margin="10,5" TextWrapping="Wrap" FontSize="12" FontWeight="Normal" TextDecorations="{x:Null}">
+                            <TextBlock.Foreground>
+                                <SolidColorBrush Color="{DynamicResource ColorFont}"/>
+                            </TextBlock.Foreground><Run Text="Организация"/></TextBlock>
+                        <ComboBox HorizontalAlignment="Right" Margin="10,5,10,15" Text="" MinWidth="150" FontSize="12" FontWeight="Normal" Width="100" IsEditable="True" Padding="2,4,2,2">
+                            <ComboBox.Foreground>
+                                <LinearGradientBrush EndPoint="0.5,1" StartPoint="0.5,0">
+                                    <GradientStop Color="Black" Offset="0"/>
+                                    <GradientStop Color="{DynamicResource ColorAltFont}" Offset="0.37"/>
+                                </LinearGradientBrush>
+                            </ComboBox.Foreground>
+                            <ComboBox.BorderBrush>
+                                <SolidColorBrush Color="{DynamicResource ColorNuans}"/>
+                            </ComboBox.BorderBrush>
+                            <ComboBox.Background>
+                                <SolidColorBrush Color="{DynamicResource ColorMain}"/>
+                            </ComboBox.Background>
+                            <ComboBoxItem Content="fdgdfgdddddd" Width="148">
+                                <ComboBoxItem.Foreground>
+                                    <SolidColorBrush Color="{DynamicResource ColorFont}"/>
+                                </ComboBoxItem.Foreground>
+                            </ComboBoxItem>
+                            <ComboBoxItem Content="5655656">
+                                <ComboBoxItem.Foreground>
+                                    <SolidColorBrush Color="{DynamicResource ColorFont}"/>
+                                </ComboBoxItem.Foreground>
+                            </ComboBoxItem>
+                        </ComboBox>
+                        <TextBlock HorizontalAlignment="Left" Margin="10,5" TextWrapping="Wrap" Text="Механик" FontSize="12" FontWeight="Normal" TextDecorations="{x:Null}">
+                            <TextBlock.Foreground>
+                                <SolidColorBrush Color="{DynamicResource ColorFont}"/>
+                            </TextBlock.Foreground>
+                        </TextBlock>
+                        <ComboBox HorizontalAlignment="Right" Margin="10,5,10,15" Text="" MinWidth="150" FontSize="12" FontWeight="Normal" Width="100" IsEditable="True" Padding="2,4,2,2">
+                            <ComboBox.Foreground>
+                                <LinearGradientBrush EndPoint="0.5,1" StartPoint="0.5,0">
+                                    <GradientStop Color="Black" Offset="0"/>
+                                    <GradientStop Color="#FFFF9523" Offset="0.37"/>
+                                </LinearGradientBrush>
+                            </ComboBox.Foreground>
+                            <ComboBox.BorderBrush>
+                                <SolidColorBrush Color="{DynamicResource ColorNuans}"/>
+                            </ComboBox.BorderBrush>
+                            <ComboBox.Background>
+                                <SolidColorBrush Color="{DynamicResource ColorMain}"/>
+                            </ComboBox.Background>
+                        </ComboBox>
+
+                        <CheckBox Content="Не печатать пустые" Margin="10,5,10,15" FontSize="12" FontWeight="Normal" BorderThickness="1" Padding="5,0,0,0" IsChecked="True" IsEnabled="False" >
+                            <CheckBox.Foreground>
+                                <SolidColorBrush Color="{DynamicResource ColorFont}"/>
+                            </CheckBox.Foreground>
+                            <CheckBox.BorderBrush>
+                                <SolidColorBrush Color="{DynamicResource ColorNuans}"/>
+                            </CheckBox.BorderBrush>
+                            <CheckBox.Background>
+                                <SolidColorBrush Color="{DynamicResource ColorMain}"/>
+                            </CheckBox.Background>
+
+                        </CheckBox>
+                        <CheckBox Content="Печатать номера путёвок" Margin="10,5" FontSize="12" FontWeight="Normal" BorderThickness="1" Padding="5,0,0,0" IsEnabled="False">
+                            <CheckBox.Background>
+                                <SolidColorBrush Color="{DynamicResource ColorMain}"/>
+                            </CheckBox.Background>
+                            <CheckBox.Foreground>
+                                <SolidColorBrush Color="{DynamicResource ColorFont}"/>
+                            </CheckBox.Foreground>
+                            <CheckBox.BorderBrush>
+                                <SolidColorBrush Color="{DynamicResource ColorNuans}"/>
+                            </CheckBox.BorderBrush>
+
+                        </CheckBox>
+                        <Grid Margin="10,5,10,15">
+                            <Grid.ColumnDefinitions>
+                                <ColumnDefinition Width="auto"/>
+                                <ColumnDefinition Width="*"/>
+                            </Grid.ColumnDefinitions>
+                            <TextBlock Text="Начать с номера:" FontSize="12" FontWeight="Normal" Padding="0,0,5,0" Margin="0" VerticalAlignment="Center">
+                                <TextBlock.Foreground>
+                                    <SolidColorBrush Color="{DynamicResource ColorFont}"/>
+                                </TextBlock.Foreground>
+
+                            </TextBlock>
+
+                            <TextBox Margin="0" TextWrapping="Wrap" FontSize="12" FontWeight="Bold" HorizontalContentAlignment="Center" Grid.Column="1" VerticalContentAlignment="Center" Padding="2,4,2,2" UndoLimit="6" SpellCheck.IsEnabled="True" Width="65" Text="10286" FontStyle="Italic">
+                                <TextBox.Foreground>
+                                    <LinearGradientBrush EndPoint="0.5,1" MappingMode="RelativeToBoundingBox" StartPoint="0.5,0">
+                                        <GradientStop Color="#FF282828" Offset="0.1"/>
+                                        <GradientStop Color="#FFFF9523" Offset="0.4"/>
+                                    </LinearGradientBrush>
+                                </TextBox.Foreground>
+                                <TextBox.CaretBrush>
+                                    <SolidColorBrush Color="{DynamicResource ColorFont}"/>
+                                </TextBox.CaretBrush>
+                                <TextBox.SelectionBrush>
+                                    <SolidColorBrush Color="{DynamicResource ColorFont}"/>
+                                </TextBox.SelectionBrush>
+                                <TextBox.BorderBrush>
+                                    <SolidColorBrush Color="{DynamicResource ColorNuans}"/>
+                                </TextBox.BorderBrush>
+                                <TextBox.Background>
+                                    <SolidColorBrush Color="{DynamicResource ColorMain}"/>
+                                </TextBox.Background>
+                            </TextBox>
+
+                        </Grid>
+                        <GroupBox Header="" Margin="10,5,10,15" FontSize="12" FontWeight="Normal" Padding="0" UseLayoutRounding="True" BorderThickness="1,0,1,1" VerticalAlignment="Top">
+
+                            <GroupBox.Foreground>
+                                <SolidColorBrush Color="{DynamicResource ColorFont}"/>
+                            </GroupBox.Foreground>
+                            <GroupBox.BorderBrush>
+                                <SolidColorBrush Color="{DynamicResource ColorNuans}"/>
+                            </GroupBox.BorderBrush>
+
+                            <StackPanel VerticalAlignment="Top">
+                                <CheckBox Content="Печатать дату" Margin="0,-15,0,5" FontSize="12" FontWeight="Normal" BorderThickness="1" Padding="5,0,0,0" VerticalAlignment="Top" IsChecked="True">
+                                    <CheckBox.Foreground>
+                                        <SolidColorBrush Color="{DynamicResource ColorFont}"/>
+                                    </CheckBox.Foreground>
+                                    <CheckBox.BorderBrush>
+                                        <SolidColorBrush Color="{DynamicResource ColorNuans}"/>
+                                    </CheckBox.BorderBrush>
+                                    <CheckBox.Background>
+                                        <SolidColorBrush Color="{DynamicResource ColorMain}"/>
+                                    </CheckBox.Background>
+
+                                </CheckBox>
+                                <RadioButton Content="На следующий день" Margin="10,5">
+                                    <RadioButton.Background>
+                                        <SolidColorBrush Color="{DynamicResource ColorMain}"/>
+                                    </RadioButton.Background>
+                                    <RadioButton.BorderBrush>
+                                        <SolidColorBrush Color="{DynamicResource ColorNuans}"/>
+                                    </RadioButton.BorderBrush>
+                                    <RadioButton.Foreground>
+                                        <SolidColorBrush Color="{DynamicResource ColorFont}"/>
+                                    </RadioButton.Foreground>
+                                </RadioButton>
+                                <RadioButton Content="На сегодня" Margin="10,5" IsChecked="True" IsEnabled="False">
+                                    <RadioButton.Background>
+                                        <SolidColorBrush Color="{DynamicResource ColorMain}"/>
+                                    </RadioButton.Background>
+                                    <RadioButton.BorderBrush>
+                                        <SolidColorBrush Color="{DynamicResource ColorNuans}"/>
+                                    </RadioButton.BorderBrush>
+                                    <RadioButton.Foreground>
+                                        <SolidColorBrush Color="{DynamicResource ColorFont}"/>
+                                    </RadioButton.Foreground>
+                                </RadioButton>
+                                <RadioButton Content="Выбрать дату" Margin="10,5" IsEnabled="False">
+                                    <RadioButton.Background>
+                                        <SolidColorBrush Color="{DynamicResource ColorMain}"/>
+                                    </RadioButton.Background>
+                                    <RadioButton.BorderBrush>
+                                        <SolidColorBrush Color="{DynamicResource ColorNuans}"/>
+                                    </RadioButton.BorderBrush>
+                                    <RadioButton.Foreground>
+                                        <SolidColorBrush Color="{DynamicResource ColorFont}"/>
+                                    </RadioButton.Foreground>
+                                </RadioButton>
+                                <CheckBox Content="На два дня" Margin="10,5" FontSize="12" FontWeight="Normal" BorderThickness="1" Padding="5,0,0,0" IsChecked="True" >
+                                    <CheckBox.Foreground>
+                                        <SolidColorBrush Color="{DynamicResource ColorFont}"/>
+                                    </CheckBox.Foreground>
+                                    <CheckBox.BorderBrush>
+                                        <SolidColorBrush Color="{DynamicResource ColorNuans}"/>
+                                    </CheckBox.BorderBrush>
+                                    <CheckBox.Background>
+                                        <SolidColorBrush Color="{DynamicResource ColorMain}"/>
+                                    </CheckBox.Background>
+
+                                </CheckBox>
+                                <CheckBox Content="Не печатать число месяца" Margin="10,5" FontSize="12" FontWeight="Normal" BorderThickness="1" Padding="5,0,0,0" IsChecked="True" >
+                                    <CheckBox.Foreground>
+                                        <SolidColorBrush Color="{DynamicResource ColorFont}"/>
+                                    </CheckBox.Foreground>
+                                    <CheckBox.BorderBrush>
+                                        <SolidColorBrush Color="{DynamicResource ColorNuans}"/>
+                                    </CheckBox.BorderBrush>
+                                    <CheckBox.Background>
+                                        <SolidColorBrush Color="{DynamicResource ColorMain}"/>
+                                    </CheckBox.Background>
+
+                                </CheckBox>
+                            </StackPanel>
+
+                        </GroupBox>
+                        <TextBlock Text="Образец даты:" FontSize="12" FontWeight="Normal" Padding="0,0,5,0" VerticalAlignment="Center" Width="121" HorizontalAlignment="Left" Margin="10,5">
+                            <TextBlock.Foreground>
+                                <SolidColorBrush Color="{DynamicResource ColorNuans}"/>
+                            </TextBlock.Foreground>
+                        </TextBlock>
+                        <TextBox TextWrapping="Wrap" FontSize="12" HorizontalContentAlignment="Center" FontStyle="Italic" VerticalContentAlignment="Center" Padding="2,4,2,2" UndoLimit="6" SpellCheck.IsEnabled="True" Text="22 сентября 2021 года" IsEnabled="False" Height="20" Width="215" Margin="10,5">
+                            <TextBox.Foreground>
+                                <SolidColorBrush Color="{DynamicResource ColorFont}"/>
+                            </TextBox.Foreground>
+                            <TextBox.CaretBrush>
+                                <SolidColorBrush Color="{DynamicResource ColorFont}"/>
+                            </TextBox.CaretBrush>
+                            <TextBox.SelectionBrush>
+                                <SolidColorBrush Color="{DynamicResource ColorFont}"/>
+                            </TextBox.SelectionBrush>
+                            <TextBox.BorderBrush>
+                                <SolidColorBrush Color="{DynamicResource ColorNuans}"/>
+                            </TextBox.BorderBrush>
+                            <TextBox.Background>
+                                <SolidColorBrush Color="{DynamicResource ColorMain}"/>
+                            </TextBox.Background>
+                        </TextBox>
+
+
+
+
+
+
+
+
+
+                    </StackPanel>
+
+
+
+                    <Grid Grid.Column="1" HorizontalAlignment="Left" Margin="20,0,0,0" VerticalAlignment="Top">
+                        <Grid.RowDefinitions>
+                            <RowDefinition Height="Auto"/>
+                            <RowDefinition Height="Auto"/>
+                            <RowDefinition Height="Auto"/>
+                        </Grid.RowDefinitions>
+                        <Grid HorizontalAlignment="Left" Margin="0,5,0,0" VerticalAlignment="Top">
+                            <Grid.ColumnDefinitions>
+                                <ColumnDefinition Width="Auto"/>
+                                <ColumnDefinition Width="{Binding ActualWidth, ElementName=stackPanel2, Mode=OneWay}"/>
+                                <ColumnDefinition Width="{Binding ActualWidth, ElementName=stackPanel1, Mode=OneWay}"/>
+                                <ColumnDefinition Width="auto"/>
+                            </Grid.ColumnDefinitions>
+                            <CheckBox x:Name="checkBox" Content="9999" Margin="0" FontSize="12" FontWeight="Normal" BorderThickness="1" VerticalAlignment="Center" Padding="5,0,0,0" VerticalContentAlignment="Center" HorizontalContentAlignment="Center" HorizontalAlignment="Left" Visibility="Hidden">
+                                <CheckBox.Foreground>
+                                    <SolidColorBrush Color="{DynamicResource ColorFont}"/>
+                                </CheckBox.Foreground>
+                                <CheckBox.BorderBrush>
+                                    <SolidColorBrush Color="{DynamicResource ColorFont}"/>
+                                </CheckBox.BorderBrush>
+                                <CheckBox.Background>
+                                    <SolidColorBrush Color="{DynamicResource ColorMain}"/>
+                                </CheckBox.Background>
+                            </CheckBox>
+                            <TextBlock x:Name="textBlock" Margin="20,0,0,0" TextWrapping="Wrap" Text="Водитель" FontSize="12" FontWeight="Normal" VerticalAlignment="Center" HorizontalAlignment="Left" Grid.Column="1" Padding="0" Width="{Binding ActualWidth, ElementName=comboBox, Mode=OneWay}">
+                                <TextBlock.Foreground>
+                                    <SolidColorBrush Color="{DynamicResource ColorFont}"/>
+                                </TextBlock.Foreground>
+                            </TextBlock>
+                            <TextBlock x:Name="textBlock1" Margin="20,0,0,0" TextWrapping="Wrap" Text="Авто" FontSize="12" FontWeight="Normal" VerticalAlignment="Center" HorizontalAlignment="Left" Grid.Column="2" Width="{Binding ActualWidth, ElementName=comboBox1, Mode=OneWay}">
+                                <TextBlock.Foreground>
+                                    <SolidColorBrush Color="{DynamicResource ColorFont}"/>
+                                </TextBlock.Foreground>
+                            </TextBlock>
+                        </Grid>
+                        <ScrollViewer x:Name="scrollViewer" Margin="0" Grid.Row="1" VerticalContentAlignment="Stretch" HorizontalContentAlignment="Stretch" HorizontalAlignment="Center" VerticalAlignment="Center" Padding="0">
+                            <ScrollViewer.Foreground>
+                                <SolidColorBrush Color="{DynamicResource ColorFont}"/>
+                            </ScrollViewer.Foreground>
+                            <ScrollViewer.BorderBrush>
+                                <SolidColorBrush Color="{DynamicResource ColorAltNuans}"/>
+                            </ScrollViewer.BorderBrush>
+                            <Grid x:Name="GridLine" Margin="0" VerticalAlignment="Bottom">
+                                <Grid.ColumnDefinitions>
+                                    <ColumnDefinition Width="Auto"/>
+                                    <ColumnDefinition Width="Auto"/>
+                                    <ColumnDefinition Width="Auto"/>
+                                    <ColumnDefinition Width="Auto"/>
+                                </Grid.ColumnDefinitions>
+                                <!--<Ellipse x:Name="EllipseR" Grid.Column="4" Height="{Binding ActualHeight, ElementName=GridLine, Mode=OneWay}" Width="{Binding ActualHeight, Mode=OneWay, RelativeSource={RelativeSource Self}}"  Margin="-15,0,0,0" HorizontalAlignment="Right" VerticalAlignment="Bottom"  >
+                                    <Ellipse.Fill>
+                                        <SolidColorBrush Color="{DynamicResource ColorMain}"/>
+                                    </Ellipse.Fill>
+                                </Ellipse>
+                                <Ellipse x:Name="EllipseL" Grid.Column="0" HorizontalAlignment="Left" Margin="0,10,-17,10" Width="{Binding ActualHeight, ElementName=stackPanel2, Mode=OneWay}" VerticalAlignment="Center" Height="{Binding ActualHeight, ElementName=stackPanel2, Mode=OneWay}">
+                                    <Ellipse.Fill>
+                                        <SolidColorBrush Color="{DynamicResource ColorMain}"/>
+                                    </Ellipse.Fill>
+                                </Ellipse>-->
+                                <StackPanel x:Name="stackPanel" Grid.Column="0" Margin="0" VerticalAlignment="Center" >
+
+                                    <CheckBox Content="№п/п" Margin="0" FontSize="12" FontWeight="Normal" BorderThickness="1" Padding="5,0,0,0" VerticalContentAlignment="Center" UseLayoutRounding="True" VerticalAlignment="Center" HorizontalAlignment="Left" Width="{Binding ActualWidth, ElementName=checkBox, Mode=OneWay}" IsChecked="True">
+                                        <CheckBox.Background>
+                                            <SolidColorBrush Color="{DynamicResource ColorMain}"/>
+                                        </CheckBox.Background>
+                                        <CheckBox.Foreground>
+                                            <SolidColorBrush Color="{DynamicResource ColorFont}"/>
+                                        </CheckBox.Foreground>
+                                        <CheckBox.BorderBrush>
+                                            <SolidColorBrush Color="{DynamicResource ColorNuans}"/>
+                                        </CheckBox.BorderBrush>
+                                    </CheckBox>
+
+                                </StackPanel>
+                                <StackPanel x:Name="stackPanel2" Grid.Column="1" VerticalAlignment="Center">
+                                    <ComboBox x:Name="comboBox" Margin="20,5,0,5" FontSize="12" MinWidth="150" VerticalAlignment="Center" Padding="6,4,5,2">
+                                        <ComboBox.Foreground>
+                                            <LinearGradientBrush EndPoint="0.5,1" StartPoint="0.5,0">
+                                                <GradientStop Color="Black" Offset="0"/>
+                                                <GradientStop Color="{DynamicResource ColorAltFont}" Offset="0.37"/>
+                                            </LinearGradientBrush>
+                                        </ComboBox.Foreground>
+                                        <ComboBox.Background>
+                                            <SolidColorBrush Color="{DynamicResource ColorMain}"/>
+                                        </ComboBox.Background>
+                                        <ComboBox.BorderBrush>
+                                            <SolidColorBrush Color="{DynamicResource ColorAltNuans}"/>
+                                        </ComboBox.BorderBrush>
+                                    </ComboBox>
+                                </StackPanel>
+                                <StackPanel x:Name="stackPanel1" Grid.Column="2" VerticalAlignment="Center">
+                                    <ComboBox x:Name="comboBox1" Margin="20,5,0,5" FontSize="12" MinWidth="60" VerticalAlignment="Center" Padding="6,4,5,2">
+                                        <ComboBox.Foreground>
+                                            <LinearGradientBrush EndPoint="0.5,1" StartPoint="0.5,0">
+                                                <GradientStop Color="Black" Offset="0"/>
+                                                <GradientStop Color="{DynamicResource ColorAltFont}" Offset="0.37"/>
+                                            </LinearGradientBrush>
+                                        </ComboBox.Foreground>
+                                    </ComboBox>
+                                </StackPanel>
+                                <StackPanel x:Name="stackPanel3" Grid.Column="3" VerticalAlignment="Center" Height="{Binding ActualHeight, ElementName=stackPanel1, Mode=OneWay}" HorizontalAlignment="Left">
+                                    <TextBlock Margin="20,-2,10,0" TextWrapping="Wrap" Text="O" FontFamily="Wingdings 2" FontSize="36" Padding="0"  Grid.Column="5" VerticalAlignment="Center" HorizontalAlignment="Center">
+                                        <TextBlock.Foreground>
+                                            <SolidColorBrush Color="{DynamicResource ColorFont}"/>
+                                        </TextBlock.Foreground>
+                                    </TextBlock>
+                                </StackPanel>
+                            </Grid>
+                        </ScrollViewer>
+                        <Button Grid.Row="2" Content="Добавить строку"  HorizontalAlignment="Left" Margin="0,10" VerticalAlignment="Top" Width="{Binding ActualWidth, ElementName=GridLine, Mode=OneWay}" HorizontalContentAlignment="Center" FontSize="12" Padding="1,3,1,5" VerticalContentAlignment="Center" FontWeight="Normal" IsEnabled="False">
+                            <Button.Foreground>
+                                <SolidColorBrush Color="{DynamicResource ColorAltFont}"/>
+                            </Button.Foreground>
+                            <Button.BorderBrush>
+                                <SolidColorBrush Color="{DynamicResource ColorNuans}"/>
+                            </Button.BorderBrush>
+                            <Button.Background>
+                                <SolidColorBrush Color="{DynamicResource ColorSub}"/>
+                            </Button.Background>
+                        </Button>
+
+
+                    </Grid>
+                    <!--<StackPanel x:Name="SelectionLinePanel0" Grid.Column="1" HorizontalAlignment="Left" Margin="20,136,0,0" VerticalAlignment="Top" Orientation="Horizontal">
+                        -->
+                    <!--<Canvas>
+                            
+                            <Rectangle  x:Name="Rect" Height="{Binding ActualHeight, ElementName=qwerty, Mode=OneWay}">
+                                <Rectangle.Fill>
+                                    <SolidColorBrush Color="{DynamicResource ColorMain}"/>
+                                </Rectangle.Fill>
+                            </Rectangle>
+                           
+                        </Canvas>-->
+                    <!--
+
+                        <StackPanel x:Name="qwerty" Margin="0,5" Orientation="Horizontal" Panel.ZIndex="1" HorizontalAlignment="Center" Height="auto" VerticalAlignment="Center">
+                            <StackPanel.Background>
+                                <SolidColorBrush Color="{DynamicResource ColorMain}"/>
+                            </StackPanel.Background>
+                            <CheckBox Content="S  " HorizontalAlignment="Left" Margin="0,0,10,0" FontSize="12" FontWeight="Normal" BorderThickness="1" VerticalAlignment="Center" Padding="0" VerticalContentAlignment="Center" HorizontalContentAlignment="Center">
+                                <CheckBox.Foreground>
+                                    <SolidColorBrush Color="{DynamicResource ColorFont}"/>
+                                </CheckBox.Foreground>
+                                <CheckBox.BorderBrush>
+                                    <SolidColorBrush Color="{DynamicResource ColorFont}"/>
+                                </CheckBox.BorderBrush>
+                                <CheckBox.Background>
+                                    <SolidColorBrush Color="{DynamicResource ColorMain}"/>
+                                </CheckBox.Background>
+                            </CheckBox>
+                            <ComboBox Margin="10,0" VerticalAlignment="Center" FontSize="12" MinWidth="100" Width="100" BorderBrush="{x:Null}" Background="{x:Null}" Foreground="{x:Null}"/>
+                            <ComboBox Margin="10,0" VerticalAlignment="Center" FontSize="12" MinWidth="100" Width="100" Background="{x:Null}" BorderBrush="{x:Null}" Foreground="{x:Null}"/>
+                        </StackPanel>
+                    </StackPanel>-->
+                </Grid>
+            </GroupBox>
+        </Grid>
+        <Grid x:Name="AboutBrowse" Grid.Column="1" Margin="0">
+            <Grid.Background>
+                <SolidColorBrush Color="{DynamicResource ColorSub}"/>
+            </Grid.Background>
+            <Grid.RowDefinitions>
+                <RowDefinition Height="Auto"/>
+                <RowDefinition Height="*"/>
+            </Grid.RowDefinitions>
+            <StackPanel Margin="10,20,10,12" Orientation="Horizontal">
+                <TextBlock TextWrapping="Wrap" Text="PROMETEUS" Margin="65,10,10,10" FontSize="36" FontFamily="Trebuchet MS" Panel.ZIndex="99" FontWeight="Bold" RenderTransformOrigin="0.5,0.5">
+                    <TextBlock.RenderTransform>
+                        <TransformGroup>
+                            <ScaleTransform ScaleX="1.5"/>
+                            <SkewTransform/>
+                            <RotateTransform/>
+                            <TranslateTransform/>
+                        </TransformGroup>
+                    </TextBlock.RenderTransform>
+                    <TextBlock.Foreground>
+                        <SolidColorBrush Color="{DynamicResource ColorFont}"/>
+                    </TextBlock.Foreground>
+                </TextBlock>
+                <TextBlock TextWrapping="Wrap" Text="LE" Margin="-24,-37,10,10" FontSize="72" FontFamily="Brush Script MT" RenderTransformOrigin="0.5,0.5">
+                    <TextBlock.RenderTransform>
+                        <TransformGroup>
+                            <ScaleTransform/>
+                            <SkewTransform/>
+                            <RotateTransform Angle="-25.786"/>
+                            <TranslateTransform/>
+                        </TransformGroup>
+                    </TextBlock.RenderTransform>
+                    <TextBlock.Foreground>
+                        <SolidColorBrush Color="{DynamicResource ColorAltFont}"/>
+                    </TextBlock.Foreground>
+                </TextBlock>
+            </StackPanel>
+        </Grid>
+
+    </Grid>
+
+
+</Window>
