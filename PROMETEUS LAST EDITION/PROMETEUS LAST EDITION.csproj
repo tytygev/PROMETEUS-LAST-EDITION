@@ -35,8 +35,15 @@
     <WarningLevel>4</WarningLevel>
   </PropertyGroup>
   <ItemGroup>
+    <Reference Include="PresentationFramework.Aero" />
+    <Reference Include="PresentationFramework.Aero2" />
     <Reference Include="System" />
     <Reference Include="System.Data" />
+    <Reference Include="System.Drawing" />
+    <Reference Include="System.Drawing.Design" />
+    <Reference Include="System.Printing" />
+    <Reference Include="System.Windows" />
+    <Reference Include="System.Windows.Controls.Ribbon" />
     <Reference Include="System.Xml" />
     <Reference Include="Microsoft.CSharp" />
     <Reference Include="System.Core" />
@@ -46,6 +53,9 @@
     <Reference Include="System.Xaml">
       <RequiredTargetFramework>4.0</RequiredTargetFramework>
     </Reference>
+    <Reference Include="System.Xml.Serialization" />
+    <Reference Include="UIAutomationProvider" />
+    <Reference Include="UIAutomationTypes" />
     <Reference Include="WindowsBase" />
     <Reference Include="PresentationCore" />
     <Reference Include="PresentationFramework" />
@@ -55,6 +65,13 @@
       <Generator>MSBuild:Compile</Generator>
       <SubType>Designer</SubType>
     </ApplicationDefinition>
+    <Compile Include="SubMenuButton.xaml.cs">
+      <DependentUpon>SubMenuButton.xaml</DependentUpon>
+    </Compile>
+    <Page Include="MainMenuButton.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
     <Page Include="MainWindow.xaml">
       <Generator>MSBuild:Compile</Generator>
       <SubType>Designer</SubType>
@@ -63,10 +80,17 @@
       <DependentUpon>App.xaml</DependentUpon>
       <SubType>Code</SubType>
     </Compile>
+    <Compile Include="MainMenuButton.xaml.cs">
+      <DependentUpon>MainMenuButton.xaml</DependentUpon>
+    </Compile>
     <Compile Include="MainWindow.xaml.cs">
       <DependentUpon>MainWindow.xaml</DependentUpon>
       <SubType>Code</SubType>
     </Compile>
+    <Page Include="SubMenuButton.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
   </ItemGroup>
   <ItemGroup>
     <Compile Include="Properties\AssemblyInfo.cs">
@@ -83,7 +107,7 @@
       <DesignTimeSharedInput>True</DesignTimeSharedInput>
     </Compile>
     <EmbeddedResource Include="Properties\Resources.resx">
-      <Generator>ResXFileCodeGenerator</Generator>
+      <Generator>PublicResXFileCodeGenerator</Generator>
       <LastGenOutput>Resources.Designer.cs</LastGenOutput>
     </EmbeddedResource>
     <None Include="Properties\Settings.settings">
@@ -93,6 +117,166 @@
   </ItemGroup>
   <ItemGroup>
     <None Include="App.config" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="pict\_About.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="pict\_About_g.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="pict\_About_o.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="pict\_DBedit.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="pict\_DBedit_g.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="pict\_DBedit_o.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="pict\_Exit.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="pict\_Exit_g.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="pict\_Exit_o.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="pict\_KitSet.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="pict\_KitSet_g.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="pict\_KitSet_o.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="pict\_New32.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="pict\_New32_g.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="pict\_New32_o.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="pict\_Open32.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="pict\_Open32_g.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="pict\_Open32_o.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="pict\_Price.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="pict\_Price_g.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="pict\_Price_o.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="pict\_Print32.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="pict\_Print32_g.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="pict\_Print32_o.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="pict\_PrintF32.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="pict\_PrintF32_g.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="pict\_PrintF32_o.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="pict\_Save32.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="pict\_Save32_g.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="pict\_Save32_o.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="pict\_SaveAs32.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="pict\_SaveAs32_g.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="pict\_SaveAs32_o.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="pict\_Settings.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="pict\_Settings_g.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="pict\_Settings_o.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="pict\ComboArr_b.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="pict\ComboArr_o.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="pict\icon.ico" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="pict\icon-0.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="pict\PICTURE.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="pict\screen.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="license.txt" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="media\Windows Menu Command.wav" />
+  </ItemGroup>
+  <ItemGroup>
+    <WCFMetadata Include="Connected Services\" />
+  </ItemGroup>
+  <ItemGroup>
+    <Resource Include="_KitSet_o.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <Resource Include="_Price_o.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <Resource Include="_DBedit_o.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <Resource Include="_Settings_o.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <Resource Include="_PrintF32_o.png" />
+    <Resource Include="_SaveAs32_o.png" />
+    <Resource Include="_Save32_o.png" />
+    <Resource Include="_Open32_o.png" />
+    <Resource Include="_Print32_o.png" />
+    <Resource Include="PICTUREs.png" />
+    <Resource Include="_New32_o.png" />
+    <Resource Include="_Exit_o.png" />
+    <Resource Include="PICTURE.png" />
+    <Content Include="Windows Menu Command.wav" />
+    <Resource Include="_About_o.png" />
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
 </Project>
