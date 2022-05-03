@@ -65,6 +65,7 @@
       <Generator>MSBuild:Compile</Generator>
       <SubType>Designer</SubType>
     </ApplicationDefinition>
+    <Compile Include="UI.cs" />
     <Compile Include="SubMenuButton.xaml.cs">
       <DependentUpon>SubMenuButton.xaml</DependentUpon>
     </Compile>

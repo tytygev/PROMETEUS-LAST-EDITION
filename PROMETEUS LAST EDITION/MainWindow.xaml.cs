@@ -1,18 +1,9 @@
-﻿using System;
-using System.Collections.Generic;
-using System.Linq;
+﻿using System.Collections.Generic;
 using System.Media;
-using System.Text;
-using System.Threading.Tasks;
 using System.Windows;
 using System.Windows.Controls;
-using System.Windows.Data;
-using System.Windows.Documents;
 using System.Windows.Input;
 using System.Windows.Media;
-using System.Windows.Media.Imaging;
-using System.Windows.Navigation;
-using System.Windows.Shapes;
 
 namespace PROMETEUS_LAST_EDITION
 {
@@ -22,101 +13,62 @@ namespace PROMETEUS_LAST_EDITION
     public partial class MainWindow : Window
     {
         SoundPlayer wav;
-        List<MainMenuButton> ListMainMenuButton = new List<MainMenuButton>();
-
-        Enum MainMenuButtonsEnum 
+        public List<MainMenuButton> ListMainMenuButtons = new List<MainMenuButton>();
+        public void AddMainMenuButtons()
         {
-            KitSet
-    Price
-    DBEdit
-    Settings
-    About
-    ButtonExit
+            ListMainMenuButtons.Add(this.KitSetButton);
+            ListMainMenuButtons.Add(this.PriceButton);
+            ListMainMenuButtons.Add(this.DBEditButton);
+            ListMainMenuButtons.Add(this.SettingsButton);
+            ListMainMenuButtons.Add(this.AboutButton);
+            ListMainMenuButtons.Add(this.ExitButton);
         }
-Enum KitSetSubMenuButtonsEnum
+        public List<Grid> ListViewPages = new List<Grid>();
+        public void AddListViewPages()
         {
-            BNew
-    BOpen
-    BSave
-    BSaveAs
-    BPrint
-    BFastPrint
+            ListViewPages.Add(this.KitSetPage);
+            ListViewPages.Add(this.PricePage);
+            ListViewPages.Add(this.DBEditPage);
+            ListViewPages.Add(this.SettingsPage);
+            ListViewPages.Add(this.AboutPage);
+            ListViewPages.Add(this.StartPage);
         }
-
         public MainWindow()
         {
             InitializeComponent();
+            AddMainMenuButtons();
+            AddListViewPages();
             wav = new SoundPlayer();
             wav.Stream = Properties.Resources.ding;
-
-
         }
-
-       
-
         private void MenuButton_MouseEnter(object sender, MouseEventArgs e)
         {
-            object mycolor = null;
-            
-            if (sender is MainMenuButton)
-            {
-                mycolor = (Color)Application.Current.Resources[key: "ColorSub"];
-                Brush br = new SolidColorBrush((Color)mycolor);
-                ((MainMenuButton)sender).Background = br;
-            }
-            else {
-                mycolor = (Color)Application.Current.Resources[key: "ColorNuans"];
-                Brush br = new SolidColorBrush((Color)mycolor);
-                ((SubMenuButton)sender).Background = br;
-            }
-           
+            if (sender is MainMenuButton) ((MainMenuButton)sender).Background = new SolidColorBrush((Color)Application.Current.Resources[key: "ColorSub"]);
+            else ((SubMenuButton)sender).Background = new SolidColorBrush((Color)Application.Current.Resources[key: "ColorNuans"]);
         }
         private void MenuButton_MouseLeave(object sender, MouseEventArgs e)
         {
-            object mycolor = null;
-
-            if (sender is MainMenuButton)
-            {
-                mycolor = (Color)Application.Current.Resources[key: "ColorMain"];
-                Brush br = new SolidColorBrush((Color)mycolor);
-                ((MainMenuButton)sender).Background = br;
-            }
-            else
-            {
-                mycolor = (Color)Application.Current.Resources[key: "ColorSub"];
-                Brush br = new SolidColorBrush((Color)mycolor);
-                ((SubMenuButton)sender).Background = br;
-            }
-            // wav.Stop();
+            if (sender is MainMenuButton) ((MainMenuButton)sender).Background = new SolidColorBrush((Color)Application.Current.Resources[key: "ColorMain"]);
+            else ((SubMenuButton)sender).Background = new SolidColorBrush((Color)Application.Current.Resources[key: "ColorSub"]);
         }
+        
         private void MenuButton_MouseUp(object sender, MouseButtonEventArgs e)
         {
-  wav.Play();
-            //Временные
-            object mycolor = null;
-            if (sender is MainMenuButton)
-            {
-                mycolor = (Color)Application.Current.Resources[key: "ColorNuans"];
-                Brush br = new SolidColorBrush((Color)mycolor);
-                ((MainMenuButton)sender).Background = br;
+            wav.Play();
+            // var obj = (object)sender;
+            // string name = obj.Name;
 
-                //  if (ListMainMenuButton==null) return;
-                //  int number = ListMainMenuButton.Count - 1;
-                //    if (number < 0) return;
-
-                //int number = ListMainMenuButton.Count;
-                MainMenuButton current  = ListMainMenuButton(ListMainMenuButton.Count);
-
+            for (int i = 0; i < ListMainMenuButtons.Count; i++)
+            {               
+                if (Equals((MainMenuButton)sender, ListMainMenuButtons[i] as MainMenuButton))
+                {                    
+                    for (int j=0; j< ListViewPages.Count; j++) ListViewPages[j].Visibility = Visibility.Hidden;
+                   ListViewPages[i].Visibility = Visibility.Visible;
+                }
             }
-            else
-            {
-                mycolor = (Color)Application.Current.Resources[key: "ColorAltNuans"];
-                Brush br = new SolidColorBrush((Color)mycolor);
-                ((SubMenuButton)sender).Background = br;
-            }
-            
         }
 
-     
+
     }
+   
 }

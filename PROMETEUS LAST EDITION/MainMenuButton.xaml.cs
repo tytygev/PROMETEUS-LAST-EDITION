@@ -20,23 +20,38 @@ namespace PROMETEUS_LAST_EDITION
     /// </summary>
     public partial class MainMenuButton : UserControl
     {
-        // выставить текст элемента управления RichText (только для чтения)
-        // public string TextOfRichTextBox
-        // {
-        //     get { return richTextBox.Text; }
-        //  }
-        // выставить проверенное свойство флажка (чтение/запись)
-        // public bool CheckBoxProperty
-        // {
-        //     get { return checkBox.Checked; }
-        //     set { checkBox.Checked = value; }
-        // }
-        // выставить проверенное свойство флажка (чтение/запись)
+
+              //public class CustomButton : Button, ICanDoSomething
+        //{
+        //    public void DoSomething()
+        //    {
+        //        //реализация
+        //    }
+
+        //    public int Index
+        //    {
+        //        get
+        //        {
+        //            // реализация
+        //            return 0;
+        //        }
+        //    }
+        //}
+
+        //public interface ICanDoSomething
+        //{
+        //    void DoSomething();
+        //    int Index { get; }
+        //}
+
+
+        //выставить свойство элемента Label (чтение/запись)
         public string LabelButtonProperty
         {
             get { return MainMenuButtonText.Text; }
             set { MainMenuButtonText.Text = value; }
         }
+        //выставить свойство элемента Image (чтение/запись)
         public ImageSource ImageSourceProperty
         {
             get { return MainMenuButtonImage.Source; }
@@ -45,6 +60,24 @@ namespace PROMETEUS_LAST_EDITION
         public MainMenuButton()
         {
             InitializeComponent();
-        }
+                   }
+    }
+    enum MainMenuButtonsEnum
+    {
+        KitSetButton,
+        PriceButton,
+        DBEditButton,
+        SettingsButton,
+        AboutButton,
+        ExitButton
+    }
+    enum ViewPagesEnum
+    {
+        KitSetPage,
+        PricePage,
+        DBEditPage,
+        SettingsPage,
+        AboutPage,
+        StartPage
     }
 }

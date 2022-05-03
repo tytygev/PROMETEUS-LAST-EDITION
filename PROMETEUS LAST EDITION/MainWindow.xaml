@@ -1290,28 +1290,15 @@ P.S. Ответ на Основной Вопрос Жизни, Вселенно�
             </Grid.RowDefinitions>
             <StackPanel Margin="0,15,0,0" VerticalAlignment="Top" Grid.RowSpan="3" >
                 <!-- -->
-                <local:MainMenuButton Margin="20,0,0,0" ImageSourceProperty="_KitSet_o.png" MouseEnter="MenuButton_MouseEnter" MouseLeave="MenuButton_MouseLeave" MouseUp="MenuButton_MouseUp" LabelButtonProperty="Путевые листы" IsManipulationEnabled="True" Padding="0,5"/>
-                <local:MainMenuButton Margin="20,0,0,0" LabelButtonProperty="Наряд" ImageSourceProperty="_Price_o.png" MouseEnter="MenuButton_MouseEnter" MouseLeave="MenuButton_MouseLeave" MouseUp="MenuButton_MouseUp" Padding="0,5"/>
-                <local:MainMenuButton Margin="20,0,0,0" LabelButtonProperty="Редактор БД" ImageSourceProperty="_DBedit_o.png" MouseEnter="MenuButton_MouseEnter" MouseLeave="MenuButton_MouseLeave" MouseUp="MenuButton_MouseUp" Padding="0,5" />
-                <local:MainMenuButton Margin="20,0,0,0" LabelButtonProperty="Настройки" ImageSourceProperty="_Settings_o.png" MouseEnter="MenuButton_MouseEnter" MouseLeave="MenuButton_MouseLeave" MouseUp="MenuButton_MouseUp" Padding="0,5" />
-                <local:MainMenuButton Margin="20,0,0,0" LabelButtonProperty="О программе" MouseEnter="MenuButton_MouseEnter" MouseLeave="MenuButton_MouseLeave" MouseUp="MenuButton_MouseUp" ImageSourceProperty="_About_o.png" Padding="0,5" />
-                <local:MainMenuButton Margin="20,0,0,0" LabelButtonProperty="Настройки" ImageSourceProperty="_Settings_o.png" MouseEnter="MenuButton_MouseEnter" MouseLeave="MenuButton_MouseLeave" MouseUp="MenuButton_MouseUp" Padding="0,5" ScrollViewer.VerticalScrollBarVisibility="Hidden" />
+                <local:MainMenuButton x:Name="KitSetButton"  Margin="20,0,0,0" LabelButtonProperty="Путевые листы" ImageSourceProperty="_KitSet_o.png" MouseEnter="MenuButton_MouseEnter" MouseLeave="MenuButton_MouseLeave" MouseUp="MenuButton_MouseUp"  Padding="0,5"/>
+                <local:MainMenuButton x:Name="PriceButton" Margin="20,0,0,0" LabelButtonProperty="Наряд" ImageSourceProperty="_Price_o.png" MouseEnter="MenuButton_MouseEnter" MouseLeave="MenuButton_MouseLeave" MouseUp="MenuButton_MouseUp" Padding="0,5"/>
+                <local:MainMenuButton x:Name="DBEditButton"  Margin="20,0,0,0" LabelButtonProperty="Редактор БД" ImageSourceProperty="_DBedit_o.png" MouseEnter="MenuButton_MouseEnter" MouseLeave="MenuButton_MouseLeave" MouseUp="MenuButton_MouseUp" Padding="0,5" />
+                <local:MainMenuButton x:Name="SettingsButton" Margin="20,0,0,0" LabelButtonProperty="Настройки" ImageSourceProperty="_Settings_o.png" MouseEnter="MenuButton_MouseEnter" MouseLeave="MenuButton_MouseLeave" MouseUp="MenuButton_MouseUp" Padding="0,5" />
+                <local:MainMenuButton x:Name="AboutButton" Margin="20,0,0,0" LabelButtonProperty="О программе" MouseEnter="MenuButton_MouseEnter" MouseLeave="MenuButton_MouseLeave" MouseUp="MenuButton_MouseUp" ImageSourceProperty="_About_o.png" Padding="0,5" />
                
             </StackPanel>
             <StackPanel Margin="0" VerticalAlignment="Top" Grid.Row="1" >
-                <local:MainMenuButton Margin="0,5" LabelButtonProperty="Выход" ImageSourceProperty="_Exit_o.png" MouseEnter="MenuButton_MouseEnter" MouseLeave="MenuButton_MouseLeave" MouseUp="MenuButton_MouseUp" HorizontalAlignment="Center" />
-
-                <!--<StackPanel Margin="20,5" Orientation="Horizontal">
-                    <StackPanel.Background>
-                        <SolidColorBrush Color="{DynamicResource ColorMain}"/>
-                    </StackPanel.Background>
-                    <Image Margin="0" VerticalAlignment="Center" Source="_Exit_o.png" HorizontalAlignment="Center" Height="48"/>
-                    <TextBlock Margin="0,0,30,0" TextWrapping="Wrap" Text="Выход" VerticalAlignment="Center" HorizontalAlignment="Left" FontSize="16">
-                        <TextBlock.Foreground>
-                            <SolidColorBrush Color="{DynamicResource ColorFont}"/>
-                        </TextBlock.Foreground>
-                    </TextBlock>
-                </StackPanel>-->
+                <local:MainMenuButton x:Name="ExitButton" Margin="0,5" LabelButtonProperty="Выход" ImageSourceProperty="_Exit_o.png" MouseEnter="MenuButton_MouseEnter" MouseLeave="MenuButton_MouseLeave" MouseUp="MenuButton_MouseUp" HorizontalAlignment="Center" />
                 <TextBlock Margin="0,5,20,5" TextWrapping="Wrap" Text="ver.: {0.0.0.0a}" VerticalAlignment="Top" FontSize="10" HorizontalAlignment="Right">
                     <TextBlock.Foreground>
                         <SolidColorBrush Color="{DynamicResource ColorFont}"/>
@@ -1322,7 +1309,8 @@ P.S. Ответ на Основной Вопрос Жизни, Вселенно�
             <MediaElement x:Name="SoundPlayer" HorizontalAlignment="Left" Height="38" Margin="10,567,0,0" VerticalAlignment="Top" Width="40" Source="Windows Menu Command.wav" Visibility="Hidden"/>
         -->
         </Grid>
-        <Grid x:Name="KitSetBrowse" Grid.Column="1" Margin="0" Visibility="Hidden" ScrollViewer.VerticalScrollBarVisibility="Auto">
+       
+        <Grid x:Name="KitSetPage" Grid.Column="1" Margin="0" ScrollViewer.VerticalScrollBarVisibility="Auto" Visibility="Hidden">
             <Grid.Background>
                 <SolidColorBrush Color="{DynamicResource ColorSub}"/>
             </Grid.Background>
@@ -1740,7 +1728,7 @@ P.S. Ответ на Основной Вопрос Жизни, Вселенно�
                 </Grid>
             </GroupBox>
         </Grid>
-        <Grid x:Name="SettingsBrowse" Margin="0" Grid.Column="1" Visibility="Hidden" ScrollViewer.VerticalScrollBarVisibility="Auto">
+        <Grid x:Name="PricePage" Margin="0" Grid.Column="1" ScrollViewer.VerticalScrollBarVisibility="Auto" Visibility="Hidden">
             <Grid.Background>
                 <SolidColorBrush Color="{DynamicResource ColorSub}"/>
             </Grid.Background>
@@ -1749,7 +1737,25 @@ P.S. Ответ на Основной Вопрос Жизни, Вселенно�
                 <RowDefinition/>
             </Grid.RowDefinitions>
         </Grid>
-        <Grid x:Name="AboutBrowse" Margin="0" Grid.Column="1" Visibility="Hidden" ScrollViewer.VerticalScrollBarVisibility="Auto">
+        <Grid x:Name="DBEditPage" Margin="0" Grid.Column="1" ScrollViewer.VerticalScrollBarVisibility="Auto" Visibility="Hidden">
+            <Grid.Background>
+                <SolidColorBrush Color="{DynamicResource ColorSub}"/>
+            </Grid.Background>
+            <Grid.RowDefinitions>
+                <RowDefinition Height="Auto"/>
+                <RowDefinition/>
+            </Grid.RowDefinitions>
+        </Grid>
+        <Grid x:Name="SettingsPage" Margin="0" Grid.Column="1" ScrollViewer.VerticalScrollBarVisibility="Auto" Visibility="Hidden">
+            <Grid.Background>
+                <SolidColorBrush Color="{DynamicResource ColorSub}"/>
+            </Grid.Background>
+            <Grid.RowDefinitions>
+                <RowDefinition Height="Auto"/>
+                <RowDefinition/>
+            </Grid.RowDefinitions>
+        </Grid>
+        <Grid x:Name="AboutPage" Margin="0" Grid.Column="1" ScrollViewer.VerticalScrollBarVisibility="Auto" Visibility="Hidden">
             <Grid.Background>
                 <SolidColorBrush Color="{DynamicResource ColorSub}"/>
             </Grid.Background>
@@ -1824,6 +1830,15 @@ P.S. Ответ на Основной Вопрос Жизни, Вселенно�
             </TextBox>
         </Grid>
 
+        <Grid x:Name="StartPage" Margin="0" Grid.Column="1" ScrollViewer.VerticalScrollBarVisibility="Auto" Visibility="Hidden">
+            <Grid.Background>
+                <SolidColorBrush Color="{DynamicResource ColorSub}"/>
+            </Grid.Background>
+            <Grid.RowDefinitions>
+                <RowDefinition Height="Auto"/>
+                <RowDefinition/>
+            </Grid.RowDefinitions>
+        </Grid>
     </Grid>
 
 
