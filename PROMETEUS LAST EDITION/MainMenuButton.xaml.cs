@@ -15,34 +15,30 @@ using System.Windows.Shapes;
 
 namespace PROMETEUS_LAST_EDITION
 {
-    public delegate void MenuButtonClick(object sender, MouseButtonEventArgs e);
-
     public partial class MainMenuButton : UserControl
-    {       
+    {
+
         //выставить свойство элемента Label (чтение/запись)
         public string LabelButtonProperty
         {
             get { return MainMenuButtonText.Text; }
             set { MainMenuButtonText.Text = value; }
         }
+
         //выставить свойство элемента Image (чтение/запись)
         public ImageSource ImageSourceProperty
         {
             get { return MainMenuButtonImage.Source; }
             set { MainMenuButtonImage.Source = value; }
         }
+
         public MainMenuButton()
         {
             InitializeComponent();
-                   }
-        protected override void OnMouseUp( MouseButtonEventArgs e)
-        {
-            base.OnMouseUp(e);
-            MouseUp(this, e);
         }
-        public event MenuButtonClick MouseUp;
 
     }
+
     enum MainMenuButtonsEnum
     {
         KitSetButton,

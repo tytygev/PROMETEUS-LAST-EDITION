@@ -13,45 +13,50 @@ namespace PROMETEUS_LAST_EDITION
     /// </summary>
     public partial class MainWindow : Window
     {
-        SoundPlayer wav;
-        public List<MainMenuButton> ListMainMenuButtons = new List<MainMenuButton>();
-        public void AddMainMenuButtons()
-        {
-            ListMainMenuButtons.Add(this.KitSetButton);
-            ListMainMenuButtons.Add(this.PriceButton);
-            ListMainMenuButtons.Add(this.DBEditButton);
-            ListMainMenuButtons.Add(this.SettingsButton);
-            ListMainMenuButtons.Add(this.AboutButton);
-            ListMainMenuButtons.Add(this.ExitButton);
-        }
-        public List<Grid> ListViewPages = new List<Grid>();
-        public void AddListViewPages()
-        {
-            ListViewPages.Add(this.KitSetPage);
-            ListViewPages.Add(this.PricePage);
-            ListViewPages.Add(this.DBEditPage);
-            ListViewPages.Add(this.SettingsPage);
-            ListViewPages.Add(this.AboutPage);
-            ListViewPages.Add(this.StartPage);
-        }
+        private SoundPlayer wav;
+
+        private Grid currentVisibleView;
+
 
         public MainWindow()
         {
             InitializeComponent();
-            AddMainMenuButtons();
-            AddListViewPages();
+            InitializeButtons();
+
             wav = new SoundPlayer();
             wav.Stream = Properties.Resources.ding;
-            KitSetButton.MouseUp += new MenuButtonClick(ShowViewPage);
-            PriceButton.MouseUp += new MenuButtonClick(ShowViewPage);
-            DBEditButton.MouseUp += new MenuButtonClick(ShowViewPage);
-            SettingsButton.MouseUp += new MenuButtonClick(ShowViewPage);
-            AboutButton.MouseUp += new MenuButtonClick(ShowViewPage);
-            ExitButton.MouseUp += new MenuButtonClick(ShowViewPage);
         }
+
+        private void InitializeButtons()
+        {
+            KitSetButton.MouseUp += (s, e) => ShowView(KitSetPage);
+            PriceButton.MouseUp += (s, e) => ShowView(PricePage);
+            DBEditButton.MouseUp += (s, e) => ShowView(DBEditPage);
+            SettingsButton.MouseUp += (s, e) => ShowView(SettingsPage);
+            AboutButton.MouseUp += (s, e) => ShowView(AboutPage);
+            ExitButton.MouseUp += (s, e) => Application.Current.Shutdown();
+        }
+
+        private void ShowView(Grid view)
+        {
+            if (view == currentVisibleView)
+                return;
+
+            if (currentVisibleView != null)
+                currentVisibleView.Visibility = Visibility.Hidden;
+
+            view.Visibility = Visibility.Visible;
+
+            currentVisibleView = view;
+        }
+
+
+
+
+
         private void MenuButton_MouseEnter(object sender, MouseEventArgs e)
         {
-            if (sender is MainMenuButton) ((MainMenuButton)sender).Background = new SolidColorBrush((Color)Application.Current.Resources[key: "ColorSub"]);
+            if (sender is MainMenuButton ) ((MainMenuButton)sender).Background = new SolidColorBrush((Color)Application.Current.Resources[key: "ColorSub"]);
             else ((SubMenuButton)sender).Background = new SolidColorBrush((Color)Application.Current.Resources[key: "ColorNuans"]);
         }
         private void MenuButton_MouseLeave(object sender, MouseEventArgs e)
@@ -59,35 +64,10 @@ namespace PROMETEUS_LAST_EDITION
             if (sender is MainMenuButton) ((MainMenuButton)sender).Background = new SolidColorBrush((Color)Application.Current.Resources[key: "ColorMain"]);
             else ((SubMenuButton)sender).Background = new SolidColorBrush((Color)Application.Current.Resources[key: "ColorSub"]);
         }
-
         private void MenuButton_MouseUp(object sender, MouseButtonEventArgs e)
         {
-            //    wav.Play();
-            //    // var obj = (object)sender;
-            //    // string name = obj.Name;
-
-            //    for (int i = 0; i < ListMainMenuButtons.Count; i++)
-            //    {               
-            //        if (Equals((MainMenuButton)sender, ListMainMenuButtons[i] as MainMenuButton))
-            //        {                    
-            //            for (int j=0; j< ListViewPages.Count; j++) ListViewPages[j].Visibility = Visibility.Hidden;
-            //           ListViewPages[i].Visibility = Visibility.Visible;
-            //        }
-            //    }
+            //
         }
-
-    public void ShowViewPage(object sender, MouseButtonEventArgs e)
-        {
-            for (int i = 0; i < ListMainMenuButtons.Count; i++)
-            {
-                if (Equals((MainMenuButton)sender, ListMainMenuButtons[i] as MainMenuButton))
-                {
-                    for (int j = 0; j < ListViewPages.Count; j++) ListViewPages[j].Visibility = Visibility.Hidden;
-                    ListViewPages[i].Visibility = Visibility.Visible;
-                }
-            }
-        }
-
 
     }
    
