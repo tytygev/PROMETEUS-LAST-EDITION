@@ -25,6 +25,8 @@ namespace PROMETEUS_LAST_EDITION
 
             wav = new SoundPlayer();
             wav.Stream = Properties.Resources.ding;
+
+            currentVisibleView = StartPage;
         }
 
         private void InitializeButtons()
