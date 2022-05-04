@@ -15,36 +15,10 @@ using System.Windows.Shapes;
 
 namespace PROMETEUS_LAST_EDITION
 {
-    /// <summary>
-    /// Логика взаимодействия для MainMenuButton.xaml
-    /// </summary>
+    public delegate void MenuButtonClick(object sender, MouseButtonEventArgs e);
+
     public partial class MainMenuButton : UserControl
-    {
-
-              //public class CustomButton : Button, ICanDoSomething
-        //{
-        //    public void DoSomething()
-        //    {
-        //        //реализация
-        //    }
-
-        //    public int Index
-        //    {
-        //        get
-        //        {
-        //            // реализация
-        //            return 0;
-        //        }
-        //    }
-        //}
-
-        //public interface ICanDoSomething
-        //{
-        //    void DoSomething();
-        //    int Index { get; }
-        //}
-
-
+    {       
         //выставить свойство элемента Label (чтение/запись)
         public string LabelButtonProperty
         {
@@ -61,6 +35,13 @@ namespace PROMETEUS_LAST_EDITION
         {
             InitializeComponent();
                    }
+        protected override void OnMouseUp( MouseButtonEventArgs e)
+        {
+            base.OnMouseUp(e);
+            MouseUp(this, e);
+        }
+        public event MenuButtonClick MouseUp;
+
     }
     enum MainMenuButtonsEnum
     {
