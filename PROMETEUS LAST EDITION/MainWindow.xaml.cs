@@ -7,6 +7,24 @@ using System.Windows.Media;
 
 namespace PROMETEUS_LAST_EDITION
 {
+    enum MainMenuButtonsEnum
+    {
+        KitSetButton,
+        PriceButton,
+        DBEditButton,
+        SettingsButton,
+        AboutButton,
+        ExitButton
+    }
+    enum ViewPagesEnum
+    {
+        KitSetPage,
+        PricePage,
+        DBEditPage,
+        SettingsPage,
+        AboutPage,
+        StartPage
+    }
 
     /// <summary>
     /// Логика взаимодействия для MainWindow.xaml

@@ -18,8 +18,9 @@ namespace PROMETEUS_LAST_EDITION
     public partial class MainMenuButton : UserControl
     {
 
-        private bool _checked;
+        private bool _checked = true;
         private SolidColorBrush checkedBrush, uncheckedBrush;
+        private Color highlightColor;
 
         public static Action<MainMenuButton> OnMainMenuButtonChecked;
 
@@ -52,11 +53,24 @@ namespace PROMETEUS_LAST_EDITION
         public MainMenuButton()
         {
             InitializeComponent();
+            InitColors();
+
+            MainMenuButton.OnMainMenuButtonChecked += OnButtonChecked;
+
+            Checked = false;
+        }
+
+        private void InitColors()
+        {
+            // это и подобное надо вынести в отдельный статический класс
 
             checkedBrush = new SolidColorBrush((Color)Application.Current.Resources[key: "ColorSub"]);
             uncheckedBrush = new SolidColorBrush((Color)Application.Current.Resources[key: "ColorMain"]);
 
-            MainMenuButton.OnMainMenuButtonChecked += OnButtonChecked;
+            highlightColor = Colors.White;
+            highlightColor.R /= 8;
+            highlightColor.G /= 8;
+            highlightColor.B /= 8;
         }
 
 
@@ -67,29 +81,24 @@ namespace PROMETEUS_LAST_EDITION
             OnMainMenuButtonChecked?.Invoke(this);
         }
 
+        protected override void OnMouseEnter(MouseEventArgs e)
+        {
+            base.OnMouseEnter(e);
+
+            uncheckedBrush.Color += highlightColor;
+        }
+
+        protected override void OnMouseLeave(MouseEventArgs e)
+        {
+            base.OnMouseLeave(e);
+
+            uncheckedBrush.Color -= highlightColor;
+        }
+
         protected void OnButtonChecked(MainMenuButton activeButton)
         {
             Checked = activeButton == this;
         }
 
-    }
-
-    enum MainMenuButtonsEnum
-    {
-        KitSetButton,
-        PriceButton,
-        DBEditButton,
-        SettingsButton,
-        AboutButton,
-        ExitButton
-    }
-    enum ViewPagesEnum
-    {
-        KitSetPage,
-        PricePage,
-        DBEditPage,
-        SettingsPage,
-        AboutPage,
-        StartPage
     }
 }
