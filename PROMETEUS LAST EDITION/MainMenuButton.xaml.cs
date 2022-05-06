@@ -18,6 +18,23 @@ namespace PROMETEUS_LAST_EDITION
     public partial class MainMenuButton : UserControl
     {
 
+        private bool _checked;
+        private SolidColorBrush checkedBrush, uncheckedBrush;
+
+        public static Action<MainMenuButton> OnMainMenuButtonChecked;
+
+        public bool Checked
+        {
+            get => _checked;
+            protected set
+            {
+                if (value != _checked)
+                    Background = value ? checkedBrush : uncheckedBrush;
+
+                _checked = value;
+            }
+        }
+
         //выставить свойство элемента Label (чтение/запись)
         public string LabelButtonProperty
         {
@@ -35,6 +52,24 @@ namespace PROMETEUS_LAST_EDITION
         public MainMenuButton()
         {
             InitializeComponent();
+
+            checkedBrush = new SolidColorBrush((Color)Application.Current.Resources[key: "ColorSub"]);
+            uncheckedBrush = new SolidColorBrush((Color)Application.Current.Resources[key: "ColorMain"]);
+
+            MainMenuButton.OnMainMenuButtonChecked += OnButtonChecked;
+        }
+
+
+        protected override void OnMouseUp(MouseButtonEventArgs e)
+        {
+            base.OnMouseUp(e);
+
+            OnMainMenuButtonChecked?.Invoke(this);
+        }
+
+        protected void OnButtonChecked(MainMenuButton activeButton)
+        {
+            Checked = activeButton == this;
         }
 
     }
