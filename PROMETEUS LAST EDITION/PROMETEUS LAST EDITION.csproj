@@ -267,6 +267,7 @@
     <Resource Include="_Settings_o.png" />
   </ItemGroup>
   <ItemGroup>
+    <Resource Include="_Taxi_o.png" />
     <Resource Include="_PrintF32_o.png" />
     <Resource Include="_SaveAs32_o.png" />
     <Resource Include="_Save32_o.png" />
