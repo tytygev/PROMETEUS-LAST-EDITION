@@ -1,11 +1,12 @@
 ﻿<Window x:Class="PROMETEUS_LAST_EDITION.MainWindow"
         xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
         xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+        xmlns:p="clr-namespace:PROMETEUS_LAST_EDITION.Properties"
         xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
         xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
         xmlns:local="clr-namespace:PROMETEUS_LAST_EDITION" xmlns:System="clr-namespace:System;assembly=mscorlib" xmlns:Themes="clr-namespace:Microsoft.Windows.Themes;assembly=PresentationFramework.Aero2"
         mc:Ignorable="d"
-        Title="MainWindow"  MinHeight="768" MinWidth="1024"  Height="768" Width="1024" >
+        Title="Prometeus LE"  MinHeight="768" MinWidth="1024"  Height="768" Width="1024" >
 
 
 
@@ -18,7 +19,9 @@
 
 В общем, если в двух словах, применяется лицензия MIT.  
 
-Данная лицензия разрешает лицам, получившим копию данного программного обеспечения и сопутствующей документации (в дальнейшем именуемыми «Программное Обеспечение»), безвозмездно использовать Программное Обеспечение без ограничений, включая неограниченное право на использование, копирование, изменение, слияние, публикацию, распространение, сублицензирование и/или продажу копий Программного Обеспечения, а также лицам, которым предоставляется данное Программное Обеспечение, при соблюдении следующих условий:  Указанное выше уведомление об авторском праве и данные условия должны быть включены во все копии или значимые части данного Программного Обеспечения.  ДАННОЕ ПРОГРАММНОЕ ОБЕСПЕЧЕНИЕ ПРЕДОСТАВЛЯЕТСЯ «КАК ЕСТЬ», БЕЗ КАКИХ-ЛИБО ГАРАНТИЙ, ЯВНО ВЫРАЖЕННЫХ ИЛИ ПОДРАЗУМЕВАЕМЫХ, ВКЛЮЧАЯ ГАРАНТИИ ТОВАРНОЙ ПРИГОДНОСТИ, СООТВЕТСТВИЯ ПО ЕГО КОНКРЕТНОМУ НАЗНАЧЕНИЮ И ОТСУТСТВИЯ НАРУШЕНИЙ, НО НЕ ОГРАНИЧИВАЯСЬ ИМИ. НИ В КАКОМ СЛУЧАЕ АВТОРЫ ИЛИ ПРАВООБЛАДАТЕЛИ НЕ НЕСУТ ОТВЕТСТВЕННОСТИ ПО КАКИМ-ЛИБО ИСКАМ, ЗА УЩЕРБ ИЛИ ПО ИНЫМ ТРЕБОВАНИЯМ, В ТОМ ЧИСЛЕ, ПРИ ДЕЙСТВИИ КОНТРАКТА, ДЕЛИКТЕ ИЛИ ИНОЙ СИТУАЦИИ, ВОЗНИКШИМ ИЗ-ЗА ИСПОЛЬЗОВАНИЯ ПРОГРАММНОГО ОБЕСПЕЧЕНИЯ ИЛИ ИНЫХ ДЕЙСТВИЙ С ПРОГРАММНЫМ ОБЕСПЕЧЕНИЕМ.  
+Данная лицензия разрешает лицам, получившим копию данного программного обеспечения и сопутствующей документации (в дальнейшем именуемыми «Программное Обеспечение»), безвозмездно использовать Программное Обеспечение без ограничений, включая неограниченное право на использование, копирование, изменение, слияние, публикацию, распространение, сублицензирование и/или продажу копий Программного Обеспечения, а также лицам, которым предоставляется данное Программное Обеспечение, при соблюдении следующих условий:  Указанное выше уведомление об авторском праве и данные условия должны быть включены во все копии или значимые части данного Программного Обеспечения.  
+
+ДАННОЕ ПРОГРАММНОЕ ОБЕСПЕЧЕНИЕ ПРЕДОСТАВЛЯЕТСЯ «КАК ЕСТЬ», БЕЗ КАКИХ-ЛИБО ГАРАНТИЙ, ЯВНО ВЫРАЖЕННЫХ ИЛИ ПОДРАЗУМЕВАЕМЫХ, ВКЛЮЧАЯ ГАРАНТИИ ТОВАРНОЙ ПРИГОДНОСТИ, СООТВЕТСТВИЯ ПО ЕГО КОНКРЕТНОМУ НАЗНАЧЕНИЮ И ОТСУТСТВИЯ НАРУШЕНИЙ, НО НЕ ОГРАНИЧИВАЯСЬ ИМИ. НИ В КАКОМ СЛУЧАЕ АВТОРЫ ИЛИ ПРАВООБЛАДАТЕЛИ НЕ НЕСУТ ОТВЕТСТВЕННОСТИ ПО КАКИМ-ЛИБО ИСКАМ, ЗА УЩЕРБ ИЛИ ПО ИНЫМ ТРЕБОВАНИЯМ, В ТОМ ЧИСЛЕ, ПРИ ДЕЙСТВИИ КОНТРАКТА, ДЕЛИКТЕ ИЛИ ИНОЙ СИТУАЦИИ, ВОЗНИКШИМ ИЗ-ЗА ИСПОЛЬЗОВАНИЯ ПРОГРАММНОГО ОБЕСПЕЧЕНИЯ ИЛИ ИНЫХ ДЕЙСТВИЙ С ПРОГРАММНЫМ ОБЕСПЕЧЕНИЕМ.  
 
 P.S. Ответ на Основной Вопрос Жизни, Вселенной и Вообще - 42. Вы знаете что с этим делать xD</System:String>
 
@@ -1297,7 +1300,7 @@ P.S. Ответ на Основной Вопрос Жизни, Вселенно�
                 <local:MainMenuButton x:Name="SettingsButton" Margin="20,0,0,0" LabelButtonProperty="Настройки" ImageSourceProperty="_Settings_o.png" MouseEnter="MenuButton_MouseEnter" MouseLeave="MenuButton_MouseLeave" MouseUp="MenuButton_MouseUp" Padding="0,5" />
                 <local:MainMenuButton x:Name="AboutButton" Margin="20,0,0,0" LabelButtonProperty="О программе" MouseEnter="MenuButton_MouseEnter" MouseLeave="MenuButton_MouseLeave" MouseUp="MenuButton_MouseUp" ImageSourceProperty="_About_o.png" Padding="0,5" />
 
-</StackPanel>
+            </StackPanel>
             <StackPanel Margin="0" VerticalAlignment="Top" Grid.Row="1" >
                 <local:MainMenuButton x:Name="ExitButton" Margin="0,5" LabelButtonProperty="Выход" ImageSourceProperty="_Exit_o.png" MouseEnter="MenuButton_MouseEnter" MouseLeave="MenuButton_MouseLeave" MouseUp="MenuButton_MouseUp" HorizontalAlignment="Center" />
                 <TextBlock Margin="0,5,20,5" TextWrapping="Wrap" Text="ver.: {0.0.0.0a}" VerticalAlignment="Top" FontSize="10" HorizontalAlignment="Right">
@@ -1306,11 +1309,11 @@ P.S. Ответ на Основной Вопрос Жизни, Вселенно�
                     </TextBlock.Foreground>
                 </TextBlock>
             </StackPanel>
-           <!-- 
+            <!-- 
             <MediaElement x:Name="SoundPlayer" HorizontalAlignment="Left" Height="38" Margin="10,567,0,0" VerticalAlignment="Top" Width="40" Source="Windows Menu Command.wav" Visibility="Hidden"/>
         -->
         </Grid>
-       
+
         <Grid x:Name="KitSetPage" Grid.Column="1" Margin="0" ScrollViewer.VerticalScrollBarVisibility="Auto" Visibility="Hidden">
             <Grid.Background>
                 <SolidColorBrush Color="{DynamicResource ColorSub}"/>
@@ -1327,7 +1330,7 @@ P.S. Ответ на Основной Вопрос Жизни, Вселенно�
                 <local:SubMenuButton Margin="0" ImageSourceProperty="_Print32_o.png" MouseEnter="MenuButton_MouseEnter" MouseLeave="MenuButton_MouseLeave" MouseUp="MenuButton_MouseUp" HorizontalAlignment="Center" />
                 <local:SubMenuButton Margin="0" ImageSourceProperty="_PrintF32_o.png" MouseEnter="MenuButton_MouseEnter" MouseLeave="MenuButton_MouseLeave" MouseUp="MenuButton_MouseUp" HorizontalAlignment="Center" />
 
-              
+
             </StackPanel>
             <GroupBox Margin="10,0,10,10" Grid.Row="1" ScrollViewer.VerticalScrollBarVisibility="Auto" ScrollViewer.HorizontalScrollBarVisibility="Auto" HorizontalContentAlignment="Stretch" VerticalContentAlignment="Stretch" FontSize="16" Header="[новый]*" BorderThickness="1" Padding="0" UseLayoutRounding="False" FontWeight="Bold">
                 <GroupBox.BorderBrush>
@@ -1360,12 +1363,12 @@ P.S. Ответ на Основной Вопрос Жизни, Вселенно�
                             <ComboBox.Background>
                                 <SolidColorBrush Color="{DynamicResource ColorMain}"/>
                             </ComboBox.Background>
-                            <ComboBoxItem Content="fdgdfgdddddd" Width="148">
+                            <ComboBoxItem Content="" Width="148">
                                 <ComboBoxItem.Foreground>
                                     <SolidColorBrush Color="{DynamicResource ColorFont}"/>
                                 </ComboBoxItem.Foreground>
                             </ComboBoxItem>
-                            <ComboBoxItem Content="5655656">
+                            <ComboBoxItem Content="">
                                 <ComboBoxItem.Foreground>
                                     <SolidColorBrush Color="{DynamicResource ColorFont}"/>
                                 </ComboBoxItem.Foreground>
@@ -1427,7 +1430,7 @@ P.S. Ответ на Основной Вопрос Жизни, Вселенно�
 
                             </TextBlock>
 
-                            <TextBox Margin="0" TextWrapping="Wrap" FontSize="14" FontWeight="Bold" HorizontalContentAlignment="Center" Grid.Column="1" VerticalContentAlignment="Center" Padding="2,4,2,2" UndoLimit="6" SpellCheck.IsEnabled="True" Width="65" Text="10286" FontStyle="Italic">
+                            <TextBox Margin="0" TextWrapping="Wrap" FontSize="14" FontWeight="Bold" HorizontalContentAlignment="Center" Grid.Column="1" VerticalContentAlignment="Center" Padding="2,4,2,2" UndoLimit="6" SpellCheck.IsEnabled="True" Width="65" Text="999999" FontStyle="Italic">
                                 <TextBox.Foreground>
                                     <LinearGradientBrush EndPoint="0.5,1" MappingMode="RelativeToBoundingBox" StartPoint="0.5,0">
                                         <GradientStop Color="#FF282828" Offset="0.1"/>
@@ -1747,7 +1750,7 @@ P.S. Ответ на Основной Вопрос Жизни, Вселенно�
                 <RowDefinition/>
             </Grid.RowDefinitions>
         </Grid>
-        <Grid x:Name="TaxiPage" Margin="0" Grid.Column="1" ScrollViewer.VerticalScrollBarVisibility="Auto" Visibility="Hidden">
+        <Grid x:Name="TaxiPage" Margin="0" Grid.Column="1" ScrollViewer.VerticalScrollBarVisibility="Auto" Width="797">
             <Grid.Background>
                 <SolidColorBrush Color="{DynamicResource ColorSub}"/>
             </Grid.Background>
@@ -1755,6 +1758,248 @@ P.S. Ответ на Основной Вопрос Жизни, Вселенно�
                 <RowDefinition Height="Auto"/>
                 <RowDefinition/>
             </Grid.RowDefinitions>
+            <StackPanel HorizontalAlignment="Center" Margin="0" Grid.RowSpan="2" VerticalAlignment="Top">
+                <TextBlock Margin="30,15" TextWrapping="Wrap" Text="Привет! &#xA; &#xA;Меня зовут Прометей.&#xA;Я с удовольствием помогу тебе тебе с подсчётом такси. Только тебе надо сначала меня обучить.&#xA;Пожалуйста, проверь список фамилий на кого не надо считать такси и списки городов для того, что бы я мог отличить командировки от обычных поездок." VerticalAlignment="Top" TextDecorations="{x:Null}" HorizontalAlignment="Right" TextAlignment="Justify" FontStyle="Italic">
+                    <TextBlock.Foreground>
+                        <SolidColorBrush Color="{DynamicResource ColorAltFont}"/>
+                    </TextBlock.Foreground>
+                </TextBlock>
+                <StackPanel Orientation="Horizontal">
+                    <StackPanel HorizontalAlignment="Left">
+                        <Label Content="Алгоритм идентефикации ячеек:" HorizontalAlignment="Left" Margin="30,0,0,10" VerticalAlignment="Top">
+                            <Label.Foreground>
+                                <SolidColorBrush Color="{DynamicResource ColorFont}"/>
+                            </Label.Foreground>
+                        </Label>
+                        <Grid Margin="20,0,0,0" HorizontalAlignment="Left">
+                            <Grid.ColumnDefinitions>
+                                <ColumnDefinition Width="Auto"/>
+                                <ColumnDefinition Width="Auto"/>
+                                <ColumnDefinition/>
+                            </Grid.ColumnDefinitions>
+                            <Grid.RowDefinitions>
+                                <RowDefinition/>
+                                <RowDefinition/>
+                                <RowDefinition/>
+                                <RowDefinition/>
+                            </Grid.RowDefinitions>
+                            <Label Content="1) ФИО" HorizontalAlignment="Left" Margin="10,5" VerticalAlignment="Center">
+                                <Label.Foreground>
+                                    <SolidColorBrush Color="{DynamicResource ColorFont}"/>
+                                </Label.Foreground>
+                            </Label>
+                            <Label Content="2) Город" HorizontalAlignment="Left" Margin="10,5" VerticalAlignment="Center" Grid.Row="1">
+                                <Label.Foreground>
+                                    <SolidColorBrush Color="{DynamicResource ColorFont}"/>
+                                </Label.Foreground>
+                            </Label>
+                            <Label Content="3) Сумма" HorizontalAlignment="Left" Margin="10,5" VerticalAlignment="Center" Grid.Row="2">
+                                <Label.Foreground>
+                                    <SolidColorBrush Color="{DynamicResource ColorFont}"/>
+                                </Label.Foreground>
+                            </Label>
+                            <ComboBox Margin="10,5" SelectedIndex="1" IsReadOnly="True" Grid.Column="1" HorizontalAlignment="Left" VerticalContentAlignment="Center" MinWidth="180">
+                                <ComboBoxItem Content="Пономеру столбца"/>
+                                <ComboBoxItem Content="По названию"/>
+                            </ComboBox>
+                            <ComboBox Margin="10,5" SelectedIndex="1" IsReadOnly="True" Grid.Row="1" Grid.Column="1" HorizontalAlignment="Left" VerticalContentAlignment="Center" MinWidth="180">
+                                <ComboBoxItem Content="Пономеру столбца"/>
+                                <ComboBoxItem Content="По названию"/>
+                            </ComboBox>
+                            <ComboBox Margin="10,5" SelectedIndex="1" IsReadOnly="True" Grid.Row="2" Grid.Column="1" HorizontalAlignment="Left" VerticalContentAlignment="Center" MinWidth="180">
+                                <ComboBoxItem Content="Пономеру столбца"/>
+                                <ComboBoxItem Content="По названию"/>
+                            </ComboBox>
+                            <TextBox Margin="10,5" TextWrapping="Wrap" Text="Имя пользователя" Grid.Column="2" Padding="10,5" VerticalContentAlignment="Center" HorizontalAlignment="Left" MinWidth="180"/>
+                            <TextBox Margin="10,5" TextWrapping="Wrap" Text="Город" Grid.Column="2" Padding="10,5" VerticalContentAlignment="Center" Grid.Row="1" HorizontalAlignment="Left" MinWidth="180"/>
+                            <TextBox Margin="10,5" TextWrapping="Wrap" Text="Сумма с НДС" Grid.Column="2" Padding="10,5" VerticalContentAlignment="Center" Grid.Row="2" HorizontalAlignment="Left" MinWidth="180"/>
+                            <Label Content="4) Телефон" HorizontalAlignment="Left" Margin="10,6,0,6" VerticalAlignment="Center" Grid.Row="3">
+                                <Label.Foreground>
+                                    <SolidColorBrush Color="{DynamicResource ColorFont}"/>
+                                </Label.Foreground>
+                            </Label>
+                            <ComboBox Margin="10,5,0,5" SelectedIndex="1" IsReadOnly="True" Grid.Row="3" Grid.Column="1" HorizontalAlignment="Left" VerticalContentAlignment="Center" MinWidth="180">
+                                <ComboBoxItem Content="Пономеру столбца"/>
+                                <ComboBoxItem Content="По названию"/>
+                            </ComboBox>
+                            <TextBox Margin="10,5" TextWrapping="Wrap" Text="Телефон" Grid.Column="2" Padding="10,5" VerticalContentAlignment="Center" Grid.Row="3" HorizontalAlignment="Left" MinWidth="180"/>
+
+                        </Grid>
+                    </StackPanel>
+                    <StackPanel Margin="0" Panel.ZIndex="-1" UseLayoutRounding="False">
+                        <Label Content="Выбрать файл:" Margin="30,0,0,0">
+                            <Label.Foreground>
+                                <SolidColorBrush Color="{DynamicResource ColorFont}"/>
+                            </Label.Foreground>
+                        </Label>
+                        <StackPanel x:Name="droppanel" Margin="30,0,0,0" Height="{Binding ActualWidth, ElementName=droppanel, Mode=OneWay}" AllowDrop="True" Drop="droppanel_Drop" MaxHeight="151" Orientation="Horizontal" MaxWidth="151" Width="151">
+                            <StackPanel.Background>
+                                <SolidColorBrush Color="{DynamicResource ColorGridWS}"/>
+                            </StackPanel.Background>
+                            <TextBox x:Name="dropfilelabel" TextWrapping="Wrap" SelectionBrush="White" BorderBrush="{x:Null}" UndoLimit="256" Panel.ZIndex="-1" HorizontalAlignment="Center" VerticalAlignment="Center" VerticalContentAlignment="Center" IsEnabled="False" Text="Перетащите файл сюда" MaxWidth="151">
+                                <TextBox.Foreground>
+                                    <SolidColorBrush Color="{DynamicResource ColorFont}"/>
+                                </TextBox.Foreground>
+                            </TextBox>
+                        </StackPanel>
+                    </StackPanel>
+                </StackPanel>
+                <StackPanel Orientation="Horizontal">
+                    <StackPanel ClipToBounds="True">
+                        <Label Content="Списки городов:" HorizontalAlignment="Left" Margin="30,15,-48,10" VerticalAlignment="Top" Padding="5">
+                            <Label.Foreground>
+                                <SolidColorBrush Color="{DynamicResource ColorFont}"/>
+                            </Label.Foreground>
+                        </Label>
+                        <StackPanel Orientation="Horizontal" Margin="0">
+                            <StackPanel Margin="0" HorizontalAlignment="Left" VerticalAlignment="Top">
+                                <Label Content="Считать:" HorizontalAlignment="Left" Margin="30,0,30,10" VerticalAlignment="Top">
+                                    <Label.Foreground>
+                                        <SolidColorBrush Color="{DynamicResource ColorFont}"/>
+                                    </Label.Foreground>
+                                </Label>
+                                <ListBox Height="100" Margin="30,0,10,0" MinWidth="140" MinHeight="200">
+                                    <ListBox.Foreground>
+                                        <SolidColorBrush Color="{DynamicResource ColorFont}"/>
+                                    </ListBox.Foreground>
+                                    <ListBox.Background>
+                                        <SolidColorBrush Color="{DynamicResource ColorGridWS}"/>
+                                    </ListBox.Background>
+                                    <ListBox.BorderBrush>
+                                        <SolidColorBrush Color="{DynamicResource ColorNuans}"/>
+                                    </ListBox.BorderBrush>
+                                    <ListBoxItem Content="Москва"/>
+                                    <ListBoxItem Content="Люберцы"/>
+                                    <ListBoxItem Content="Одинцово"/>
+                                </ListBox>
+
+                            </StackPanel>
+                            <StackPanel VerticalAlignment="Center">
+                                <Button Content="→" FontSize="20" Margin="0,30,0,5">
+                                    <Button.Foreground>
+                                        <SolidColorBrush Color="{DynamicResource ColorAltNuans}"/>
+                                    </Button.Foreground>
+                                </Button>
+                                <Button Content="←" FontSize="20" Margin="0,5,0,0">
+                                    <Button.Foreground>
+                                        <SolidColorBrush Color="{DynamicResource ColorAltNuans}"/>
+                                    </Button.Foreground>
+                                </Button>
+                            </StackPanel>
+                            <StackPanel Margin="0" VerticalAlignment="Top" HorizontalAlignment="Left">
+                                <Label Content="Не считать:" HorizontalAlignment="Left" Margin="30,0,30,10" VerticalAlignment="Top">
+                                    <Label.Foreground>
+                                        <SolidColorBrush Color="{DynamicResource ColorFont}"/>
+                                    </Label.Foreground>
+                                </Label>
+                                <ListBox Height="100" Margin="10,0,30,0" MinHeight="200" MinWidth="140">
+                                    <ListBox.Foreground>
+                                        <SolidColorBrush Color="{DynamicResource ColorFont}"/>
+                                    </ListBox.Foreground>
+                                    <ListBox.Background>
+                                        <SolidColorBrush Color="{DynamicResource ColorGridWS}"/>
+                                    </ListBox.Background>
+                                    <ListBox.BorderBrush>
+                                        <SolidColorBrush Color="{DynamicResource ColorNuans}"/>
+                                    </ListBox.BorderBrush>
+                                    <ListBoxItem Content="Санкт-Петербург"/>
+                                    <ListBoxItem Content="Геленджик"/>
+                                    <ListBoxItem Content="Владивосток"/>
+                                </ListBox>
+
+                            </StackPanel>
+                        </StackPanel>
+                    </StackPanel>
+                    <StackPanel>
+                        <Label Content="Список персоналий:" Margin="30,15,0,10" Padding="5">
+                            <Label.Foreground>
+                                <SolidColorBrush Color="{DynamicResource ColorFont}"/>
+                            </Label.Foreground>
+                        </Label>
+                        <StackPanel Orientation="Horizontal" Margin="0">
+                            <StackPanel Margin="0" HorizontalAlignment="Left" VerticalAlignment="Top">
+                                <Label Content="Считать:" HorizontalAlignment="Left" Margin="30,0,30,10" VerticalAlignment="Top">
+                                    <Label.Foreground>
+                                        <SolidColorBrush Color="{DynamicResource ColorFont}"/>
+                                    </Label.Foreground>
+                                </Label>
+                                <ListBox Margin="30,0,10,0" MinHeight="200" MinWidth="140">
+                                    <ListBox.Foreground>
+                                        <SolidColorBrush Color="{DynamicResource ColorFont}"/>
+                                    </ListBox.Foreground>
+                                    <ListBox.Background>
+                                        <SolidColorBrush Color="{DynamicResource ColorGridWS}"/>
+                                    </ListBox.Background>
+                                    <ListBox.BorderBrush>
+                                        <SolidColorBrush Color="{DynamicResource ColorNuans}"/>
+                                    </ListBox.BorderBrush>
+                                </ListBox>
+
+                            </StackPanel>
+                            <StackPanel VerticalAlignment="Center">
+                                <Button Content="→" FontSize="20" Margin="0,30,0,5">
+                                    <Button.Foreground>
+                                        <SolidColorBrush Color="{DynamicResource ColorAltNuans}"/>
+                                    </Button.Foreground>
+                                </Button>
+                                <Button Content="←" FontSize="20" Margin="0,5,0,0">
+                                    <Button.Foreground>
+                                        <SolidColorBrush Color="{DynamicResource ColorAltNuans}"/>
+                                    </Button.Foreground>
+                                </Button>
+                            </StackPanel>
+                            <StackPanel Margin="0" VerticalAlignment="Top" HorizontalAlignment="Left">
+                                <Label Content="Не считать:" HorizontalAlignment="Left" Margin="30,0,30,10" VerticalAlignment="Top">
+                                    <Label.Foreground>
+                                        <SolidColorBrush Color="{DynamicResource ColorFont}"/>
+                                    </Label.Foreground>
+                                </Label>
+                                <ListBox Height="100" Margin="10,0" MinWidth="140" MinHeight="200">
+                                    <ListBox.Foreground>
+                                        <SolidColorBrush Color="{DynamicResource ColorFont}"/>
+                                    </ListBox.Foreground>
+                                    <ListBox.Background>
+                                        <SolidColorBrush Color="{DynamicResource ColorGridWS}"/>
+                                    </ListBox.Background>
+                                    <ListBox.BorderBrush>
+                                        <SolidColorBrush Color="{DynamicResource ColorNuans}"/>
+                                    </ListBox.BorderBrush>
+                                </ListBox>
+
+                            </StackPanel>
+                        </StackPanel>
+                    </StackPanel>
+                </StackPanel>
+                <StackPanel Margin="0,15,0,0">
+                    <Label Content="Интервалы:" HorizontalAlignment="Left" Margin="30,0,0,10" VerticalAlignment="Top">
+                        <Label.Foreground>
+                            <SolidColorBrush Color="{DynamicResource ColorFont}"/>
+                        </Label.Foreground>
+                    </Label>
+                    <Grid Margin="30,0,0,0" Width="423" HorizontalAlignment="Left">
+                        <Grid.RowDefinitions>
+                            <RowDefinition/>
+                            <RowDefinition/>
+                        </Grid.RowDefinitions>
+                        <Grid.ColumnDefinitions>
+                            <ColumnDefinition Width="Auto"/>
+                            <ColumnDefinition/>
+                        </Grid.ColumnDefinitions>
+                        <RadioButton Margin="5" MinWidth="55" HorizontalAlignment="Left" VerticalContentAlignment="Bottom" Content="День: с 7 до 22" VerticalAlignment="Bottom">
+                            <RadioButton.Foreground>
+                                <SolidColorBrush Color="{DynamicResource ColorFont}"/>
+                            </RadioButton.Foreground>
+                        </RadioButton>
+                        <RadioButton Content="Ночь: с 22 до 7" MinWidth="55" HorizontalAlignment="Left" VerticalContentAlignment="Bottom" Margin="5" Grid.Row="1" VerticalAlignment="Bottom">
+                            <RadioButton.Foreground>
+                                <SolidColorBrush Color="{DynamicResource ColorFont}"/>
+                            </RadioButton.Foreground>
+                        </RadioButton>
+                    </Grid>
+                    <Button x:Name="runchecksummButton" Content="Считать!" Height="30" Width="105" HorizontalAlignment="Center" VerticalAlignment="Center"/>
+                </StackPanel>
+            </StackPanel>
+
         </Grid>
         <Grid x:Name="SettingsPage" Margin="0" Grid.Column="1" ScrollViewer.VerticalScrollBarVisibility="Auto" Visibility="Hidden">
             <Grid.Background>
@@ -1821,7 +2066,7 @@ P.S. Ответ на Основной Вопрос Жизни, Вселенно�
                     </TextBlock.Foreground>
                 </TextBlock>
             </StackPanel>
-            <TextBox Margin="25,0,25,25" Grid.Row="1" HorizontalContentAlignment="Stretch" Padding="5" FontSize="18" FontFamily="Courier New" VerticalScrollBarVisibility="Auto" UseLayoutRounding="False" HorizontalScrollBarVisibility="Visible" TextWrapping="Wrap" AllowDrop="False" VerticalContentAlignment="Stretch" IsUndoEnabled="True" IsTabStop="False" SnapsToDevicePixels="True" OverridesDefaultStyle="False" Text="{DynamicResource License}" Focusable="False">
+            <TextBox Margin="25,0,25,25" Grid.Row="1" HorizontalContentAlignment="Stretch" Padding="5" FontSize="18" FontFamily="Courier New" VerticalScrollBarVisibility="Auto" UseLayoutRounding="False" HorizontalScrollBarVisibility="Visible" TextWrapping="Wrap" AllowDrop="False" VerticalContentAlignment="Stretch" IsUndoEnabled="True" IsTabStop="False" SnapsToDevicePixels="True" OverridesDefaultStyle="False" Focusable="False" Text="{Binding Mode=OneWay, Source={StaticResource License}}">
                 <TextBox.BorderBrush>
                     <SolidColorBrush Color="{DynamicResource ColorNuans}"/>
                 </TextBox.BorderBrush>
