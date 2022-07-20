@@ -103,13 +103,13 @@ namespace PROMETEUS_LAST_EDITION
 
         private void droppanel_Drop(object sender, DragEventArgs e)
         {
- if (e.Data.GetDataPresent(DataFormats.FileDrop))
+            if (e.Data.GetDataPresent(DataFormats.FileDrop))
             {
                 // можно же перетянуть много файлов, так что....
-                //string[] files = (string[])e.Data.GetData(DataFormats.FileDrop);
                 string[] files = (string[])e.Data.GetData(DataFormats.FileDrop);
                 // делаешь что-то
                 dropfilelabel.Text = files[0];
+
             }
         }
 
@@ -180,21 +180,21 @@ namespace PROMETEUS_LAST_EDITION
 
             //добавляем столбцы в DataTable
             for (int i = 1; i <= dataArr.GetUpperBound(1); i++)
-                dt.Columns.Add((string)dataArr[1, i]);
+             //   dt.Columns.Add((string)dataArr[1, i]);
 
             //цикл по строкам массива
-            for (int i = 2; i <= dataArr.GetUpperBound(0); i++)
+            //for (int i = 2; i <= dataArr.GetUpperBound(0); i++)
             {
-                dtRow = dt.NewRow();
+            //    dtRow = dt.NewRow();
                 //цикл по столбцам массива
                 for (int n = 1; n <= dataArr.GetUpperBound(1); n++)
                 {
-                    dtRow[n - 1] = dataArr[i, n];
+             //       dtRow[n - 1] = dataArr[i, n];
                 }
-                dt.Rows.Add(dtRow);
+             //   dt.Rows.Add(dtRow);
             }
 
-            this.dataGridView1.DataSource = dt; //заполняем dataGridView
+           // this.dataGridView1.DataSource = dt; //заполняем dataGridView
 
             MessageBox.Show("Конец", "Внимание", MessageBoxButton.OK, MessageBoxImage.Information);
 

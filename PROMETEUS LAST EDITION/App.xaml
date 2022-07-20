@@ -15,7 +15,8 @@
         <Color x:Key="ColorAltNuans">#FFFF9523</Color>
         <Color x:Key="ColorGridWS">#FF282828</Color>
 
-        <Color x:Key="ColorFont">#FFFFF5EE</Color>
+       <!-- <Color x:Key="ColorFont">#FFFFF5</Color>-->
+        <Color x:Key="ColorFont">#FFFFFFF5</Color>
         <Color x:Key="ColorAltFont">#FFFF9523</Color>
         <Color x:Key="ColorInvertFont">#FF000000</Color>
 
@@ -30,6 +31,13 @@
         <Color x:Key="ItemsviewFocus_Border">#FFFF9523</Color>
         <Color x:Key="ItemsviewHoverFocus_Background">#54FF9523</Color>
         <Color x:Key="ItemsviewHoverFocus_Border">#FFFF9523</Color>
+
+
+
+
+        <!-- 
+        
+        -->
 
 
 

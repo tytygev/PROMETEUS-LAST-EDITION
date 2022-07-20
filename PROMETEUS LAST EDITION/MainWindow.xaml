@@ -1,4 +1,4 @@
-﻿<Window x:Class="PROMETEUS_LAST_EDITION.MainWindow"
+﻿<Window  x:Class="PROMETEUS_LAST_EDITION.MainWindow"
         xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
         xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
         xmlns:p="clr-namespace:PROMETEUS_LAST_EDITION.Properties"
@@ -6,6 +6,7 @@
         xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
         xmlns:local="clr-namespace:PROMETEUS_LAST_EDITION" xmlns:System="clr-namespace:System;assembly=mscorlib" xmlns:Themes="clr-namespace:Microsoft.Windows.Themes;assembly=PresentationFramework.Aero2"
         mc:Ignorable="d"
+        
         Title="Prometeus LE"  MinHeight="768" MinWidth="1024"  Height="768" Width="1024" >
 
 
@@ -13,7 +14,7 @@
 
     <Window.Resources>
 
-        <System:String x:Key="License" xml:space="preserve">Copyright © 2017—2021 Каримов Александр и «ХТО Продакшн» ™ при участии Каримова Михаила aka MiXeRaToS  
+        <System:String x:Key="License" xml:space="preserve">Copyright © 2017—2022 Каримов Александр и «ХТО Продакшн» ™ при участии Каримова Михаила aka MiXeRaToS  
 
 Если вы используете «Прометей» в своей работе, Каримов Александр был бы рад узнать об этом. Вы можете написать, направив письмо на photodc@ya.ru  И если вам доведется встретиться с Каримовым Александром в баре, можете угостить его напитком по его выбору, если «Прометей» действительно пригодилась вам.  В остальном, можете делать с этой программой всё, что вам угодно и, естественно, автор не несёт никакой ответственности:))  
 
@@ -34,76 +35,6 @@ P.S. Ответ на Основной Вопрос Жизни, Вселенно�
                 </Setter.Value>
             </Setter>
         </Style>
-
-
-        <!--#endregion groupbox template-->
-
-
-        <!--
-        <SolidColorBrush x:Key="TextBox.Static.Border" Color="{DynamicResource ColorNuans}"/>
-        <SolidColorBrush x:Key="TextBox.MouseOver.Border" Color="{DynamicResource ColorNuans}"/>
-        <SolidColorBrush x:Key="TextBox.Focus.Border" Color="{DynamicResource ColorNuans}"/>
-        <Style TargetType="{x:Type TextBox}">
-            <Setter Property="Background" Value="{DynamicResource {x:Static SystemColors.WindowBrushKey}}"/>
-            <Setter Property="BorderBrush" Value="{StaticResource TextBox.Static.Border}"/>
-            <Setter Property="Foreground" Value="{DynamicResource {x:Static SystemColors.ControlTextBrushKey}}"/>
-            <Setter Property="BorderThickness" Value="1"/>
-            <Setter Property="KeyboardNavigation.TabNavigation" Value="None"/>
-            <Setter Property="HorizontalContentAlignment" Value="Left"/>
-            <Setter Property="FocusVisualStyle" Value="{x:Null}"/>
-            <Setter Property="AllowDrop" Value="true"/>
-            <Setter Property="ScrollViewer.PanningMode" Value="VerticalFirst"/>
-            <Setter Property="Stylus.IsFlicksEnabled" Value="False"/>
-            <Setter Property="Template">
-                <Setter.Value>
-                    <ControlTemplate TargetType="{x:Type TextBox}">
-                        <Border x:Name="border" BorderBrush="{TemplateBinding BorderBrush}" BorderThickness="{TemplateBinding BorderThickness}" Background="{TemplateBinding Background}" SnapsToDevicePixels="True">
-                            <ScrollViewer x:Name="PART_ContentHost" Focusable="false" HorizontalScrollBarVisibility="Hidden" VerticalScrollBarVisibility="Hidden"/>
-                        </Border>
-                        <ControlTemplate.Triggers>
-                            <Trigger Property="IsEnabled" Value="false">
-                                <Setter Property="Opacity" TargetName="border" Value="0.56"/>
-                            </Trigger>
-                            <Trigger Property="IsMouseOver" Value="true">
-                                <Setter Property="BorderBrush" TargetName="border" Value="{StaticResource TextBox.MouseOver.Border}"/>
-                            </Trigger>
-                            <Trigger Property="IsKeyboardFocused" Value="true">
-                                <Setter Property="BorderBrush" TargetName="border" Value="{StaticResource TextBox.Focus.Border}"/>
-                            </Trigger>
-                        </ControlTemplate.Triggers>
-                    </ControlTemplate>
-                </Setter.Value>
-            </Setter>
-            <Style.Triggers>
-                <MultiTrigger>
-                    <MultiTrigger.Conditions>
-                        <Condition Property="IsInactiveSelectionHighlightEnabled" Value="true"/>
-                        <Condition Property="IsSelectionActive" Value="false"/>
-                    </MultiTrigger.Conditions>
-                    <Setter Property="SelectionBrush" Value="{DynamicResource {x:Static SystemColors.InactiveSelectionHighlightBrushKey}}"/>
-                </MultiTrigger>
-            </Style.Triggers>
-        </Style>
--->
-        <!--#endregion TEXTBOX template-->
-
-
-        <!--#endregion OptionMark template-->
-
-
-        <!--endregion  COMBOBOX template -->
-
-
-        <!--#endregion RADIOBUTTON template-->
-
-
-        <!--#endregion BUTTON template-->
-
-
-        <!--#endregion ScrollBar template-->
-
-        <!--#ENDregion ScrollViewer template-->
-
 
         <!--#region groupbox template-->
         <BorderGapMaskConverter x:Key="BorderGapMaskConverter"/>
@@ -152,8 +83,9 @@ P.S. Ответ на Основной Вопрос Жизни, Вселенно�
                 </Setter.Value>
             </Setter>
         </Style>
-        <!--#region TEXTBOX template-->
+        <!--#endregion groupbox template-->
 
+        <!--#region TEXTBOX template-->
         <SolidColorBrush x:Key="TextBox.Static.Border" Color="{DynamicResource ColorNuans}"/>
         <SolidColorBrush x:Key="TextBox.MouseOver.Border" Color="{DynamicResource ColorNuans}"/>
         <SolidColorBrush x:Key="TextBox.Focus.Border" Color="{DynamicResource ColorNuans}"/>
@@ -203,7 +135,7 @@ P.S. Ответ на Основной Вопрос Жизни, Вселенно�
                 </MultiTrigger>
             </Style.Triggers>
         </Style>
-
+        <!--#endregion TEXTBOX template-->
 
         <!--#region OptionMark template-->
         <SolidColorBrush x:Key="OptionMark.Static.Background" Color="{DynamicResource ColorMain}"/>
@@ -257,7 +189,7 @@ P.S. Ответ на Основной Вопрос Жизни, Вселенно�
                                     <Rectangle x:Name="indeterminateMark" Margin="2" Opacity="0" Stroke="{x:Null}" Fill="{x:Null}"/>
                                 </Grid>
                             </Border>
-                            <ContentPresenter x:Name="contentPresenter" Grid.Column="1" Focusable="False" HorizontalAlignment="{TemplateBinding HorizontalContentAlignment}" Margin="{TemplateBinding Padding}" RecognizesAccessKey="True" SnapsToDevicePixels="{TemplateBinding SnapsToDevicePixels}" VerticalAlignment="{TemplateBinding VerticalContentAlignment}"/>
+                            <ContentPresenter x:Name="MycontentPresenter" Grid.Column="1" Focusable="False" HorizontalAlignment="{TemplateBinding HorizontalContentAlignment}" Margin="{TemplateBinding Padding}" RecognizesAccessKey="True" SnapsToDevicePixels="{TemplateBinding SnapsToDevicePixels}" VerticalAlignment="{TemplateBinding VerticalContentAlignment}"/>
                         </Grid>
                         <ControlTemplate.Triggers>
                             <Trigger Property="HasContent" Value="true">
@@ -300,6 +232,8 @@ P.S. Ответ на Основной Вопрос Жизни, Вселенно�
                 </Setter.Value>
             </Setter>
         </Style>
+        <!--#endregion OptionMark template-->
+
         <!--#region COMBOBOX template -->
         <LinearGradientBrush x:Key="ComboBox.Static.Background" EndPoint="0,1" StartPoint="0,0">
             <GradientStop Color="{DynamicResource ColorMain}" Offset="0.0"/>
@@ -310,7 +244,6 @@ P.S. Ответ на Основной Вопрос Жизни, Вселенно�
         <SolidColorBrush x:Key="ComboBox.Static.Editable.Border" Color="{DynamicResource ColorNuans}"/>
         <SolidColorBrush x:Key="ComboBox.Static.Editable.Button.Background" Color="Transparent"/>
         <SolidColorBrush x:Key="ComboBox.Static.Editable.Button.Border" Color="Transparent"/>
-
 
         <SolidColorBrush x:Key="ComboBox.MouseOver.Glyph" Color="{DynamicResource ColorAltNuans}"/>
         <LinearGradientBrush x:Key="ComboBox.MouseOver.Background" EndPoint="0,1" StartPoint="0,0">
@@ -326,7 +259,6 @@ P.S. Ответ на Основной Вопрос Жизни, Вселенно�
         </LinearGradientBrush>
         <SolidColorBrush x:Key="ComboBox.MouseOver.Editable.Button.Border" Color="Transparent"/>
 
-
         <SolidColorBrush x:Key="ComboBox.Pressed.Glyph" Color="{DynamicResource ColorAltNuans}"/>
         <LinearGradientBrush x:Key="ComboBox.Pressed.Background" EndPoint="0,1" StartPoint="0,0">
             <GradientStop Color="{DynamicResource ColorMain}" Offset="0.1"/>
@@ -340,7 +272,6 @@ P.S. Ответ на Основной Вопрос Жизни, Вселенно�
             <GradientStop Color="Transparent" Offset="1.0"/>
         </LinearGradientBrush>
         <SolidColorBrush x:Key="ComboBox.Pressed.Editable.Button.Border" Color="Transparent"/>
-
 
         <SolidColorBrush x:Key="ComboBox.Disabled.Glyph" Color="{DynamicResource ColorNuans}"/>
         <SolidColorBrush x:Key="ComboBox.Disabled.Background" Color="{DynamicResource ColorSub}"/>
@@ -455,7 +386,6 @@ P.S. Ответ на Основной Вопрос Жизни, Вселенно�
             </Setter>
         </Style>
 
-
         <ControlTemplate x:Key="ComboBoxTemplate" TargetType="{x:Type ComboBox}">
             <Grid x:Name="templateRoot" SnapsToDevicePixels="true" Background="{x:Null}">
                 <Grid.ColumnDefinitions>
@@ -485,7 +415,7 @@ P.S. Ответ на Основной Вопрос Жизни, Вселенно�
 
                 </Popup>
                 <ToggleButton x:Name="toggleButton" BorderBrush="{TemplateBinding BorderBrush}" BorderThickness="{TemplateBinding BorderThickness}" Background="{TemplateBinding Background}" Grid.ColumnSpan="2" IsChecked="{Binding IsDropDownOpen, Mode=TwoWay, RelativeSource={RelativeSource TemplatedParent}}" Style="{StaticResource ComboBoxToggleButton}"/>
-                <ContentPresenter x:Name="contentPresenter" ContentTemplate="{TemplateBinding SelectionBoxItemTemplate}" ContentTemplateSelector="{TemplateBinding ItemTemplateSelector}" Content="{TemplateBinding SelectionBoxItem}" ContentStringFormat="{TemplateBinding SelectionBoxItemStringFormat}" HorizontalAlignment="{TemplateBinding HorizontalContentAlignment}" IsHitTestVisible="false" Margin="{TemplateBinding Padding}" SnapsToDevicePixels="{TemplateBinding SnapsToDevicePixels}" VerticalAlignment="{TemplateBinding VerticalContentAlignment}"/>
+                <ContentPresenter x:Name="MycontentPresenter" ContentTemplate="{TemplateBinding SelectionBoxItemTemplate}" ContentTemplateSelector="{TemplateBinding ItemTemplateSelector}" Content="{TemplateBinding SelectionBoxItem}" ContentStringFormat="{TemplateBinding SelectionBoxItemStringFormat}" HorizontalAlignment="{TemplateBinding HorizontalContentAlignment}" IsHitTestVisible="false" Margin="{TemplateBinding Padding}" SnapsToDevicePixels="{TemplateBinding SnapsToDevicePixels}" VerticalAlignment="{TemplateBinding VerticalContentAlignment}"/>
             </Grid>
             <ControlTemplate.Triggers>
                 <Trigger Property="HasDropShadow" SourceName="PART_Popup" Value="true">
@@ -509,7 +439,6 @@ P.S. Ответ на Основной Вопрос Жизни, Вселенно�
             </ControlTemplate.Triggers>
         </ControlTemplate>
         <SolidColorBrush x:Key="TextBox.Static.Background" Color="green"/>
-
 
         <Style x:Key="ComboBoxEditableTextBox" TargetType="{x:Type TextBox}">
             <Setter Property="OverridesDefaultStyle" Value="true"/>
@@ -596,7 +525,6 @@ P.S. Ответ на Основной Вопрос Жизни, Вселенно�
             </ControlTemplate.Triggers>
         </ControlTemplate>
 
-
         <Style TargetType="{x:Type ComboBox}">
             <Setter Property="FocusVisualStyle" Value="{StaticResource FocusVisual}"/>
             <Setter Property="Background" Value="{StaticResource ComboBox.Static.Background}"/>
@@ -643,7 +571,6 @@ P.S. Ответ на Основной Вопрос Жизни, Вселенно�
         <SolidColorBrush x:Key="ComboBoxItem.ItemsviewHoverFocus.Border" Color="#FF26A0DA"/>
         
         -->
-
 
         <Style TargetType="{x:Type ComboBoxItem}">
             <Setter Property="SnapsToDevicePixels" Value="True"/>
@@ -721,6 +648,8 @@ P.S. Ответ на Основной Вопрос Жизни, Вселенно�
                 </Setter.Value>
             </Setter>
         </Style>
+        <!--endregion  COMBOBOX template -->
+
         <!--#region RADIOBUTTON template-->
         <SolidColorBrush x:Key="RadioButton.Static.Background" Color="{DynamicResource ColorMain}"/>
         <SolidColorBrush x:Key="RadioButton.Static.Border" Color="{DynamicResource ColorNuans}"/>
@@ -760,7 +689,7 @@ P.S. Ответ на Основной Вопрос Жизни, Вселенно�
                                     </Ellipse>
                                 </Grid>
                             </Border>
-                            <ContentPresenter x:Name="contentPresenter" Grid.Column="1" Focusable="False" HorizontalAlignment="{TemplateBinding HorizontalContentAlignment}" Margin="{TemplateBinding Padding}" RecognizesAccessKey="True" SnapsToDevicePixels="{TemplateBinding SnapsToDevicePixels}" VerticalAlignment="{TemplateBinding VerticalContentAlignment}"/>
+                            <ContentPresenter x:Name="MycontentPresenter" Grid.Column="1" Focusable="False" HorizontalAlignment="{TemplateBinding HorizontalContentAlignment}" Margin="{TemplateBinding Padding}" RecognizesAccessKey="True" SnapsToDevicePixels="{TemplateBinding SnapsToDevicePixels}" VerticalAlignment="{TemplateBinding VerticalContentAlignment}"/>
                         </Grid>
                         <ControlTemplate.Triggers>
                             <Trigger Property="HasContent" Value="true">
@@ -802,6 +731,8 @@ P.S. Ответ на Основной Вопрос Жизни, Вселенно�
                 </Setter.Value>
             </Setter>
         </Style>
+        <!--#endregion RADIOBUTTON template-->
+
         <!--#region BUTTON template-->
         <SolidColorBrush x:Key="Button.Static.Background" Color="{DynamicResource ColorSub}"/>
         <SolidColorBrush x:Key="Button.Static.Border" Color="{DynamicResource ColorNuans}"/>
@@ -825,7 +756,7 @@ P.S. Ответ на Основной Вопрос Жизни, Вселенно�
                 <Setter.Value>
                     <ControlTemplate TargetType="{x:Type Button}">
                         <Border x:Name="border" BorderBrush="{TemplateBinding BorderBrush}" BorderThickness="{TemplateBinding BorderThickness}" Background="{TemplateBinding Background}" SnapsToDevicePixels="true">
-                            <ContentPresenter x:Name="contentPresenter" Focusable="False" HorizontalAlignment="{TemplateBinding HorizontalContentAlignment}" Margin="{TemplateBinding Padding}" RecognizesAccessKey="True" SnapsToDevicePixels="{TemplateBinding SnapsToDevicePixels}" VerticalAlignment="{TemplateBinding VerticalContentAlignment}"/>
+                            <ContentPresenter x:Name="MycontentPresenter" Focusable="False" HorizontalAlignment="{TemplateBinding HorizontalContentAlignment}" Margin="{TemplateBinding Padding}" RecognizesAccessKey="True" SnapsToDevicePixels="{TemplateBinding SnapsToDevicePixels}" VerticalAlignment="{TemplateBinding VerticalContentAlignment}"/>
                         </Border>
                         <ControlTemplate.Triggers>
                             <Trigger Property="IsDefaulted" Value="true">
@@ -842,13 +773,15 @@ P.S. Ответ на Основной Вопрос Жизни, Вселенно�
                             <Trigger Property="IsEnabled" Value="false">
                                 <Setter Property="Background" TargetName="border" Value="{StaticResource Button.Disabled.Background}"/>
                                 <Setter Property="BorderBrush" TargetName="border" Value="{StaticResource Button.Disabled.Border}"/>
-                                <Setter Property="TextElement.Foreground" TargetName="contentPresenter" Value="{StaticResource Button.Disabled.Foreground}"/>
+                                <Setter Property="TextElement.Foreground" TargetName="MycontentPresenter" Value="{StaticResource Button.Disabled.Foreground}"/>
                             </Trigger>
                         </ControlTemplate.Triggers>
                     </ControlTemplate>
                 </Setter.Value>
             </Setter>
         </Style>
+        <!--#endregion BUTTON template-->
+
         <!--#region ScrollBar template-->
         <SolidColorBrush x:Key="ScrollBar.Static.Background" Color="{DynamicResource ColorSub}"/>
         <SolidColorBrush x:Key="ScrollBar.Static.Border" Color="{DynamicResource ColorSub}"/>
@@ -878,7 +811,7 @@ P.S. Ответ на Основной Вопрос Жизни, Вселенно�
                 <Setter.Value>
                     <ControlTemplate TargetType="{x:Type RepeatButton}">
                         <Border x:Name="border" BorderBrush="{StaticResource ScrollBar.Static.Border}" BorderThickness="1" Background="{StaticResource ScrollBar.Static.Background}" SnapsToDevicePixels="true">
-                            <ContentPresenter x:Name="contentPresenter" Focusable="False" HorizontalAlignment="{TemplateBinding HorizontalContentAlignment}" Margin="{TemplateBinding Padding}" SnapsToDevicePixels="{TemplateBinding SnapsToDevicePixels}" VerticalAlignment="{TemplateBinding VerticalContentAlignment}"/>
+                            <ContentPresenter x:Name="MycontentPresenter" Focusable="False" HorizontalAlignment="{TemplateBinding HorizontalContentAlignment}" Margin="{TemplateBinding Padding}" SnapsToDevicePixels="{TemplateBinding SnapsToDevicePixels}" VerticalAlignment="{TemplateBinding VerticalContentAlignment}"/>
                         </Border>
                         <ControlTemplate.Triggers>
                             <Trigger Property="IsMouseOver" Value="true">
@@ -890,7 +823,7 @@ P.S. Ответ на Основной Вопрос Жизни, Вселенно�
                                 <Setter Property="BorderBrush" TargetName="border" Value="{StaticResource ScrollBar.Pressed.Border}"/>
                             </Trigger>
                             <Trigger Property="IsEnabled" Value="false">
-                                <Setter Property="Opacity" TargetName="contentPresenter" Value="1.0"/>
+                                <Setter Property="Opacity" TargetName="MycontentPresenter" Value="1.0"/>
                                 <Setter Property="Background" TargetName="border" Value="{StaticResource ScrollBar.Disabled.Background}"/>
                                 <Setter Property="BorderBrush" TargetName="border" Value="{StaticResource ScrollBar.Disabled.Border}"/>
                             </Trigger>
@@ -920,7 +853,6 @@ P.S. Ответ на Основной Вопрос Жизни, Вселенно�
         <SolidColorBrush x:Key="ScrollBar.MouseOver.Thumb" Color="{DynamicResource ColorAltNuans}"/>
         <SolidColorBrush x:Key="ScrollBar.Pressed.Thumb" Color="{DynamicResource ColorAltNuans}"/>
         <SolidColorBrush x:Key="ScrollBar.Static.Thumb" Color="{DynamicResource ColorNuans}"/>
-
 
         <Style x:Key="ScrollBarThumbVertical" TargetType="{x:Type Thumb}">
             <Setter Property="OverridesDefaultStyle" Value="true"/>
@@ -964,8 +896,6 @@ P.S. Ответ на Основной Вопрос Жизни, Вселенно�
                 </Setter.Value>
             </Setter>
         </Style>
-
-
 
         <Style TargetType="{x:Type ScrollBar}">
 
@@ -1203,6 +1133,7 @@ P.S. Ответ на Основной Вопрос Жизни, Вселенно�
 
             </Style.Triggers>
         </Style>
+        <!--#endregion ScrollBar template-->
 
         <!--#region ScrollViewer template-->
         <Style TargetType="{x:Type ScrollViewer}">
@@ -1253,6 +1184,273 @@ P.S. Ответ на Основной Вопрос Жизни, Вселенно�
                 </Setter.Value>
             </Setter>
         </Style>
+
+        <!--#ENDregion ScrollViewer template-->
+
+
+        <SolidColorBrush x:Key="TabItem.Selected.Background" Color="{DynamicResource ColorSub}"/>
+        <SolidColorBrush x:Key="TabItem.Selected.Border" Color="{DynamicResource ColorNuans}"/>
+        <Style TargetType="{x:Type TabControl}">
+            <Setter Property="Padding" Value="2"/>
+            <Setter Property="HorizontalContentAlignment" Value="Center"/>
+            <Setter Property="VerticalContentAlignment" Value="Center"/>
+            <Setter Property="Background" Value="{StaticResource TabItem.Selected.Background}"/>
+            <Setter Property="BorderBrush" Value="{StaticResource TabItem.Selected.Border}"/>
+            <Setter Property="BorderThickness" Value="1"/>
+            <Setter Property="Foreground" Value="{DynamicResource {x:Static SystemColors.ControlTextBrushKey}}"/>
+            <Setter Property="Template">
+                <Setter.Value>
+                    <ControlTemplate TargetType="{x:Type TabControl}">
+                        <Grid x:Name="templateRoot" ClipToBounds="true" SnapsToDevicePixels="true" KeyboardNavigation.TabNavigation="Local">
+                            <Grid.ColumnDefinitions>
+                                <ColumnDefinition x:Name="ColumnDefinition0"/>
+                                <ColumnDefinition x:Name="ColumnDefinition1" Width="0"/>
+                            </Grid.ColumnDefinitions>
+                            <Grid.RowDefinitions>
+                                <RowDefinition x:Name="RowDefinition0" Height="Auto"/>
+                                <RowDefinition x:Name="RowDefinition1" Height="*"/>
+                            </Grid.RowDefinitions>
+                            <TabPanel x:Name="headerPanel" Background="Transparent" Grid.Column="0" IsItemsHost="true" Margin="2,2,2,0" Grid.Row="0" KeyboardNavigation.TabIndex="1" Panel.ZIndex="1"/>
+                            <Border x:Name="contentPanel" BorderBrush="{TemplateBinding BorderBrush}" BorderThickness="{TemplateBinding BorderThickness}" Background="{TemplateBinding Background}" Grid.Column="0" KeyboardNavigation.DirectionalNavigation="Contained" Grid.Row="1" KeyboardNavigation.TabIndex="2" KeyboardNavigation.TabNavigation="Local">
+                                <ContentPresenter x:Name="PART_SelectedContentHost" ContentSource="SelectedContent" Margin="{TemplateBinding Padding}" SnapsToDevicePixels="{TemplateBinding SnapsToDevicePixels}"/>
+                            </Border>
+                        </Grid>
+                        <ControlTemplate.Triggers>
+                            <Trigger Property="TabStripPlacement" Value="Bottom">
+                                <Setter Property="Grid.Row" TargetName="headerPanel" Value="1"/>
+                                <Setter Property="Grid.Row" TargetName="contentPanel" Value="0"/>
+                                <Setter Property="Height" TargetName="RowDefinition0" Value="*"/>
+                                <Setter Property="Height" TargetName="RowDefinition1" Value="Auto"/>
+                                <Setter Property="Margin" TargetName="headerPanel" Value="2,0,2,2"/>
+                            </Trigger>
+                            <Trigger Property="TabStripPlacement" Value="Left">
+                                <Setter Property="Grid.Row" TargetName="headerPanel" Value="0"/>
+                                <Setter Property="Grid.Row" TargetName="contentPanel" Value="0"/>
+                                <Setter Property="Grid.Column" TargetName="headerPanel" Value="0"/>
+                                <Setter Property="Grid.Column" TargetName="contentPanel" Value="1"/>
+                                <Setter Property="Width" TargetName="ColumnDefinition0" Value="Auto"/>
+                                <Setter Property="Width" TargetName="ColumnDefinition1" Value="*"/>
+                                <Setter Property="Height" TargetName="RowDefinition0" Value="*"/>
+                                <Setter Property="Height" TargetName="RowDefinition1" Value="0"/>
+                                <Setter Property="Margin" TargetName="headerPanel" Value="2,2,0,2"/>
+                            </Trigger>
+                            <Trigger Property="TabStripPlacement" Value="Right">
+                                <Setter Property="Grid.Row" TargetName="headerPanel" Value="0"/>
+                                <Setter Property="Grid.Row" TargetName="contentPanel" Value="0"/>
+                                <Setter Property="Grid.Column" TargetName="headerPanel" Value="1"/>
+                                <Setter Property="Grid.Column" TargetName="contentPanel" Value="0"/>
+                                <Setter Property="Width" TargetName="ColumnDefinition0" Value="*"/>
+                                <Setter Property="Width" TargetName="ColumnDefinition1" Value="Auto"/>
+                                <Setter Property="Height" TargetName="RowDefinition0" Value="*"/>
+                                <Setter Property="Height" TargetName="RowDefinition1" Value="0"/>
+                                <Setter Property="Margin" TargetName="headerPanel" Value="0,2,2,2"/>
+                            </Trigger>
+                            <Trigger Property="IsEnabled" Value="false">
+                                <Setter Property="TextElement.Foreground" TargetName="templateRoot" Value="{DynamicResource {x:Static SystemColors.GrayTextBrushKey}}"/>
+                            </Trigger>
+                        </ControlTemplate.Triggers>
+                    </ControlTemplate>
+                </Setter.Value>
+            </Setter>
+        </Style>
+        <LinearGradientBrush x:Key="TabItem.Static.Background" EndPoint="0,1" StartPoint="0,0">
+            <GradientStop Color="{DynamicResource ColorSub}" Offset="0.0"/>
+            <GradientStop Color="{DynamicResource ColorSub}" Offset="1.0"/>
+        </LinearGradientBrush>
+        <SolidColorBrush x:Key="TabItem.Static.Border" Color="{DynamicResource ColorNuans}"/>
+        <LinearGradientBrush x:Key="TabItem.MouseOver.Background" EndPoint="0,1" StartPoint="0,0">
+            <GradientStop Color="{DynamicResource ColorNuans}" Offset="0.0"/>
+            <GradientStop Color="{DynamicResource ColorNuans}" Offset="1.0"/>
+        </LinearGradientBrush>
+        <SolidColorBrush x:Key="TabItem.MouseOver.Border" Color="{DynamicResource ColorAltNuans}"/>
+        <SolidColorBrush x:Key="TabItem.Disabled.Background" Color="{DynamicResource ColorSub}"/>
+        <SolidColorBrush x:Key="TabItem.Disabled.Border" Color="{DynamicResource ColorNuans}"/>
+        <Style TargetType="{x:Type TabItem}">
+            <Setter Property="FocusVisualStyle" Value="{StaticResource FocusVisual}"/>
+            <Setter Property="Foreground" Value="Black"/>
+            <Setter Property="Background" Value="{StaticResource TabItem.Static.Background}"/>
+            <Setter Property="BorderBrush" Value="{StaticResource TabItem.Static.Border}"/>
+            <Setter Property="Margin" Value="0"/>
+            <Setter Property="Padding" Value="6,2,6,2"/>
+            <Setter Property="HorizontalContentAlignment" Value="Stretch"/>
+            <Setter Property="VerticalContentAlignment" Value="Stretch"/>
+            <Setter Property="Template">
+                <Setter.Value>
+                    <ControlTemplate TargetType="{x:Type TabItem}">
+                        <Grid x:Name="templateRoot" SnapsToDevicePixels="true">
+                            <Border x:Name="mainBorder" BorderBrush="{TemplateBinding BorderBrush}" BorderThickness="1,1,1,0" Background="{TemplateBinding Background}" Margin="0">
+                                <Border x:Name="innerBorder" BorderBrush="{StaticResource TabItem.Selected.Border}" BorderThickness="1,1,1,0" Background="{StaticResource TabItem.Selected.Background}" Margin="-1" Opacity="0"/>
+                            </Border>
+                            <ContentPresenter x:Name="contentPresenter" ContentSource="Header" Focusable="False" HorizontalAlignment="{Binding HorizontalContentAlignment, RelativeSource={RelativeSource AncestorType={x:Type ItemsControl}}}" Margin="{TemplateBinding Padding}" RecognizesAccessKey="True" SnapsToDevicePixels="{TemplateBinding SnapsToDevicePixels}" VerticalAlignment="{Binding VerticalContentAlignment, RelativeSource={RelativeSource AncestorType={x:Type ItemsControl}}}"/>
+                        </Grid>
+                        <ControlTemplate.Triggers>
+                            <MultiDataTrigger>
+                                <MultiDataTrigger.Conditions>
+                                    <Condition Binding="{Binding IsMouseOver, RelativeSource={RelativeSource Self}}" Value="true"/>
+                                    <Condition Binding="{Binding TabStripPlacement, RelativeSource={RelativeSource AncestorType={x:Type TabControl}}}" Value="Left"/>
+                                </MultiDataTrigger.Conditions>
+                                <Setter Property="Background" TargetName="mainBorder" Value="{StaticResource TabItem.MouseOver.Background}"/>
+                                <Setter Property="BorderBrush" TargetName="mainBorder" Value="{StaticResource TabItem.MouseOver.Border}"/>
+                                <Setter Property="BorderThickness" TargetName="innerBorder" Value="1,1,0,1"/>
+                                <Setter Property="BorderThickness" TargetName="mainBorder" Value="1,1,0,1"/>
+                            </MultiDataTrigger>
+                            <MultiDataTrigger>
+                                <MultiDataTrigger.Conditions>
+                                    <Condition Binding="{Binding IsMouseOver, RelativeSource={RelativeSource Self}}" Value="true"/>
+                                    <Condition Binding="{Binding TabStripPlacement, RelativeSource={RelativeSource AncestorType={x:Type TabControl}}}" Value="Bottom"/>
+                                </MultiDataTrigger.Conditions>
+                                <Setter Property="Background" TargetName="mainBorder" Value="{StaticResource TabItem.MouseOver.Background}"/>
+                                <Setter Property="BorderBrush" TargetName="mainBorder" Value="{StaticResource TabItem.MouseOver.Border}"/>
+                                <Setter Property="BorderThickness" TargetName="innerBorder" Value="1,0,1,1"/>
+                                <Setter Property="BorderThickness" TargetName="mainBorder" Value="1,0,1,1"/>
+                            </MultiDataTrigger>
+                            <MultiDataTrigger>
+                                <MultiDataTrigger.Conditions>
+                                    <Condition Binding="{Binding IsMouseOver, RelativeSource={RelativeSource Self}}" Value="true"/>
+                                    <Condition Binding="{Binding TabStripPlacement, RelativeSource={RelativeSource AncestorType={x:Type TabControl}}}" Value="Right"/>
+                                </MultiDataTrigger.Conditions>
+                                <Setter Property="Background" TargetName="mainBorder" Value="{StaticResource TabItem.MouseOver.Background}"/>
+                                <Setter Property="BorderBrush" TargetName="mainBorder" Value="{StaticResource TabItem.MouseOver.Border}"/>
+                                <Setter Property="BorderThickness" TargetName="innerBorder" Value="0,1,1,1"/>
+                                <Setter Property="BorderThickness" TargetName="mainBorder" Value="0,1,1,1"/>
+                            </MultiDataTrigger>
+                            <MultiDataTrigger>
+                                <MultiDataTrigger.Conditions>
+                                    <Condition Binding="{Binding IsMouseOver, RelativeSource={RelativeSource Self}}" Value="true"/>
+                                    <Condition Binding="{Binding TabStripPlacement, RelativeSource={RelativeSource AncestorType={x:Type TabControl}}}" Value="Top"/>
+                                </MultiDataTrigger.Conditions>
+                                <Setter Property="Background" TargetName="mainBorder" Value="{StaticResource TabItem.MouseOver.Background}"/>
+                                <Setter Property="BorderBrush" TargetName="mainBorder" Value="{StaticResource TabItem.MouseOver.Border}"/>
+                                <Setter Property="BorderThickness" TargetName="innerBorder" Value="1,1,1,0"/>
+                                <Setter Property="BorderThickness" TargetName="mainBorder" Value="1,1,1,0"/>
+                            </MultiDataTrigger>
+                            <MultiDataTrigger>
+                                <MultiDataTrigger.Conditions>
+                                    <Condition Binding="{Binding IsEnabled, RelativeSource={RelativeSource Self}}" Value="false"/>
+                                    <Condition Binding="{Binding TabStripPlacement, RelativeSource={RelativeSource AncestorType={x:Type TabControl}}}" Value="Left"/>
+                                </MultiDataTrigger.Conditions>
+                                <Setter Property="Opacity" TargetName="contentPresenter" Value="0.56"/>
+                                <Setter Property="Background" TargetName="mainBorder" Value="{StaticResource TabItem.Disabled.Background}"/>
+                                <Setter Property="BorderBrush" TargetName="mainBorder" Value="{StaticResource TabItem.Disabled.Border}"/>
+                                <Setter Property="BorderThickness" TargetName="innerBorder" Value="1,1,0,1"/>
+                                <Setter Property="BorderThickness" TargetName="mainBorder" Value="1,1,0,1"/>
+                            </MultiDataTrigger>
+                            <MultiDataTrigger>
+                                <MultiDataTrigger.Conditions>
+                                    <Condition Binding="{Binding IsEnabled, RelativeSource={RelativeSource Self}}" Value="false"/>
+                                    <Condition Binding="{Binding TabStripPlacement, RelativeSource={RelativeSource AncestorType={x:Type TabControl}}}" Value="Bottom"/>
+                                </MultiDataTrigger.Conditions>
+                                <Setter Property="Opacity" TargetName="contentPresenter" Value="0.56"/>
+                                <Setter Property="Background" TargetName="mainBorder" Value="{StaticResource TabItem.Disabled.Background}"/>
+                                <Setter Property="BorderBrush" TargetName="mainBorder" Value="{StaticResource TabItem.Disabled.Border}"/>
+                                <Setter Property="BorderThickness" TargetName="innerBorder" Value="1,0,1,1"/>
+                                <Setter Property="BorderThickness" TargetName="mainBorder" Value="1,0,1,1"/>
+                            </MultiDataTrigger>
+                            <MultiDataTrigger>
+                                <MultiDataTrigger.Conditions>
+                                    <Condition Binding="{Binding IsEnabled, RelativeSource={RelativeSource Self}}" Value="false"/>
+                                    <Condition Binding="{Binding TabStripPlacement, RelativeSource={RelativeSource AncestorType={x:Type TabControl}}}" Value="Right"/>
+                                </MultiDataTrigger.Conditions>
+                                <Setter Property="Opacity" TargetName="contentPresenter" Value="0.56"/>
+                                <Setter Property="Background" TargetName="mainBorder" Value="{StaticResource TabItem.Disabled.Background}"/>
+                                <Setter Property="BorderBrush" TargetName="mainBorder" Value="{StaticResource TabItem.Disabled.Border}"/>
+                                <Setter Property="BorderThickness" TargetName="innerBorder" Value="0,1,1,1"/>
+                                <Setter Property="BorderThickness" TargetName="mainBorder" Value="0,1,1,1"/>
+                            </MultiDataTrigger>
+                            <MultiDataTrigger>
+                                <MultiDataTrigger.Conditions>
+                                    <Condition Binding="{Binding IsEnabled, RelativeSource={RelativeSource Self}}" Value="false"/>
+                                    <Condition Binding="{Binding TabStripPlacement, RelativeSource={RelativeSource AncestorType={x:Type TabControl}}}" Value="Top"/>
+                                </MultiDataTrigger.Conditions>
+                                <Setter Property="Opacity" TargetName="contentPresenter" Value="0.56"/>
+                                <Setter Property="Background" TargetName="mainBorder" Value="{StaticResource TabItem.Disabled.Background}"/>
+                                <Setter Property="BorderBrush" TargetName="mainBorder" Value="{StaticResource TabItem.Disabled.Border}"/>
+                                <Setter Property="BorderThickness" TargetName="innerBorder" Value="1,1,1,0"/>
+                                <Setter Property="BorderThickness" TargetName="mainBorder" Value="1,1,1,0"/>
+                            </MultiDataTrigger>
+                            <MultiDataTrigger>
+                                <MultiDataTrigger.Conditions>
+                                    <Condition Binding="{Binding IsSelected, RelativeSource={RelativeSource Self}}" Value="false"/>
+                                    <Condition Binding="{Binding TabStripPlacement, RelativeSource={RelativeSource AncestorType={x:Type TabControl}}}" Value="Left"/>
+                                </MultiDataTrigger.Conditions>
+                                <Setter Property="BorderThickness" TargetName="innerBorder" Value="1,1,0,1"/>
+                                <Setter Property="BorderThickness" TargetName="mainBorder" Value="1,1,0,1"/>
+                            </MultiDataTrigger>
+                            <MultiDataTrigger>
+                                <MultiDataTrigger.Conditions>
+                                    <Condition Binding="{Binding IsSelected, RelativeSource={RelativeSource Self}}" Value="true"/>
+                                    <Condition Binding="{Binding TabStripPlacement, RelativeSource={RelativeSource AncestorType={x:Type TabControl}}}" Value="Left"/>
+                                </MultiDataTrigger.Conditions>
+                                <Setter Property="Panel.ZIndex" Value="1"/>
+                                <Setter Property="Margin" Value="-2,-2,0,-2"/>
+                                <Setter Property="Opacity" TargetName="innerBorder" Value="1"/>
+                                <Setter Property="BorderThickness" TargetName="innerBorder" Value="1,1,0,1"/>
+                                <Setter Property="BorderThickness" TargetName="mainBorder" Value="1,1,0,1"/>
+                            </MultiDataTrigger>
+                            <MultiDataTrigger>
+                                <MultiDataTrigger.Conditions>
+                                    <Condition Binding="{Binding IsSelected, RelativeSource={RelativeSource Self}}" Value="false"/>
+                                    <Condition Binding="{Binding TabStripPlacement, RelativeSource={RelativeSource AncestorType={x:Type TabControl}}}" Value="Bottom"/>
+                                </MultiDataTrigger.Conditions>
+                                <Setter Property="BorderThickness" TargetName="innerBorder" Value="1,0,1,1"/>
+                                <Setter Property="BorderThickness" TargetName="mainBorder" Value="1,0,1,1"/>
+                            </MultiDataTrigger>
+                            <MultiDataTrigger>
+                                <MultiDataTrigger.Conditions>
+                                    <Condition Binding="{Binding IsSelected, RelativeSource={RelativeSource Self}}" Value="true"/>
+                                    <Condition Binding="{Binding TabStripPlacement, RelativeSource={RelativeSource AncestorType={x:Type TabControl}}}" Value="Bottom"/>
+                                </MultiDataTrigger.Conditions>
+                                <Setter Property="Panel.ZIndex" Value="1"/>
+                                <Setter Property="Margin" Value="-2,0,-2,-2"/>
+                                <Setter Property="Opacity" TargetName="innerBorder" Value="1"/>
+                                <Setter Property="BorderThickness" TargetName="innerBorder" Value="1,0,1,1"/>
+                                <Setter Property="BorderThickness" TargetName="mainBorder" Value="1,0,1,1"/>
+                            </MultiDataTrigger>
+                            <MultiDataTrigger>
+                                <MultiDataTrigger.Conditions>
+                                    <Condition Binding="{Binding IsSelected, RelativeSource={RelativeSource Self}}" Value="false"/>
+                                    <Condition Binding="{Binding TabStripPlacement, RelativeSource={RelativeSource AncestorType={x:Type TabControl}}}" Value="Right"/>
+                                </MultiDataTrigger.Conditions>
+                                <Setter Property="BorderThickness" TargetName="innerBorder" Value="0,1,1,1"/>
+                                <Setter Property="BorderThickness" TargetName="mainBorder" Value="0,1,1,1"/>
+                            </MultiDataTrigger>
+                            <MultiDataTrigger>
+                                <MultiDataTrigger.Conditions>
+                                    <Condition Binding="{Binding IsSelected, RelativeSource={RelativeSource Self}}" Value="true"/>
+                                    <Condition Binding="{Binding TabStripPlacement, RelativeSource={RelativeSource AncestorType={x:Type TabControl}}}" Value="Right"/>
+                                </MultiDataTrigger.Conditions>
+                                <Setter Property="Panel.ZIndex" Value="1"/>
+                                <Setter Property="Margin" Value="0,-2,-2,-2"/>
+                                <Setter Property="Opacity" TargetName="innerBorder" Value="1"/>
+                                <Setter Property="BorderThickness" TargetName="innerBorder" Value="0,1,1,1"/>
+                                <Setter Property="BorderThickness" TargetName="mainBorder" Value="0,1,1,1"/>
+                            </MultiDataTrigger>
+                            <MultiDataTrigger>
+                                <MultiDataTrigger.Conditions>
+                                    <Condition Binding="{Binding IsSelected, RelativeSource={RelativeSource Self}}" Value="false"/>
+                                    <Condition Binding="{Binding TabStripPlacement, RelativeSource={RelativeSource AncestorType={x:Type TabControl}}}" Value="Top"/>
+                                </MultiDataTrigger.Conditions>
+                                <Setter Property="BorderThickness" TargetName="innerBorder" Value="1,1,1,0"/>
+                                <Setter Property="BorderThickness" TargetName="mainBorder" Value="1,1,1,0"/>
+                            </MultiDataTrigger>
+                            <MultiDataTrigger>
+                                <MultiDataTrigger.Conditions>
+                                    <Condition Binding="{Binding IsSelected, RelativeSource={RelativeSource Self}}" Value="true"/>
+                                    <Condition Binding="{Binding TabStripPlacement, RelativeSource={RelativeSource AncestorType={x:Type TabControl}}}" Value="Top"/>
+                                </MultiDataTrigger.Conditions>
+                                <Setter Property="Panel.ZIndex" Value="1"/>
+                                <Setter Property="Margin" Value="-2,-2,-2,0"/>
+                                <Setter Property="Opacity" TargetName="innerBorder" Value="1"/>
+                                <Setter Property="BorderThickness" TargetName="innerBorder" Value="1,1,1,0"/>
+                                <Setter Property="BorderThickness" TargetName="mainBorder" Value="1,1,1,0"/>
+                            </MultiDataTrigger>
+                        </ControlTemplate.Triggers>
+                    </ControlTemplate>
+                </Setter.Value>
+            </Setter>
+        </Style>
+
+
 
 
     </Window.Resources>
@@ -1759,80 +1957,19 @@ P.S. Ответ на Основной Вопрос Жизни, Вселенно�
                 <RowDefinition/>
             </Grid.RowDefinitions>
             <StackPanel HorizontalAlignment="Center" Margin="0" Grid.RowSpan="2" VerticalAlignment="Top">
-                <TextBlock Margin="30,15" TextWrapping="Wrap" Text="Привет! &#xA; &#xA;Меня зовут Прометей.&#xA;Я с удовольствием помогу тебе тебе с подсчётом такси. Только тебе надо сначала меня обучить.&#xA;Пожалуйста, проверь список фамилий на кого не надо считать такси и списки городов для того, что бы я мог отличить командировки от обычных поездок." VerticalAlignment="Top" TextDecorations="{x:Null}" HorizontalAlignment="Right" TextAlignment="Justify" FontStyle="Italic">
-                    <TextBlock.Foreground>
-                        <SolidColorBrush Color="{DynamicResource ColorAltFont}"/>
-                    </TextBlock.Foreground>
-                </TextBlock>
-                <StackPanel Orientation="Horizontal">
-                    <StackPanel HorizontalAlignment="Left">
-                        <Label Content="Алгоритм идентефикации ячеек:" HorizontalAlignment="Left" Margin="30,0,0,10" VerticalAlignment="Top">
-                            <Label.Foreground>
-                                <SolidColorBrush Color="{DynamicResource ColorFont}"/>
-                            </Label.Foreground>
-                        </Label>
-                        <Grid Margin="20,0,0,0" HorizontalAlignment="Left">
-                            <Grid.ColumnDefinitions>
-                                <ColumnDefinition Width="Auto"/>
-                                <ColumnDefinition Width="Auto"/>
-                                <ColumnDefinition/>
-                            </Grid.ColumnDefinitions>
-                            <Grid.RowDefinitions>
-                                <RowDefinition/>
-                                <RowDefinition/>
-                                <RowDefinition/>
-                                <RowDefinition/>
-                            </Grid.RowDefinitions>
-                            <Label Content="1) ФИО" HorizontalAlignment="Left" Margin="10,5" VerticalAlignment="Center">
-                                <Label.Foreground>
-                                    <SolidColorBrush Color="{DynamicResource ColorFont}"/>
-                                </Label.Foreground>
-                            </Label>
-                            <Label Content="2) Город" HorizontalAlignment="Left" Margin="10,5" VerticalAlignment="Center" Grid.Row="1">
-                                <Label.Foreground>
-                                    <SolidColorBrush Color="{DynamicResource ColorFont}"/>
-                                </Label.Foreground>
-                            </Label>
-                            <Label Content="3) Сумма" HorizontalAlignment="Left" Margin="10,5" VerticalAlignment="Center" Grid.Row="2">
-                                <Label.Foreground>
-                                    <SolidColorBrush Color="{DynamicResource ColorFont}"/>
-                                </Label.Foreground>
-                            </Label>
-                            <ComboBox Margin="10,5" SelectedIndex="1" IsReadOnly="True" Grid.Column="1" HorizontalAlignment="Left" VerticalContentAlignment="Center" MinWidth="180">
-                                <ComboBoxItem Content="Пономеру столбца"/>
-                                <ComboBoxItem Content="По названию"/>
-                            </ComboBox>
-                            <ComboBox Margin="10,5" SelectedIndex="1" IsReadOnly="True" Grid.Row="1" Grid.Column="1" HorizontalAlignment="Left" VerticalContentAlignment="Center" MinWidth="180">
-                                <ComboBoxItem Content="Пономеру столбца"/>
-                                <ComboBoxItem Content="По названию"/>
-                            </ComboBox>
-                            <ComboBox Margin="10,5" SelectedIndex="1" IsReadOnly="True" Grid.Row="2" Grid.Column="1" HorizontalAlignment="Left" VerticalContentAlignment="Center" MinWidth="180">
-                                <ComboBoxItem Content="Пономеру столбца"/>
-                                <ComboBoxItem Content="По названию"/>
-                            </ComboBox>
-                            <TextBox Margin="10,5" TextWrapping="Wrap" Text="Имя пользователя" Grid.Column="2" Padding="10,5" VerticalContentAlignment="Center" HorizontalAlignment="Left" MinWidth="180"/>
-                            <TextBox Margin="10,5" TextWrapping="Wrap" Text="Город" Grid.Column="2" Padding="10,5" VerticalContentAlignment="Center" Grid.Row="1" HorizontalAlignment="Left" MinWidth="180"/>
-                            <TextBox Margin="10,5" TextWrapping="Wrap" Text="Сумма с НДС" Grid.Column="2" Padding="10,5" VerticalContentAlignment="Center" Grid.Row="2" HorizontalAlignment="Left" MinWidth="180"/>
-                            <Label Content="4) Телефон" HorizontalAlignment="Left" Margin="10,6,0,6" VerticalAlignment="Center" Grid.Row="3">
-                                <Label.Foreground>
-                                    <SolidColorBrush Color="{DynamicResource ColorFont}"/>
-                                </Label.Foreground>
-                            </Label>
-                            <ComboBox Margin="10,5,0,5" SelectedIndex="1" IsReadOnly="True" Grid.Row="3" Grid.Column="1" HorizontalAlignment="Left" VerticalContentAlignment="Center" MinWidth="180">
-                                <ComboBoxItem Content="Пономеру столбца"/>
-                                <ComboBoxItem Content="По названию"/>
-                            </ComboBox>
-                            <TextBox Margin="10,5" TextWrapping="Wrap" Text="Телефон" Grid.Column="2" Padding="10,5" VerticalContentAlignment="Center" Grid.Row="3" HorizontalAlignment="Left" MinWidth="180"/>
-
-                        </Grid>
-                    </StackPanel>
+                <StackPanel>
+                    <TextBlock Margin="30,15" TextWrapping="Wrap" Text="Привет! &#xA; &#xA;Меня зовут Прометей.&#xA;Я с удовольствием помогу тебе тебе с подсчётом такси. Только тебе надо сначала меня обучить.&#xA;Пожалуйста, проверь список фамилий на кого не надо считать такси и списки городов для того, что бы я мог отличить командировки от обычных поездок." VerticalAlignment="Top" TextDecorations="{x:Null}" HorizontalAlignment="Right" TextAlignment="Justify" FontStyle="Italic">
+                        <TextBlock.Foreground>
+                            <SolidColorBrush Color="{DynamicResource ColorAltFont}"/>
+                        </TextBlock.Foreground>
+                    </TextBlock>
                     <StackPanel Margin="0" Panel.ZIndex="-1" UseLayoutRounding="False">
                         <Label Content="Выбрать файл:" Margin="30,0,0,0">
                             <Label.Foreground>
                                 <SolidColorBrush Color="{DynamicResource ColorFont}"/>
                             </Label.Foreground>
                         </Label>
-                        <StackPanel x:Name="droppanel" Margin="30,0,0,0" Height="{Binding ActualWidth, ElementName=droppanel, Mode=OneWay}" AllowDrop="True" Drop="droppanel_Drop" MaxHeight="151" Orientation="Horizontal" MaxWidth="151" Width="151">
+                        <StackPanel x:Name="droppanel" Margin="30,0,0,30" Height="{Binding ActualWidth, ElementName=droppanel, Mode=OneWay}" AllowDrop="True" Drop="droppanel_Drop" MaxHeight="151" Orientation="Horizontal" MaxWidth="151" Width="151" HorizontalAlignment="Left">
                             <StackPanel.Background>
                                 <SolidColorBrush Color="{DynamicResource ColorGridWS}"/>
                             </StackPanel.Background>
@@ -1844,160 +1981,293 @@ P.S. Ответ на Основной Вопрос Жизни, Вселенно�
                         </StackPanel>
                     </StackPanel>
                 </StackPanel>
-                <StackPanel Orientation="Horizontal">
-                    <StackPanel ClipToBounds="True">
-                        <Label Content="Списки городов:" HorizontalAlignment="Left" Margin="30,15,-48,10" VerticalAlignment="Top" Padding="5">
-                            <Label.Foreground>
-                                <SolidColorBrush Color="{DynamicResource ColorFont}"/>
-                            </Label.Foreground>
-                        </Label>
-                        <StackPanel Orientation="Horizontal" Margin="0">
-                            <StackPanel Margin="0" HorizontalAlignment="Left" VerticalAlignment="Top">
-                                <Label Content="Считать:" HorizontalAlignment="Left" Margin="30,0,30,10" VerticalAlignment="Top">
-                                    <Label.Foreground>
-                                        <SolidColorBrush Color="{DynamicResource ColorFont}"/>
-                                    </Label.Foreground>
-                                </Label>
-                                <ListBox Height="100" Margin="30,0,10,0" MinWidth="140" MinHeight="200">
-                                    <ListBox.Foreground>
-                                        <SolidColorBrush Color="{DynamicResource ColorFont}"/>
-                                    </ListBox.Foreground>
-                                    <ListBox.Background>
-                                        <SolidColorBrush Color="{DynamicResource ColorGridWS}"/>
-                                    </ListBox.Background>
-                                    <ListBox.BorderBrush>
-                                        <SolidColorBrush Color="{DynamicResource ColorNuans}"/>
-                                    </ListBox.BorderBrush>
-                                    <ListBoxItem Content="Москва"/>
-                                    <ListBoxItem Content="Люберцы"/>
-                                    <ListBoxItem Content="Одинцово"/>
-                                </ListBox>
-
-                            </StackPanel>
-                            <StackPanel VerticalAlignment="Center">
-                                <Button Content="→" FontSize="20" Margin="0,30,0,5">
-                                    <Button.Foreground>
-                                        <SolidColorBrush Color="{DynamicResource ColorAltNuans}"/>
-                                    </Button.Foreground>
-                                </Button>
-                                <Button Content="←" FontSize="20" Margin="0,5,0,0">
-                                    <Button.Foreground>
-                                        <SolidColorBrush Color="{DynamicResource ColorAltNuans}"/>
-                                    </Button.Foreground>
-                                </Button>
-                            </StackPanel>
-                            <StackPanel Margin="0" VerticalAlignment="Top" HorizontalAlignment="Left">
-                                <Label Content="Не считать:" HorizontalAlignment="Left" Margin="30,0,30,10" VerticalAlignment="Top">
-                                    <Label.Foreground>
-                                        <SolidColorBrush Color="{DynamicResource ColorFont}"/>
-                                    </Label.Foreground>
-                                </Label>
-                                <ListBox Height="100" Margin="10,0,30,0" MinHeight="200" MinWidth="140">
-                                    <ListBox.Foreground>
-                                        <SolidColorBrush Color="{DynamicResource ColorFont}"/>
-                                    </ListBox.Foreground>
-                                    <ListBox.Background>
-                                        <SolidColorBrush Color="{DynamicResource ColorGridWS}"/>
-                                    </ListBox.Background>
-                                    <ListBox.BorderBrush>
-                                        <SolidColorBrush Color="{DynamicResource ColorNuans}"/>
-                                    </ListBox.BorderBrush>
-                                    <ListBoxItem Content="Санкт-Петербург"/>
-                                    <ListBoxItem Content="Геленджик"/>
-                                    <ListBoxItem Content="Владивосток"/>
-                                </ListBox>
-
-                            </StackPanel>
-                        </StackPanel>
-                    </StackPanel>
-                    <StackPanel>
-                        <Label Content="Список персоналий:" Margin="30,15,0,10" Padding="5">
-                            <Label.Foreground>
-                                <SolidColorBrush Color="{DynamicResource ColorFont}"/>
-                            </Label.Foreground>
-                        </Label>
-                        <StackPanel Orientation="Horizontal" Margin="0">
-                            <StackPanel Margin="0" HorizontalAlignment="Left" VerticalAlignment="Top">
-                                <Label Content="Считать:" HorizontalAlignment="Left" Margin="30,0,30,10" VerticalAlignment="Top">
-                                    <Label.Foreground>
-                                        <SolidColorBrush Color="{DynamicResource ColorFont}"/>
-                                    </Label.Foreground>
-                                </Label>
-                                <ListBox Margin="30,0,10,0" MinHeight="200" MinWidth="140">
-                                    <ListBox.Foreground>
-                                        <SolidColorBrush Color="{DynamicResource ColorFont}"/>
-                                    </ListBox.Foreground>
-                                    <ListBox.Background>
-                                        <SolidColorBrush Color="{DynamicResource ColorGridWS}"/>
-                                    </ListBox.Background>
-                                    <ListBox.BorderBrush>
-                                        <SolidColorBrush Color="{DynamicResource ColorNuans}"/>
-                                    </ListBox.BorderBrush>
-                                </ListBox>
-
-                            </StackPanel>
-                            <StackPanel VerticalAlignment="Center">
-                                <Button Content="→" FontSize="20" Margin="0,30,0,5">
-                                    <Button.Foreground>
-                                        <SolidColorBrush Color="{DynamicResource ColorAltNuans}"/>
-                                    </Button.Foreground>
-                                </Button>
-                                <Button Content="←" FontSize="20" Margin="0,5,0,0">
-                                    <Button.Foreground>
-                                        <SolidColorBrush Color="{DynamicResource ColorAltNuans}"/>
-                                    </Button.Foreground>
-                                </Button>
-                            </StackPanel>
-                            <StackPanel Margin="0" VerticalAlignment="Top" HorizontalAlignment="Left">
-                                <Label Content="Не считать:" HorizontalAlignment="Left" Margin="30,0,30,10" VerticalAlignment="Top">
-                                    <Label.Foreground>
-                                        <SolidColorBrush Color="{DynamicResource ColorFont}"/>
-                                    </Label.Foreground>
-                                </Label>
-                                <ListBox Height="100" Margin="10,0" MinWidth="140" MinHeight="200">
-                                    <ListBox.Foreground>
-                                        <SolidColorBrush Color="{DynamicResource ColorFont}"/>
-                                    </ListBox.Foreground>
-                                    <ListBox.Background>
-                                        <SolidColorBrush Color="{DynamicResource ColorGridWS}"/>
-                                    </ListBox.Background>
-                                    <ListBox.BorderBrush>
-                                        <SolidColorBrush Color="{DynamicResource ColorNuans}"/>
-                                    </ListBox.BorderBrush>
-                                </ListBox>
-
-                            </StackPanel>
-                        </StackPanel>
-                    </StackPanel>
-                </StackPanel>
-                <StackPanel Margin="0,15,0,0">
-                    <Label Content="Интервалы:" HorizontalAlignment="Left" Margin="30,0,0,10" VerticalAlignment="Top">
-                        <Label.Foreground>
+                <TabControl VerticalContentAlignment="Stretch" HorizontalContentAlignment="Stretch" TabStripPlacement="Left" Margin="30,0">
+                    <TabItem Header="Идинтефикация" Margin="0" IsSelected="True" Padding="6,10">
+                        <TabItem.BorderBrush>
+                            <SolidColorBrush Color="{DynamicResource ColorNuans}"/>
+                        </TabItem.BorderBrush>
+                        <TabItem.Foreground>
                             <SolidColorBrush Color="{DynamicResource ColorFont}"/>
-                        </Label.Foreground>
-                    </Label>
-                    <Grid Margin="30,0,0,0" Width="423" HorizontalAlignment="Left">
-                        <Grid.RowDefinitions>
-                            <RowDefinition/>
-                            <RowDefinition/>
-                        </Grid.RowDefinitions>
-                        <Grid.ColumnDefinitions>
-                            <ColumnDefinition Width="Auto"/>
-                            <ColumnDefinition/>
-                        </Grid.ColumnDefinitions>
-                        <RadioButton Margin="5" MinWidth="55" HorizontalAlignment="Left" VerticalContentAlignment="Bottom" Content="День: с 7 до 22" VerticalAlignment="Bottom">
-                            <RadioButton.Foreground>
-                                <SolidColorBrush Color="{DynamicResource ColorFont}"/>
-                            </RadioButton.Foreground>
-                        </RadioButton>
-                        <RadioButton Content="Ночь: с 22 до 7" MinWidth="55" HorizontalAlignment="Left" VerticalContentAlignment="Bottom" Margin="5" Grid.Row="1" VerticalAlignment="Bottom">
-                            <RadioButton.Foreground>
-                                <SolidColorBrush Color="{DynamicResource ColorFont}"/>
-                            </RadioButton.Foreground>
-                        </RadioButton>
-                    </Grid>
-                    <Button x:Name="runchecksummButton" Content="Считать!" Height="30" Width="105" HorizontalAlignment="Center" VerticalAlignment="Center"/>
-                </StackPanel>
+                        </TabItem.Foreground>
+                        <TabItem.Background>
+                            <SolidColorBrush Color="{DynamicResource ColorSub}"/>
+                        </TabItem.Background>
+                        <Grid>
+                            <Grid.Background>
+                                <SolidColorBrush Color="{DynamicResource ColorSub}"/>
+                            </Grid.Background>
+                            <StackPanel Margin="0,0,0,10">
+                                <Label Content="Алгоритм идентефикации ячеек:" HorizontalAlignment="Left" Margin="30,0,0,10" VerticalAlignment="Top">
+                                    <Label.Foreground>
+                                        <SolidColorBrush Color="{DynamicResource ColorFont}"/>
+                                    </Label.Foreground>
+                                </Label>
+                                <Grid Margin="20,0,0,0" HorizontalAlignment="Left">
+                                    <Grid.ColumnDefinitions>
+                                        <ColumnDefinition Width="Auto"/>
+                                        <ColumnDefinition Width="Auto"/>
+                                        <ColumnDefinition/>
+                                    </Grid.ColumnDefinitions>
+                                    <Grid.RowDefinitions>
+                                        <RowDefinition/>
+                                        <RowDefinition/>
+                                        <RowDefinition/>
+                                        <RowDefinition/>
+                                        <RowDefinition/>
+                                        <RowDefinition/>
+                                    </Grid.RowDefinitions>
+                                    <Label Content="1) ФИО" HorizontalAlignment="Left" Margin="10,5" VerticalAlignment="Center">
+                                        <Label.Foreground>
+                                            <SolidColorBrush Color="{DynamicResource ColorFont}"/>
+                                        </Label.Foreground>
+                                    </Label>
+                                    <Label Content="2) Город" HorizontalAlignment="Left" Margin="10,5" VerticalAlignment="Center" Grid.Row="1">
+                                        <Label.Foreground>
+                                            <SolidColorBrush Color="{DynamicResource ColorFont}"/>
+                                        </Label.Foreground>
+                                    </Label>
+                                    <Label Content="3) Сумма" HorizontalAlignment="Left" Margin="10,5" VerticalAlignment="Center" Grid.Row="2">
+                                        <Label.Foreground>
+                                            <SolidColorBrush Color="{DynamicResource ColorFont}"/>
+                                        </Label.Foreground>
+                                    </Label>
+                                    <ComboBox Margin="10,5" SelectedIndex="1" IsReadOnly="True" Grid.Column="1" HorizontalAlignment="Left" VerticalContentAlignment="Center" MinWidth="180">
+                                        <ComboBoxItem Content="Пономеру столбца"/>
+                                        <ComboBoxItem Content="По названию"/>
+                                    </ComboBox>
+                                    <ComboBox Margin="10,5" SelectedIndex="1" IsReadOnly="True" Grid.Row="1" Grid.Column="1" HorizontalAlignment="Left" VerticalContentAlignment="Center" MinWidth="180">
+                                        <ComboBoxItem Content="Пономеру столбца"/>
+                                        <ComboBoxItem Content="По названию"/>
+                                    </ComboBox>
+                                    <ComboBox Margin="10,5" SelectedIndex="1" IsReadOnly="True" Grid.Row="2" Grid.Column="1" HorizontalAlignment="Left" VerticalContentAlignment="Center" MinWidth="180">
+                                        <ComboBoxItem Content="Пономеру столбца"/>
+                                        <ComboBoxItem Content="По названию"/>
+                                    </ComboBox>
+                                    <TextBox Margin="10,5" TextWrapping="Wrap" Text="Имя пользователя" Grid.Column="2" Padding="10,5" VerticalContentAlignment="Center" HorizontalAlignment="Left" MinWidth="180"/>
+                                    <TextBox Margin="10,5" TextWrapping="Wrap" Text="Город" Grid.Column="2" Padding="10,5" VerticalContentAlignment="Center" Grid.Row="1" HorizontalAlignment="Left" MinWidth="180"/>
+                                    <TextBox Margin="10,5" TextWrapping="Wrap" Text="Сумма с НДС" Grid.Column="2" Padding="10,5" VerticalContentAlignment="Center" Grid.Row="2" HorizontalAlignment="Left" MinWidth="180"/>
+                                    <Label Content="4) Телефон" HorizontalAlignment="Left" Margin="10,6,0,6" VerticalAlignment="Center" Grid.Row="3">
+                                        <Label.Foreground>
+                                            <SolidColorBrush Color="{DynamicResource ColorFont}"/>
+                                        </Label.Foreground>
+                                    </Label>
+                                    <ComboBox Margin="10,5,0,5" SelectedIndex="1" IsReadOnly="True" Grid.Row="3" Grid.Column="1" HorizontalAlignment="Left" VerticalContentAlignment="Center" MinWidth="180">
+                                        <ComboBoxItem Content="Пономеру столбца"/>
+                                        <ComboBoxItem Content="По названию"/>
+                                    </ComboBox>
+                                    <TextBox Margin="10,5" TextWrapping="Wrap" Text="Телефон" Grid.Column="2" Padding="10,5" VerticalContentAlignment="Center" Grid.Row="3" HorizontalAlignment="Left" MinWidth="180"/>
+                                    <Label Content="5) Подача" HorizontalAlignment="Left" Margin="10,6,0,6" VerticalAlignment="Center" Grid.Row="4">
+                                        <Label.Foreground>
+                                            <SolidColorBrush Color="{DynamicResource ColorFont}"/>
+                                        </Label.Foreground>
+                                    </Label>
+                                    <ComboBox Margin="10,5,0,5" SelectedIndex="1" IsReadOnly="True" Grid.Row="4" Grid.Column="1" HorizontalAlignment="Left" VerticalContentAlignment="Center" MinWidth="180">
+                                        <ComboBoxItem Content="Пономеру столбца"/>
+                                        <ComboBoxItem Content="По названию"/>
+                                    </ComboBox>
+                                    <TextBox Margin="10,5,0,5" TextWrapping="Wrap" Text="Прибытие такси" Grid.Column="2" Padding="10,5" VerticalContentAlignment="Center" Grid.Row="4" HorizontalAlignment="Left" MinWidth="180"/>
+                                    <Label Content="6) Период" HorizontalAlignment="Left" Margin="10,6,0,6" VerticalAlignment="Center" Grid.Row="5">
+                                        <Label.Foreground>
+                                            <SolidColorBrush Color="{DynamicResource ColorFont}"/>
+                                        </Label.Foreground>
+                                    </Label>
+                                    <ComboBox Margin="10,5,0,5" SelectedIndex="1" IsReadOnly="True" Grid.Row="5" Grid.Column="1" HorizontalAlignment="Left" VerticalContentAlignment="Center" MinWidth="180">
+                                        <ComboBoxItem Content="Пономеру столбца"/>
+                                        <ComboBoxItem Content="По названию"/>
+                                    </ComboBox>
+                                    <TextBox Margin="10,5,0,5" TextWrapping="Wrap" Text="Период" Grid.Column="2" Padding="10,5" VerticalContentAlignment="Center" Grid.Row="5" HorizontalAlignment="Left" MinWidth="180"/>
+
+                                </Grid>
+                            </StackPanel>
+                        </Grid>
+                    </TabItem>
+                    <TabItem Header="Города" Margin="0" Padding="6,10">
+                        <TabItem.Foreground>
+                            <SolidColorBrush Color="{DynamicResource ColorFont}"/>
+                        </TabItem.Foreground>
+                        <Grid>
+                            <Grid.Background>
+                                <SolidColorBrush Color="{DynamicResource ColorSub}"/>
+                            </Grid.Background>
+                            <StackPanel ClipToBounds="True" Margin="0,0,0,10">
+                                <Label Content="Списки городов:" HorizontalAlignment="Left" Margin="30,0,-48,10" VerticalAlignment="Top" Padding="5">
+                                    <Label.Foreground>
+                                        <SolidColorBrush Color="{DynamicResource ColorFont}"/>
+                                    </Label.Foreground>
+                                </Label>
+                                <StackPanel Orientation="Horizontal" Margin="0">
+                                    <StackPanel Margin="0" HorizontalAlignment="Left" VerticalAlignment="Top">
+                                        <Label Content="Считать:" HorizontalAlignment="Left" Margin="30,0,30,10" VerticalAlignment="Top">
+                                            <Label.Foreground>
+                                                <SolidColorBrush Color="{DynamicResource ColorFont}"/>
+                                            </Label.Foreground>
+                                        </Label>
+                                        <ListBox Height="100" Margin="30,0,10,0" MinWidth="140" MinHeight="200">
+                                            <ListBox.Foreground>
+                                                <SolidColorBrush Color="{DynamicResource ColorFont}"/>
+                                            </ListBox.Foreground>
+                                            <ListBox.Background>
+                                                <SolidColorBrush Color="{DynamicResource ColorGridWS}"/>
+                                            </ListBox.Background>
+                                            <ListBox.BorderBrush>
+                                                <SolidColorBrush Color="{DynamicResource ColorNuans}"/>
+                                            </ListBox.BorderBrush>
+                                            <ListBoxItem Content="Москва"/>
+                                            <ListBoxItem Content="Люберцы"/>
+                                            <ListBoxItem Content="Одинцово"/>
+                                        </ListBox>
+
+                                    </StackPanel>
+                                    <StackPanel VerticalAlignment="Center">
+                                        <Button Content="→" FontSize="20" Margin="0,30,0,5">
+                                            <Button.Foreground>
+                                                <SolidColorBrush Color="{DynamicResource ColorAltNuans}"/>
+                                            </Button.Foreground>
+                                        </Button>
+                                        <Button Content="←" FontSize="20" Margin="0,5,0,0">
+                                            <Button.Foreground>
+                                                <SolidColorBrush Color="{DynamicResource ColorAltNuans}"/>
+                                            </Button.Foreground>
+                                        </Button>
+                                    </StackPanel>
+                                    <StackPanel Margin="0" VerticalAlignment="Top" HorizontalAlignment="Left">
+                                        <Label Content="Не считать:" HorizontalAlignment="Left" Margin="30,0,30,10" VerticalAlignment="Top">
+                                            <Label.Foreground>
+                                                <SolidColorBrush Color="{DynamicResource ColorFont}"/>
+                                            </Label.Foreground>
+                                        </Label>
+                                        <ListBox Height="100" Margin="10,0,30,0" MinHeight="200" MinWidth="140">
+                                            <ListBox.Foreground>
+                                                <SolidColorBrush Color="{DynamicResource ColorFont}"/>
+                                            </ListBox.Foreground>
+                                            <ListBox.Background>
+                                                <SolidColorBrush Color="{DynamicResource ColorGridWS}"/>
+                                            </ListBox.Background>
+                                            <ListBox.BorderBrush>
+                                                <SolidColorBrush Color="{DynamicResource ColorNuans}"/>
+                                            </ListBox.BorderBrush>
+                                            <ListBoxItem Content="Санкт-Петербург"/>
+                                            <ListBoxItem Content="Геленджик"/>
+                                            <ListBoxItem Content="Владивосток"/>
+                                        </ListBox>
+
+                                    </StackPanel>
+                                </StackPanel>
+                            </StackPanel>
+                        </Grid>
+                    </TabItem>
+                    <TabItem Header="Персоналии" Margin="0" Padding="6,10">
+                        <TabItem.Foreground>
+                            <SolidColorBrush Color="{DynamicResource ColorFont}"/>
+                        </TabItem.Foreground>
+                        <Grid>
+                            <Grid.Background>
+                                <SolidColorBrush Color="{DynamicResource ColorSub}"/>
+                            </Grid.Background>
+                            <StackPanel Orientation="Horizontal" Margin="0,0,0,10">
+                                <StackPanel>
+                                    <Label Content="Список персоналий:" Margin="30,0,0,10" Padding="5">
+                                        <Label.Foreground>
+                                            <SolidColorBrush Color="{DynamicResource ColorFont}"/>
+                                        </Label.Foreground>
+                                    </Label>
+                                    <StackPanel Orientation="Horizontal" Margin="0">
+                                        <StackPanel Margin="0" HorizontalAlignment="Left" VerticalAlignment="Top">
+                                            <Label Content="Считать:" HorizontalAlignment="Left" Margin="30,0,30,10" VerticalAlignment="Top">
+                                                <Label.Foreground>
+                                                    <SolidColorBrush Color="{DynamicResource ColorFont}"/>
+                                                </Label.Foreground>
+                                            </Label>
+                                            <ListBox Margin="30,0,10,0" MinHeight="200" MinWidth="140">
+                                                <ListBox.Foreground>
+                                                    <SolidColorBrush Color="{DynamicResource ColorFont}"/>
+                                                </ListBox.Foreground>
+                                                <ListBox.Background>
+                                                    <SolidColorBrush Color="{DynamicResource ColorGridWS}"/>
+                                                </ListBox.Background>
+                                                <ListBox.BorderBrush>
+                                                    <SolidColorBrush Color="{DynamicResource ColorNuans}"/>
+                                                </ListBox.BorderBrush>
+                                            </ListBox>
+
+                                        </StackPanel>
+                                        <StackPanel VerticalAlignment="Center">
+                                            <Button Content="→" FontSize="20" Margin="0,30,0,5">
+                                                <Button.Foreground>
+                                                    <SolidColorBrush Color="{DynamicResource ColorAltNuans}"/>
+                                                </Button.Foreground>
+                                            </Button>
+                                            <Button Content="←" FontSize="20" Margin="0,5,0,0">
+                                                <Button.Foreground>
+                                                    <SolidColorBrush Color="{DynamicResource ColorAltNuans}"/>
+                                                </Button.Foreground>
+                                            </Button>
+                                        </StackPanel>
+                                        <StackPanel Margin="0" VerticalAlignment="Top" HorizontalAlignment="Left">
+                                            <Label Content="Не считать:" HorizontalAlignment="Left" Margin="30,0,30,10" VerticalAlignment="Top">
+                                                <Label.Foreground>
+                                                    <SolidColorBrush Color="{DynamicResource ColorFont}"/>
+                                                </Label.Foreground>
+                                            </Label>
+                                            <ListBox Height="100" Margin="10,0" MinWidth="140" MinHeight="200">
+                                                <ListBox.Foreground>
+                                                    <SolidColorBrush Color="{DynamicResource ColorFont}"/>
+                                                </ListBox.Foreground>
+                                                <ListBox.Background>
+                                                    <SolidColorBrush Color="{DynamicResource ColorGridWS}"/>
+                                                </ListBox.Background>
+                                                <ListBox.BorderBrush>
+                                                    <SolidColorBrush Color="{DynamicResource ColorNuans}"/>
+                                                </ListBox.BorderBrush>
+                                            </ListBox>
+
+                                        </StackPanel>
+                                    </StackPanel>
+                                </StackPanel>
+                            </StackPanel>
+                        </Grid>
+                    </TabItem>
+                    <TabItem Header="Подсчёт" Margin="0" Padding="6,10">
+                        <TabItem.Foreground>
+                            <SolidColorBrush Color="{DynamicResource ColorFont}"/>
+                        </TabItem.Foreground>
+                        <Grid>
+                            <Grid.Background>
+                                <SolidColorBrush Color="{DynamicResource ColorSub}"/>
+                            </Grid.Background>
+                            <StackPanel Orientation="Horizontal" Margin="0,0,0,10">
+                                <StackPanel Margin="0,15,0,1">
+                                    <Label Content="Интервалы:" HorizontalAlignment="Left" Margin="30,0,0,10" VerticalAlignment="Top">
+                                        <Label.Foreground>
+                                            <SolidColorBrush Color="{DynamicResource ColorFont}"/>
+                                        </Label.Foreground>
+                                    </Label>
+                                    <Grid Margin="30,0,0,0" Width="423" HorizontalAlignment="Left">
+                                        <Grid.RowDefinitions>
+                                            <RowDefinition/>
+                                            <RowDefinition/>
+                                        </Grid.RowDefinitions>
+                                        <Grid.ColumnDefinitions>
+                                            <ColumnDefinition Width="Auto"/>
+                                            <ColumnDefinition/>
+                                        </Grid.ColumnDefinitions>
+                                        <RadioButton Margin="5" MinWidth="55" HorizontalAlignment="Left" VerticalContentAlignment="Bottom" Content="День: с 7 до 22" VerticalAlignment="Bottom">
+                                            <RadioButton.Foreground>
+                                                <SolidColorBrush Color="{DynamicResource ColorFont}"/>
+                                            </RadioButton.Foreground>
+                                        </RadioButton>
+                                        <RadioButton Content="Ночь: с 22 до 7" MinWidth="55" HorizontalAlignment="Left" VerticalContentAlignment="Bottom" Margin="5" Grid.Row="1" VerticalAlignment="Bottom">
+                                            <RadioButton.Foreground>
+                                                <SolidColorBrush Color="{DynamicResource ColorFont}"/>
+                                            </RadioButton.Foreground>
+                                        </RadioButton>
+                                    </Grid>
+                                    <Button x:Name="runchecksummButton" Content="Считать!" Height="30" Width="105" HorizontalAlignment="Center" VerticalAlignment="Center"/>
+                                </StackPanel>
+                            </StackPanel>
+                        </Grid>
+                    </TabItem>
+                </TabControl>
             </StackPanel>
 
         </Grid>
