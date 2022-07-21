@@ -57,6 +57,15 @@ namespace PROMETEUS_LAST_EDITION.Properties {
         
         [global::System.Configuration.UserScopedSettingAttribute()]
         [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+        [global::System.Configuration.DefaultSettingValueAttribute(@"<?xml version=""1.0"" encoding=""utf-16""?>
+<ArrayOfString xmlns:xsi=""http://www.w3.org/2001/XMLSchema-instance"" xmlns:xsd=""http://www.w3.org/2001/XMLSchema"">
+  <string>Имя пользователя</string>
+  <string>Город</string>
+  <string>Сумма с НДС</string>
+  <string>Телефон</string>
+  <string>Прибытие такси</string>
+  <string>Период</string>
+</ArrayOfString>")]
         public global::System.Collections.Specialized.StringCollection report_parser_setval {
             get {
                 return ((global::System.Collections.Specialized.StringCollection)(this["report_parser_setval"]));

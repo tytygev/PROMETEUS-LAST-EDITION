@@ -113,6 +113,8 @@ namespace PROMETEUS_LAST_EDITION
             }
         }
 
+        // habr.com/ru/post/271483/
+
         private void runchecksummButton_Click(object sender, KeyEventArgs e)
         {
             //поиск файла Excel

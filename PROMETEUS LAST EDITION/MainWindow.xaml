@@ -1267,7 +1267,7 @@ P.S. Ответ на Основной Вопрос Жизни, Вселенно�
         <SolidColorBrush x:Key="TabItem.Disabled.Border" Color="{DynamicResource ColorNuans}"/>
         <Style TargetType="{x:Type TabItem}">
             <Setter Property="FocusVisualStyle" Value="{StaticResource FocusVisual}"/>
-            <Setter Property="Foreground" Value="Black"/>
+            <Setter Property="Foreground" Value="{DynamicResource ColorFont}"/>
             <Setter Property="Background" Value="{StaticResource TabItem.Static.Background}"/>
             <Setter Property="BorderBrush" Value="{StaticResource TabItem.Static.Border}"/>
             <Setter Property="Margin" Value="0"/>
@@ -1375,6 +1375,7 @@ P.S. Ответ на Основной Вопрос Жизни, Вселенно�
                                 </MultiDataTrigger.Conditions>
                                 <Setter Property="BorderThickness" TargetName="innerBorder" Value="1,1,0,1"/>
                                 <Setter Property="BorderThickness" TargetName="mainBorder" Value="1,1,0,1"/>
+                                <Setter Property="Foreground" Value="{DynamicResource ColorAltFont}"/>
                             </MultiDataTrigger>
                             <MultiDataTrigger>
                                 <MultiDataTrigger.Conditions>
@@ -1386,6 +1387,7 @@ P.S. Ответ на Основной Вопрос Жизни, Вселенно�
                                 <Setter Property="Opacity" TargetName="innerBorder" Value="1"/>
                                 <Setter Property="BorderThickness" TargetName="innerBorder" Value="1,1,0,1"/>
                                 <Setter Property="BorderThickness" TargetName="mainBorder" Value="1,1,0,1"/>
+                                <Setter Property="Foreground" Value="{DynamicResource ColorAltFont}"/>
                             </MultiDataTrigger>
                             <MultiDataTrigger>
                                 <MultiDataTrigger.Conditions>
@@ -1394,6 +1396,7 @@ P.S. Ответ на Основной Вопрос Жизни, Вселенно�
                                 </MultiDataTrigger.Conditions>
                                 <Setter Property="BorderThickness" TargetName="innerBorder" Value="1,0,1,1"/>
                                 <Setter Property="BorderThickness" TargetName="mainBorder" Value="1,0,1,1"/>
+                                <Setter Property="Foreground" Value="{DynamicResource ColorAltFont}"/>
                             </MultiDataTrigger>
                             <MultiDataTrigger>
                                 <MultiDataTrigger.Conditions>
@@ -1405,6 +1408,7 @@ P.S. Ответ на Основной Вопрос Жизни, Вселенно�
                                 <Setter Property="Opacity" TargetName="innerBorder" Value="1"/>
                                 <Setter Property="BorderThickness" TargetName="innerBorder" Value="1,0,1,1"/>
                                 <Setter Property="BorderThickness" TargetName="mainBorder" Value="1,0,1,1"/>
+                                <Setter Property="Foreground" Value="{DynamicResource ColorAltFont}"/>
                             </MultiDataTrigger>
                             <MultiDataTrigger>
                                 <MultiDataTrigger.Conditions>
@@ -1413,6 +1417,7 @@ P.S. Ответ на Основной Вопрос Жизни, Вселенно�
                                 </MultiDataTrigger.Conditions>
                                 <Setter Property="BorderThickness" TargetName="innerBorder" Value="0,1,1,1"/>
                                 <Setter Property="BorderThickness" TargetName="mainBorder" Value="0,1,1,1"/>
+                                <Setter Property="Foreground" Value="{DynamicResource ColorAltFont}"/>
                             </MultiDataTrigger>
                             <MultiDataTrigger>
                                 <MultiDataTrigger.Conditions>
@@ -1424,6 +1429,7 @@ P.S. Ответ на Основной Вопрос Жизни, Вселенно�
                                 <Setter Property="Opacity" TargetName="innerBorder" Value="1"/>
                                 <Setter Property="BorderThickness" TargetName="innerBorder" Value="0,1,1,1"/>
                                 <Setter Property="BorderThickness" TargetName="mainBorder" Value="0,1,1,1"/>
+                                <Setter Property="Foreground" Value="{DynamicResource ColorAltFont}"/>
                             </MultiDataTrigger>
                             <MultiDataTrigger>
                                 <MultiDataTrigger.Conditions>
@@ -1432,25 +1438,26 @@ P.S. Ответ на Основной Вопрос Жизни, Вселенно�
                                 </MultiDataTrigger.Conditions>
                                 <Setter Property="BorderThickness" TargetName="innerBorder" Value="1,1,1,0"/>
                                 <Setter Property="BorderThickness" TargetName="mainBorder" Value="1,1,1,0"/>
+                                <Setter Property="Foreground" Value="{DynamicResource ColorAltFont}"/>
                             </MultiDataTrigger>
                             <MultiDataTrigger>
                                 <MultiDataTrigger.Conditions>
                                     <Condition Binding="{Binding IsSelected, RelativeSource={RelativeSource Self}}" Value="true"/>
                                     <Condition Binding="{Binding TabStripPlacement, RelativeSource={RelativeSource AncestorType={x:Type TabControl}}}" Value="Top"/>
+
                                 </MultiDataTrigger.Conditions>
                                 <Setter Property="Panel.ZIndex" Value="1"/>
                                 <Setter Property="Margin" Value="-2,-2,-2,0"/>
                                 <Setter Property="Opacity" TargetName="innerBorder" Value="1"/>
                                 <Setter Property="BorderThickness" TargetName="innerBorder" Value="1,1,1,0"/>
                                 <Setter Property="BorderThickness" TargetName="mainBorder" Value="1,1,1,0"/>
+                                <Setter Property="Foreground" Value="{DynamicResource ColorAltFont}"/>
                             </MultiDataTrigger>
                         </ControlTemplate.Triggers>
                     </ControlTemplate>
                 </Setter.Value>
             </Setter>
         </Style>
-
-
 
 
     </Window.Resources>
@@ -1983,15 +1990,15 @@ P.S. Ответ на Основной Вопрос Жизни, Вселенно�
                 </StackPanel>
                 <TabControl VerticalContentAlignment="Stretch" HorizontalContentAlignment="Stretch" TabStripPlacement="Left" Margin="30,0">
                     <TabItem Header="Идинтефикация" Margin="0" IsSelected="True" Padding="6,10">
-                        <TabItem.BorderBrush>
-                            <SolidColorBrush Color="{DynamicResource ColorNuans}"/>
-                        </TabItem.BorderBrush>
                         <TabItem.Foreground>
                             <SolidColorBrush Color="{DynamicResource ColorFont}"/>
                         </TabItem.Foreground>
                         <TabItem.Background>
-                            <SolidColorBrush Color="{DynamicResource ColorSub}"/>
+                            <SolidColorBrush Color="{DynamicResource ColorMain}"/>
                         </TabItem.Background>
+                        <TabItem.BorderBrush>
+                            <SolidColorBrush Color="{DynamicResource ColorNuans}"/>
+                        </TabItem.BorderBrush>
                         <Grid>
                             <Grid.Background>
                                 <SolidColorBrush Color="{DynamicResource ColorSub}"/>
@@ -2082,6 +2089,9 @@ P.S. Ответ на Основной Вопрос Жизни, Вселенно�
                         </Grid>
                     </TabItem>
                     <TabItem Header="Города" Margin="0" Padding="6,10">
+                        <TabItem.Background>
+                            <SolidColorBrush Color="{DynamicResource ColorMain}"/>
+                        </TabItem.Background>
                         <TabItem.Foreground>
                             <SolidColorBrush Color="{DynamicResource ColorFont}"/>
                         </TabItem.Foreground>
@@ -2157,6 +2167,9 @@ P.S. Ответ на Основной Вопрос Жизни, Вселенно�
                         </Grid>
                     </TabItem>
                     <TabItem Header="Персоналии" Margin="0" Padding="6,10">
+                        <TabItem.Background>
+                            <SolidColorBrush Color="{DynamicResource ColorMain}"/>
+                        </TabItem.Background>
                         <TabItem.Foreground>
                             <SolidColorBrush Color="{DynamicResource ColorFont}"/>
                         </TabItem.Foreground>
@@ -2228,6 +2241,9 @@ P.S. Ответ на Основной Вопрос Жизни, Вселенно�
                         </Grid>
                     </TabItem>
                     <TabItem Header="Подсчёт" Margin="0" Padding="6,10">
+                        <TabItem.Background>
+                            <SolidColorBrush Color="{DynamicResource ColorMain}"/>
+                        </TabItem.Background>
                         <TabItem.Foreground>
                             <SolidColorBrush Color="{DynamicResource ColorFont}"/>
                         </TabItem.Foreground>
