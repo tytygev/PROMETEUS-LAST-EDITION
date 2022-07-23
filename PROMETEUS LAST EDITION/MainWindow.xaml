@@ -2009,7 +2009,7 @@ P.S. Ответ на Основной Вопрос Жизни, Вселенно�
                                         <SolidColorBrush Color="{DynamicResource ColorFont}"/>
                                     </Label.Foreground>
                                 </Label>
-                                <Grid Margin="20,0,0,0" HorizontalAlignment="Left">
+                                <Grid x:Name="DSettingsTaxiGrid" Margin="20,0,0,0" HorizontalAlignment="Left">
                                     <Grid.ColumnDefinitions>
                                         <ColumnDefinition Width="Auto"/>
                                         <ColumnDefinition Width="Auto"/>
@@ -2038,51 +2038,51 @@ P.S. Ответ на Основной Вопрос Жизни, Вселенно�
                                             <SolidColorBrush Color="{DynamicResource ColorFont}"/>
                                         </Label.Foreground>
                                     </Label>
-                                    <ComboBox Margin="10,5" SelectedIndex="1" IsReadOnly="True" Grid.Column="1" HorizontalAlignment="Left" VerticalContentAlignment="Center" MinWidth="180">
+                                    <ComboBox Margin="10,5" IsReadOnly="True" Grid.Column="1" HorizontalAlignment="Left" VerticalContentAlignment="Center" MinWidth="180" SelectionChanged="TaxiComboBoxesSetSel">
                                         <ComboBoxItem Content="Пономеру столбца"/>
                                         <ComboBoxItem Content="По названию"/>
                                     </ComboBox>
-                                    <ComboBox Margin="10,5" SelectedIndex="1" IsReadOnly="True" Grid.Row="1" Grid.Column="1" HorizontalAlignment="Left" VerticalContentAlignment="Center" MinWidth="180">
+                                    <ComboBox Margin="10,5" IsReadOnly="True" Grid.Row="1" Grid.Column="1" HorizontalAlignment="Left" VerticalContentAlignment="Center" MinWidth="180" SelectionChanged="TaxiComboBoxesSetSel">
                                         <ComboBoxItem Content="Пономеру столбца"/>
                                         <ComboBoxItem Content="По названию"/>
                                     </ComboBox>
-                                    <ComboBox Margin="10,5" SelectedIndex="1" IsReadOnly="True" Grid.Row="2" Grid.Column="1" HorizontalAlignment="Left" VerticalContentAlignment="Center" MinWidth="180">
+                                    <ComboBox Margin="10,5" IsReadOnly="True" Grid.Row="2" Grid.Column="1" HorizontalAlignment="Left" VerticalContentAlignment="Center" MinWidth="180" SelectionChanged="TaxiComboBoxesSetSel">
                                         <ComboBoxItem Content="Пономеру столбца"/>
                                         <ComboBoxItem Content="По названию"/>
                                     </ComboBox>
-                                    <TextBox Margin="10,5" TextWrapping="Wrap" Text="Имя пользователя" Grid.Column="2" Padding="10,5" VerticalContentAlignment="Center" HorizontalAlignment="Left" MinWidth="180"/>
-                                    <TextBox Margin="10,5" TextWrapping="Wrap" Text="Город" Grid.Column="2" Padding="10,5" VerticalContentAlignment="Center" Grid.Row="1" HorizontalAlignment="Left" MinWidth="180"/>
-                                    <TextBox Margin="10,5" TextWrapping="Wrap" Text="Сумма с НДС" Grid.Column="2" Padding="10,5" VerticalContentAlignment="Center" Grid.Row="2" HorizontalAlignment="Left" MinWidth="180"/>
-                                    <Label Content="4) Телефон" HorizontalAlignment="Left" Margin="10,6,0,6" VerticalAlignment="Center" Grid.Row="3">
+                                    <TextBox Margin="10,5" TextWrapping="Wrap" Grid.Column="2" Padding="10,5" VerticalContentAlignment="Center" HorizontalAlignment="Left" MinWidth="180" TextChanged="TaxiTextBoxesSetVal"  />
+                                    <TextBox Margin="10,5" TextWrapping="Wrap" Grid.Column="2" Padding="10,5" VerticalContentAlignment="Center" Grid.Row="1" HorizontalAlignment="Left" MinWidth="180" TextChanged="TaxiTextBoxesSetVal"/>
+                                    <TextBox Margin="10,5" TextWrapping="Wrap" Grid.Column="2" Padding="10,5" VerticalContentAlignment="Center" Grid.Row="2" HorizontalAlignment="Left" MinWidth="180" TextChanged="TaxiTextBoxesSetVal"/>
+                                    <Label Content="4) Телефон" HorizontalAlignment="Left" Margin="10,5" VerticalAlignment="Center" Grid.Row="3">
                                         <Label.Foreground>
                                             <SolidColorBrush Color="{DynamicResource ColorFont}"/>
                                         </Label.Foreground>
                                     </Label>
-                                    <ComboBox Margin="10,5,0,5" SelectedIndex="1" IsReadOnly="True" Grid.Row="3" Grid.Column="1" HorizontalAlignment="Left" VerticalContentAlignment="Center" MinWidth="180">
+                                    <ComboBox Margin="10,5" IsReadOnly="True" Grid.Row="3" Grid.Column="1" HorizontalAlignment="Left" VerticalContentAlignment="Center" MinWidth="180" SelectionChanged="TaxiComboBoxesSetSel">
                                         <ComboBoxItem Content="Пономеру столбца"/>
                                         <ComboBoxItem Content="По названию"/>
                                     </ComboBox>
-                                    <TextBox Margin="10,5" TextWrapping="Wrap" Text="Телефон" Grid.Column="2" Padding="10,5" VerticalContentAlignment="Center" Grid.Row="3" HorizontalAlignment="Left" MinWidth="180"/>
-                                    <Label Content="5) Подача" HorizontalAlignment="Left" Margin="10,6,0,6" VerticalAlignment="Center" Grid.Row="4">
+                                    <TextBox Margin="10,5" TextWrapping="Wrap" Grid.Column="2" Padding="10,5" VerticalContentAlignment="Center" Grid.Row="3" HorizontalAlignment="Left" MinWidth="180" TextChanged="TaxiTextBoxesSetVal"/>
+                                    <Label Content="5) Подача" HorizontalAlignment="Left" Margin="10,5" VerticalAlignment="Center" Grid.Row="4">
                                         <Label.Foreground>
                                             <SolidColorBrush Color="{DynamicResource ColorFont}"/>
                                         </Label.Foreground>
                                     </Label>
-                                    <ComboBox Margin="10,5,0,5" SelectedIndex="1" IsReadOnly="True" Grid.Row="4" Grid.Column="1" HorizontalAlignment="Left" VerticalContentAlignment="Center" MinWidth="180">
+                                    <ComboBox Margin="10,5" IsReadOnly="True" Grid.Row="4" Grid.Column="1" HorizontalAlignment="Left" VerticalContentAlignment="Center" MinWidth="180" SelectionChanged="TaxiComboBoxesSetSel">
                                         <ComboBoxItem Content="Пономеру столбца"/>
                                         <ComboBoxItem Content="По названию"/>
                                     </ComboBox>
-                                    <TextBox Margin="10,5,0,5" TextWrapping="Wrap" Text="Прибытие такси" Grid.Column="2" Padding="10,5" VerticalContentAlignment="Center" Grid.Row="4" HorizontalAlignment="Left" MinWidth="180"/>
-                                    <Label Content="6) Период" HorizontalAlignment="Left" Margin="10,6,0,6" VerticalAlignment="Center" Grid.Row="5">
+                                    <TextBox Margin="10,5" TextWrapping="Wrap" Grid.Column="2" Padding="10,5" VerticalContentAlignment="Center" Grid.Row="4" HorizontalAlignment="Left" MinWidth="180" TextChanged="TaxiTextBoxesSetVal"/>
+                                    <Label Content="6) Период" HorizontalAlignment="Left" Margin="10,5" VerticalAlignment="Center" Grid.Row="5">
                                         <Label.Foreground>
                                             <SolidColorBrush Color="{DynamicResource ColorFont}"/>
                                         </Label.Foreground>
                                     </Label>
-                                    <ComboBox Margin="10,5,0,5" SelectedIndex="1" IsReadOnly="True" Grid.Row="5" Grid.Column="1" HorizontalAlignment="Left" VerticalContentAlignment="Center" MinWidth="180">
+                                    <ComboBox Margin="10,5" IsReadOnly="True" Grid.Row="5" Grid.Column="1" HorizontalAlignment="Left" VerticalContentAlignment="Center" MinWidth="180" SelectionChanged="TaxiComboBoxesSetSel">
                                         <ComboBoxItem Content="Пономеру столбца"/>
                                         <ComboBoxItem Content="По названию"/>
                                     </ComboBox>
-                                    <TextBox Margin="10,5,0,5" TextWrapping="Wrap" Text="Период" Grid.Column="2" Padding="10,5" VerticalContentAlignment="Center" Grid.Row="5" HorizontalAlignment="Left" MinWidth="180"/>
+                                    <TextBox Margin="10,5" TextWrapping="Wrap" Grid.Column="2" Padding="10,5" VerticalContentAlignment="Center" Grid.Row="5" HorizontalAlignment="Left" MinWidth="180" TextChanged="TaxiTextBoxesSetVal"/>
 
                                 </Grid>
                             </StackPanel>

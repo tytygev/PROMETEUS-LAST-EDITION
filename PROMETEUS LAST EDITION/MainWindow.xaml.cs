@@ -1,5 +1,7 @@
-﻿using System.Collections.Generic;
+﻿using System;
+using System.Collections.Generic;
 using System.ComponentModel;
+using System.Linq;
 using System.Media;
 using System.Windows;
 using System.Windows.Controls;
@@ -51,12 +53,34 @@ namespace PROMETEUS_LAST_EDITION
         {
             InitializeComponent();
             InitializeButtons();
+            InitializeDefaultSettings();
 
             wav = new SoundPlayer();
             wav.Stream = Properties.Resources.ding;
 
-            currentVisibleView = StartPage;
+            currentVisibleView = StartPage;//
+
+
+
         }
+
+        private void InitializeDefaultSettings()
+        {
+            var DSettingsTaxiComboBoxes = DSettingsTaxiGrid.Children.OfType<ComboBox>().ToList(); //Все элементы типа ComboBox в таблице выбора идентефикации ячеек
+           for (int i = 0; i< DSettingsTaxiComboBoxes.Count; i++)
+            {
+                           DSettingsTaxiComboBoxes[i].SelectedIndex = Int32.Parse(Properties.Settings.Default.report_parser_setsel[i]);//установка значений из DefaultSettings
+                            }
+            var DSettingsTaxiTextBoxes = DSettingsTaxiGrid.Children.OfType<TextBox>().ToList(); //Все элементы типаTextBox в таблице выбора идентефикации ячеек
+            for (int i = 0; i < DSettingsTaxiTextBoxes.Count; i++)
+            {
+                DSettingsTaxiTextBoxes[i].Text = Properties.Settings.Default.report_parser_setval[i];//установка значений из DefaultSettings
+            }
+
+
+
+        }
+
 
         private void InitializeButtons()
         {
@@ -103,14 +127,9 @@ namespace PROMETEUS_LAST_EDITION
 
         private void droppanel_Drop(object sender, DragEventArgs e)
         {
-            if (e.Data.GetDataPresent(DataFormats.FileDrop))
-            {
-                // можно же перетянуть много файлов, так что....
-                string[] files = (string[])e.Data.GetData(DataFormats.FileDrop);
-                // делаешь что-то
-                dropfilelabel.Text = files[0];
-
-            }
+            string xlFileName = TaxiAnalyzer.GetReportFileName(e); //получение имени файла
+            dropfilelabel.Text = xlFileName;//вывод имени файла в label
+            TaxiAnalyzer.LoadReport(xlFileName); //Передача имени вайла на загрузку и анализ
         }
 
         // habr.com/ru/post/271483/
@@ -202,6 +221,39 @@ namespace PROMETEUS_LAST_EDITION
 
         }
 
+
+
+
+        private void TaxiComboBoxesSetSel (object sender, SelectionChangedEventArgs e)
+        {
+            var DSettingsTaxiComboBoxes = DSettingsTaxiGrid.Children.OfType<ComboBox>().ToList(); //Все элементы типа ComboBox в таблице выбора идентефикации ячеек
+            for (int i = 0; i < DSettingsTaxiComboBoxes.Count; i++)
+            {
+                if (ReferenceEquals(sender, DSettingsTaxiComboBoxes[i]))//Если есть совпадение
+                {
+                    Properties.Settings.Default.report_parser_setsel[i] = DSettingsTaxiComboBoxes[i].SelectedIndex.ToString();//Записываем индекс выбранного пункта в параметр
+                     Properties.Settings.Default.Save(); // Сохраняем переменные.
+                }
+                
+            }
+
+        }
+        private void TaxiTextBoxesSetVal(object sender, TextChangedEventArgs e)
+        {
+            var DSettingsTaxiTextBoxes = DSettingsTaxiGrid.Children.OfType<TextBox>().ToList(); //Все элементы типа TextBox в таблице выбора идентефикации ячеек
+            for (int i = 0; i < DSettingsTaxiTextBoxes.Count; i++)
+            {
+                if (ReferenceEquals(sender, DSettingsTaxiTextBoxes[i]))//Если есть совпадение
+                {
+                    Properties.Settings.Default.report_parser_setval[i] = DSettingsTaxiTextBoxes[i].Text;//Записываем значение выбранного пункта в параметр
+                    Properties.Settings.Default.Save(); // Сохраняем переменные.
+                }
+
+            }
+
+        }
+
+      
     }
    
 
