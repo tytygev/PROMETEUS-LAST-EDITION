@@ -27,5 +27,8 @@
   &lt;string&gt;Период&lt;/string&gt;
 &lt;/ArrayOfString&gt;</Value>
     </Setting>
+    <Setting Name="report_parser_sities" Type="System.String[,]" Scope="User">
+      <Value Profile="(Default)" />
+    </Setting>
   </Settings>
 </SettingsFile>

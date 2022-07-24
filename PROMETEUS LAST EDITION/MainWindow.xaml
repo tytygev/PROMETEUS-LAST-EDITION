@@ -2050,9 +2050,21 @@ P.S. Ответ на Основной Вопрос Жизни, Вселенно�
                                         <ComboBoxItem Content="Пономеру столбца"/>
                                         <ComboBoxItem Content="По названию"/>
                                     </ComboBox>
-                                    <TextBox Margin="10,5" TextWrapping="Wrap" Grid.Column="2" Padding="10,5" VerticalContentAlignment="Center" HorizontalAlignment="Left" MinWidth="180" TextChanged="TaxiTextBoxesSetVal"  />
-                                    <TextBox Margin="10,5" TextWrapping="Wrap" Grid.Column="2" Padding="10,5" VerticalContentAlignment="Center" Grid.Row="1" HorizontalAlignment="Left" MinWidth="180" TextChanged="TaxiTextBoxesSetVal"/>
-                                    <TextBox Margin="10,5" TextWrapping="Wrap" Grid.Column="2" Padding="10,5" VerticalContentAlignment="Center" Grid.Row="2" HorizontalAlignment="Left" MinWidth="180" TextChanged="TaxiTextBoxesSetVal"/>
+                                    <TextBox Margin="10,5" TextWrapping="Wrap" Grid.Column="2" Padding="10,5" VerticalContentAlignment="Center" HorizontalAlignment="Left" MinWidth="180" TextChanged="TaxiTextBoxesSetVal"  >
+                                        <TextBox.SelectionBrush>
+                                            <SolidColorBrush Color="{DynamicResource ColorFont}"/>
+                                        </TextBox.SelectionBrush>
+                                    </TextBox>
+                                    <TextBox Margin="10,5" TextWrapping="Wrap" Grid.Column="2" Padding="10,5" VerticalContentAlignment="Center" Grid.Row="1" HorizontalAlignment="Left" MinWidth="180" TextChanged="TaxiTextBoxesSetVal">
+                                        <TextBox.SelectionBrush>
+                                            <SolidColorBrush Color="{DynamicResource ColorFont}"/>
+                                        </TextBox.SelectionBrush>
+                                    </TextBox>
+                                    <TextBox Margin="10,5" TextWrapping="Wrap" Grid.Column="2" Padding="10,5" VerticalContentAlignment="Center" Grid.Row="2" HorizontalAlignment="Left" MinWidth="180" TextChanged="TaxiTextBoxesSetVal">
+                                        <TextBox.SelectionBrush>
+                                            <SolidColorBrush Color="{DynamicResource ColorFont}"/>
+                                        </TextBox.SelectionBrush>
+                                    </TextBox>
                                     <Label Content="4) Телефон" HorizontalAlignment="Left" Margin="10,5" VerticalAlignment="Center" Grid.Row="3">
                                         <Label.Foreground>
                                             <SolidColorBrush Color="{DynamicResource ColorFont}"/>
@@ -2062,7 +2074,11 @@ P.S. Ответ на Основной Вопрос Жизни, Вселенно�
                                         <ComboBoxItem Content="Пономеру столбца"/>
                                         <ComboBoxItem Content="По названию"/>
                                     </ComboBox>
-                                    <TextBox Margin="10,5" TextWrapping="Wrap" Grid.Column="2" Padding="10,5" VerticalContentAlignment="Center" Grid.Row="3" HorizontalAlignment="Left" MinWidth="180" TextChanged="TaxiTextBoxesSetVal"/>
+                                    <TextBox Margin="10,5" TextWrapping="Wrap" Grid.Column="2" Padding="10,5" VerticalContentAlignment="Center" Grid.Row="3" HorizontalAlignment="Left" MinWidth="180" TextChanged="TaxiTextBoxesSetVal">
+                                        <TextBox.SelectionBrush>
+                                            <SolidColorBrush Color="{DynamicResource ColorFont}"/>
+                                        </TextBox.SelectionBrush>
+                                    </TextBox>
                                     <Label Content="5) Подача" HorizontalAlignment="Left" Margin="10,5" VerticalAlignment="Center" Grid.Row="4">
                                         <Label.Foreground>
                                             <SolidColorBrush Color="{DynamicResource ColorFont}"/>
@@ -2072,7 +2088,11 @@ P.S. Ответ на Основной Вопрос Жизни, Вселенно�
                                         <ComboBoxItem Content="Пономеру столбца"/>
                                         <ComboBoxItem Content="По названию"/>
                                     </ComboBox>
-                                    <TextBox Margin="10,5" TextWrapping="Wrap" Grid.Column="2" Padding="10,5" VerticalContentAlignment="Center" Grid.Row="4" HorizontalAlignment="Left" MinWidth="180" TextChanged="TaxiTextBoxesSetVal"/>
+                                    <TextBox Margin="10,5" TextWrapping="Wrap" Grid.Column="2" Padding="10,5" VerticalContentAlignment="Center" Grid.Row="4" HorizontalAlignment="Left" MinWidth="180" TextChanged="TaxiTextBoxesSetVal">
+                                        <TextBox.SelectionBrush>
+                                            <SolidColorBrush Color="{DynamicResource ColorFont}"/>
+                                        </TextBox.SelectionBrush>
+                                    </TextBox>
                                     <Label Content="6) Период" HorizontalAlignment="Left" Margin="10,5" VerticalAlignment="Center" Grid.Row="5">
                                         <Label.Foreground>
                                             <SolidColorBrush Color="{DynamicResource ColorFont}"/>
@@ -2082,7 +2102,11 @@ P.S. Ответ на Основной Вопрос Жизни, Вселенно�
                                         <ComboBoxItem Content="Пономеру столбца"/>
                                         <ComboBoxItem Content="По названию"/>
                                     </ComboBox>
-                                    <TextBox Margin="10,5" TextWrapping="Wrap" Grid.Column="2" Padding="10,5" VerticalContentAlignment="Center" Grid.Row="5" HorizontalAlignment="Left" MinWidth="180" TextChanged="TaxiTextBoxesSetVal"/>
+                                    <TextBox Margin="10,5" TextWrapping="Wrap" Grid.Column="2" Padding="10,5" VerticalContentAlignment="Center" Grid.Row="5" HorizontalAlignment="Left" MinWidth="180" TextChanged="TaxiTextBoxesSetVal">
+                                        <TextBox.SelectionBrush>
+                                            <SolidColorBrush Color="{DynamicResource ColorFont}"/>
+                                        </TextBox.SelectionBrush>
+                                    </TextBox>
 
                                 </Grid>
                             </StackPanel>

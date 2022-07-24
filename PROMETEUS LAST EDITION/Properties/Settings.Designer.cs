@@ -74,5 +74,17 @@ namespace PROMETEUS_LAST_EDITION.Properties {
                 this["report_parser_setval"] = value;
             }
         }
+        
+        [global::System.Configuration.UserScopedSettingAttribute()]
+        [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+        [global::System.Configuration.DefaultSettingValueAttribute("")]
+        public string report_parser_sities {
+            get {
+                return ((string)(this["report_parser_sities"]));
+            }
+            set {
+                this["report_parser_sities"] = value;
+            }
+        }
     }
 }
