@@ -121,8 +121,9 @@ namespace PROMETEUS_LAST_EDITION
         {
             string xlFileName = TaxiAnalyzer.GetReportFileName(e); //получение имени файла
             dropfilelabel.Text = xlFileName;//вывод имени файла в label
-            TaxiAnalyzer.LoadReport(xlFileName); //Передача имени вайла на загрузку и анализ
-
+            //Передача имени вайла на загрузку и анализ
+            //TaxiAnalyzer.Taxichecksumm(dataArr);
+            TaxiAnalyzer.Filtration(TaxiAnalyzer.LoadReport(xlFileName));
         }
 
         

@@ -21,7 +21,10 @@ namespace PROMETEUS_LAST_EDITION
 {
     public static class TaxiAnalyzer
     {
-        public static void LoadReport(string xlFileName)
+
+
+
+        public static object[,] LoadReport(string xlFileName)
         {
 
             //поиск файла Excel
@@ -65,13 +68,13 @@ namespace PROMETEUS_LAST_EDITION
             releaseObject(xlSht);
             releaseObject(xlWB);
             releaseObject(xlApp);
-            taxichecksumm(dataArr);
+            return dataArr;
         }
 
-        public static void taxichecksumm(object[,] dataArr)
+        public static object[,] Filtration (object[,] dataArr)
         {
 
-            //добавляем столбцы в DataTable
+  //добавляем столбцы в DataTable
             for (int i = 1; i <= dataArr.GetUpperBound(1); i++)
             //   dt.Columns.Add((string)dataArr[1, i]);
 
@@ -88,6 +91,14 @@ namespace PROMETEUS_LAST_EDITION
             }
 
             // this.dataGridView1.DataSource = dt; //заполняем dataGridView
+
+            return dataArr;
+        }
+
+        public static void TaxiCheckSumm(object[,] dataArr)
+        {
+
+          
 
             MessageBox.Show("Конец", "Внимание", MessageBoxButton.OK, MessageBoxImage.Information);
 
@@ -125,6 +136,9 @@ namespace PROMETEUS_LAST_EDITION
         }
     }
 
+    public class TaxiReport
+    {
 
+    }
     
 }
