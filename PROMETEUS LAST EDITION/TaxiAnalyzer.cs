@@ -73,24 +73,16 @@ namespace PROMETEUS_LAST_EDITION
 
         public static object[,] Filtration (object[,] dataArr)
         {
-
-  //добавляем столбцы в DataTable
-            for (int i = 1; i <= dataArr.GetUpperBound(1); i++)
-            //   dt.Columns.Add((string)dataArr[1, i]);
-
-            //цикл по строкам массива
-            //for (int i = 2; i <= dataArr.GetUpperBound(0); i++)
-            {
-                //    dtRow = dt.NewRow();
-                //цикл по столбцам массива
+            var DSettingsTaxiComboBoxes = MainWindow.DSettingsTaxiGrid.Children.OfType<ComboBox>().ToList();
+            for (int i = 1; i <= dataArr.GetUpperBound(1); i++)                       {
+               
                 for (int n = 1; n <= dataArr.GetUpperBound(1); n++)
                 {
                     //       dtRow[n - 1] = dataArr[i, n];
+                    if (dataArr[i,n]=)
                 }
-                //   dt.Rows.Add(dtRow);
             }
 
-            // this.dataGridView1.DataSource = dt; //заполняем dataGridView
 
             return dataArr;
         }
@@ -142,3 +134,22 @@ namespace PROMETEUS_LAST_EDITION
     }
     
 }
+
+//data grid
+////добавляем столбцы в DataTable
+//for (int i = 1; i <= dataArr.GetUpperBound(1); i++)
+////   dt.Columns.Add((string)dataArr[1, i]);
+
+////цикл по строкам массива
+////for (int i = 2; i <= dataArr.GetUpperBound(0); i++)
+//{
+//    //    dtRow = dt.NewRow();
+//    //цикл по столбцам массива
+//    for (int n = 1; n <= dataArr.GetUpperBound(1); n++)
+//    {
+//        //       dtRow[n - 1] = dataArr[i, n];
+//    }
+//    //   dt.Rows.Add(dtRow);
+//}
+
+//// this.dataGridView1.DataSource = dt; //заполняем dataGridView
