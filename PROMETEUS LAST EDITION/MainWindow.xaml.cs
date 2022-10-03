@@ -58,6 +58,14 @@ namespace PROMETEUS_LAST_EDITION
 
             currentVisibleView = StartPage;//
 
+
+
+            var database = new DataBase();
+            //database.Data.City = new City("Mahachkala", false);
+            database.Save();
+
+            var settings = new Settings();
+            settings.Save();
         }
 
         private void InitializeDefaultSettings()
