@@ -73,15 +73,15 @@ namespace PROMETEUS_LAST_EDITION
 
         public static object[,] Filtration (object[,] dataArr)
         {
-            var DSettingsTaxiComboBoxes = MainWindow.DSettingsTaxiGrid.Children.OfType<ComboBox>().ToList();
-            for (int i = 1; i <= dataArr.GetUpperBound(1); i++)                       {
+            //var DSettingsTaxiComboBoxes = MainWindow.DSettingsTaxiGrid.Children.OfType<ComboBox>().ToList();
+            //for (int i = 1; i <= dataArr.GetUpperBound(1); i++)                       {
                
-                for (int n = 1; n <= dataArr.GetUpperBound(1); n++)
-                {
-                    //       dtRow[n - 1] = dataArr[i, n];
-                    if (dataArr[i,n]=)
-                }
-            }
+            //    for (int n = 1; n <= dataArr.GetUpperBound(1); n++)
+            //    {
+            //        //       dtRow[n - 1] = dataArr[i, n];
+            //        if (dataArr[i,n]=)
+            //    }
+            //}
 
 
             return dataArr;

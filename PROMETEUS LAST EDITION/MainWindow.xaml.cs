@@ -41,6 +41,9 @@ namespace PROMETEUS_LAST_EDITION
         {
             //параметр="{Binding Source={x:Static p:Settings.Default}, Path=параметр, Mode=TwoWay}"
             //SettingsBindableAttribute.Default.Save();
+            Name = new FileSaveSystem<DatabaseData>.DatabaseData
+
+
             base.OnClosing(e);
         }
         
