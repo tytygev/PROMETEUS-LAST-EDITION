@@ -41,14 +41,18 @@ namespace PROMETEUS_LAST_EDITION
         {
             //параметр="{Binding Source={x:Static p:Settings.Default}, Path=параметр, Mode=TwoWay}"
             //SettingsBindableAttribute.Default.Save();
-            Name = new FileSaveSystem<DatabaseData>.DatabaseData
+            
+            
 
+            var settings = new Settings();
+            settings.Save();
 
             base.OnClosing(e);
         }
         
         private SoundPlayer wav;
         private Grid currentVisibleView;
+        
 
         public MainWindow()
         {
@@ -61,14 +65,18 @@ namespace PROMETEUS_LAST_EDITION
 
             currentVisibleView = StartPage;//
 
+            
+        var database = new DataBase();
+            database.Load();
+City c = new City("KANDALAKSHA", true);
+           City a = new City("ffsffdfdfdfdf", true);
+            City b = new  City("Мухосранск", false);
+            database.Data.City = a + b + c;
 
 
-            var database = new DataBase();
-            //database.Data.City = new City("Mahachkala", false);
+
             database.Save();
 
-            var settings = new Settings();
-            settings.Save();
         }
 
         private void InitializeDefaultSettings()
