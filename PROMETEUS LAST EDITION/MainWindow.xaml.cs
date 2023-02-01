@@ -58,6 +58,16 @@ namespace PROMETEUS_LAST_EDITION
 
             currentVisibleView = StartPage;//
 
+            List<List<string>> listOfLists = new List<List<string>>();
+
+            listOfLists=FileFX.LoadDSV("prop.txt", char.Parse(";"));
+
+            listOfLists[1][1] = "эщкере";
+            FileFX.SaveDSV(listOfLists,"prop.txt", char.Parse(";"));//изикатка
+
+           
+
+
         }
 
         private void InitializeDefaultSettings()
@@ -123,7 +133,7 @@ namespace PROMETEUS_LAST_EDITION
             dropfilelabel.Text = xlFileName;//вывод имени файла в label
             //Передача имени вайла на загрузку и анализ
             //TaxiAnalyzer.Taxichecksumm(dataArr);
-            TaxiAnalyzer.Filtration(TaxiAnalyzer.LoadReport(xlFileName));
+            //TaxiAnalyzer.Filtration(TaxiAnalyzer.LoadReport(xlFileName));
         }
 
         
