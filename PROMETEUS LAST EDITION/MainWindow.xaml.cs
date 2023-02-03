@@ -58,12 +58,11 @@ namespace PROMETEUS_LAST_EDITION
 
             currentVisibleView = StartPage;//
 
-            List<List<string>> listOfLists = new List<List<string>>();
-
-            listOfLists=FileFX.LoadDSV("prop.txt", char.Parse(";"));
-
-            listOfLists[1][1] = "эщкере";
-            FileFX.SaveDSV(listOfLists,"prop.txt", char.Parse(";"));//изикатка
+            //пример использования функции сохранения и загрузки:
+            //List<List<string>> listOfLists = new List<List<string>>();
+            //listOfLists=FileFX.LoadDSV("prop.txt", char.Parse(";"));
+            //listOfLists[1][1] = "эщкере";
+            //FileFX.SaveDSV(listOfLists,"prop.txt", char.Parse(";"));//изикатка
 
            
 

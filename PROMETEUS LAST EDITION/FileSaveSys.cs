@@ -44,27 +44,14 @@ namespace PROMETEUS_LAST_EDITION
         public static void SaveDSV(List<List<string>> listOfLists, string path, char separator)
         {
           string[] lines = new string[listOfLists.Count];
-            //string[] subs = new string[listOfLists[0].Count];
-          // string[,] arrays = new string[listOfLists.Count, listOfLists[0].Count];
-
-            for (int i = 0; i < listOfLists.Count; i++)
+            for (int i = 0; i < listOfLists.Count; i++) //формируем массив строк с сепараторами из списка списков
             {
-               // string[] subs = new string[listOfLists[i].Count];
-                string line="";
-
+                string line = "";
                 for (int j = 0; j < listOfLists[i].Count; j++)
-                {
-                   // arrays[i, j] = listOfLists[i][j];
-                    //subs[j] = listOfLists[i][j];
-                    line += listOfLists[i][j];
-                    if (j - listOfLists[i].Count + 1 != 0) {line += separator;}
-                }
+                { line += listOfLists[i][j]; if (j - listOfLists[i].Count + 1 != 0) { line += separator; } }
                 lines[i] = line;
             }
-
             File.WriteAllLines(path, lines);
-
-
         }
 
         public static object[,] LoadXLS(string xlFileName)

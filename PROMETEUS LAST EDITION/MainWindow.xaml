@@ -1519,7 +1519,7 @@ P.S. Ответ на Основной Вопрос Жизни, Вселенно�
         -->
         </Grid>
 
-        <Grid x:Name="KitSetPage" Grid.Column="1" Margin="0" ScrollViewer.VerticalScrollBarVisibility="Auto" Visibility="Hidden">
+        <Grid x:Name="KitSetPage" Grid.Column="1" Margin="0" ScrollViewer.VerticalScrollBarVisibility="Auto">
             <Grid.Background>
                 <SolidColorBrush Color="{DynamicResource ColorSub}"/>
             </Grid.Background>
@@ -1545,236 +1545,329 @@ P.S. Ответ на Основной Вопрос Жизни, Вселенно�
                     <SolidColorBrush Color="{DynamicResource ColorAltFont}"/>
                 </GroupBox.Foreground>
 
-                <Grid Margin="10" HorizontalAlignment="Center">
+                <Grid Margin="10">
                     <Grid.ColumnDefinitions>
                         <ColumnDefinition Width="auto"/>
                         <ColumnDefinition Width="auto"/>
                     </Grid.ColumnDefinitions>
-                    <StackPanel HorizontalAlignment="Left" Margin="0,0,10,0" VerticalAlignment="Top">
-                        <TextBlock HorizontalAlignment="Left" Margin="10,5" TextWrapping="Wrap" FontSize="14" FontWeight="Normal" TextDecorations="{x:Null}">
-                            <TextBlock.Foreground>
-                                <SolidColorBrush Color="{DynamicResource ColorFont}"/>
-                            </TextBlock.Foreground><Run Text="Организация"/></TextBlock>
-                        <ComboBox HorizontalAlignment="Right" Margin="10,5,10,15" Text="" MinWidth="150" FontSize="14" FontWeight="Normal" Width="181" Padding="2,4,2,2">
-                            <ComboBox.Foreground>
-                                <LinearGradientBrush EndPoint="0.5,1" StartPoint="0.5,0">
-                                    <GradientStop Color="Black" Offset="0"/>
-                                    <GradientStop Color="{DynamicResource ColorAltFont}" Offset="0.37"/>
-                                </LinearGradientBrush>
-                            </ComboBox.Foreground>
-                            <ComboBox.BorderBrush>
-                                <SolidColorBrush Color="{DynamicResource ColorNuans}"/>
-                            </ComboBox.BorderBrush>
-                            <ComboBox.Background>
-                                <SolidColorBrush Color="{DynamicResource ColorMain}"/>
-                            </ComboBox.Background>
-                            <ComboBoxItem Content="" Width="148">
-                                <ComboBoxItem.Foreground>
+                    <ScrollViewer VerticalScrollBarVisibility="Visible" HorizontalScrollBarVisibility="Disabled" HorizontalAlignment="Left" Margin="0,0,0,0">
+                        <StackPanel HorizontalAlignment="Left" Margin="0" VerticalAlignment="Top" CanVerticallyScroll="True" ScrollViewer.CanContentScroll="True">
+                            <TextBlock HorizontalAlignment="Left" Margin="10,5" TextWrapping="Wrap" FontSize="14" FontWeight="Normal" TextDecorations="{x:Null}">
+                                <TextBlock.Foreground>
                                     <SolidColorBrush Color="{DynamicResource ColorFont}"/>
-                                </ComboBoxItem.Foreground>
-                            </ComboBoxItem>
-                            <ComboBoxItem Content="">
-                                <ComboBoxItem.Foreground>
-                                    <SolidColorBrush Color="{DynamicResource ColorFont}"/>
-                                </ComboBoxItem.Foreground>
-                            </ComboBoxItem>
-                        </ComboBox>
-                        <TextBlock HorizontalAlignment="Left" Margin="10,5" TextWrapping="Wrap" Text="Механик" FontSize="14" FontWeight="Normal" TextDecorations="{x:Null}">
-                            <TextBlock.Foreground>
-                                <SolidColorBrush Color="{DynamicResource ColorFont}"/>
-                            </TextBlock.Foreground>
-                        </TextBlock>
-                        <ComboBox HorizontalAlignment="Right" Margin="10,5,10,15" Text="" MinWidth="150" FontSize="14" FontWeight="Normal" Width="181" Padding="2,4,2,2" IsEditable="True">
-                            <ComboBox.Foreground>
-                                <LinearGradientBrush EndPoint="0.5,1" StartPoint="0.5,0">
-                                    <GradientStop Color="Black" Offset="0"/>
-                                    <GradientStop Color="#FFFF9523" Offset="0.37"/>
-                                </LinearGradientBrush>
-                            </ComboBox.Foreground>
-                            <ComboBox.BorderBrush>
-                                <SolidColorBrush Color="{DynamicResource ColorNuans}"/>
-                            </ComboBox.BorderBrush>
-                            <ComboBox.Background>
-                                <SolidColorBrush Color="{DynamicResource ColorMain}"/>
-                            </ComboBox.Background>
-                        </ComboBox>
-
-                        <CheckBox Content="Не печатать пустые" Margin="10,5,10,15" FontSize="14" FontWeight="Normal" BorderThickness="1" Padding="5,0,0,0" >
-                            <CheckBox.Foreground>
-                                <SolidColorBrush Color="{DynamicResource ColorFont}"/>
-                            </CheckBox.Foreground>
-                            <CheckBox.BorderBrush>
-                                <SolidColorBrush Color="{DynamicResource ColorNuans}"/>
-                            </CheckBox.BorderBrush>
-                            <CheckBox.Background>
-                                <SolidColorBrush Color="{DynamicResource ColorMain}"/>
-                            </CheckBox.Background>
-
-                        </CheckBox>
-                        <CheckBox Content="Печатать номера путёвок" Margin="10,5" FontSize="14" FontWeight="Normal" BorderThickness="1" Padding="5,0,0,0">
-                            <CheckBox.Background>
-                                <SolidColorBrush Color="{DynamicResource ColorMain}"/>
-                            </CheckBox.Background>
-                            <CheckBox.Foreground>
-                                <SolidColorBrush Color="{DynamicResource ColorFont}"/>
-                            </CheckBox.Foreground>
-                            <CheckBox.BorderBrush>
-                                <SolidColorBrush Color="{DynamicResource ColorNuans}"/>
-                            </CheckBox.BorderBrush>
-
-                        </CheckBox>
-                        <Grid Margin="10,5,10,15">
-                            <Grid.ColumnDefinitions>
-                                <ColumnDefinition Width="auto"/>
-                                <ColumnDefinition Width="*"/>
-                            </Grid.ColumnDefinitions>
-                            <TextBlock Text="Начать с номера:" FontSize="14" FontWeight="Normal" Padding="0,0,5,0" Margin="0" VerticalAlignment="Center">
+                                </TextBlock.Foreground><Run Text="Организация"/></TextBlock>
+                            <ComboBox HorizontalAlignment="Right" Margin="10,5,10,15" Text="" MinWidth="150" FontSize="14" FontWeight="Normal" Width="181" Padding="2,4,2,2">
+                                <ComboBox.Foreground>
+                                    <LinearGradientBrush EndPoint="0.5,1" StartPoint="0.5,0">
+                                        <GradientStop Color="Black" Offset="0"/>
+                                        <GradientStop Color="{DynamicResource ColorAltFont}" Offset="0.37"/>
+                                    </LinearGradientBrush>
+                                </ComboBox.Foreground>
+                                <ComboBox.BorderBrush>
+                                    <SolidColorBrush Color="{DynamicResource ColorNuans}"/>
+                                </ComboBox.BorderBrush>
+                                <ComboBox.Background>
+                                    <SolidColorBrush Color="{DynamicResource ColorMain}"/>
+                                </ComboBox.Background>
+                                <ComboBoxItem Content="" Width="148">
+                                    <ComboBoxItem.Foreground>
+                                        <SolidColorBrush Color="{DynamicResource ColorFont}"/>
+                                    </ComboBoxItem.Foreground>
+                                </ComboBoxItem>
+                                <ComboBoxItem Content="">
+                                    <ComboBoxItem.Foreground>
+                                        <SolidColorBrush Color="{DynamicResource ColorFont}"/>
+                                    </ComboBoxItem.Foreground>
+                                </ComboBoxItem>
+                            </ComboBox>
+                            <TextBlock HorizontalAlignment="Left" Margin="10,5" TextWrapping="Wrap" Text="Механик" FontSize="14" FontWeight="Normal" TextDecorations="{x:Null}">
                                 <TextBlock.Foreground>
                                     <SolidColorBrush Color="{DynamicResource ColorFont}"/>
                                 </TextBlock.Foreground>
-
                             </TextBlock>
-
-                            <TextBox Margin="0" TextWrapping="Wrap" FontSize="14" FontWeight="Bold" HorizontalContentAlignment="Center" Grid.Column="1" VerticalContentAlignment="Center" Padding="2,4,2,2" UndoLimit="6" SpellCheck.IsEnabled="True" Width="65" Text="999999" FontStyle="Italic">
-                                <TextBox.Foreground>
-                                    <LinearGradientBrush EndPoint="0.5,1" MappingMode="RelativeToBoundingBox" StartPoint="0.5,0">
-                                        <GradientStop Color="#FF282828" Offset="0.1"/>
-                                        <GradientStop Color="#FFFF9523" Offset="0.4"/>
+                            <ComboBox HorizontalAlignment="Right" Margin="10,5,10,15" Text="" MinWidth="150" FontSize="14" FontWeight="Normal" Width="181" Padding="2,4,2,2" IsEditable="True">
+                                <ComboBox.Foreground>
+                                    <LinearGradientBrush EndPoint="0.5,1" StartPoint="0.5,0">
+                                        <GradientStop Color="Black" Offset="0"/>
+                                        <GradientStop Color="#FFFF9523" Offset="0.37"/>
                                     </LinearGradientBrush>
-                                </TextBox.Foreground>
-                                <TextBox.CaretBrush>
-                                    <SolidColorBrush Color="{DynamicResource ColorFont}"/>
-                                </TextBox.CaretBrush>
-                                <TextBox.SelectionBrush>
-                                    <SolidColorBrush Color="{DynamicResource ColorFont}"/>
-                                </TextBox.SelectionBrush>
-                                <TextBox.BorderBrush>
+                                </ComboBox.Foreground>
+                                <ComboBox.BorderBrush>
                                     <SolidColorBrush Color="{DynamicResource ColorNuans}"/>
-                                </TextBox.BorderBrush>
-                                <TextBox.Background>
+                                </ComboBox.BorderBrush>
+                                <ComboBox.Background>
                                     <SolidColorBrush Color="{DynamicResource ColorMain}"/>
-                                </TextBox.Background>
-                            </TextBox>
+                                </ComboBox.Background>
+                            </ComboBox>
+                            <TextBlock HorizontalAlignment="Left" Margin="10,5" TextWrapping="Wrap" Text="Диспетчер-нарядчик" FontSize="14" FontWeight="Normal" TextDecorations="{x:Null}">
+                                <TextBlock.Foreground>
+                                    <SolidColorBrush Color="{DynamicResource ColorFont}"/>
+                                </TextBlock.Foreground>
+                            </TextBlock>
+                            <ComboBox HorizontalAlignment="Right" Margin="10,5,10,15" Text="" MinWidth="150" FontSize="14" FontWeight="Normal" Width="181" Padding="2,4,2,2" IsEditable="True">
+                                <ComboBox.Foreground>
+                                    <LinearGradientBrush EndPoint="0.5,1" StartPoint="0.5,0">
+                                        <GradientStop Color="Black" Offset="0"/>
+                                        <GradientStop Color="#FFFF9523" Offset="0.37"/>
+                                    </LinearGradientBrush>
+                                </ComboBox.Foreground>
+                                <ComboBox.BorderBrush>
+                                    <SolidColorBrush Color="{DynamicResource ColorNuans}"/>
+                                </ComboBox.BorderBrush>
+                                <ComboBox.Background>
+                                    <SolidColorBrush Color="{DynamicResource ColorMain}"/>
+                                </ComboBox.Background>
+                            </ComboBox>
+                            <CheckBox Content="Не печатать пустые" Margin="10,5,10,15" FontSize="14" FontWeight="Normal" BorderThickness="1" Padding="5,0,0,0" IsChecked="True" >
+                                <CheckBox.Foreground>
+                                    <SolidColorBrush Color="{DynamicResource ColorFont}"/>
+                                </CheckBox.Foreground>
+                                <CheckBox.BorderBrush>
+                                    <SolidColorBrush Color="{DynamicResource ColorNuans}"/>
+                                </CheckBox.BorderBrush>
+                                <CheckBox.Background>
+                                    <SolidColorBrush Color="{DynamicResource ColorMain}"/>
+                                </CheckBox.Background>
 
-                        </Grid>
-                        <GroupBox Header="" Margin="10,5,10,15" FontSize="12" FontWeight="Normal" Padding="0" UseLayoutRounding="True" BorderThickness="1,0,1,1" VerticalAlignment="Top">
-
-                            <GroupBox.Foreground>
-                                <SolidColorBrush Color="{DynamicResource ColorFont}"/>
-                            </GroupBox.Foreground>
-                            <GroupBox.BorderBrush>
-                                <SolidColorBrush Color="{DynamicResource ColorNuans}"/>
-                            </GroupBox.BorderBrush>
-
-                            <StackPanel VerticalAlignment="Top">
-                                <CheckBox Content="Печатать дату" Margin="0,-15,0,5" FontSize="14" FontWeight="Normal" BorderThickness="1" Padding="5,0,0,0" VerticalAlignment="Top" IsChecked="True">
+                            </CheckBox>
+                            <Grid Margin="10,5,10,15" VerticalAlignment="Center">
+                                <Grid.ColumnDefinitions>
+                                    <ColumnDefinition Width="auto"/>
+                                    <ColumnDefinition Width="*"/>
+                                </Grid.ColumnDefinitions>
+                                <CheckBox Content="Печатать серию:" Margin="0,0,10,0" FontSize="14" FontWeight="Normal" BorderThickness="1" Padding="5,0,0,0" IsChecked="True" VerticalAlignment="Center">
+                                    <CheckBox.Background>
+                                        <SolidColorBrush Color="{DynamicResource ColorMain}"/>
+                                    </CheckBox.Background>
                                     <CheckBox.Foreground>
                                         <SolidColorBrush Color="{DynamicResource ColorFont}"/>
                                     </CheckBox.Foreground>
                                     <CheckBox.BorderBrush>
                                         <SolidColorBrush Color="{DynamicResource ColorNuans}"/>
                                     </CheckBox.BorderBrush>
+
+                                </CheckBox>
+
+                                <TextBox Margin="0" TextWrapping="Wrap" FontSize="14" FontWeight="Bold" Grid.Column="1" VerticalContentAlignment="Bottom" Padding="2,2,4,2" UndoLimit="6" SpellCheck.IsEnabled="True" Width="40" Text="77" FontStyle="Italic" HorizontalContentAlignment="Right" HorizontalAlignment="Left" VerticalAlignment="Top">
+                                    <TextBox.Foreground>
+                                        <LinearGradientBrush EndPoint="0.5,1" MappingMode="RelativeToBoundingBox" StartPoint="0.5,0">
+                                            <GradientStop Color="#FF282828" Offset="0.1"/>
+                                            <GradientStop Color="#FFFF9523" Offset="0.4"/>
+                                        </LinearGradientBrush>
+                                    </TextBox.Foreground>
+                                    <TextBox.CaretBrush>
+                                        <SolidColorBrush Color="{DynamicResource ColorFont}"/>
+                                    </TextBox.CaretBrush>
+                                    <TextBox.SelectionBrush>
+                                        <SolidColorBrush Color="{DynamicResource ColorFont}"/>
+                                    </TextBox.SelectionBrush>
+                                    <TextBox.BorderBrush>
+                                        <SolidColorBrush Color="{DynamicResource ColorNuans}"/>
+                                    </TextBox.BorderBrush>
+                                    <TextBox.Background>
+                                        <SolidColorBrush Color="{DynamicResource ColorMain}"/>
+                                    </TextBox.Background>
+                                </TextBox>
+
+                            </Grid>
+                            <Grid Margin="10,5,10,15" VerticalAlignment="Center">
+                                <Grid.ColumnDefinitions>
+                                    <ColumnDefinition Width="auto"/>
+                                    <ColumnDefinition Width="*"/>
+                                </Grid.ColumnDefinitions>
+                                <CheckBox Content="Печатать номера&#xD;&#xA;начиная с:" Margin="0,0,10,0" FontSize="14" FontWeight="Normal" BorderThickness="1" Padding="5,0,0,0" IsChecked="True" VerticalAlignment="Center">
                                     <CheckBox.Background>
                                         <SolidColorBrush Color="{DynamicResource ColorMain}"/>
                                     </CheckBox.Background>
-
-                                </CheckBox>
-                                <RadioButton Content="На следующий день" Margin="10,5" FontSize="14">
-                                    <RadioButton.Background>
-                                        <SolidColorBrush Color="{DynamicResource ColorMain}"/>
-                                    </RadioButton.Background>
-                                    <RadioButton.BorderBrush>
-                                        <SolidColorBrush Color="{DynamicResource ColorNuans}"/>
-                                    </RadioButton.BorderBrush>
-                                    <RadioButton.Foreground>
-                                        <SolidColorBrush Color="{DynamicResource ColorFont}"/>
-                                    </RadioButton.Foreground>
-                                </RadioButton>
-                                <RadioButton Content="На сегодня" Margin="10,5" IsChecked="True" FontSize="14">
-                                    <RadioButton.Background>
-                                        <SolidColorBrush Color="{DynamicResource ColorMain}"/>
-                                    </RadioButton.Background>
-                                    <RadioButton.BorderBrush>
-                                        <SolidColorBrush Color="{DynamicResource ColorNuans}"/>
-                                    </RadioButton.BorderBrush>
-                                    <RadioButton.Foreground>
-                                        <SolidColorBrush Color="{DynamicResource ColorFont}"/>
-                                    </RadioButton.Foreground>
-                                </RadioButton>
-                                <RadioButton Content="Выбрать дату" Margin="10,5" FontSize="14">
-                                    <RadioButton.Background>
-                                        <SolidColorBrush Color="{DynamicResource ColorMain}"/>
-                                    </RadioButton.Background>
-                                    <RadioButton.BorderBrush>
-                                        <SolidColorBrush Color="{DynamicResource ColorNuans}"/>
-                                    </RadioButton.BorderBrush>
-                                    <RadioButton.Foreground>
-                                        <SolidColorBrush Color="{DynamicResource ColorFont}"/>
-                                    </RadioButton.Foreground>
-                                </RadioButton>
-                                <CheckBox Content="На два дня" Margin="10,5" FontSize="14" FontWeight="Normal" BorderThickness="1" Padding="5,0,0,0" >
                                     <CheckBox.Foreground>
                                         <SolidColorBrush Color="{DynamicResource ColorFont}"/>
                                     </CheckBox.Foreground>
                                     <CheckBox.BorderBrush>
                                         <SolidColorBrush Color="{DynamicResource ColorNuans}"/>
                                     </CheckBox.BorderBrush>
-                                    <CheckBox.Background>
-                                        <SolidColorBrush Color="{DynamicResource ColorMain}"/>
-                                    </CheckBox.Background>
 
                                 </CheckBox>
-                                <CheckBox Content="Не печатать число месяца" Margin="10,5" FontSize="14" FontWeight="Normal" BorderThickness="1" Padding="5,0,0,0" >
-                                    <CheckBox.Foreground>
+
+                                <TextBox Margin="0" TextWrapping="Wrap" FontSize="14" FontWeight="Bold" HorizontalContentAlignment="Right" Grid.Column="1" VerticalContentAlignment="Bottom" Padding="2,2,4,2" UndoLimit="6" SpellCheck.IsEnabled="True" Width="65" Text="999999" FontStyle="Italic" HorizontalAlignment="Left" VerticalAlignment="Top">
+                                    <TextBox.Foreground>
+                                        <LinearGradientBrush EndPoint="0.5,1" MappingMode="RelativeToBoundingBox" StartPoint="0.5,0">
+                                            <GradientStop Color="#FF282828" Offset="0.1"/>
+                                            <GradientStop Color="#FFFF9523" Offset="0.4"/>
+                                        </LinearGradientBrush>
+                                    </TextBox.Foreground>
+                                    <TextBox.CaretBrush>
                                         <SolidColorBrush Color="{DynamicResource ColorFont}"/>
-                                    </CheckBox.Foreground>
-                                    <CheckBox.BorderBrush>
+                                    </TextBox.CaretBrush>
+                                    <TextBox.SelectionBrush>
+                                        <SolidColorBrush Color="{DynamicResource ColorFont}"/>
+                                    </TextBox.SelectionBrush>
+                                    <TextBox.BorderBrush>
                                         <SolidColorBrush Color="{DynamicResource ColorNuans}"/>
-                                    </CheckBox.BorderBrush>
-                                    <CheckBox.Background>
+                                    </TextBox.BorderBrush>
+                                    <TextBox.Background>
                                         <SolidColorBrush Color="{DynamicResource ColorMain}"/>
-                                    </CheckBox.Background>
+                                    </TextBox.Background>
+                                </TextBox>
 
-                                </CheckBox>
-                            </StackPanel>
+                            </Grid>
+                            <GroupBox Header="" Margin="10,5,10,15" FontSize="12" FontWeight="Normal" Padding="0" UseLayoutRounding="True" BorderThickness="1,0,1,1" VerticalAlignment="Top">
 
-                        </GroupBox>
-                        <TextBlock Text="Образец даты:" FontSize="14" FontWeight="Normal" Padding="0,0,5,0" VerticalAlignment="Center" Width="121" HorizontalAlignment="Left" Margin="10,5">
-                            <TextBlock.Foreground>
-                                <SolidColorBrush Color="{DynamicResource ColorNuans}"/>
-                            </TextBlock.Foreground>
-                        </TextBlock>
-                        <TextBox TextWrapping="Wrap" FontSize="14" HorizontalContentAlignment="Center" FontStyle="Italic" VerticalContentAlignment="Center" Padding="2,4,2,2" UndoLimit="6" SpellCheck.IsEnabled="True" Text="22 сентября 2021 года" IsEnabled="False" Height="20" Width="254" Margin="10,5">
-                            <TextBox.Foreground>
-                                <SolidColorBrush Color="{DynamicResource ColorFont}"/>
-                            </TextBox.Foreground>
-                            <TextBox.CaretBrush>
-                                <SolidColorBrush Color="{DynamicResource ColorFont}"/>
-                            </TextBox.CaretBrush>
-                            <TextBox.SelectionBrush>
-                                <SolidColorBrush Color="{DynamicResource ColorFont}"/>
-                            </TextBox.SelectionBrush>
-                            <TextBox.BorderBrush>
-                                <SolidColorBrush Color="{DynamicResource ColorNuans}"/>
-                            </TextBox.BorderBrush>
-                            <TextBox.Background>
-                                <SolidColorBrush Color="{DynamicResource ColorMain}"/>
-                            </TextBox.Background>
-                        </TextBox>
+                                <GroupBox.Foreground>
+                                    <SolidColorBrush Color="{DynamicResource ColorFont}"/>
+                                </GroupBox.Foreground>
+                                <GroupBox.BorderBrush>
+                                    <SolidColorBrush Color="{DynamicResource ColorNuans}"/>
+                                </GroupBox.BorderBrush>
+
+                                <StackPanel VerticalAlignment="Top">
+                                    <CheckBox Content="Печатать дату печати" Margin="-5,-15,0,5" FontSize="14" FontWeight="Normal" BorderThickness="1" Padding="5,0,0,0" VerticalAlignment="Top" IsChecked="True">
+                                        <CheckBox.Foreground>
+                                            <SolidColorBrush Color="{DynamicResource ColorFont}"/>
+                                        </CheckBox.Foreground>
+                                        <CheckBox.BorderBrush>
+                                            <SolidColorBrush Color="{DynamicResource ColorNuans}"/>
+                                        </CheckBox.BorderBrush>
+                                        <CheckBox.Background>
+                                            <SolidColorBrush Color="{DynamicResource ColorMain}"/>
+                                        </CheckBox.Background>
+
+                                    </CheckBox>
+                                    <RadioButton Content="Текущую" Margin="10,5" FontSize="14">
+                                        <RadioButton.Background>
+                                            <SolidColorBrush Color="{DynamicResource ColorMain}"/>
+                                        </RadioButton.Background>
+                                        <RadioButton.BorderBrush>
+                                            <SolidColorBrush Color="{DynamicResource ColorNuans}"/>
+                                        </RadioButton.BorderBrush>
+                                        <RadioButton.Foreground>
+                                            <SolidColorBrush Color="{DynamicResource ColorFont}"/>
+                                        </RadioButton.Foreground>
+                                    </RadioButton>
+                                    <RadioButton Content="Завтрашнюю" Margin="10,5" IsChecked="True" FontSize="14">
+                                        <RadioButton.Background>
+                                            <SolidColorBrush Color="{DynamicResource ColorMain}"/>
+                                        </RadioButton.Background>
+                                        <RadioButton.BorderBrush>
+                                            <SolidColorBrush Color="{DynamicResource ColorNuans}"/>
+                                        </RadioButton.BorderBrush>
+                                        <RadioButton.Foreground>
+                                            <SolidColorBrush Color="{DynamicResource ColorFont}"/>
+                                        </RadioButton.Foreground>
+                                    </RadioButton>
+                                    <RadioButton Content="Выбрать дату" Margin="10,5" FontSize="14">
+                                        <RadioButton.Background>
+                                            <SolidColorBrush Color="{DynamicResource ColorMain}"/>
+                                        </RadioButton.Background>
+                                        <RadioButton.BorderBrush>
+                                            <SolidColorBrush Color="{DynamicResource ColorNuans}"/>
+                                        </RadioButton.BorderBrush>
+                                        <RadioButton.Foreground>
+                                            <SolidColorBrush Color="{DynamicResource ColorFont}"/>
+                                        </RadioButton.Foreground>
+                                    </RadioButton>
+                                    <CheckBox Content="Не печатать число месяца" Margin="10,5" FontSize="14" FontWeight="Normal" BorderThickness="1" Padding="5,0,0,0" >
+                                        <CheckBox.Foreground>
+                                            <SolidColorBrush Color="{DynamicResource ColorFont}"/>
+                                        </CheckBox.Foreground>
+                                        <CheckBox.BorderBrush>
+                                            <SolidColorBrush Color="{DynamicResource ColorNuans}"/>
+                                        </CheckBox.BorderBrush>
+                                        <CheckBox.Background>
+                                            <SolidColorBrush Color="{DynamicResource ColorMain}"/>
+                                        </CheckBox.Background>
+
+                                    </CheckBox>
+                                </StackPanel>
+
+                            </GroupBox>
+                            <GroupBox Header="" Margin="10,5,10,15" FontSize="12" FontWeight="Normal" Padding="0" UseLayoutRounding="True" BorderThickness="1,0,1,1" VerticalAlignment="Top">
+
+                                <GroupBox.Foreground>
+                                    <SolidColorBrush Color="{DynamicResource ColorFont}"/>
+                                </GroupBox.Foreground>
+                                <GroupBox.BorderBrush>
+                                    <SolidColorBrush Color="{DynamicResource ColorNuans}"/>
+                                </GroupBox.BorderBrush>
+
+                                <StackPanel VerticalAlignment="Top">
+                                    <CheckBox Content="Печатать срок действия" Margin="-5,-15,0,5" FontSize="14" FontWeight="Normal" BorderThickness="1" Padding="5,0,0,0" VerticalAlignment="Top" IsChecked="True">
+                                        <CheckBox.Foreground>
+                                            <SolidColorBrush Color="{DynamicResource ColorFont}"/>
+                                        </CheckBox.Foreground>
+                                        <CheckBox.BorderBrush>
+                                            <SolidColorBrush Color="{DynamicResource ColorNuans}"/>
+                                        </CheckBox.BorderBrush>
+                                        <CheckBox.Background>
+                                            <SolidColorBrush Color="{DynamicResource ColorMain}"/>
+                                        </CheckBox.Background>
+
+                                    </CheckBox>
+                                    <RadioButton Content="На сегодня" Margin="10,5" FontSize="14">
+                                        <RadioButton.Background>
+                                            <SolidColorBrush Color="{DynamicResource ColorMain}"/>
+                                        </RadioButton.Background>
+                                        <RadioButton.BorderBrush>
+                                            <SolidColorBrush Color="{DynamicResource ColorNuans}"/>
+                                        </RadioButton.BorderBrush>
+                                        <RadioButton.Foreground>
+                                            <SolidColorBrush Color="{DynamicResource ColorFont}"/>
+                                        </RadioButton.Foreground>
+                                    </RadioButton>
+                                    <RadioButton Content="На следующий день" Margin="10,5" IsChecked="True" FontSize="14">
+                                        <RadioButton.Background>
+                                            <SolidColorBrush Color="{DynamicResource ColorMain}"/>
+                                        </RadioButton.Background>
+                                        <RadioButton.BorderBrush>
+                                            <SolidColorBrush Color="{DynamicResource ColorNuans}"/>
+                                        </RadioButton.BorderBrush>
+                                        <RadioButton.Foreground>
+                                            <SolidColorBrush Color="{DynamicResource ColorFont}"/>
+                                        </RadioButton.Foreground>
+                                    </RadioButton>
+                                    <RadioButton Content="Выбрать дату" Margin="10,5" FontSize="14">
+                                        <RadioButton.Background>
+                                            <SolidColorBrush Color="{DynamicResource ColorMain}"/>
+                                        </RadioButton.Background>
+                                        <RadioButton.BorderBrush>
+                                            <SolidColorBrush Color="{DynamicResource ColorNuans}"/>
+                                        </RadioButton.BorderBrush>
+                                        <RadioButton.Foreground>
+                                            <SolidColorBrush Color="{DynamicResource ColorFont}"/>
+                                        </RadioButton.Foreground>
+                                    </RadioButton>
+                                    <CheckBox Content="На два дня" Margin="10,5" FontSize="14" FontWeight="Normal" BorderThickness="1" Padding="5,0,0,0" >
+                                        <CheckBox.Foreground>
+                                            <SolidColorBrush Color="{DynamicResource ColorFont}"/>
+                                        </CheckBox.Foreground>
+                                        <CheckBox.BorderBrush>
+                                            <SolidColorBrush Color="{DynamicResource ColorNuans}"/>
+                                        </CheckBox.BorderBrush>
+                                        <CheckBox.Background>
+                                            <SolidColorBrush Color="{DynamicResource ColorMain}"/>
+                                        </CheckBox.Background>
+
+                                    </CheckBox>
+                                    <CheckBox Content="Не печатать число месяца" Margin="10,5" FontSize="14" FontWeight="Normal" BorderThickness="1" Padding="5,0,0,0" >
+                                        <CheckBox.Foreground>
+                                            <SolidColorBrush Color="{DynamicResource ColorFont}"/>
+                                        </CheckBox.Foreground>
+                                        <CheckBox.BorderBrush>
+                                            <SolidColorBrush Color="{DynamicResource ColorNuans}"/>
+                                        </CheckBox.BorderBrush>
+                                        <CheckBox.Background>
+                                            <SolidColorBrush Color="{DynamicResource ColorMain}"/>
+                                        </CheckBox.Background>
+
+                                    </CheckBox>
+                                </StackPanel>
+
+                            </GroupBox>
+                        </StackPanel>
+                    </ScrollViewer>
+                    
 
 
-
-
-
-
-
-
-
-                    </StackPanel>
-
-
-
-                    <Grid Grid.Column="1" HorizontalAlignment="Left" Margin="20,0,0,0" VerticalAlignment="Top">
+                    <Grid Grid.Column="1" HorizontalAlignment="Left" Margin="30,0,0,0" VerticalAlignment="Top">
                         <Grid.RowDefinitions>
                             <RowDefinition Height="Auto"/>
                             <RowDefinition Height="Auto"/>
@@ -1854,7 +1947,7 @@ P.S. Ответ на Основной Вопрос Жизни, Вселенно�
 
                                 </StackPanel>
                                 <StackPanel x:Name="stackPanel2" Grid.Column="1" VerticalAlignment="Center">
-                                    <ComboBox x:Name="comboBox" Margin="20,5,0,5" FontSize="14" MinWidth="150" VerticalAlignment="Center" Padding="6,4,5,2" IsEditable="True" Width="200" FontWeight="Normal">
+                                    <ComboBox x:Name="comboBox" Margin="20,5,0,5" FontSize="14" MinWidth="150" VerticalAlignment="Center" Padding="6,4,5,2" IsEditable="True" Width="175" FontWeight="Normal">
                                         <ComboBox.Foreground>
                                             <LinearGradientBrush EndPoint="0.5,1" StartPoint="0.5,0">
                                                 <GradientStop Color="Black" Offset="0"/>
@@ -1955,7 +2048,7 @@ P.S. Ответ на Основной Вопрос Жизни, Вселенно�
                 <RowDefinition/>
             </Grid.RowDefinitions>
         </Grid>
-        <Grid x:Name="TaxiPage" Margin="0" Grid.Column="1" ScrollViewer.VerticalScrollBarVisibility="Auto" Width="797">
+        <Grid x:Name="TaxiPage" Margin="0" Grid.Column="1" ScrollViewer.VerticalScrollBarVisibility="Auto" Width="797" Visibility="Hidden">
             <Grid.Background>
                 <SolidColorBrush Color="{DynamicResource ColorSub}"/>
             </Grid.Background>
