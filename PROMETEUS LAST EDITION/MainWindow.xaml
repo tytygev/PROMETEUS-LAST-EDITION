@@ -1537,7 +1537,7 @@ P.S. Ответ на Основной Вопрос Жизни, Вселенно�
 
 
             </StackPanel>
-            <GroupBox Margin="10,0,10,10" Grid.Row="1" ScrollViewer.VerticalScrollBarVisibility="Auto" ScrollViewer.HorizontalScrollBarVisibility="Auto" HorizontalContentAlignment="Stretch" VerticalContentAlignment="Stretch" FontSize="16" Header="[новый]*" BorderThickness="1" Padding="0" UseLayoutRounding="False" FontWeight="Bold">
+            <GroupBox Margin="10" Grid.Row="1" ScrollViewer.VerticalScrollBarVisibility="Auto" ScrollViewer.HorizontalScrollBarVisibility="Auto" VerticalContentAlignment="Stretch" FontSize="16" Header="[новый]*" BorderThickness="1" Padding="0" UseLayoutRounding="False" FontWeight="Bold">
                 <GroupBox.BorderBrush>
                     <SolidColorBrush Color="{DynamicResource ColorNuans}"/>
                 </GroupBox.BorderBrush>
@@ -1545,10 +1545,10 @@ P.S. Ответ на Основной Вопрос Жизни, Вселенно�
                     <SolidColorBrush Color="{DynamicResource ColorAltFont}"/>
                 </GroupBox.Foreground>
 
-                <Grid Margin="10">
+                <Grid Margin="10" ScrollViewer.HorizontalScrollBarVisibility="Auto" >
                     <Grid.ColumnDefinitions>
                         <ColumnDefinition Width="auto"/>
-                        <ColumnDefinition Width="auto"/>
+                        <ColumnDefinition />
                     </Grid.ColumnDefinitions>
                     <ScrollViewer VerticalScrollBarVisibility="Visible" HorizontalScrollBarVisibility="Disabled" HorizontalAlignment="Left" Margin="0,0,0,0">
                         <StackPanel HorizontalAlignment="Left" Margin="0" VerticalAlignment="Top" CanVerticallyScroll="True" ScrollViewer.CanContentScroll="True">
@@ -1765,7 +1765,7 @@ P.S. Ответ на Основной Вопрос Жизни, Вселенно�
                                             <SolidColorBrush Color="{DynamicResource ColorFont}"/>
                                         </RadioButton.Foreground>
                                     </RadioButton>
-                                    <CheckBox Content="Не печатать число месяца" Margin="10,5" FontSize="14" FontWeight="Normal" BorderThickness="1" Padding="5,0,0,0" >
+                                    <CheckBox Content="Только месяц и год" Margin="10,5" FontSize="14" FontWeight="Normal" BorderThickness="1" Padding="5,0,0,0" >
                                         <CheckBox.Foreground>
                                             <SolidColorBrush Color="{DynamicResource ColorFont}"/>
                                         </CheckBox.Foreground>
@@ -1824,7 +1824,7 @@ P.S. Ответ на Основной Вопрос Жизни, Вселенно�
                                             <SolidColorBrush Color="{DynamicResource ColorFont}"/>
                                         </RadioButton.Foreground>
                                     </RadioButton>
-                                    <RadioButton Content="Выбрать дату" Margin="10,5" FontSize="14">
+                                    <RadioButton Content="Выбрать даты" Margin="10,5" FontSize="14">
                                         <RadioButton.Background>
                                             <SolidColorBrush Color="{DynamicResource ColorMain}"/>
                                         </RadioButton.Background>
@@ -1847,7 +1847,7 @@ P.S. Ответ на Основной Вопрос Жизни, Вселенно�
                                         </CheckBox.Background>
 
                                     </CheckBox>
-                                    <CheckBox Content="Не печатать число месяца" Margin="10,5" FontSize="14" FontWeight="Normal" BorderThickness="1" Padding="5,0,0,0" >
+                                    <CheckBox Content="Только месяц и год" Margin="10,5" FontSize="14" FontWeight="Normal" BorderThickness="1" Padding="5,0,0,0" >
                                         <CheckBox.Foreground>
                                             <SolidColorBrush Color="{DynamicResource ColorFont}"/>
                                         </CheckBox.Foreground>
@@ -1864,64 +1864,65 @@ P.S. Ответ на Основной Вопрос Жизни, Вселенно�
                             </GroupBox>
                         </StackPanel>
                     </ScrollViewer>
-                    
 
 
-                    <Grid Grid.Column="1" HorizontalAlignment="Left" Margin="30,0,0,0" VerticalAlignment="Top">
-                        <Grid.RowDefinitions>
-                            <RowDefinition Height="Auto"/>
-                            <RowDefinition Height="Auto"/>
-                            <RowDefinition Height="Auto"/>
-                        </Grid.RowDefinitions>
-                        <Grid HorizontalAlignment="Left" Margin="0,5,0,0" VerticalAlignment="Top">
-                            <Grid.ColumnDefinitions>
-                                <ColumnDefinition Width="Auto"/>
-                                <ColumnDefinition Width="{Binding ActualWidth, ElementName=stackPanel2, Mode=OneWay}"/>
-                                <ColumnDefinition Width="{Binding ActualWidth, ElementName=stackPanel1, Mode=OneWay}"/>
-                                <ColumnDefinition Width="auto"/>
-                            </Grid.ColumnDefinitions>
-                            <CheckBox x:Name="checkBox" Content="9999" Margin="0" FontSize="12" FontWeight="Normal" BorderThickness="1" VerticalAlignment="Center" Padding="5,0,0,0" VerticalContentAlignment="Center" HorizontalContentAlignment="Center" HorizontalAlignment="Left" Visibility="Hidden">
-                                <CheckBox.Foreground>
-                                    <SolidColorBrush Color="{DynamicResource ColorFont}"/>
-                                </CheckBox.Foreground>
-                                <CheckBox.BorderBrush>
-                                    <SolidColorBrush Color="{DynamicResource ColorFont}"/>
-                                </CheckBox.BorderBrush>
-                                <CheckBox.Background>
-                                    <SolidColorBrush Color="{DynamicResource ColorMain}"/>
-                                </CheckBox.Background>
-                            </CheckBox>
-                            <TextBlock x:Name="textBlock1_Copy" Margin="0,0,0,1" TextWrapping="Wrap" Text="№п/п" FontSize="14" FontWeight="Normal" VerticalAlignment="Center" HorizontalAlignment="Left" Width="{Binding ActualWidth, ElementName=comboBox1, Mode=OneWay}" Grid.ColumnSpan="2">
-                                <TextBlock.Foreground>
-                                    <SolidColorBrush Color="{DynamicResource ColorFont}"/>
-                                </TextBlock.Foreground>
-                            </TextBlock>
-                            <TextBlock x:Name="textBlock" Margin="20,0,0,0" TextWrapping="Wrap" Text="Водитель" FontSize="14" FontWeight="Normal" VerticalAlignment="Center" HorizontalAlignment="Left" Grid.Column="1" Padding="0" Width="{Binding ActualWidth, ElementName=comboBox, Mode=OneWay}">
-                                <TextBlock.Foreground>
-                                    <SolidColorBrush Color="{DynamicResource ColorFont}"/>
-                                </TextBlock.Foreground>
-                            </TextBlock>
-                            <TextBlock x:Name="textBlock1" Margin="20,0,0,0" TextWrapping="Wrap" Text="Авто" FontSize="14" FontWeight="Normal" VerticalAlignment="Center" HorizontalAlignment="Left" Grid.Column="2" Width="{Binding ActualWidth, ElementName=comboBox1, Mode=OneWay}">
-                                <TextBlock.Foreground>
-                                    <SolidColorBrush Color="{DynamicResource ColorFont}"/>
-                                </TextBlock.Foreground>
-                            </TextBlock>
-                        </Grid>
-                        <ScrollViewer x:Name="scrollViewer" Margin="0" Grid.Row="1" VerticalContentAlignment="Stretch" HorizontalContentAlignment="Stretch" HorizontalAlignment="Center" VerticalAlignment="Center" Padding="0">
-                            <ScrollViewer.Foreground>
-                                <SolidColorBrush Color="{DynamicResource ColorFont}"/>
-                            </ScrollViewer.Foreground>
-                            <ScrollViewer.BorderBrush>
-                                <SolidColorBrush Color="{DynamicResource ColorAltNuans}"/>
-                            </ScrollViewer.BorderBrush>
-                            <Grid x:Name="GridLine" Margin="0" VerticalAlignment="Bottom">
+                    <ScrollViewer x:Name="scrollViewer1" VerticalScrollBarVisibility="Disabled" HorizontalScrollBarVisibility="Visible" Margin="30,0,0,0" Grid.Column="1" UseLayoutRounding="False">
+                        <Grid Grid.Column="1" Margin="0" VerticalAlignment="Top" Width="{Binding ActualWidth, ElementName=scrollViewer1, Mode=OneWay}" HorizontalAlignment="Left" MaxWidth="471">
+                            <Grid.RowDefinitions>
+                                <RowDefinition Height="Auto"/>
+                                <RowDefinition Height="Auto"/>
+                                <RowDefinition Height="Auto"/>
+                            </Grid.RowDefinitions>
+                            <Grid Margin="0,5,0,0" VerticalAlignment="Top">
                                 <Grid.ColumnDefinitions>
                                     <ColumnDefinition Width="Auto"/>
-                                    <ColumnDefinition Width="Auto"/>
-                                    <ColumnDefinition Width="Auto"/>
-                                    <ColumnDefinition Width="Auto"/>
+                                    <ColumnDefinition Width="{Binding ActualWidth, ElementName=stackPanel2, Mode=OneWay}"/>
+                                    <ColumnDefinition Width="{Binding ActualWidth, ElementName=stackPanel1, Mode=OneWay}"/>
+                                    <ColumnDefinition Width="auto"/>
                                 </Grid.ColumnDefinitions>
-                                <!--<Ellipse x:Name="EllipseR" Grid.Column="4" Height="{Binding ActualHeight, ElementName=GridLine, Mode=OneWay}" Width="{Binding ActualHeight, Mode=OneWay, RelativeSource={RelativeSource Self}}"  Margin="-15,0,0,0" HorizontalAlignment="Right" VerticalAlignment="Bottom"  >
+                                <CheckBox x:Name="checkBox" Content="9999" Margin="0" FontSize="12" FontWeight="Normal" BorderThickness="1" VerticalAlignment="Center" Padding="5,0,0,0" VerticalContentAlignment="Center" HorizontalContentAlignment="Center" HorizontalAlignment="Left" Visibility="Hidden">
+                                    <CheckBox.Foreground>
+                                        <SolidColorBrush Color="{DynamicResource ColorFont}"/>
+                                    </CheckBox.Foreground>
+                                    <CheckBox.BorderBrush>
+                                        <SolidColorBrush Color="{DynamicResource ColorFont}"/>
+                                    </CheckBox.BorderBrush>
+                                    <CheckBox.Background>
+                                        <SolidColorBrush Color="{DynamicResource ColorMain}"/>
+                                    </CheckBox.Background>
+                                </CheckBox>
+                                <TextBlock x:Name="textBlock1_Copy" Margin="0,0,0,1" TextWrapping="Wrap" Text="№п/п" FontSize="14" FontWeight="Normal" VerticalAlignment="Center" HorizontalAlignment="Left" Width="{Binding ActualWidth, ElementName=comboBox1, Mode=OneWay}" Grid.ColumnSpan="2">
+                                    <TextBlock.Foreground>
+                                        <SolidColorBrush Color="{DynamicResource ColorFont}"/>
+                                    </TextBlock.Foreground>
+                                </TextBlock>
+                                <TextBlock x:Name="textBlock" Margin="20,0,0,0" TextWrapping="Wrap" Text="Водитель" FontSize="14" FontWeight="Normal" VerticalAlignment="Center" Grid.Column="1" Padding="0" Width="{Binding ActualWidth, ElementName=comboBox, Mode=OneWay}" HorizontalAlignment="Left">
+                                    <TextBlock.Foreground>
+                                        <SolidColorBrush Color="{DynamicResource ColorFont}"/>
+                                    </TextBlock.Foreground>
+                                </TextBlock>
+                                <TextBlock x:Name="textBlock1" Margin="20,0,0,0" TextWrapping="Wrap" Text="Авто" FontSize="14" FontWeight="Normal" VerticalAlignment="Center" HorizontalAlignment="Left" Grid.Column="2" Width="{Binding ActualWidth, ElementName=comboBox1, Mode=OneWay}">
+                                    <TextBlock.Foreground>
+                                        <SolidColorBrush Color="{DynamicResource ColorFont}"/>
+                                    </TextBlock.Foreground>
+                                </TextBlock>
+                            </Grid>
+                            <ScrollViewer x:Name="scrollViewer" Margin="0" Grid.Row="1" VerticalContentAlignment="Stretch" VerticalAlignment="Center" Padding="0,0,10,0">
+                                <ScrollViewer.Foreground>
+                                    <SolidColorBrush Color="{DynamicResource ColorFont}"/>
+                                </ScrollViewer.Foreground>
+                                <ScrollViewer.BorderBrush>
+                                    <SolidColorBrush Color="{DynamicResource ColorAltNuans}"/>
+                                </ScrollViewer.BorderBrush>
+                                <Grid x:Name="GridLine" Margin="0,0,10,0">
+                                    <Grid.ColumnDefinitions>
+                                        <ColumnDefinition Width="Auto"/>
+                                        <ColumnDefinition/>
+                                        <ColumnDefinition Width="Auto"/>
+                                        <ColumnDefinition Width="Auto"/>
+                                        <ColumnDefinition Width="Auto"/>
+                                    </Grid.ColumnDefinitions>
+                                    <!--<Ellipse x:Name="EllipseR" Grid.Column="4" Height="{Binding ActualHeight, ElementName=GridLine, Mode=OneWay}" Width="{Binding ActualHeight, Mode=OneWay, RelativeSource={RelativeSource Self}}"  Margin="-15,0,0,0" HorizontalAlignment="Right" VerticalAlignment="Bottom"  >
                                     <Ellipse.Fill>
                                         <SolidColorBrush Color="{DynamicResource ColorMain}"/>
                                     </Ellipse.Fill>
@@ -1931,73 +1932,79 @@ P.S. Ответ на Основной Вопрос Жизни, Вселенно�
                                         <SolidColorBrush Color="{DynamicResource ColorMain}"/>
                                     </Ellipse.Fill>
                                 </Ellipse>-->
-                                <StackPanel x:Name="stackPanel" Grid.Column="0" Margin="0" VerticalAlignment="Center" >
+                                    <StackPanel x:Name="stackPanel" Grid.Column="0" Margin="0,10" VerticalAlignment="Center" >
 
-                                    <CheckBox Content="1" Margin="0" FontSize="14" FontWeight="Normal" BorderThickness="1" Padding="5,0,0,0" VerticalContentAlignment="Center" UseLayoutRounding="True" Width="{Binding ActualWidth, ElementName=checkBox, Mode=OneWay}" IsChecked="True" VerticalAlignment="Center" HorizontalAlignment="Left">
-                                        <CheckBox.Background>
-                                            <SolidColorBrush Color="{DynamicResource ColorMain}"/>
-                                        </CheckBox.Background>
-                                        <CheckBox.Foreground>
-                                            <SolidColorBrush Color="{DynamicResource ColorFont}"/>
-                                        </CheckBox.Foreground>
-                                        <CheckBox.BorderBrush>
-                                            <SolidColorBrush Color="{DynamicResource ColorNuans}"/>
-                                        </CheckBox.BorderBrush>
-                                    </CheckBox>
+                                        <CheckBox Content="1" Margin="0" FontSize="14" FontWeight="Normal" BorderThickness="1" Padding="5,0,0,0" VerticalContentAlignment="Center" UseLayoutRounding="True" Width="{Binding ActualWidth, ElementName=checkBox, Mode=OneWay}" IsChecked="True" VerticalAlignment="Center" HorizontalAlignment="Left">
+                                            <CheckBox.Background>
+                                                <SolidColorBrush Color="{DynamicResource ColorMain}"/>
+                                            </CheckBox.Background>
+                                            <CheckBox.Foreground>
+                                                <SolidColorBrush Color="{DynamicResource ColorFont}"/>
+                                            </CheckBox.Foreground>
+                                            <CheckBox.BorderBrush>
+                                                <SolidColorBrush Color="{DynamicResource ColorNuans}"/>
+                                            </CheckBox.BorderBrush>
+                                        </CheckBox>
 
-                                </StackPanel>
-                                <StackPanel x:Name="stackPanel2" Grid.Column="1" VerticalAlignment="Center">
-                                    <ComboBox x:Name="comboBox" Margin="20,5,0,5" FontSize="14" MinWidth="150" VerticalAlignment="Center" Padding="6,4,5,2" IsEditable="True" Width="175" FontWeight="Normal">
-                                        <ComboBox.Foreground>
-                                            <LinearGradientBrush EndPoint="0.5,1" StartPoint="0.5,0">
-                                                <GradientStop Color="Black" Offset="0"/>
-                                                <GradientStop Color="{DynamicResource ColorAltFont}" Offset="0.37"/>
-                                            </LinearGradientBrush>
-                                        </ComboBox.Foreground>
-                                        <ComboBox.Background>
-                                            <SolidColorBrush Color="{DynamicResource ColorMain}"/>
-                                        </ComboBox.Background>
-                                        <ComboBox.BorderBrush>
-                                            <SolidColorBrush Color="{DynamicResource ColorAltNuans}"/>
-                                        </ComboBox.BorderBrush>
-                                    </ComboBox>
-                                </StackPanel>
-                                <StackPanel x:Name="stackPanel1" Grid.Column="2" VerticalAlignment="Center">
-                                    <ComboBox x:Name="comboBox1" Margin="20,5,0,5" FontSize="14" MinWidth="60" VerticalAlignment="Center" Padding="6,4,5,2" IsEditable="True" Width="80" FontWeight="Normal">
-                                        <ComboBox.Foreground>
-                                            <LinearGradientBrush EndPoint="0.5,1" StartPoint="0.5,0">
-                                                <GradientStop Color="Black" Offset="0"/>
-                                                <GradientStop Color="{DynamicResource ColorAltFont}" Offset="0.37"/>
-                                            </LinearGradientBrush>
-                                        </ComboBox.Foreground>
-                                    </ComboBox>
-                                </StackPanel>
-                                <StackPanel x:Name="stackPanel3" Grid.Column="3" VerticalAlignment="Center" Height="{Binding ActualHeight, ElementName=stackPanel1, Mode=OneWay}" HorizontalAlignment="Left">
-                                    <TextBlock Margin="20,-2,10,0" TextWrapping="Wrap" Text="O" FontFamily="Wingdings 2" FontSize="36" Padding="0"  Grid.Column="5" VerticalAlignment="Center" HorizontalAlignment="Center">
-                                        <TextBlock.Foreground>
-                                            <SolidColorBrush Color="{DynamicResource ColorFont}"/>
-                                        </TextBlock.Foreground>
-                                    </TextBlock>
-                                </StackPanel>
-                            </Grid>
-                        </ScrollViewer>
-                        <Button Grid.Row="2" Content="Добавить строку"  HorizontalAlignment="Left" Margin="0,10" VerticalAlignment="Top" Width="{Binding ActualWidth, ElementName=GridLine, Mode=OneWay}" HorizontalContentAlignment="Center" FontSize="14" Padding="1,3,1,5" VerticalContentAlignment="Center" FontWeight="Normal">
-                            <Button.Foreground>
-                                <SolidColorBrush Color="{DynamicResource ColorAltFont}"/>
-                            </Button.Foreground>
-                            <Button.BorderBrush>
-                                <SolidColorBrush Color="{DynamicResource ColorNuans}"/>
-                            </Button.BorderBrush>
-                            <Button.Background>
-                                <SolidColorBrush Color="{DynamicResource ColorSub}"/>
-                            </Button.Background>
-                        </Button>
+                                    </StackPanel>
+                                    <StackPanel x:Name="stackPanel2" Grid.Column="1" VerticalAlignment="Center" MaxWidth="270" Grid.ColumnSpan="2" Margin="0,1">
+                                        <ComboBox x:Name="comboBox" Margin="20,5,0,5" FontSize="14" MinWidth="175" VerticalAlignment="Center" Padding="6,4,5,2" IsEditable="True" FontWeight="Normal" ScrollViewer.CanContentScroll="True">
+                                            <ComboBox.Foreground>
+                                                <LinearGradientBrush EndPoint="0.5,1" StartPoint="0.5,0">
+                                                    <GradientStop Color="Black" Offset="0"/>
+                                                    <GradientStop Color="{DynamicResource ColorAltFont}" Offset="0.37"/>
+                                                </LinearGradientBrush>
+                                            </ComboBox.Foreground>
+                                            <ComboBox.Background>
+                                                <SolidColorBrush Color="{DynamicResource ColorMain}"/>
+                                            </ComboBox.Background>
+                                            <ComboBox.BorderBrush>
+                                                <SolidColorBrush Color="{DynamicResource ColorAltNuans}"/>
+                                            </ComboBox.BorderBrush>
+                                        </ComboBox>
+                                    </StackPanel>
+                                    <StackPanel x:Name="stackPanel1" Grid.Column="3" VerticalAlignment="Center" Margin="0,1">
+                                        <ComboBox x:Name="comboBox1" Margin="20,5,0,5" FontSize="14" MinWidth="60" VerticalAlignment="Center" Padding="6,4,5,2" IsEditable="True" FontWeight="Normal">
+                                            <ComboBox.Background>
+                                                <LinearGradientBrush EndPoint="0,1" StartPoint="0,0">
+                                                    <GradientStop Color="{DynamicResource ColorMain}" Offset="0"/>
+                                                    <GradientStop Color="{DynamicResource ColorMain}" Offset="1"/>
+                                                </LinearGradientBrush>
+                                            </ComboBox.Background>
+                                            <ComboBox.Foreground>
+                                                <LinearGradientBrush EndPoint="0.5,1" StartPoint="0.5,0">
+                                                    <GradientStop Color="Black" Offset="0"/>
+                                                    <GradientStop Color="{DynamicResource ColorAltFont}" Offset="0.37"/>
+                                                </LinearGradientBrush>
+                                            </ComboBox.Foreground>
+                                        </ComboBox>
+                                    </StackPanel>
+                                    <StackPanel x:Name="stackPanel3" Grid.Column="4" VerticalAlignment="Center" Height="{Binding ActualHeight, ElementName=stackPanel1, Mode=OneWay}" HorizontalAlignment="Left" Margin="0,1">
+                                        <TextBlock Margin="20,-2,0,0" TextWrapping="Wrap" Text="O" FontFamily="Wingdings 2" FontSize="36" Padding="0"  Grid.Column="5" VerticalAlignment="Center" HorizontalAlignment="Center">
+                                            <TextBlock.Foreground>
+                                                <SolidColorBrush Color="{DynamicResource ColorFont}"/>
+                                            </TextBlock.Foreground>
+                                        </TextBlock>
+                                    </StackPanel>
+                                </Grid>
+                            </ScrollViewer>
+                            <Button Grid.Row="2" Content="Добавить строку" Margin="0,10,10,10" VerticalAlignment="Top" Width="{Binding ActualWidth, ElementName=GridLine, Mode=OneWay}" HorizontalContentAlignment="Center" FontSize="14" Padding="1,3,1,5" VerticalContentAlignment="Center" FontWeight="Normal" HorizontalAlignment="Left">
+                                <Button.Foreground>
+                                    <SolidColorBrush Color="{DynamicResource ColorAltFont}"/>
+                                </Button.Foreground>
+                                <Button.BorderBrush>
+                                    <SolidColorBrush Color="{DynamicResource ColorNuans}"/>
+                                </Button.BorderBrush>
+                                <Button.Background>
+                                    <SolidColorBrush Color="{DynamicResource ColorSub}"/>
+                                </Button.Background>
+                            </Button>
 
 
-                    </Grid>
-                    <!--<StackPanel x:Name="SelectionLinePanel0" Grid.Column="1" HorizontalAlignment="Left" Margin="20,136,0,0" VerticalAlignment="Top" Orientation="Horizontal">
+                        </Grid>
+                        <!--<StackPanel x:Name="SelectionLinePanel0" Grid.Column="1" HorizontalAlignment="Left" Margin="20,136,0,0" VerticalAlignment="Top" Orientation="Horizontal">
                         -->
-                    <!--<Canvas>
+                        <!--<Canvas>
                             
                             <Rectangle  x:Name="Rect" Height="{Binding ActualHeight, ElementName=qwerty, Mode=OneWay}">
                                 <Rectangle.Fill>
@@ -2006,7 +2013,7 @@ P.S. Ответ на Основной Вопрос Жизни, Вселенно�
                             </Rectangle>
                            
                         </Canvas>-->
-                    <!--
+                        <!--
 
                         <StackPanel x:Name="qwerty" Margin="0,5" Orientation="Horizontal" Panel.ZIndex="1" HorizontalAlignment="Center" Height="auto" VerticalAlignment="Center">
                             <StackPanel.Background>
@@ -2027,6 +2034,7 @@ P.S. Ответ на Основной Вопрос Жизни, Вселенно�
                             <ComboBox Margin="10,0" VerticalAlignment="Center" FontSize="12" MinWidth="100" Width="100" Background="{x:Null}" BorderBrush="{x:Null}" Foreground="{x:Null}"/>
                         </StackPanel>
                     </StackPanel>-->
+                    </ScrollViewer >
                 </Grid>
             </GroupBox>
         </Grid>
