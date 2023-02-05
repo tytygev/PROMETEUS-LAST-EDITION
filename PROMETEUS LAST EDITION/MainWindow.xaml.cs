@@ -12,6 +12,8 @@ using Excel = Microsoft.Office.Interop.Excel;
 
 namespace PROMETEUS_LAST_EDITION
 {
+  
+
     enum MainMenuButtonsEnum
     {
         KitSetButton,
@@ -36,6 +38,7 @@ namespace PROMETEUS_LAST_EDITION
     /// </summary>
     public partial class MainWindow : Window
     {
+       
         //Сохранение параметров
         protected override void OnClosing(System.ComponentModel.CancelEventArgs e)
         {

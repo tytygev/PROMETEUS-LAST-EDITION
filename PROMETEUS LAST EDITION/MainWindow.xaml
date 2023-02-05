@@ -14,6 +14,22 @@
 
     <Window.Resources>
 
+        <!--#endregion groupbox template-->
+
+        <!--#endregion TEXTBOX template-->
+
+        <!--#endregion OptionMark template-->
+
+        <!--endregion  COMBOBOX template -->
+
+        <!--#endregion RADIOBUTTON template-->
+
+        <!--#endregion BUTTON template-->
+
+        <!--#endregion ScrollBar template-->
+
+        <BooleanToVisibilityConverter x:Key="BooleanToVisibilityConverter"/>
+
         <System:String x:Key="License" xml:space="preserve">Copyright © 2017—2022 Каримов Александр и «ХТО Продакшн» ™ при участии Каримова Михаила aka MiXeRaToS  
 
 Если вы используете «Прометей» в своей работе, Каримов Александр был бы рад узнать об этом. Вы можете написать, направив письмо на photodc@ya.ru  И если вам доведется встретиться с Каримовым Александром в баре, можете угостить его напитком по его выбору, если «Прометей» действительно пригодилась вам.  В остальном, можете делать с этой программой всё, что вам угодно и, естественно, автор не несёт никакой ответственности:))  
@@ -83,7 +99,6 @@ P.S. Ответ на Основной Вопрос Жизни, Вселенно�
                 </Setter.Value>
             </Setter>
         </Style>
-        <!--#endregion groupbox template-->
 
         <!--#region TEXTBOX template-->
         <SolidColorBrush x:Key="TextBox.Static.Border" Color="{DynamicResource ColorNuans}"/>
@@ -135,7 +150,6 @@ P.S. Ответ на Основной Вопрос Жизни, Вселенно�
                 </MultiTrigger>
             </Style.Triggers>
         </Style>
-        <!--#endregion TEXTBOX template-->
 
         <!--#region OptionMark template-->
         <SolidColorBrush x:Key="OptionMark.Static.Background" Color="{DynamicResource ColorMain}"/>
@@ -232,7 +246,6 @@ P.S. Ответ на Основной Вопрос Жизни, Вселенно�
                 </Setter.Value>
             </Setter>
         </Style>
-        <!--#endregion OptionMark template-->
 
         <!--#region COMBOBOX template -->
         <LinearGradientBrush x:Key="ComboBox.Static.Background" EndPoint="0,1" StartPoint="0,0">
@@ -648,7 +661,6 @@ P.S. Ответ на Основной Вопрос Жизни, Вселенно�
                 </Setter.Value>
             </Setter>
         </Style>
-        <!--endregion  COMBOBOX template -->
 
         <!--#region RADIOBUTTON template-->
         <SolidColorBrush x:Key="RadioButton.Static.Background" Color="{DynamicResource ColorMain}"/>
@@ -731,7 +743,6 @@ P.S. Ответ на Основной Вопрос Жизни, Вселенно�
                 </Setter.Value>
             </Setter>
         </Style>
-        <!--#endregion RADIOBUTTON template-->
 
         <!--#region BUTTON template-->
         <SolidColorBrush x:Key="Button.Static.Background" Color="{DynamicResource ColorSub}"/>
@@ -780,7 +791,6 @@ P.S. Ответ на Основной Вопрос Жизни, Вселенно�
                 </Setter.Value>
             </Setter>
         </Style>
-        <!--#endregion BUTTON template-->
 
         <!--#region ScrollBar template-->
         <SolidColorBrush x:Key="ScrollBar.Static.Background" Color="{DynamicResource ColorSub}"/>
@@ -1133,7 +1143,6 @@ P.S. Ответ на Основной Вопрос Жизни, Вселенно�
 
             </Style.Triggers>
         </Style>
-        <!--#endregion ScrollBar template-->
 
         <!--#region ScrollViewer template-->
         <Style TargetType="{x:Type ScrollViewer}">
@@ -1463,7 +1472,7 @@ P.S. Ответ на Основной Вопрос Жизни, Вселенно�
     </Window.Resources>
 
 
-    <Grid Margin="0">
+    <Grid x:Name="grid" Margin="0">
         <Grid.ColumnDefinitions>
             <ColumnDefinition x:Name="MainMenuCel" Width="Auto" />
             <ColumnDefinition x:Name="MainWindowCel" Width="*"/>
@@ -1545,18 +1554,18 @@ P.S. Ответ на Основной Вопрос Жизни, Вселенно�
                     <SolidColorBrush Color="{DynamicResource ColorAltFont}"/>
                 </GroupBox.Foreground>
 
-                <Grid Margin="10" ScrollViewer.HorizontalScrollBarVisibility="Auto" >
+                <Grid Margin="10,-5,10,-2" ScrollViewer.HorizontalScrollBarVisibility="Auto" >
                     <Grid.ColumnDefinitions>
                         <ColumnDefinition Width="auto"/>
                         <ColumnDefinition />
                     </Grid.ColumnDefinitions>
                     <ScrollViewer VerticalScrollBarVisibility="Visible" HorizontalScrollBarVisibility="Disabled" HorizontalAlignment="Left" Margin="0,0,0,0">
-                        <StackPanel HorizontalAlignment="Left" Margin="0" VerticalAlignment="Top" CanVerticallyScroll="True" ScrollViewer.CanContentScroll="True">
+                        <StackPanel HorizontalAlignment="Left" Margin="0,15,0,0" VerticalAlignment="Top" CanVerticallyScroll="True" ScrollViewer.CanContentScroll="True">
                             <TextBlock HorizontalAlignment="Left" Margin="10,5" TextWrapping="Wrap" FontSize="14" FontWeight="Normal" TextDecorations="{x:Null}">
                                 <TextBlock.Foreground>
                                     <SolidColorBrush Color="{DynamicResource ColorFont}"/>
                                 </TextBlock.Foreground><Run Text="Организация"/></TextBlock>
-                            <ComboBox HorizontalAlignment="Right" Margin="10,5,10,15" Text="" MinWidth="150" FontSize="14" FontWeight="Normal" Width="181" Padding="2,4,2,2">
+                            <ComboBox HorizontalAlignment="Right" Margin="10,5,10,15" Text="" MinWidth="180" FontSize="14" FontWeight="Normal" Padding="2,4,2,2" MaxWidth="250">
                                 <ComboBox.Foreground>
                                     <LinearGradientBrush EndPoint="0.5,1" StartPoint="0.5,0">
                                         <GradientStop Color="Black" Offset="0"/>
@@ -1585,7 +1594,7 @@ P.S. Ответ на Основной Вопрос Жизни, Вселенно�
                                     <SolidColorBrush Color="{DynamicResource ColorFont}"/>
                                 </TextBlock.Foreground>
                             </TextBlock>
-                            <ComboBox HorizontalAlignment="Right" Margin="10,5,10,15" Text="" MinWidth="150" FontSize="14" FontWeight="Normal" Width="181" Padding="2,4,2,2" IsEditable="True">
+                            <ComboBox HorizontalAlignment="Right" Margin="10,5,10,15" Text="" MinWidth="180" FontSize="14" FontWeight="Normal" Padding="2,4,2,2" IsEditable="True" MaxWidth="250">
                                 <ComboBox.Foreground>
                                     <LinearGradientBrush EndPoint="0.5,1" StartPoint="0.5,0">
                                         <GradientStop Color="Black" Offset="0"/>
@@ -1604,7 +1613,19 @@ P.S. Ответ на Основной Вопрос Жизни, Вселенно�
                                     <SolidColorBrush Color="{DynamicResource ColorFont}"/>
                                 </TextBlock.Foreground>
                             </TextBlock>
-                            <ComboBox HorizontalAlignment="Right" Margin="10,5,10,15" Text="" MinWidth="150" FontSize="14" FontWeight="Normal" Width="181" Padding="2,4,2,2" IsEditable="True">
+                            <CheckBox x:Name="checkBox1" Content="Связать с Механик" Margin="10,5" FontSize="14" FontWeight="Normal" BorderThickness="1" Padding="5,0,0,0"  IsChecked="True" HorizontalAlignment="Right" RenderTransformOrigin="0.5,0.5" Width="{Binding ActualWidth, ElementName=comboBox2, Mode=OneWay}" >
+                                <CheckBox.Foreground>
+                                    <SolidColorBrush Color="{DynamicResource ColorFont}"/>
+                                </CheckBox.Foreground>
+                                <CheckBox.BorderBrush>
+                                    <SolidColorBrush Color="{DynamicResource ColorNuans}"/>
+                                </CheckBox.BorderBrush>
+                                <CheckBox.Background>
+                                    <SolidColorBrush Color="{DynamicResource ColorMain}"/>
+                                </CheckBox.Background>
+
+                            </CheckBox>
+                            <ComboBox x:Name="comboBox2" HorizontalAlignment="Right" Margin="10,5,10,15" Text="" MinWidth="180" FontSize="14" FontWeight="Normal" Padding="2,4,2,2" IsEditable="True" MaxWidth="250">
                                 <ComboBox.Foreground>
                                     <LinearGradientBrush EndPoint="0.5,1" StartPoint="0.5,0">
                                         <GradientStop Color="Black" Offset="0"/>
@@ -1635,7 +1656,7 @@ P.S. Ответ на Основной Вопрос Жизни, Вселенно�
                                     <ColumnDefinition Width="auto"/>
                                     <ColumnDefinition Width="*"/>
                                 </Grid.ColumnDefinitions>
-                                <CheckBox Content="Печатать серию:" Margin="0,0,10,0" FontSize="14" FontWeight="Normal" BorderThickness="1" Padding="5,0,0,0" IsChecked="True" VerticalAlignment="Center">
+                                <CheckBox x:Name="checkBox2" Content="Печатать серию:" Margin="0,0,10,0" FontSize="14" FontWeight="Normal" BorderThickness="1" Padding="5,0,0,0" IsChecked="True" VerticalAlignment="Center">
                                     <CheckBox.Background>
                                         <SolidColorBrush Color="{DynamicResource ColorMain}"/>
                                     </CheckBox.Background>
@@ -1648,7 +1669,7 @@ P.S. Ответ на Основной Вопрос Жизни, Вселенно�
 
                                 </CheckBox>
 
-                                <TextBox Margin="0" TextWrapping="Wrap" FontSize="14" FontWeight="Bold" Grid.Column="1" VerticalContentAlignment="Bottom" Padding="2,2,4,2" UndoLimit="6" SpellCheck.IsEnabled="True" Width="40" Text="77" FontStyle="Italic" HorizontalContentAlignment="Right" HorizontalAlignment="Left" VerticalAlignment="Top">
+                                <TextBox Margin="0" TextWrapping="Wrap" FontSize="14" FontWeight="Bold" Grid.Column="1" VerticalContentAlignment="Bottom" Padding="2,2,4,2" UndoLimit="6" SpellCheck.IsEnabled="True" Width="40" Text="77" FontStyle="Italic" HorizontalContentAlignment="Right" HorizontalAlignment="Left" VerticalAlignment="Top" IsEnabled="{Binding IsChecked, ElementName=checkBox2}">
                                     <TextBox.Foreground>
                                         <LinearGradientBrush EndPoint="0.5,1" MappingMode="RelativeToBoundingBox" StartPoint="0.5,0">
                                             <GradientStop Color="#FF282828" Offset="0.1"/>
@@ -1675,7 +1696,7 @@ P.S. Ответ на Основной Вопрос Жизни, Вселенно�
                                     <ColumnDefinition Width="auto"/>
                                     <ColumnDefinition Width="*"/>
                                 </Grid.ColumnDefinitions>
-                                <CheckBox Content="Печатать номера&#xD;&#xA;начиная с:" Margin="0,0,10,0" FontSize="14" FontWeight="Normal" BorderThickness="1" Padding="5,0,0,0" IsChecked="True" VerticalAlignment="Center">
+                                <CheckBox x:Name="checkBox3" Content="Печатать номера&#xD;&#xA;начиная с:" Margin="0,0,10,0" FontSize="14" FontWeight="Normal" BorderThickness="1" Padding="5,0,0,0" IsChecked="True" VerticalAlignment="Center">
                                     <CheckBox.Background>
                                         <SolidColorBrush Color="{DynamicResource ColorMain}"/>
                                     </CheckBox.Background>
@@ -1688,7 +1709,7 @@ P.S. Ответ на Основной Вопрос Жизни, Вселенно�
 
                                 </CheckBox>
 
-                                <TextBox Margin="0" TextWrapping="Wrap" FontSize="14" FontWeight="Bold" HorizontalContentAlignment="Right" Grid.Column="1" VerticalContentAlignment="Bottom" Padding="2,2,4,2" UndoLimit="6" SpellCheck.IsEnabled="True" Width="65" Text="999999" FontStyle="Italic" HorizontalAlignment="Left" VerticalAlignment="Top">
+                                <TextBox Margin="0" TextWrapping="Wrap" FontSize="14" FontWeight="Bold" HorizontalContentAlignment="Right" Grid.Column="1" VerticalContentAlignment="Bottom" Padding="2,2,4,2" UndoLimit="6" SpellCheck.IsEnabled="True" Width="65" Text="999999" FontStyle="Italic" HorizontalAlignment="Left" VerticalAlignment="Top" IsEnabled="{Binding IsChecked, ElementName=checkBox3}">
                                     <TextBox.Foreground>
                                         <LinearGradientBrush EndPoint="0.5,1" MappingMode="RelativeToBoundingBox" StartPoint="0.5,0">
                                             <GradientStop Color="#FF282828" Offset="0.1"/>
@@ -1710,7 +1731,19 @@ P.S. Ответ на Основной Вопрос Жизни, Вселенно�
                                 </TextBox>
 
                             </Grid>
-                            <GroupBox Header="" Margin="10,5,10,15" FontSize="12" FontWeight="Normal" Padding="0" UseLayoutRounding="True" BorderThickness="1,0,1,1" VerticalAlignment="Top">
+                            <CheckBox x:Name="checkBox4" Content="Печатать дату печати" Margin="10,5,10,-20" FontSize="14" FontWeight="Normal" BorderThickness="1" Padding="5,0,0,0" IsChecked="True" Panel.ZIndex="1">
+                                <CheckBox.Foreground>
+                                    <SolidColorBrush Color="{DynamicResource ColorFont}"/>
+                                </CheckBox.Foreground>
+                                <CheckBox.BorderBrush>
+                                    <SolidColorBrush Color="{DynamicResource ColorNuans}"/>
+                                </CheckBox.BorderBrush>
+                                <CheckBox.Background>
+                                    <SolidColorBrush Color="{DynamicResource ColorMain}"/>
+                                </CheckBox.Background>
+
+                            </CheckBox>
+                            <GroupBox Header="" Margin="10,5,10,15" FontSize="12" FontWeight="Normal" Padding="0" UseLayoutRounding="True" BorderThickness="1,0,1,1" VerticalAlignment="Top" IsEnabled="{Binding IsChecked, ElementName=checkBox4}">
 
                                 <GroupBox.Foreground>
                                     <SolidColorBrush Color="{DynamicResource ColorFont}"/>
@@ -1720,19 +1753,7 @@ P.S. Ответ на Основной Вопрос Жизни, Вселенно�
                                 </GroupBox.BorderBrush>
 
                                 <StackPanel VerticalAlignment="Top">
-                                    <CheckBox Content="Печатать дату печати" Margin="-5,-15,0,5" FontSize="14" FontWeight="Normal" BorderThickness="1" Padding="5,0,0,0" VerticalAlignment="Top" IsChecked="True">
-                                        <CheckBox.Foreground>
-                                            <SolidColorBrush Color="{DynamicResource ColorFont}"/>
-                                        </CheckBox.Foreground>
-                                        <CheckBox.BorderBrush>
-                                            <SolidColorBrush Color="{DynamicResource ColorNuans}"/>
-                                        </CheckBox.BorderBrush>
-                                        <CheckBox.Background>
-                                            <SolidColorBrush Color="{DynamicResource ColorMain}"/>
-                                        </CheckBox.Background>
-
-                                    </CheckBox>
-                                    <RadioButton Content="Текущую" Margin="10,5" FontSize="14">
+                                    <RadioButton Content="Текущую" Margin="10,10,10,5" FontSize="14">
                                         <RadioButton.Background>
                                             <SolidColorBrush Color="{DynamicResource ColorMain}"/>
                                         </RadioButton.Background>
@@ -1780,7 +1801,19 @@ P.S. Ответ на Основной Вопрос Жизни, Вселенно�
                                 </StackPanel>
 
                             </GroupBox>
-                            <GroupBox Header="" Margin="10,5,10,15" FontSize="12" FontWeight="Normal" Padding="0" UseLayoutRounding="True" BorderThickness="1,0,1,1" VerticalAlignment="Top">
+                            <CheckBox x:Name="checkBox5" Content="Печатать срок действия" Margin="10,5,10,-20" FontSize="14" FontWeight="Normal" BorderThickness="1" Padding="5,0,0,0" IsChecked="True" Panel.ZIndex="1">
+                                <CheckBox.Foreground>
+                                    <SolidColorBrush Color="{DynamicResource ColorFont}"/>
+                                </CheckBox.Foreground>
+                                <CheckBox.BorderBrush>
+                                    <SolidColorBrush Color="{DynamicResource ColorNuans}"/>
+                                </CheckBox.BorderBrush>
+                                <CheckBox.Background>
+                                    <SolidColorBrush Color="{DynamicResource ColorMain}"/>
+                                </CheckBox.Background>
+
+                            </CheckBox>
+                            <GroupBox Header="" Margin="10,5,10,15" FontSize="12" FontWeight="Normal" Padding="0" UseLayoutRounding="True" BorderThickness="1,0,1,1" VerticalAlignment="Top" IsEnabled="{Binding IsChecked, ElementName=checkBox5}">
 
                                 <GroupBox.Foreground>
                                     <SolidColorBrush Color="{DynamicResource ColorFont}"/>
@@ -1790,19 +1823,7 @@ P.S. Ответ на Основной Вопрос Жизни, Вселенно�
                                 </GroupBox.BorderBrush>
 
                                 <StackPanel VerticalAlignment="Top">
-                                    <CheckBox Content="Печатать срок действия" Margin="-5,-15,0,5" FontSize="14" FontWeight="Normal" BorderThickness="1" Padding="5,0,0,0" VerticalAlignment="Top" IsChecked="True">
-                                        <CheckBox.Foreground>
-                                            <SolidColorBrush Color="{DynamicResource ColorFont}"/>
-                                        </CheckBox.Foreground>
-                                        <CheckBox.BorderBrush>
-                                            <SolidColorBrush Color="{DynamicResource ColorNuans}"/>
-                                        </CheckBox.BorderBrush>
-                                        <CheckBox.Background>
-                                            <SolidColorBrush Color="{DynamicResource ColorMain}"/>
-                                        </CheckBox.Background>
-
-                                    </CheckBox>
-                                    <RadioButton Content="На сегодня" Margin="10,5" FontSize="14">
+                                    <RadioButton Content="На сегодня" Margin="10,10,10,5" FontSize="14">
                                         <RadioButton.Background>
                                             <SolidColorBrush Color="{DynamicResource ColorMain}"/>
                                         </RadioButton.Background>
@@ -1867,7 +1888,7 @@ P.S. Ответ на Основной Вопрос Жизни, Вселенно�
 
 
                     <ScrollViewer x:Name="scrollViewer1" VerticalScrollBarVisibility="Disabled" HorizontalScrollBarVisibility="Visible" Margin="30,0,0,0" Grid.Column="1" UseLayoutRounding="False">
-                        <Grid Grid.Column="1" Margin="0" VerticalAlignment="Top" Width="{Binding ActualWidth, ElementName=scrollViewer1, Mode=OneWay}" HorizontalAlignment="Left" MaxWidth="471">
+                        <Grid Grid.Column="1" Margin="0,15,0,0" VerticalAlignment="Top" Width="{Binding ActualWidth, ElementName=scrollViewer1, Mode=OneWay}" HorizontalAlignment="Left" MaxWidth="471">
                             <Grid.RowDefinitions>
                                 <RowDefinition Height="Auto"/>
                                 <RowDefinition Height="Auto"/>
@@ -1934,7 +1955,7 @@ P.S. Ответ на Основной Вопрос Жизни, Вселенно�
                                 </Ellipse>-->
                                     <StackPanel x:Name="stackPanel" Grid.Column="0" Margin="0,10" VerticalAlignment="Center" >
 
-                                        <CheckBox Content="1" Margin="0" FontSize="14" FontWeight="Normal" BorderThickness="1" Padding="5,0,0,0" VerticalContentAlignment="Center" UseLayoutRounding="True" Width="{Binding ActualWidth, ElementName=checkBox, Mode=OneWay}" IsChecked="True" VerticalAlignment="Center" HorizontalAlignment="Left">
+                                        <CheckBox x:Name="checkBox6" Content="1" Margin="0" FontSize="14" FontWeight="Normal" BorderThickness="1" Padding="5,0,0,0" VerticalContentAlignment="Center" UseLayoutRounding="True" Width="{Binding ActualWidth, ElementName=checkBox, Mode=OneWay}" IsChecked="True" VerticalAlignment="Center" HorizontalAlignment="Left">
                                             <CheckBox.Background>
                                                 <SolidColorBrush Color="{DynamicResource ColorMain}"/>
                                             </CheckBox.Background>
@@ -1948,7 +1969,7 @@ P.S. Ответ на Основной Вопрос Жизни, Вселенно�
 
                                     </StackPanel>
                                     <StackPanel x:Name="stackPanel2" Grid.Column="1" VerticalAlignment="Center" MaxWidth="270" Grid.ColumnSpan="2" Margin="0,1">
-                                        <ComboBox x:Name="comboBox" Margin="20,5,0,5" FontSize="14" MinWidth="175" VerticalAlignment="Center" Padding="6,4,5,2" IsEditable="True" FontWeight="Normal" ScrollViewer.CanContentScroll="True">
+                                        <ComboBox x:Name="comboBox" Margin="20,5,0,5" FontSize="14" MinWidth="175" VerticalAlignment="Center" Padding="6,4,5,2" IsEditable="True" FontWeight="Normal" ScrollViewer.CanContentScroll="True" MaxWidth="250" IsEnabled="{Binding IsChecked, ElementName=checkBox6}">
                                             <ComboBox.Foreground>
                                                 <LinearGradientBrush EndPoint="0.5,1" StartPoint="0.5,0">
                                                     <GradientStop Color="Black" Offset="0"/>
@@ -1964,7 +1985,7 @@ P.S. Ответ на Основной Вопрос Жизни, Вселенно�
                                         </ComboBox>
                                     </StackPanel>
                                     <StackPanel x:Name="stackPanel1" Grid.Column="3" VerticalAlignment="Center" Margin="0,1">
-                                        <ComboBox x:Name="comboBox1" Margin="20,5,0,5" FontSize="14" MinWidth="60" VerticalAlignment="Center" Padding="6,4,5,2" IsEditable="True" FontWeight="Normal">
+                                        <ComboBox x:Name="comboBox1" Margin="20,5,0,5" FontSize="14" MinWidth="60" VerticalAlignment="Center" Padding="6,4,5,2" IsEditable="True" FontWeight="Normal" IsEnabled="{Binding IsChecked, ElementName=checkBox6}">
                                             <ComboBox.Background>
                                                 <LinearGradientBrush EndPoint="0,1" StartPoint="0,0">
                                                     <GradientStop Color="{DynamicResource ColorMain}" Offset="0"/>
