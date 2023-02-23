@@ -9,7 +9,7 @@
              >
     <!--  d:DesignHeight="48" d:DesignWidth="203"-->
     <StackPanel  Orientation="Horizontal">
-        <Image Name="MainMenuButtonImage"  Margin="0" VerticalAlignment="Center" HorizontalAlignment="Center" Height="48" Width="48" Source="PICTURE.png" />
+        <Image Name="MainMenuButtonImage"  Margin="0" VerticalAlignment="Center" HorizontalAlignment="Center" Height="48" Width="48" Source="pack://siteoforigin:,,,/pict/PICTURE.png" />
         <TextBlock Name="MainMenuButtonText" Margin="10,16,0,16" TextWrapping="Wrap" Text="Label" VerticalAlignment="Center" HorizontalAlignment="Left" FontSize="16" Padding="0,0,20,0">
             <TextBlock.Foreground>
                 <SolidColorBrush Color="{DynamicResource ColorFont}"/>

@@ -87,13 +87,13 @@
       <Generator>MSBuild:Compile</Generator>
       <SubType>Designer</SubType>
     </ApplicationDefinition>
-    <Compile Include="FileSaveSys.cs" />
-    <Compile Include="TaxiAnalyzer.cs" />
-    <Compile Include="UI.cs" />
-    <Compile Include="SubMenuButton.xaml.cs">
+    <Compile Include="parts\FileSaveSys.cs" />
+    <Compile Include="parts\TaxiAnalyzer.cs" />
+    <Compile Include="parts\UI.cs" />
+    <Compile Include="parts\SubMenuButton.xaml.cs">
       <DependentUpon>SubMenuButton.xaml</DependentUpon>
     </Compile>
-    <Page Include="MainMenuButton.xaml">
+    <Page Include="parts\MainMenuButton.xaml">
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
     </Page>
@@ -105,14 +105,14 @@
       <DependentUpon>App.xaml</DependentUpon>
       <SubType>Code</SubType>
     </Compile>
-    <Compile Include="MainMenuButton.xaml.cs">
+    <Compile Include="parts\MainMenuButton.xaml.cs">
       <DependentUpon>MainMenuButton.xaml</DependentUpon>
     </Compile>
     <Compile Include="MainWindow.xaml.cs">
       <DependentUpon>MainWindow.xaml</DependentUpon>
       <SubType>Code</SubType>
     </Compile>
-    <Page Include="SubMenuButton.xaml">
+    <Page Include="parts\SubMenuButton.xaml">
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
     </Page>
@@ -144,166 +144,13 @@
     <None Include="App.config" />
   </ItemGroup>
   <ItemGroup>
-    <None Include="pict\_About.png" />
-  </ItemGroup>
-  <ItemGroup>
-    <None Include="pict\_About_g.png" />
-  </ItemGroup>
-  <ItemGroup>
-    <None Include="pict\_About_o.png" />
-  </ItemGroup>
-  <ItemGroup>
-    <None Include="pict\_DBedit.png" />
-  </ItemGroup>
-  <ItemGroup>
-    <None Include="pict\_DBedit_g.png" />
-  </ItemGroup>
-  <ItemGroup>
-    <None Include="pict\_DBedit_o.png" />
-  </ItemGroup>
-  <ItemGroup>
-    <None Include="pict\_Exit.png" />
-  </ItemGroup>
-  <ItemGroup>
-    <None Include="pict\_Exit_g.png" />
-  </ItemGroup>
-  <ItemGroup>
-    <None Include="pict\_Exit_o.png" />
-  </ItemGroup>
-  <ItemGroup>
-    <None Include="pict\_KitSet.png" />
-  </ItemGroup>
-  <ItemGroup>
-    <None Include="pict\_KitSet_g.png" />
-  </ItemGroup>
-  <ItemGroup>
-    <None Include="pict\_KitSet_o.png" />
-  </ItemGroup>
-  <ItemGroup>
-    <None Include="pict\_New32.png" />
-  </ItemGroup>
-  <ItemGroup>
-    <None Include="pict\_New32_g.png" />
-  </ItemGroup>
-  <ItemGroup>
-    <None Include="pict\_New32_o.png" />
-  </ItemGroup>
-  <ItemGroup>
-    <None Include="pict\_Open32.png" />
-  </ItemGroup>
-  <ItemGroup>
-    <None Include="pict\_Open32_g.png" />
-  </ItemGroup>
-  <ItemGroup>
-    <None Include="pict\_Open32_o.png" />
-  </ItemGroup>
-  <ItemGroup>
-    <None Include="pict\_Price.png" />
-  </ItemGroup>
-  <ItemGroup>
-    <None Include="pict\_Price_g.png" />
-  </ItemGroup>
-  <ItemGroup>
-    <None Include="pict\_Price_o.png" />
-  </ItemGroup>
-  <ItemGroup>
-    <None Include="pict\_Print32.png" />
-  </ItemGroup>
-  <ItemGroup>
-    <None Include="pict\_Print32_g.png" />
-  </ItemGroup>
-  <ItemGroup>
-    <None Include="pict\_Print32_o.png" />
-  </ItemGroup>
-  <ItemGroup>
-    <None Include="pict\_PrintF32.png" />
-  </ItemGroup>
-  <ItemGroup>
-    <None Include="pict\_PrintF32_g.png" />
-  </ItemGroup>
-  <ItemGroup>
-    <None Include="pict\_PrintF32_o.png" />
-  </ItemGroup>
-  <ItemGroup>
-    <None Include="pict\_Save32.png" />
-  </ItemGroup>
-  <ItemGroup>
-    <None Include="pict\_Save32_g.png" />
-  </ItemGroup>
-  <ItemGroup>
-    <None Include="pict\_Save32_o.png" />
-  </ItemGroup>
-  <ItemGroup>
-    <None Include="pict\_SaveAs32.png" />
-  </ItemGroup>
-  <ItemGroup>
-    <None Include="pict\_SaveAs32_g.png" />
-  </ItemGroup>
-  <ItemGroup>
-    <None Include="pict\_SaveAs32_o.png" />
-  </ItemGroup>
-  <ItemGroup>
-    <None Include="pict\_Settings.png" />
-  </ItemGroup>
-  <ItemGroup>
-    <None Include="pict\_Settings_g.png" />
-  </ItemGroup>
-  <ItemGroup>
-    <None Include="pict\_Settings_o.png" />
-  </ItemGroup>
-  <ItemGroup>
-    <None Include="pict\ComboArr_b.png" />
-  </ItemGroup>
-  <ItemGroup>
-    <None Include="pict\ComboArr_o.png" />
-  </ItemGroup>
-  <ItemGroup>
-    <None Include="pict\icon.ico" />
-  </ItemGroup>
-  <ItemGroup>
-    <None Include="pict\icon-0.png" />
-  </ItemGroup>
-  <ItemGroup>
-    <None Include="pict\PICTURE.png" />
-  </ItemGroup>
-  <ItemGroup>
-    <None Include="pict\screen.png" />
-  </ItemGroup>
-  <ItemGroup>
     <None Include="license.txt" />
-  </ItemGroup>
-  <ItemGroup>
-    <None Include="media\Windows Menu Command.wav" />
   </ItemGroup>
   <ItemGroup>
     <WCFMetadata Include="Connected Services\" />
   </ItemGroup>
   <ItemGroup>
-    <Resource Include="_KitSet_o.png" />
-  </ItemGroup>
-  <ItemGroup>
-    <Resource Include="_Price_o.png" />
-  </ItemGroup>
-  <ItemGroup>
-    <Resource Include="_DBedit_o.png" />
-  </ItemGroup>
-  <ItemGroup>
-    <Resource Include="_Settings_o.png" />
-  </ItemGroup>
-  <ItemGroup>
-    <Resource Include="_Taxi_o.png" />
-    <Resource Include="_PrintF32_o.png" />
-    <Resource Include="_SaveAs32_o.png" />
-    <Resource Include="_Save32_o.png" />
-    <Resource Include="_Open32_o.png" />
-    <Resource Include="_Print32_o.png" />
-    <Resource Include="PICTUREs.png" />
-    <Resource Include="_New32_o.png" />
-    <Resource Include="_Exit_o.png" />
-    <Resource Include="PICTURE.png" />
     <Resource Include="icon.ico" />
-    <Content Include="Windows Menu Command.wav" />
-    <Resource Include="_About_o.png" />
   </ItemGroup>
   <ItemGroup>
     <COMReference Include="Microsoft.Office.Core">
@@ -345,6 +192,180 @@
       <ProductName>.NET Framework 3.5 SP1</ProductName>
       <Install>false</Install>
     </BootstrapperPackage>
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="pict\_About.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="pict\_About_g.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="pict\_About_o.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="pict\_About_v.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="pict\_DBedit.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="pict\_DBedit_g.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="pict\_DBedit_o.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="pict\_DBedit_v.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="pict\_Exit.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="pict\_Exit_g.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="pict\_Exit_o.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="pict\_Exit_v.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="pict\_KitSet.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="pict\_KitSet_g.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="pict\_KitSet_o.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="pict\_KitSet_v.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="pict\_New32.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="pict\_New32_g.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="pict\_New32_o.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="pict\_New32_v.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="pict\_Open32.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="pict\_Open32_g.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="pict\_Open32_o.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="pict\_Open32_v.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="pict\_Price.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="pict\_Price_g.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="pict\_Price_o.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="pict\_Price_v.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="pict\_Print32.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="pict\_Print32_g.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="pict\_Print32_o.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="pict\_Print32_v.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="pict\_PrintF32.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="pict\_PrintF32_g.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="pict\_PrintF32_o.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="pict\_PrintF32_v.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="pict\_Save32.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="pict\_Save32_g.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="pict\_Save32_o.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="pict\_Save32_v.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="pict\_SaveAs32.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="pict\_SaveAs32_g.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="pict\_SaveAs32_o.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="pict\_SaveAs32_v.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="pict\_Settings.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="pict\_Settings_g.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="pict\_Settings_o.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="pict\_Settings_v.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="pict\_Taxi.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="pict\_Taxi_g.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="pict\_Taxi_o.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="pict\_Taxi_v.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="pict\ComboArr_b.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="pict\ComboArr_o.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="pict\ComboArr_v.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="pict\icon-0.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="pict\PICTURE.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="pict\PICTUREs.png" />
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
 </Project>

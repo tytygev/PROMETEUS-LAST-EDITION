@@ -1507,16 +1507,18 @@ P.S. Ответ на Основной Вопрос Жизни, Вселенно�
             </Grid.RowDefinitions>
             <StackPanel Margin="0,15,0,0" VerticalAlignment="Top" Grid.RowSpan="3" >
                 <!-- -->
-                <local:MainMenuButton x:Name="KitSetButton"  Margin="20,0,0,0" LabelButtonProperty="Путевые листы" ImageSourceProperty="_KitSet_o.png" MouseEnter="MenuButton_MouseEnter" MouseLeave="MenuButton_MouseLeave" MouseUp="MenuButton_MouseUp"  Padding="0,5"/>
-                <local:MainMenuButton x:Name="PriceButton" Margin="20,0,0,0" LabelButtonProperty="Наряд" ImageSourceProperty="_Price_o.png" MouseEnter="MenuButton_MouseEnter" MouseLeave="MenuButton_MouseLeave" MouseUp="MenuButton_MouseUp" Padding="0,5"/>
-                <local:MainMenuButton x:Name="DBEditButton"  Margin="20,0,0,0" LabelButtonProperty="Редактор БД" ImageSourceProperty="_DBedit_o.png" MouseEnter="MenuButton_MouseEnter" MouseLeave="MenuButton_MouseLeave" MouseUp="MenuButton_MouseUp" Padding="0,5" />
-                <local:MainMenuButton x:Name="TaxiButton" Margin="20,0,0,0" LabelButtonProperty="Подсчёт такси" MouseEnter="MenuButton_MouseEnter" MouseLeave="MenuButton_MouseLeave" MouseUp="MenuButton_MouseUp" ImageSourceProperty="_Taxi_o.png" Padding="0,5" />
-                <local:MainMenuButton x:Name="SettingsButton" Margin="20,0,0,0" LabelButtonProperty="Настройки" ImageSourceProperty="_Settings_o.png" MouseEnter="MenuButton_MouseEnter" MouseLeave="MenuButton_MouseLeave" MouseUp="MenuButton_MouseUp" Padding="0,5" />
-                <local:MainMenuButton x:Name="AboutButton" Margin="20,0,0,0" LabelButtonProperty="О программе" MouseEnter="MenuButton_MouseEnter" MouseLeave="MenuButton_MouseLeave" MouseUp="MenuButton_MouseUp" ImageSourceProperty="_About_o.png" Padding="0,5" />
+                <local:MainMenuButton x:Name="KitSetButton"  Margin="20,0,0,0" LabelButtonProperty="Путевые листы"  MouseEnter="MenuButton_MouseEnter" MouseLeave="MenuButton_MouseLeave" MouseUp="MenuButton_MouseUp"  Padding="0,5" ImageSourceProperty="pack://siteoforigin:,,,/pict/_KitSet_o.png"/>
+                <local:MainMenuButton x:Name="PriceButton" Margin="20,0,0,0" LabelButtonProperty="Наряд"  MouseEnter="MenuButton_MouseEnter" MouseLeave="MenuButton_MouseLeave" MouseUp="MenuButton_MouseUp" Padding="0,5" ImageSourceProperty="pack://siteoforigin:,,,/pict/_Price_o.png"/>
+                <local:MainMenuButton x:Name="DBEditButton"  Margin="20,0,0,0" LabelButtonProperty="Редактор БД"  MouseEnter="MenuButton_MouseEnter" MouseLeave="MenuButton_MouseLeave" MouseUp="MenuButton_MouseUp" Padding="0,5" ImageSourceProperty="pack://siteoforigin:,,,/pict/_DBedit_o.png" />
+                <local:MainMenuButton x:Name="TaxiButton" Margin="20,0,0,0" LabelButtonProperty="Подсчёт такси" MouseEnter="MenuButton_MouseEnter" MouseLeave="MenuButton_MouseLeave" MouseUp="MenuButton_MouseUp"  Padding="0,5" ImageSourceProperty="pack://siteoforigin:,,,/pict/_Taxi_o.png" />
+                <local:MainMenuButton x:Name="SettingsButton" Margin="20,0,0,0" LabelButtonProperty="Настройки"  MouseEnter="MenuButton_MouseEnter" MouseLeave="MenuButton_MouseLeave" MouseUp="MenuButton_MouseUp" Padding="0,5" ImageSourceProperty="pack://siteoforigin:,,,/pict/_Settings_o.png" />
+                <local:MainMenuButton x:Name="AboutButton" Margin="20,0,0,0" LabelButtonProperty="О программе" MouseEnter="MenuButton_MouseEnter" MouseLeave="MenuButton_MouseLeave" MouseUp="MenuButton_MouseUp"  Padding="0,5" ImageSourceProperty="pack://siteoforigin:,,,/pict/_About_o.png" />
 
             </StackPanel>
             <StackPanel Margin="0" VerticalAlignment="Top" Grid.Row="1" >
-                <local:MainMenuButton x:Name="ExitButton" Margin="0,5" LabelButtonProperty="Выход" ImageSourceProperty="_Exit_o.png" MouseEnter="MenuButton_MouseEnter" MouseLeave="MenuButton_MouseLeave" MouseUp="MenuButton_MouseUp" HorizontalAlignment="Center" />
+
+
+                <local:MainMenuButton x:Name="ExitButton" Margin="0,5" LabelButtonProperty="Выход" MouseEnter="MenuButton_MouseEnter" MouseLeave="MenuButton_MouseLeave" MouseUp="MenuButton_MouseUp" HorizontalAlignment="Center" ImageSourceProperty="pack://siteoforigin:,,,/pict/_Exit_o.png" />
                 <TextBlock Margin="0,5,20,5" TextWrapping="Wrap" Text="ver.: {0.0.0.0a}" VerticalAlignment="Top" FontSize="10" HorizontalAlignment="Right">
                     <TextBlock.Foreground>
                         <SolidColorBrush Color="{DynamicResource ColorFont}"/>
@@ -1537,12 +1539,12 @@ P.S. Ответ на Основной Вопрос Жизни, Вселенно�
                 <RowDefinition Height="*"/>
             </Grid.RowDefinitions>
             <StackPanel Margin="0" Orientation="Horizontal">
-                <local:SubMenuButton Margin="0" ImageSourceProperty="_New32_o.png" MouseEnter="MenuButton_MouseEnter" MouseLeave="MenuButton_MouseLeave" MouseUp="MenuButton_MouseUp" HorizontalAlignment="Center" />
-                <local:SubMenuButton Margin="0" ImageSourceProperty="_Open32_o.png" MouseEnter="MenuButton_MouseEnter" MouseLeave="MenuButton_MouseLeave" MouseUp="MenuButton_MouseUp" HorizontalAlignment="Center" />
-                <local:SubMenuButton Margin="0" ImageSourceProperty="_Save32_o.png" MouseEnter="MenuButton_MouseEnter" MouseLeave="MenuButton_MouseLeave" MouseUp="MenuButton_MouseUp" HorizontalAlignment="Center" />
-                <local:SubMenuButton Margin="0" ImageSourceProperty="_SaveAs32_o.png" MouseEnter="MenuButton_MouseEnter" MouseLeave="MenuButton_MouseLeave" MouseUp="MenuButton_MouseUp" HorizontalAlignment="Center" />
-                <local:SubMenuButton Margin="0" ImageSourceProperty="_Print32_o.png" MouseEnter="MenuButton_MouseEnter" MouseLeave="MenuButton_MouseLeave" MouseUp="MenuButton_MouseUp" HorizontalAlignment="Center" />
-                <local:SubMenuButton Margin="0" ImageSourceProperty="_PrintF32_o.png" MouseEnter="MenuButton_MouseEnter" MouseLeave="MenuButton_MouseLeave" MouseUp="MenuButton_MouseUp" HorizontalAlignment="Center" />
+                <local:SubMenuButton Margin="0"  MouseEnter="MenuButton_MouseEnter" MouseLeave="MenuButton_MouseLeave" MouseUp="MenuButton_MouseUp" HorizontalAlignment="Center" ImageSourceProperty="pack://siteoforigin:,,,/pict/_New32_o.png" />
+                <local:SubMenuButton Margin="0"  MouseEnter="MenuButton_MouseEnter" MouseLeave="MenuButton_MouseLeave" MouseUp="MenuButton_MouseUp" HorizontalAlignment="Center" ImageSourceProperty="pack://siteoforigin:,,,/pict/_Open32_o.png" />
+                <local:SubMenuButton Margin="0"  MouseEnter="MenuButton_MouseEnter" MouseLeave="MenuButton_MouseLeave" MouseUp="MenuButton_MouseUp" HorizontalAlignment="Center" ImageSourceProperty="pack://siteoforigin:,,,/pict/_Save32_o.png" />
+                <local:SubMenuButton Margin="0" MouseEnter="MenuButton_MouseEnter" MouseLeave="MenuButton_MouseLeave" MouseUp="MenuButton_MouseUp" HorizontalAlignment="Center" ImageSourceProperty="pack://siteoforigin:,,,/pict/_SaveAs32_o.png" />
+                <local:SubMenuButton Margin="0" MouseEnter="MenuButton_MouseEnter" MouseLeave="MenuButton_MouseLeave" MouseUp="MenuButton_MouseUp" HorizontalAlignment="Center" ImageSourceProperty="pack://siteoforigin:,,,/pict/_PrintF32_o.png" />
+                <local:SubMenuButton Margin="0" MouseEnter="MenuButton_MouseEnter" MouseLeave="MenuButton_MouseLeave" MouseUp="MenuButton_MouseUp" HorizontalAlignment="Center" ImageSourceProperty="pack://siteoforigin:,,,/pict/_Print32_o.png" />
 
 
             </StackPanel>
@@ -1565,7 +1567,7 @@ P.S. Ответ на Основной Вопрос Жизни, Вселенно�
                                 <TextBlock.Foreground>
                                     <SolidColorBrush Color="{DynamicResource ColorFont}"/>
                                 </TextBlock.Foreground><Run Text="Организация"/></TextBlock>
-                            <ComboBox HorizontalAlignment="Right" Margin="10,5,10,15" Text="" MinWidth="180" FontSize="14" FontWeight="Normal" Padding="2,4,2,2" MaxWidth="250">
+                            <ComboBox HorizontalAlignment="Right" Margin="10,5" Text="" MinWidth="180" FontSize="14" FontWeight="Normal" Padding="2,4,2,2" MaxWidth="250">
                                 <ComboBox.Foreground>
                                     <LinearGradientBrush EndPoint="0.5,1" StartPoint="0.5,0">
                                         <GradientStop Color="Black" Offset="0"/>
@@ -1578,17 +1580,19 @@ P.S. Ответ на Основной Вопрос Жизни, Вселенно�
                                 <ComboBox.Background>
                                     <SolidColorBrush Color="{DynamicResource ColorMain}"/>
                                 </ComboBox.Background>
-                                <ComboBoxItem Content="" Width="148">
-                                    <ComboBoxItem.Foreground>
-                                        <SolidColorBrush Color="{DynamicResource ColorFont}"/>
-                                    </ComboBoxItem.Foreground>
-                                </ComboBoxItem>
-                                <ComboBoxItem Content="">
-                                    <ComboBoxItem.Foreground>
-                                        <SolidColorBrush Color="{DynamicResource ColorFont}"/>
-                                    </ComboBoxItem.Foreground>
-                                </ComboBoxItem>
                             </ComboBox>
+                            <CheckBox x:Name="checkBox8" Margin="10,5,10,15" FontSize="14" BorderThickness="1" Padding="5,0,0,0" HorizontalAlignment="Right" RenderTransformOrigin="0.5,0.5" Width="{Binding ActualWidth, ElementName=comboBox2, Mode=OneWay}" Content="Без адреса осмотра/подачи" FontWeight="Normal" >
+                                <CheckBox.Foreground>
+                                    <SolidColorBrush Color="{DynamicResource ColorFont}"/>
+                                </CheckBox.Foreground>
+                                <CheckBox.BorderBrush>
+                                    <SolidColorBrush Color="{DynamicResource ColorNuans}"/>
+                                </CheckBox.BorderBrush>
+                                <CheckBox.Background>
+                                    <SolidColorBrush Color="{DynamicResource ColorMain}"/>
+                                </CheckBox.Background>
+
+                            </CheckBox>
                             <TextBlock HorizontalAlignment="Left" Margin="10,5" TextWrapping="Wrap" Text="Механик" FontSize="14" FontWeight="Normal" TextDecorations="{x:Null}">
                                 <TextBlock.Foreground>
                                     <SolidColorBrush Color="{DynamicResource ColorFont}"/>
@@ -1639,7 +1643,38 @@ P.S. Ответ на Основной Вопрос Жизни, Вселенно�
                                     <SolidColorBrush Color="{DynamicResource ColorMain}"/>
                                 </ComboBox.Background>
                             </ComboBox>
-                            <CheckBox Content="Не печатать пустые" Margin="10,5,10,15" FontSize="14" FontWeight="Normal" BorderThickness="1" Padding="5,0,0,0" IsChecked="True" >
+                            <TextBlock HorizontalAlignment="Left" Margin="10,5" TextWrapping="Wrap" Text="Медработник" FontSize="14" FontWeight="Normal" TextDecorations="{x:Null}">
+                                <TextBlock.Foreground>
+                                    <SolidColorBrush Color="{DynamicResource ColorFont}"/>
+                                </TextBlock.Foreground>
+                            </TextBlock>
+                            <ComboBox HorizontalAlignment="Right" Margin="10,5" Text="" MinWidth="180" FontSize="14" FontWeight="Normal" Padding="2,4,2,2" MaxWidth="250">
+                                <ComboBox.Foreground>
+                                    <LinearGradientBrush EndPoint="0.5,1" StartPoint="0.5,0">
+                                        <GradientStop Color="Black" Offset="0"/>
+                                        <GradientStop Color="#FFFF9523" Offset="0.37"/>
+                                    </LinearGradientBrush>
+                                </ComboBox.Foreground>
+                                <ComboBox.BorderBrush>
+                                    <SolidColorBrush Color="{DynamicResource ColorNuans}"/>
+                                </ComboBox.BorderBrush>
+                                <ComboBox.Background>
+                                    <SolidColorBrush Color="{DynamicResource ColorMain}"/>
+                                </ComboBox.Background>
+                            </ComboBox>
+                            <CheckBox x:Name="checkBox7" Content="Только Лицензия" Margin="10,5,10,15" FontSize="14" FontWeight="Normal" BorderThickness="1" Padding="5,0,0,0"  IsChecked="True" HorizontalAlignment="Right" RenderTransformOrigin="0.5,0.5" Width="{Binding ActualWidth, ElementName=comboBox2, Mode=OneWay}" >
+                                <CheckBox.Foreground>
+                                    <SolidColorBrush Color="{DynamicResource ColorFont}"/>
+                                </CheckBox.Foreground>
+                                <CheckBox.BorderBrush>
+                                    <SolidColorBrush Color="{DynamicResource ColorNuans}"/>
+                                </CheckBox.BorderBrush>
+                                <CheckBox.Background>
+                                    <SolidColorBrush Color="{DynamicResource ColorMain}"/>
+                                </CheckBox.Background>
+
+                            </CheckBox>
+                            <CheckBox Content="Не печатать пустые" Margin="10,5,10,15" FontSize="14" FontWeight="Normal" BorderThickness="1" Padding="5,0,0,0" >
                                 <CheckBox.Foreground>
                                     <SolidColorBrush Color="{DynamicResource ColorFont}"/>
                                 </CheckBox.Foreground>
@@ -1696,7 +1731,7 @@ P.S. Ответ на Основной Вопрос Жизни, Вселенно�
                                     <ColumnDefinition Width="auto"/>
                                     <ColumnDefinition Width="*"/>
                                 </Grid.ColumnDefinitions>
-                                <CheckBox x:Name="checkBox3" Content="Печатать номера&#xD;&#xA;начиная с:" Margin="0,0,10,0" FontSize="14" FontWeight="Normal" BorderThickness="1" Padding="5,0,0,0" IsChecked="True" VerticalAlignment="Center">
+                                <CheckBox x:Name="checkBox3" Content="Печатать номера&#xD;&#xA;начиная с:" Margin="0,0,10,0" FontSize="14" FontWeight="Normal" BorderThickness="1" Padding="5,0,0,0" VerticalAlignment="Center">
                                     <CheckBox.Background>
                                         <SolidColorBrush Color="{DynamicResource ColorMain}"/>
                                     </CheckBox.Background>
@@ -1753,18 +1788,7 @@ P.S. Ответ на Основной Вопрос Жизни, Вселенно�
                                 </GroupBox.BorderBrush>
 
                                 <StackPanel VerticalAlignment="Top">
-                                    <RadioButton Content="Текущую" Margin="10,10,10,5" FontSize="14">
-                                        <RadioButton.Background>
-                                            <SolidColorBrush Color="{DynamicResource ColorMain}"/>
-                                        </RadioButton.Background>
-                                        <RadioButton.BorderBrush>
-                                            <SolidColorBrush Color="{DynamicResource ColorNuans}"/>
-                                        </RadioButton.BorderBrush>
-                                        <RadioButton.Foreground>
-                                            <SolidColorBrush Color="{DynamicResource ColorFont}"/>
-                                        </RadioButton.Foreground>
-                                    </RadioButton>
-                                    <RadioButton Content="Завтрашнюю" Margin="10,5" IsChecked="True" FontSize="14">
+                                    <RadioButton Content="Текущую" Margin="10,10,10,5" FontSize="14" IsChecked="True">
                                         <RadioButton.Background>
                                             <SolidColorBrush Color="{DynamicResource ColorMain}"/>
                                         </RadioButton.Background>

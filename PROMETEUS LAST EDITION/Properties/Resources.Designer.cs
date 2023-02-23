@@ -93,6 +93,16 @@ namespace PROMETEUS_LAST_EDITION.Properties {
         /// <summary>
         ///   Поиск локализованного ресурса типа System.Drawing.Bitmap.
         /// </summary>
+        public static System.Drawing.Bitmap _About_v {
+            get {
+                object obj = ResourceManager.GetObject("_About_v", resourceCulture);
+                return ((System.Drawing.Bitmap)(obj));
+            }
+        }
+        
+        /// <summary>
+        ///   Поиск локализованного ресурса типа System.Drawing.Bitmap.
+        /// </summary>
         public static System.Drawing.Bitmap _DBedit {
             get {
                 object obj = ResourceManager.GetObject("_DBedit", resourceCulture);
@@ -116,6 +126,16 @@ namespace PROMETEUS_LAST_EDITION.Properties {
         public static System.Drawing.Bitmap _DBedit_o {
             get {
                 object obj = ResourceManager.GetObject("_DBedit_o", resourceCulture);
+                return ((System.Drawing.Bitmap)(obj));
+            }
+        }
+        
+        /// <summary>
+        ///   Поиск локализованного ресурса типа System.Drawing.Bitmap.
+        /// </summary>
+        public static System.Drawing.Bitmap _DBedit_v {
+            get {
+                object obj = ResourceManager.GetObject("_DBedit_v", resourceCulture);
                 return ((System.Drawing.Bitmap)(obj));
             }
         }
@@ -153,6 +173,16 @@ namespace PROMETEUS_LAST_EDITION.Properties {
         /// <summary>
         ///   Поиск локализованного ресурса типа System.Drawing.Bitmap.
         /// </summary>
+        public static System.Drawing.Bitmap _Exit_v {
+            get {
+                object obj = ResourceManager.GetObject("_Exit_v", resourceCulture);
+                return ((System.Drawing.Bitmap)(obj));
+            }
+        }
+        
+        /// <summary>
+        ///   Поиск локализованного ресурса типа System.Drawing.Bitmap.
+        /// </summary>
         public static System.Drawing.Bitmap _KitSet {
             get {
                 object obj = ResourceManager.GetObject("_KitSet", resourceCulture);
@@ -176,6 +206,16 @@ namespace PROMETEUS_LAST_EDITION.Properties {
         public static System.Drawing.Bitmap _KitSet_o {
             get {
                 object obj = ResourceManager.GetObject("_KitSet_o", resourceCulture);
+                return ((System.Drawing.Bitmap)(obj));
+            }
+        }
+        
+        /// <summary>
+        ///   Поиск локализованного ресурса типа System.Drawing.Bitmap.
+        /// </summary>
+        public static System.Drawing.Bitmap _KitSet_v {
+            get {
+                object obj = ResourceManager.GetObject("_KitSet_v", resourceCulture);
                 return ((System.Drawing.Bitmap)(obj));
             }
         }
@@ -213,6 +253,16 @@ namespace PROMETEUS_LAST_EDITION.Properties {
         /// <summary>
         ///   Поиск локализованного ресурса типа System.Drawing.Bitmap.
         /// </summary>
+        public static System.Drawing.Bitmap _New32_v {
+            get {
+                object obj = ResourceManager.GetObject("_New32_v", resourceCulture);
+                return ((System.Drawing.Bitmap)(obj));
+            }
+        }
+        
+        /// <summary>
+        ///   Поиск локализованного ресурса типа System.Drawing.Bitmap.
+        /// </summary>
         public static System.Drawing.Bitmap _Open32 {
             get {
                 object obj = ResourceManager.GetObject("_Open32", resourceCulture);
@@ -236,6 +286,16 @@ namespace PROMETEUS_LAST_EDITION.Properties {
         public static System.Drawing.Bitmap _Open32_o {
             get {
                 object obj = ResourceManager.GetObject("_Open32_o", resourceCulture);
+                return ((System.Drawing.Bitmap)(obj));
+            }
+        }
+        
+        /// <summary>
+        ///   Поиск локализованного ресурса типа System.Drawing.Bitmap.
+        /// </summary>
+        public static System.Drawing.Bitmap _Open32_v {
+            get {
+                object obj = ResourceManager.GetObject("_Open32_v", resourceCulture);
                 return ((System.Drawing.Bitmap)(obj));
             }
         }
@@ -273,6 +333,16 @@ namespace PROMETEUS_LAST_EDITION.Properties {
         /// <summary>
         ///   Поиск локализованного ресурса типа System.Drawing.Bitmap.
         /// </summary>
+        public static System.Drawing.Bitmap _Price_v {
+            get {
+                object obj = ResourceManager.GetObject("_Price_v", resourceCulture);
+                return ((System.Drawing.Bitmap)(obj));
+            }
+        }
+        
+        /// <summary>
+        ///   Поиск локализованного ресурса типа System.Drawing.Bitmap.
+        /// </summary>
         public static System.Drawing.Bitmap _Print32 {
             get {
                 object obj = ResourceManager.GetObject("_Print32", resourceCulture);
@@ -296,6 +366,16 @@ namespace PROMETEUS_LAST_EDITION.Properties {
         public static System.Drawing.Bitmap _Print32_o {
             get {
                 object obj = ResourceManager.GetObject("_Print32_o", resourceCulture);
+                return ((System.Drawing.Bitmap)(obj));
+            }
+        }
+        
+        /// <summary>
+        ///   Поиск локализованного ресурса типа System.Drawing.Bitmap.
+        /// </summary>
+        public static System.Drawing.Bitmap _Print32_v {
+            get {
+                object obj = ResourceManager.GetObject("_Print32_v", resourceCulture);
                 return ((System.Drawing.Bitmap)(obj));
             }
         }
@@ -333,6 +413,16 @@ namespace PROMETEUS_LAST_EDITION.Properties {
         /// <summary>
         ///   Поиск локализованного ресурса типа System.Drawing.Bitmap.
         /// </summary>
+        public static System.Drawing.Bitmap _PrintF32_v {
+            get {
+                object obj = ResourceManager.GetObject("_PrintF32_v", resourceCulture);
+                return ((System.Drawing.Bitmap)(obj));
+            }
+        }
+        
+        /// <summary>
+        ///   Поиск локализованного ресурса типа System.Drawing.Bitmap.
+        /// </summary>
         public static System.Drawing.Bitmap _Save32 {
             get {
                 object obj = ResourceManager.GetObject("_Save32", resourceCulture);
@@ -356,6 +446,16 @@ namespace PROMETEUS_LAST_EDITION.Properties {
         public static System.Drawing.Bitmap _Save32_o {
             get {
                 object obj = ResourceManager.GetObject("_Save32_o", resourceCulture);
+                return ((System.Drawing.Bitmap)(obj));
+            }
+        }
+        
+        /// <summary>
+        ///   Поиск локализованного ресурса типа System.Drawing.Bitmap.
+        /// </summary>
+        public static System.Drawing.Bitmap _Save32_v {
+            get {
+                object obj = ResourceManager.GetObject("_Save32_v", resourceCulture);
                 return ((System.Drawing.Bitmap)(obj));
             }
         }
@@ -393,6 +493,16 @@ namespace PROMETEUS_LAST_EDITION.Properties {
         /// <summary>
         ///   Поиск локализованного ресурса типа System.Drawing.Bitmap.
         /// </summary>
+        public static System.Drawing.Bitmap _SaveAs32_v {
+            get {
+                object obj = ResourceManager.GetObject("_SaveAs32_v", resourceCulture);
+                return ((System.Drawing.Bitmap)(obj));
+            }
+        }
+        
+        /// <summary>
+        ///   Поиск локализованного ресурса типа System.Drawing.Bitmap.
+        /// </summary>
         public static System.Drawing.Bitmap _Settings {
             get {
                 object obj = ResourceManager.GetObject("_Settings", resourceCulture);
@@ -423,6 +533,56 @@ namespace PROMETEUS_LAST_EDITION.Properties {
         /// <summary>
         ///   Поиск локализованного ресурса типа System.Drawing.Bitmap.
         /// </summary>
+        public static System.Drawing.Bitmap _Settings_v {
+            get {
+                object obj = ResourceManager.GetObject("_Settings_v", resourceCulture);
+                return ((System.Drawing.Bitmap)(obj));
+            }
+        }
+        
+        /// <summary>
+        ///   Поиск локализованного ресурса типа System.Drawing.Bitmap.
+        /// </summary>
+        public static System.Drawing.Bitmap _Taxi {
+            get {
+                object obj = ResourceManager.GetObject("_Taxi", resourceCulture);
+                return ((System.Drawing.Bitmap)(obj));
+            }
+        }
+        
+        /// <summary>
+        ///   Поиск локализованного ресурса типа System.Drawing.Bitmap.
+        /// </summary>
+        public static System.Drawing.Bitmap _Taxi_g {
+            get {
+                object obj = ResourceManager.GetObject("_Taxi_g", resourceCulture);
+                return ((System.Drawing.Bitmap)(obj));
+            }
+        }
+        
+        /// <summary>
+        ///   Поиск локализованного ресурса типа System.Drawing.Bitmap.
+        /// </summary>
+        public static System.Drawing.Bitmap _Taxi_o {
+            get {
+                object obj = ResourceManager.GetObject("_Taxi_o", resourceCulture);
+                return ((System.Drawing.Bitmap)(obj));
+            }
+        }
+        
+        /// <summary>
+        ///   Поиск локализованного ресурса типа System.Drawing.Bitmap.
+        /// </summary>
+        public static System.Drawing.Bitmap _Taxi_v {
+            get {
+                object obj = ResourceManager.GetObject("_Taxi_v", resourceCulture);
+                return ((System.Drawing.Bitmap)(obj));
+            }
+        }
+        
+        /// <summary>
+        ///   Поиск локализованного ресурса типа System.Drawing.Bitmap.
+        /// </summary>
         public static System.Drawing.Bitmap ComboArr_b {
             get {
                 object obj = ResourceManager.GetObject("ComboArr_b", resourceCulture);
@@ -436,6 +596,16 @@ namespace PROMETEUS_LAST_EDITION.Properties {
         public static System.Drawing.Bitmap ComboArr_o {
             get {
                 object obj = ResourceManager.GetObject("ComboArr_o", resourceCulture);
+                return ((System.Drawing.Bitmap)(obj));
+            }
+        }
+        
+        /// <summary>
+        ///   Поиск локализованного ресурса типа System.Drawing.Bitmap.
+        /// </summary>
+        public static System.Drawing.Bitmap ComboArr_v {
+            get {
+                object obj = ResourceManager.GetObject("ComboArr_v", resourceCulture);
                 return ((System.Drawing.Bitmap)(obj));
             }
         }
@@ -470,7 +640,7 @@ namespace PROMETEUS_LAST_EDITION.Properties {
         }
         
         /// <summary>
-        ///   Ищет локализованную строку, похожую на Copyright © 2017—2022 Каримов Александр и «ХТО Продакшн» ™ при участии Каримова Михаила aka MiXeRaToS  
+        ///   Ищет локализованную строку, похожую на Copyright © 2017—2023 Каримов Александр и «ХТО Продакшн» ™ при участии Каримова Михаила aka MiXeRaToS  
         ///
         ///Если вы используете «Прометей» в своей работе, Каримов Александр был бы рад узнать об этом. Вы можете написать, направив письмо на photodc@ya.ru  И если вам доведется встретиться с Каримовым Александром в баре, можете угостить его напитком по его выбору, если «Прометей» действительно пригодилась вам.  В остальном, можете делать с этой программой всё, что вам угодно и, естественно, автор не несёт никако [остаток строки не уместился]&quot;;.
         /// </summary>
@@ -493,9 +663,9 @@ namespace PROMETEUS_LAST_EDITION.Properties {
         /// <summary>
         ///   Поиск локализованного ресурса типа System.Drawing.Bitmap.
         /// </summary>
-        public static System.Drawing.Bitmap screen {
+        public static System.Drawing.Bitmap PICTUREs {
             get {
-                object obj = ResourceManager.GetObject("screen", resourceCulture);
+                object obj = ResourceManager.GetObject("PICTUREs", resourceCulture);
                 return ((System.Drawing.Bitmap)(obj));
             }
         }

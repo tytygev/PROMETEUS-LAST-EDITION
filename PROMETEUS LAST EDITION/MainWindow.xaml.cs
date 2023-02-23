@@ -57,8 +57,9 @@ namespace PROMETEUS_LAST_EDITION
             InitializeDefaultSettings();
 
             wav = new SoundPlayer();
-            wav.Stream = Properties.Resources.ding;
 
+            
+ 
             currentVisibleView = StartPage;//
 
             //пример использования функции сохранения и загрузки:
