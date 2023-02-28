@@ -15,9 +15,11 @@ using System.Windows.Shapes;
 
 namespace PROMETEUS_LAST_EDITION
 {
+    /// <summary>
+    /// Логика взаимодействия для MainMenuButton.xaml
+    /// </summary>
     public partial class MainMenuButton : UserControl
     {
-
         private bool _checked = true;
         private SolidColorBrush checkedBrush, uncheckedBrush;
         private Color highlightColor;
@@ -72,7 +74,6 @@ namespace PROMETEUS_LAST_EDITION
             highlightColor.G /= 8;
             highlightColor.B /= 8;
         }
-
 
         protected override void OnMouseUp(MouseButtonEventArgs e)
         {

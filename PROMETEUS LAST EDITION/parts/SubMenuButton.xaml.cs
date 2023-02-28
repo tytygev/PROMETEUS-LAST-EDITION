@@ -20,15 +20,19 @@ namespace PROMETEUS_LAST_EDITION
     /// </summary>
     public partial class SubMenuButton : UserControl
     {
-       
+        //выставить свойство элемента Image (чтение/запись)
         public ImageSource ImageSourceProperty
         {
             get { return SubMenuButtonImage.Source; }
             set {SubMenuButtonImage.Source = value; }
         }
+        
         public SubMenuButton()
         {
-            InitializeComponent();
+            InitializeComponent();  
         }
+
+       
+      
     }
 }

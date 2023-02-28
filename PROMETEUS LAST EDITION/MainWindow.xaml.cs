@@ -78,8 +78,8 @@ namespace PROMETEUS_LAST_EDITION
             var DSettingsTaxiComboBoxes = DSettingsTaxiGrid.Children.OfType<ComboBox>().ToList(); //Все элементы типа ComboBox в таблице выбора идентефикации ячеек
            for (int i = 0; i< DSettingsTaxiComboBoxes.Count; i++)
             {
-                           DSettingsTaxiComboBoxes[i].SelectedIndex = Int32.Parse(Properties.Settings.Default.report_parser_setsel[i]);//установка значений из DefaultSettings
-                            }
+                DSettingsTaxiComboBoxes[i].SelectedIndex = Int32.Parse(Properties.Settings.Default.report_parser_setsel[i]);//установка значений из DefaultSettings
+            }
             var DSettingsTaxiTextBoxes = DSettingsTaxiGrid.Children.OfType<TextBox>().ToList(); //Все элементы типаTextBox в таблице выбора идентефикации ячеек
             for (int i = 0; i < DSettingsTaxiTextBoxes.Count; i++)
             {
@@ -99,30 +99,34 @@ namespace PROMETEUS_LAST_EDITION
             SettingsButton.MouseUp += (s, e) => ShowView(SettingsPage);
             AboutButton.MouseUp += (s, e) => ShowView(AboutPage);
             ExitButton.MouseUp += (s, e) => Application.Current.Shutdown();
+
+            NewKitSetButton.MouseUp += (s, e) => ShowView(KitSetPage);
+            OpenKitSetButton.MouseUp += (s, e) => ShowView(KitSetPage);
+            SaveKitSetButton.MouseUp += (s, e) => ShowView(KitSetPage);
+            SaveasKitSetButton.MouseUp += (s, e) => ShowView(KitSetPage);
+            PrintfKitSetButton.MouseUp += (s, e) => ShowView(KitSetPage);
+            PrintKitSetButton.MouseUp += (s, e) => ShowView(KitSetPage);
         }
 
         private void ShowView(Grid view)
         {
             if (view == currentVisibleView)
                 return;
-
             if (currentVisibleView != null)
                 currentVisibleView.Visibility = Visibility.Hidden;
-
             view.Visibility = Visibility.Visible;
-
             currentVisibleView = view;
         }
 
 
         private void MenuButton_MouseEnter(object sender, MouseEventArgs e)
         {
-            //if (sender is MainMenuButton ) ((MainMenuButton)sender).Background = new SolidColorBrush((Color)Application.Current.Resources[key: "ColorSub"]);
-            //else ((SubMenuButton)sender).Background = new SolidColorBrush((Color)Application.Current.Resources[key: "ColorNuans"]);
+            if (sender is SubMenuButton ) ((SubMenuButton)sender).Background = new SolidColorBrush((Color)Application.Current.Resources[key: "ColorNuans"]);
+           //else ((SubMenuButton)sender).Background = new SolidColorBrush((Color)Application.Current.Resources[key: "ColorNuans"]);
         }
         private void MenuButton_MouseLeave(object sender, MouseEventArgs e)
         {
-            //if (sender is MainMenuButton) ((MainMenuButton)sender).Background = new SolidColorBrush((Color)Application.Current.Resources[key: "ColorMain"]);
+            if (sender is SubMenuButton) ((SubMenuButton)sender).Background = new SolidColorBrush((Color)Application.Current.Resources[key: "ColorSub"]);
             //else ((SubMenuButton)sender).Background = new SolidColorBrush((Color)Application.Current.Resources[key: "ColorSub"]);
         }
         private void MenuButton_MouseUp(object sender, MouseButtonEventArgs e)
