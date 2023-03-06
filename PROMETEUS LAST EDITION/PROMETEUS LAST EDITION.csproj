@@ -93,6 +93,7 @@
     <Compile Include="parts\SubMenuButton.xaml.cs">
       <DependentUpon>SubMenuButton.xaml</DependentUpon>
     </Compile>
+    <Compile Include="Settings.cs" />
     <Page Include="parts\MainMenuButton.xaml">
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>

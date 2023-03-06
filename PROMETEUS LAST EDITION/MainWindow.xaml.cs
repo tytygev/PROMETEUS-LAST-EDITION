@@ -53,8 +53,9 @@ namespace PROMETEUS_LAST_EDITION
         public MainWindow()
         {
             InitializeComponent();
-            InitializeButtons();
+           
             InitializeDefaultSettings();
+ InitializeButtons();
 
             wav = new SoundPlayer();
 
@@ -122,12 +123,12 @@ namespace PROMETEUS_LAST_EDITION
         private void MenuButton_MouseEnter(object sender, MouseEventArgs e)
         {
             if (sender is SubMenuButton ) ((SubMenuButton)sender).Background = new SolidColorBrush((Color)Application.Current.Resources[key: "ColorNuans"]);
-           //else ((SubMenuButton)sender).Background = new SolidColorBrush((Color)Application.Current.Resources[key: "ColorNuans"]);
+            if (sender is MainMenuButton) ((MainMenuButton)sender).Background = new SolidColorBrush((Color)Application.Current.Resources[key: "ColorSub"]);
         }
         private void MenuButton_MouseLeave(object sender, MouseEventArgs e)
         {
             if (sender is SubMenuButton) ((SubMenuButton)sender).Background = new SolidColorBrush((Color)Application.Current.Resources[key: "ColorSub"]);
-            //else ((SubMenuButton)sender).Background = new SolidColorBrush((Color)Application.Current.Resources[key: "ColorSub"]);
+            if (sender is MainMenuButton) if (((MainMenuButton)sender).Checked !=true) ((MainMenuButton)sender).Background = new SolidColorBrush((Color)Application.Current.Resources[key: "ColorMain"] );
         }
         private void MenuButton_MouseUp(object sender, MouseButtonEventArgs e)
         {

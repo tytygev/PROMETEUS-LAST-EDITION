@@ -1523,18 +1523,46 @@ P.S. Ответ на Основной Вопрос Жизни, Вселенно�
             </Grid.RowDefinitions>
             <StackPanel Margin="0,15,0,0" VerticalAlignment="Top" Grid.RowSpan="3" >
                 <!-- -->
-                <local:MainMenuButton x:Name="KitSetButton"  Margin="20,0,0,0" LabelButtonProperty="Путевые листы"  MouseEnter="MenuButton_MouseEnter" MouseLeave="MenuButton_MouseLeave" MouseUp="MenuButton_MouseUp"  Padding="0,5" ImageSourceProperty="pack://siteoforigin:,,,/pict/_KitSet_o.png"/>
-                <local:MainMenuButton x:Name="PriceButton" Margin="20,0,0,0" LabelButtonProperty="Наряд"  MouseEnter="MenuButton_MouseEnter" MouseLeave="MenuButton_MouseLeave" MouseUp="MenuButton_MouseUp" Padding="0,5" ImageSourceProperty="pack://siteoforigin:,,,/pict/_Price_o.png"/>
-                <local:MainMenuButton x:Name="DBEditButton"  Margin="20,0,0,0" LabelButtonProperty="Редактор БД"  MouseEnter="MenuButton_MouseEnter" MouseLeave="MenuButton_MouseLeave" MouseUp="MenuButton_MouseUp" Padding="0,5" ImageSourceProperty="pack://siteoforigin:,,,/pict/_DBedit_o.png" />
-                <local:MainMenuButton x:Name="TaxiButton" Margin="20,0,0,0" LabelButtonProperty="Подсчёт такси" MouseEnter="MenuButton_MouseEnter" MouseLeave="MenuButton_MouseLeave" MouseUp="MenuButton_MouseUp"  Padding="0,5" ImageSourceProperty="pack://siteoforigin:,,,/pict/_Taxi_o.png" />
-                <local:MainMenuButton x:Name="SettingsButton" Margin="20,0,0,0" LabelButtonProperty="Настройки"  MouseEnter="MenuButton_MouseEnter" MouseLeave="MenuButton_MouseLeave" MouseUp="MenuButton_MouseUp" Padding="0,5" ImageSourceProperty="pack://siteoforigin:,,,/pict/_Settings_o.png" />
-                <local:MainMenuButton x:Name="AboutButton" Margin="20,0,0,0" LabelButtonProperty="О программе" MouseEnter="MenuButton_MouseEnter" MouseLeave="MenuButton_MouseLeave" MouseUp="MenuButton_MouseUp"  Padding="0,5" ImageSourceProperty="pack://siteoforigin:,,,/pict/_About_o.png" />
+                <local:MainMenuButton x:Name="KitSetButton"  Margin="20,0,0,0" LabelButtonProperty="Путевые листы"  MouseEnter="MenuButton_MouseEnter" MouseLeave="MenuButton_MouseLeave" MouseUp="MenuButton_MouseUp"  Padding="0,5" ImageSourceProperty="pack://siteoforigin:,,,/pict/_KitSet_o.png">
+                    <local:MainMenuButton.Background>
+                        <SolidColorBrush Color="{DynamicResource ColorMain}"/>
+                    </local:MainMenuButton.Background>
+                </local:MainMenuButton>
+                <local:MainMenuButton x:Name="PriceButton" Margin="20,0,0,0" LabelButtonProperty="Наряд"  MouseEnter="MenuButton_MouseEnter" MouseLeave="MenuButton_MouseLeave" MouseUp="MenuButton_MouseUp" Padding="0,5" ImageSourceProperty="pack://siteoforigin:,,,/pict/_Price_o.png">
+                    <local:MainMenuButton.Background>
+                        <SolidColorBrush Color="{DynamicResource ColorMain}"/>
+                    </local:MainMenuButton.Background>
+                </local:MainMenuButton>
+                <local:MainMenuButton x:Name="DBEditButton"  Margin="20,0,0,0" LabelButtonProperty="Редактор БД"  MouseEnter="MenuButton_MouseEnter" MouseLeave="MenuButton_MouseLeave" MouseUp="MenuButton_MouseUp" Padding="0,5" ImageSourceProperty="pack://siteoforigin:,,,/pict/_DBedit_o.png" >
+                    <local:MainMenuButton.Background>
+                        <SolidColorBrush Color="{DynamicResource ColorMain}"/>
+                    </local:MainMenuButton.Background>
+                </local:MainMenuButton>
+                <local:MainMenuButton x:Name="TaxiButton" Margin="20,0,0,0" LabelButtonProperty="Подсчёт такси" MouseEnter="MenuButton_MouseEnter" MouseLeave="MenuButton_MouseLeave" MouseUp="MenuButton_MouseUp"  Padding="0,5" ImageSourceProperty="pack://siteoforigin:,,,/pict/_Taxi_o.png" >
+                    <local:MainMenuButton.Background>
+                        <SolidColorBrush Color="{DynamicResource ColorMain}"/>
+                    </local:MainMenuButton.Background>
+                </local:MainMenuButton>
+                <local:MainMenuButton x:Name="SettingsButton" Margin="20,0,0,0" LabelButtonProperty="Настройки"  MouseEnter="MenuButton_MouseEnter" MouseLeave="MenuButton_MouseLeave" MouseUp="MenuButton_MouseUp" Padding="0,5" ImageSourceProperty="pack://siteoforigin:,,,/pict/_Settings_o.png" >
+                    <local:MainMenuButton.Background>
+                        <SolidColorBrush Color="{DynamicResource ColorMain}"/>
+                    </local:MainMenuButton.Background>
+                </local:MainMenuButton>
+                <local:MainMenuButton x:Name="AboutButton" Margin="20,0,0,0" LabelButtonProperty="О программе" MouseEnter="MenuButton_MouseEnter" MouseLeave="MenuButton_MouseLeave" MouseUp="MenuButton_MouseUp"  Padding="0,5" ImageSourceProperty="pack://siteoforigin:,,,/pict/_About_o.png" >
+                    <local:MainMenuButton.Background>
+                        <SolidColorBrush Color="{DynamicResource ColorMain}"/>
+                    </local:MainMenuButton.Background>
+                </local:MainMenuButton>
 
             </StackPanel>
             <StackPanel Margin="0" VerticalAlignment="Top" Grid.Row="1" >
 
 
-                <local:MainMenuButton x:Name="ExitButton" Margin="0,5" LabelButtonProperty="Выход" MouseEnter="MenuButton_MouseEnter" MouseLeave="MenuButton_MouseLeave" MouseUp="MenuButton_MouseUp" HorizontalAlignment="Center" ImageSourceProperty="pack://siteoforigin:,,,/pict/_Exit_o.png" />
+                <local:MainMenuButton x:Name="ExitButton" Margin="0,5" LabelButtonProperty="Выход" MouseEnter="MenuButton_MouseEnter" MouseLeave="MenuButton_MouseLeave" MouseUp="MenuButton_MouseUp" HorizontalAlignment="Center" ImageSourceProperty="pack://siteoforigin:,,,/pict/_Exit_o.png" >
+                    <local:MainMenuButton.Background>
+                        <SolidColorBrush Color="{DynamicResource ColorMain}"/>
+                    </local:MainMenuButton.Background>
+                </local:MainMenuButton>
                 <TextBlock Margin="0,5,20,5" TextWrapping="Wrap" Text="ver.: {0.0.0.0a}" VerticalAlignment="Top" FontSize="10" HorizontalAlignment="Right">
                     <TextBlock.Foreground>
                         <SolidColorBrush Color="{DynamicResource ColorFont}"/>
@@ -1728,12 +1756,9 @@ P.S. Ответ на Основной Вопрос Жизни, Вселенно�
 
                                 </CheckBox>
 
-                                <TextBox Margin="0" TextWrapping="Wrap" FontSize="14" FontWeight="Bold" Grid.Column="1" VerticalContentAlignment="Bottom" Padding="2,2,4,2" UndoLimit="6" SpellCheck.IsEnabled="True" Width="40" Text="77" FontStyle="Italic" HorizontalContentAlignment="Right" HorizontalAlignment="Left" VerticalAlignment="Top" IsEnabled="{Binding IsChecked, ElementName=checkBox2}">
+                                <TextBox Margin="0" TextWrapping="Wrap" FontSize="14" FontWeight="Bold" Grid.Column="1" VerticalContentAlignment="Center" Padding="2,4" UndoLimit="6" SpellCheck.IsEnabled="True" Width="40" Text="77" FontStyle="Italic" HorizontalContentAlignment="Right" IsEnabled="{Binding IsChecked, ElementName=checkBox2}" HorizontalAlignment="Left" VerticalAlignment="Top">
                                     <TextBox.Foreground>
-                                        <LinearGradientBrush EndPoint="0.5,1" MappingMode="RelativeToBoundingBox" StartPoint="0.5,0">
-                                            <GradientStop Color="#FF282828" Offset="0.1"/>
-                                            <GradientStop Color="#FFFF9523" Offset="0.4"/>
-                                        </LinearGradientBrush>
+                                        <SolidColorBrush Color="{DynamicResource ColorAltFont}"/>
                                     </TextBox.Foreground>
                                     <TextBox.CaretBrush>
                                         <SolidColorBrush Color="{DynamicResource ColorFont}"/>
@@ -1768,12 +1793,9 @@ P.S. Ответ на Основной Вопрос Жизни, Вселенно�
 
                                 </CheckBox>
 
-                                <TextBox Margin="0" TextWrapping="Wrap" FontSize="14" FontWeight="Bold" HorizontalContentAlignment="Right" Grid.Column="1" VerticalContentAlignment="Bottom" Padding="2,2,4,2" UndoLimit="6" SpellCheck.IsEnabled="True" Width="65" Text="999999" FontStyle="Italic" HorizontalAlignment="Left" VerticalAlignment="Top" IsEnabled="{Binding IsChecked, ElementName=checkBox3}">
+                                <TextBox Margin="0" TextWrapping="Wrap" FontSize="14" FontWeight="Bold" HorizontalContentAlignment="Right" Grid.Column="1" VerticalContentAlignment="Center" Padding="2,4" UndoLimit="6" SpellCheck.IsEnabled="True" Width="65" Text="999999" FontStyle="Italic" HorizontalAlignment="Left" VerticalAlignment="Top" IsEnabled="{Binding IsChecked, ElementName=checkBox3}">
                                     <TextBox.Foreground>
-                                        <LinearGradientBrush EndPoint="0.5,1" MappingMode="RelativeToBoundingBox" StartPoint="0.5,0">
-                                            <GradientStop Color="#FF282828" Offset="0.1"/>
-                                            <GradientStop Color="#FFFF9523" Offset="0.4"/>
-                                        </LinearGradientBrush>
+                                        <SolidColorBrush Color="{DynamicResource ColorAltFont}"/>
                                     </TextBox.Foreground>
                                     <TextBox.CaretBrush>
                                         <SolidColorBrush Color="{DynamicResource ColorFont}"/>
@@ -2490,7 +2512,7 @@ P.S. Ответ на Основной Вопрос Жизни, Вселенно�
                 <RowDefinition/>
             </Grid.RowDefinitions>
             <TabControl VerticalContentAlignment="Stretch" HorizontalContentAlignment="Stretch" Margin="30">
-                <TabItem Header="таб1" Margin="0" IsSelected="True" Padding="6,10">
+                <TabItem Header="Общие" Margin="0" IsSelected="True" Padding="10">
                     <TabItem.Foreground>
                         <SolidColorBrush Color="{DynamicResource ColorFont}"/>
                     </TabItem.Foreground>
@@ -2500,21 +2522,37 @@ P.S. Ответ на Основной Вопрос Жизни, Вселенно�
                     <TabItem.BorderBrush>
                         <SolidColorBrush Color="{DynamicResource ColorNuans}"/>
                     </TabItem.BorderBrush>
-                    <Grid>
-                        <Grid.Background>
-                            <SolidColorBrush Color="{DynamicResource ColorSub}"/>
-                        </Grid.Background>
-                        <StackPanel Margin="0,0,0,10">
-                            <Label Content="лейбл" HorizontalAlignment="Left" Margin="30,0,0,10" VerticalAlignment="Top">
+                    <StackPanel Margin="15">
+                        <StackPanel Margin="15" Orientation="Horizontal">
+                            <GroupBox Margin="0" Header="Тема" Padding="0" BorderThickness="1,0,1,1">
+                                <GroupBox.BorderBrush>
+                                    <SolidColorBrush Color="{DynamicResource ColorNuans}"/>
+                                </GroupBox.BorderBrush>
+                                <StackPanel >
+                                    <RadioButton HorizontalAlignment="Left" Margin="5,10,5,5" VerticalAlignment="Top" Content="Тёмная" Padding="5,1,0,0" IsChecked="True">
+                                        <RadioButton.Foreground>
+                                            <SolidColorBrush Color="{DynamicResource ColorFont}"/>
+                                        </RadioButton.Foreground>
+                                    </RadioButton>
+                                    <RadioButton Content="Светлая" HorizontalAlignment="Left" VerticalAlignment="Top" Padding="5,1,0,0" Margin="5,10,5,5">
+                                        <RadioButton.Foreground>
+                                            <SolidColorBrush Color="{DynamicResource ColorFont}"/>
+                                        </RadioButton.Foreground>
+                                    </RadioButton>
+                                </StackPanel>
+                            </GroupBox>
+
+
+                            <Label Content="лейбл" HorizontalAlignment="Left" Margin="30,0,-16,10" VerticalAlignment="Top">
                                 <Label.Foreground>
                                     <SolidColorBrush Color="{DynamicResource ColorFont}"/>
                                 </Label.Foreground>
                             </Label>
-
                         </StackPanel>
-                    </Grid>
+
+                    </StackPanel>
                 </TabItem>
-                <TabItem Header="таб2" Margin="0" Padding="6,10">
+                <TabItem Header="таб2" Margin="0" Padding="10">
                     <TabItem.Background>
                         <SolidColorBrush Color="{DynamicResource ColorMain}"/>
                     </TabItem.Background>
@@ -2523,7 +2561,7 @@ P.S. Ответ на Основной Вопрос Жизни, Вселенно�
                     </TabItem.Foreground>
 
                 </TabItem>
-                <TabItem Header="таб3" Margin="0" Padding="6,10">
+                <TabItem Header="таб3" Margin="0" Padding="10">
                     <TabItem.Background>
                         <SolidColorBrush Color="{DynamicResource ColorMain}"/>
                     </TabItem.Background>
@@ -2532,7 +2570,7 @@ P.S. Ответ на Основной Вопрос Жизни, Вселенно�
                     </TabItem.Foreground>
 
                 </TabItem>
-                <TabItem Header="Базы данных" Margin="0" Padding="6,10">
+                <TabItem Header="Базы данных" Margin="0" Padding="10">
                     <TabItem.Background>
                         <SolidColorBrush Color="{DynamicResource ColorMain}"/>
                     </TabItem.Background>
@@ -2582,7 +2620,7 @@ P.S. Ответ на Основной Вопрос Жизни, Вселенно�
                         </StackPanel>
                     </StackPanel>
                 </TabItem>
-                <TabItem Header="Такси" Margin="0" Padding="6,10">
+                <TabItem Header="Такси" Margin="0" Padding="10">
                     <TabItem.Background>
                         <SolidColorBrush Color="{DynamicResource ColorMain}"/>
                     </TabItem.Background>

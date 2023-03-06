@@ -22,7 +22,7 @@ namespace PROMETEUS_LAST_EDITION
     {
         private bool _checked = true;
         private SolidColorBrush checkedBrush, uncheckedBrush;
-        private Color highlightColor;
+        //private Color highlightColor;
 
         public static Action<MainMenuButton> OnMainMenuButtonChecked;
 
@@ -55,11 +55,15 @@ namespace PROMETEUS_LAST_EDITION
         public MainMenuButton()
         {
             InitializeComponent();
-            InitColors();
+            
+InitColors();
+           
 
-            MainMenuButton.OnMainMenuButtonChecked += OnButtonChecked;
+         Checked = false;   
+            //Checked = true;
+ MainMenuButton.OnMainMenuButtonChecked += OnButtonChecked;
 
-            Checked = false;
+
         }
 
         private void InitColors()
@@ -69,10 +73,13 @@ namespace PROMETEUS_LAST_EDITION
             checkedBrush = new SolidColorBrush((Color)Application.Current.Resources[key: "ColorSub"]);
             uncheckedBrush = new SolidColorBrush((Color)Application.Current.Resources[key: "ColorMain"]);
 
-            highlightColor = Colors.White;
-            highlightColor.R /= 8;
-            highlightColor.G /= 8;
-            highlightColor.B /= 8;
+
+            //highlightColor =Colors.White;
+            //highlightColor.R /= 8;
+            //highlightColor.G /= 8;
+            //highlightColor.B /=8;
+            //highlightColor = (Color)Application.Current.Resources[key: "ColorSub"];
+
         }
 
         protected override void OnMouseUp(MouseButtonEventArgs e)
@@ -86,14 +93,16 @@ namespace PROMETEUS_LAST_EDITION
         {
             base.OnMouseEnter(e);
 
-            uncheckedBrush.Color += highlightColor;
+            //uncheckedBrush.Color += highlightColor;
+            uncheckedBrush.Color = (Color)Application.Current.Resources[key: "ColorSub"];
         }
 
         protected override void OnMouseLeave(MouseEventArgs e)
         {
             base.OnMouseLeave(e);
 
-            uncheckedBrush.Color -= highlightColor;
+            //uncheckedBrush.Color -= highlightColor;
+            uncheckedBrush.Color = (Color)Application.Current.Resources[key: "ColorMain"];
         }
 
         protected void OnButtonChecked(MainMenuButton activeButton)

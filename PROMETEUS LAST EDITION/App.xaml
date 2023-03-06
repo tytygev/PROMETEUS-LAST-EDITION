@@ -9,13 +9,13 @@
 
         <!--_DarkTheme-->
 
-        <Color x:Key="ColorMain">#FF282828</Color>
+        <!--<Color x:Key="ColorMain">#FF282828</Color>
         <Color x:Key="ColorSub">#FF404040</Color>
         <Color x:Key="ColorNuans">#FF707070</Color>
         <Color x:Key="ColorAltNuans">#FFFF9523</Color>
         <Color x:Key="ColorGridWS">#FF282828</Color>
 
-       <!-- <Color x:Key="ColorFont">#FFFFF5</Color>-->
+        
         <Color x:Key="ColorFont">#FFFFFFF5</Color>
         <Color x:Key="ColorAltFont">#FFFF9523</Color>
         <Color x:Key="ColorInvertFont">#FF000000</Color>
@@ -30,7 +30,7 @@
         <Color x:Key="ItemsviewSelectedNoFocus_Border">#FFFF9523</Color>
         <Color x:Key="ItemsviewFocus_Border">#FFFF9523</Color>
         <Color x:Key="ItemsviewHoverFocus_Background">#54FF9523</Color>
-        <Color x:Key="ItemsviewHoverFocus_Border">#FFFF9523</Color>
+        <Color x:Key="ItemsviewHoverFocus_Border">#FFFF9523</Color>-->
 
 
 
@@ -42,17 +42,30 @@
 
 
 
-        <!-- _LightTheme  
-        
-        
-        
-        
-        
-        
-        
-        -->
+        <!-- _LightTheme -->
 
+        <Color x:Key="ColorMain">#FFd8d8d8</Color>
+        <Color x:Key="ColorSub">#FFc0c0c0</Color>
+        <Color x:Key="ColorNuans">#FF909090</Color>
+        <Color x:Key="ColorAltNuans">#FF5800ff</Color>
+        <Color x:Key="ColorGridWS">#FFd8d8d8</Color>
 
+       
+        <Color x:Key="ColorFont">#FF000000</Color>
+        <Color x:Key="ColorAltFont">#FF5800ff</Color>
+        <Color x:Key="ColorInvertFont">#FFFFFFF5</Color>
+
+        <Color x:Key="ItemsviewHover_Background">#1F5800ff</Color>
+        <Color x:Key="ItemsviewHover_Border">#A85800ff</Color>
+        <Color x:Key="ItemsviewSelected_Background">#3D5800ff</Color>
+        <Color x:Key="ItemsviewSelected_Border">#FF5800ff</Color>
+        <Color x:Key="ItemsviewSelectedHover_Background">#2E5800ff</Color>
+        <Color x:Key="ItemsviewSelectedHover_Border">#995800ff</Color>
+        <Color x:Key="ItemsviewSelectedNoFocus_Background">#3D5800ff</Color>
+        <Color x:Key="ItemsviewSelectedNoFocus_Border">#FF5800ff</Color>
+        <Color x:Key="ItemsviewFocus_Border">#FF5800ff</Color>
+        <Color x:Key="ItemsviewHoverFocus_Background">#545800ff</Color>
+        <Color x:Key="ItemsviewHoverFocus_Border">#FF5800ff</Color>
 
 
     </Application.Resources>
