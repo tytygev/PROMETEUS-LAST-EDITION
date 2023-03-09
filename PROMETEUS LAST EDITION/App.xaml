@@ -9,7 +9,7 @@
 
         <!--_DarkTheme-->
 
-        <Color x:Key="ColorMain">#FF282828</Color>
+        <!--<Color x:Key="ColorMain">#FF282828</Color>
         <Color x:Key="ColorSub">#FF404040</Color>
         <Color x:Key="ColorNuans">#FF707070</Color>
         <Color x:Key="ColorAltNuans">#FFFF9523</Color>
@@ -30,7 +30,7 @@
         <Color x:Key="ItemsviewSelectedNoFocus_Border">#FFFF9523</Color>
         <Color x:Key="ItemsviewFocus_Border">#FFFF9523</Color>
         <Color x:Key="ItemsviewHoverFocus_Background">#54FF9523</Color>
-        <Color x:Key="ItemsviewHoverFocus_Border">#FFFF9523</Color>
+        <Color x:Key="ItemsviewHoverFocus_Border">#FFFF9523</Color>-->
 
 
 

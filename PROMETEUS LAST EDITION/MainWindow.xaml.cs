@@ -42,12 +42,17 @@ namespace PROMETEUS_LAST_EDITION
         //Сохранение параметров
         protected override void OnClosing(System.ComponentModel.CancelEventArgs e)
         {
+            //не помню чё это и зачем
             //параметр="{Binding Source={x:Static p:Settings.Default}, Path=параметр, Mode=TwoWay}"
             //SettingsBindableAttribute.Default.Save();
 
-            List<string> listUS = new List<string> { System.Security.Principal.WindowsIdentity.GetCurrent().Name.Split('\\')[1], "true", "false" };//эти данные просто для проверки
+
+            //это  просто для проверки
+                        List<string> listUS = new List<string> { System.Security.Principal.WindowsIdentity.GetCurrent().Name.Split('\\')[1], "false", "false" };
                         bool a = SettingsFX.SaveUserSettings(System.Security.Principal.WindowsIdentity.GetCurrent().Name.Split('\\')[1], listUS);
-            MessageBox.Show(a.ToString());
+                        MessageBox.Show("Настройки записаны? - "+a.ToString());
+            //
+
             base.OnClosing(e);
         }
         
@@ -80,11 +85,47 @@ namespace PROMETEUS_LAST_EDITION
         }
         private void InitializeDefaultSettings()
         {
+
+            //проверочка
             List<string> listSettingsOfUser = SettingsFX.LoadUserSettings(System.Security.Principal.WindowsIdentity.GetCurrent().Name.Split('\\')[1]);
-           // string userName = System.Security.Principal.WindowsIdentity.GetCurrent().Name.Split('\\')[1];
-            // string userName = System.Security.Principal.WindowsIdentity.GetCurrent().Name;
+            // string userName = System.Security.Principal.WindowsIdentity.GetCurrent().Name.Split('\\')[1]; //имя юзера без домена!
+            // string userName = System.Security.Principal.WindowsIdentity.GetCurrent().Name; 
             
-            MessageBox.Show(listSettingsOfUser[0] + " - " + listSettingsOfUser[1] + " - " + listSettingsOfUser[2]);
+            MessageBox.Show("Настройки прочитаны: "+listSettingsOfUser[0] + ", " + listSettingsOfUser[1] + ", " + listSettingsOfUser[2]);
+            bool flag;
+
+
+            //сделать это полюбому для умолчания и похуй на настройки
+            ResourceDictionary dictZ = new ResourceDictionary();
+            dictZ.Source = new Uri("DictionaryDarkTheme.xaml", UriKind.Relative);
+            Application.Current.Resources.MergedDictionaries.Add(dictZ);
+
+
+
+            //применение словарей ресурсов
+            if (Boolean.TryParse(listSettingsOfUser[1], out flag) & flag)
+            {
+                // https://stackoverflow.com/questions/786183/wpf-changing-resources-colors-from-the-app-xaml-during-runtime
+                ResourceDictionary dict = new ResourceDictionary();
+                dict.Source = new Uri("DictionaryDarkTheme.xaml", UriKind.Relative);
+                Application.Current.Resources.MergedDictionaries.Add(dict);
+
+            }
+            else
+            {
+                 // https://stackoverflow.com/questions/786183/wpf-changing-resources-colors-from-the-app-xaml-during-runtime
+                ResourceDictionary dict = new ResourceDictionary();
+                dict.Source = new Uri("DictionaryLightTheme.xaml", UriKind.Relative);
+                Application.Current.Resources.MergedDictionaries.Add(dict);
+//                Имейте в виду, что MergedDictionaries — это контейнер. Ресурс в самом последнем добавленном ResourceDictionary выигрывает.
+//                Если намерение состоит в том, чтобы переключаться между словарями с какой-либо регулярностью, удаление предыдущего словаря
+//                из списка может быть полезным. (В ответе упоминается «выгрузить его в коде» по умолчанию, указанному в XAML, но не показано,
+//                как его идентифицировать и удалить.) 
+
+
+            }
+
+
         }
         
 
