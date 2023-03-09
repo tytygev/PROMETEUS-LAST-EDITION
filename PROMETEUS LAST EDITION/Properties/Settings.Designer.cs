@@ -25,18 +25,6 @@ namespace PROMETEUS_LAST_EDITION.Properties {
         
         [global::System.Configuration.UserScopedSettingAttribute()]
         [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
-        [global::System.Configuration.DefaultSettingValueAttribute("username")]
-        public string login {
-            get {
-                return ((string)(this["login"]));
-            }
-            set {
-                this["login"] = value;
-            }
-        }
-        
-        [global::System.Configuration.UserScopedSettingAttribute()]
-        [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
         [global::System.Configuration.DefaultSettingValueAttribute(@"<?xml version=""1.0"" encoding=""utf-16""?>
 <ArrayOfString xmlns:xsi=""http://www.w3.org/2001/XMLSchema-instance"" xmlns:xsd=""http://www.w3.org/2001/XMLSchema"">
   <string>0</string>
@@ -77,13 +65,37 @@ namespace PROMETEUS_LAST_EDITION.Properties {
         
         [global::System.Configuration.UserScopedSettingAttribute()]
         [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
-        [global::System.Configuration.DefaultSettingValueAttribute("")]
-        public string report_parser_sities {
+        public string[,] report_parser_sities {
             get {
-                return ((string)(this["report_parser_sities"]));
+                return ((string[,])(this["report_parser_sities"]));
             }
             set {
                 this["report_parser_sities"] = value;
+            }
+        }
+        
+        [global::System.Configuration.UserScopedSettingAttribute()]
+        [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+        [global::System.Configuration.DefaultSettingValueAttribute("<?xml version=\"1.0\" encoding=\"utf-16\"?>\r\n<ArrayOfString xmlns:xsi=\"http://www.w3." +
+            "org/2001/XMLSchema-instance\" xmlns:xsd=\"http://www.w3.org/2001/XMLSchema\">\r\n  <s" +
+            "tring>,true,true</string>\r\n</ArrayOfString>")]
+        public global::System.Collections.Specialized.StringCollection UserSettings {
+            get {
+                return ((global::System.Collections.Specialized.StringCollection)(this["UserSettings"]));
+            }
+            set {
+                this["UserSettings"] = value;
+            }
+        }
+        
+        [global::System.Configuration.UserScopedSettingAttribute()]
+        [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+        public global::System.Collections.Specialized.StringCollection GlobalSettings {
+            get {
+                return ((global::System.Collections.Specialized.StringCollection)(this["GlobalSettings"]));
+            }
+            set {
+                this["GlobalSettings"] = value;
             }
         }
     }

@@ -87,6 +87,7 @@
       <Generator>MSBuild:Compile</Generator>
       <SubType>Designer</SubType>
     </ApplicationDefinition>
+    <Compile Include="parts\SettingsSaveSys.cs" />
     <Compile Include="parts\FileSaveSys.cs" />
     <Compile Include="parts\TaxiAnalyzer.cs" />
     <Compile Include="parts\UI.cs" />

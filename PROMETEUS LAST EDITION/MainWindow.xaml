@@ -1574,7 +1574,7 @@ P.S. Ответ на Основной Вопрос Жизни, Вселенно�
         -->
         </Grid>
 
-        <Grid x:Name="KitSetPage" Grid.Column="1" Margin="0" ScrollViewer.VerticalScrollBarVisibility="Auto">
+        <Grid x:Name="KitSetPage" Grid.Column="1" Margin="0" ScrollViewer.VerticalScrollBarVisibility="Auto" Visibility="Hidden">
             <Grid.Background>
                 <SolidColorBrush Color="{DynamicResource ColorSub}"/>
             </Grid.Background>
@@ -2503,7 +2503,7 @@ P.S. Ответ на Основной Вопрос Жизни, Вселенно�
             </StackPanel>
 
         </Grid>
-        <Grid x:Name="SettingsPage" Margin="0" Grid.Column="1" ScrollViewer.VerticalScrollBarVisibility="Auto" Visibility="Hidden">
+        <Grid x:Name="SettingsPage" Margin="0" Grid.Column="1" ScrollViewer.VerticalScrollBarVisibility="Auto">
             <Grid.Background>
                 <SolidColorBrush Color="{DynamicResource ColorSub}"/>
             </Grid.Background>
@@ -2512,7 +2512,7 @@ P.S. Ответ на Основной Вопрос Жизни, Вселенно�
                 <RowDefinition/>
             </Grid.RowDefinitions>
             <TabControl VerticalContentAlignment="Stretch" HorizontalContentAlignment="Stretch" Margin="30">
-                <TabItem Header="Общие" Margin="0" IsSelected="True" Padding="10">
+                <TabItem Header="Общие"  Padding="10" IsSelected="True">
                     <TabItem.Foreground>
                         <SolidColorBrush Color="{DynamicResource ColorFont}"/>
                     </TabItem.Foreground>
@@ -2549,10 +2549,36 @@ P.S. Ответ на Основной Вопрос Жизни, Вселенно�
                                 </Label.Foreground>
                             </Label>
                         </StackPanel>
+                        <StackPanel Margin="15" Orientation="Horizontal">
+                            <CheckBox Content="Тёмная тема" VerticalAlignment="Center" HorizontalAlignment="Left" IsChecked="True" VerticalContentAlignment="Center">
+                                <CheckBox.BorderBrush>
+                                    <SolidColorBrush Color="{DynamicResource ColorSub}"/>
+                                </CheckBox.BorderBrush>
+                                <CheckBox.Background>
+                                    <SolidColorBrush Color="{DynamicResource ColorMain}"/>
+                                </CheckBox.Background>
+                                <CheckBox.Foreground>
+                                    <SolidColorBrush Color="{DynamicResource ColorFont}"/>
+                                </CheckBox.Foreground>
+                            </CheckBox>
+                        </StackPanel>
+                        <StackPanel Margin="15" Orientation="Horizontal">
+                            <CheckBox Content="Сохранять размеры окна при выходе" VerticalAlignment="Center" HorizontalAlignment="Left" IsChecked="True" VerticalContentAlignment="Center">
+                                <CheckBox.BorderBrush>
+                                    <SolidColorBrush Color="{DynamicResource ColorSub}"/>
+                                </CheckBox.BorderBrush>
+                                <CheckBox.Background>
+                                    <SolidColorBrush Color="{DynamicResource ColorMain}"/>
+                                </CheckBox.Background>
+                                <CheckBox.Foreground>
+                                    <SolidColorBrush Color="{DynamicResource ColorFont}"/>
+                                </CheckBox.Foreground>
+                            </CheckBox>
+                        </StackPanel>
 
                     </StackPanel>
                 </TabItem>
-                <TabItem Header="таб2" Margin="0" Padding="10">
+                <TabItem Header="Путевые листы"  Padding="10">
                     <TabItem.Background>
                         <SolidColorBrush Color="{DynamicResource ColorMain}"/>
                     </TabItem.Background>
@@ -2561,7 +2587,7 @@ P.S. Ответ на Основной Вопрос Жизни, Вселенно�
                     </TabItem.Foreground>
 
                 </TabItem>
-                <TabItem Header="таб3" Margin="0" Padding="10">
+                <TabItem Header="Наряды"  Padding="10">
                     <TabItem.Background>
                         <SolidColorBrush Color="{DynamicResource ColorMain}"/>
                     </TabItem.Background>
@@ -2570,7 +2596,7 @@ P.S. Ответ на Основной Вопрос Жизни, Вселенно�
                     </TabItem.Foreground>
 
                 </TabItem>
-                <TabItem Header="Базы данных" Margin="0" Padding="10">
+                <TabItem Header="Базы данных"  Padding="10">
                     <TabItem.Background>
                         <SolidColorBrush Color="{DynamicResource ColorMain}"/>
                     </TabItem.Background>
@@ -2620,7 +2646,7 @@ P.S. Ответ на Основной Вопрос Жизни, Вселенно�
                         </StackPanel>
                     </StackPanel>
                 </TabItem>
-                <TabItem Header="Такси" Margin="0" Padding="10">
+                <TabItem Header="Такси"  Padding="10">
                     <TabItem.Background>
                         <SolidColorBrush Color="{DynamicResource ColorMain}"/>
                     </TabItem.Background>
@@ -2628,6 +2654,47 @@ P.S. Ответ на Основной Вопрос Жизни, Вселенно�
                         <SolidColorBrush Color="{DynamicResource ColorFont}"/>
                     </TabItem.Foreground>
 
+                </TabItem>
+                <TabItem Header="Global" Padding="10" IsSelected="True">
+                    <TabItem.Foreground>
+                        <SolidColorBrush Color="{DynamicResource ColorAltFont}"/>
+                    </TabItem.Foreground>
+                    <TabItem.Background>
+                        <SolidColorBrush Color="{DynamicResource ColorMain}"/>
+                    </TabItem.Background>
+                    <TabItem.BorderBrush>
+                        <SolidColorBrush Color="{DynamicResource ColorNuans}"/>
+                    </TabItem.BorderBrush>
+                    <StackPanel Margin="15">
+                        <StackPanel Margin="15">
+
+
+                            <Label Content="Внимание! Эти настройки затронут всех пользователей программы!" HorizontalAlignment="Left" Margin="0" VerticalAlignment="Top" FontSize="16">
+                                <Label.Foreground>
+                                    <SolidColorBrush Color="{DynamicResource ColorAltFont}"/>
+                                </Label.Foreground>
+                            </Label>
+                            <Label Content="Продолжайте, только если знаете, что делаете" HorizontalAlignment="Left" Margin="0" VerticalAlignment="Top">
+                                <Label.Foreground>
+                                    <SolidColorBrush Color="{DynamicResource ColorFont}"/>
+                                </Label.Foreground>
+                            </Label>
+                        </StackPanel>
+                        <StackPanel Margin="15" Orientation="Horizontal">
+                            <CheckBox Content="Сохранять размеры окна при выходе" VerticalAlignment="Center" HorizontalAlignment="Left" IsChecked="True" VerticalContentAlignment="Center">
+                                <CheckBox.BorderBrush>
+                                    <SolidColorBrush Color="{DynamicResource ColorSub}"/>
+                                </CheckBox.BorderBrush>
+                                <CheckBox.Background>
+                                    <SolidColorBrush Color="{DynamicResource ColorMain}"/>
+                                </CheckBox.Background>
+                                <CheckBox.Foreground>
+                                    <SolidColorBrush Color="{DynamicResource ColorFont}"/>
+                                </CheckBox.Foreground>
+                            </CheckBox>
+                        </StackPanel>
+
+                    </StackPanel>
                 </TabItem>
             </TabControl>
 

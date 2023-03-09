@@ -44,6 +44,10 @@ namespace PROMETEUS_LAST_EDITION
         {
             //параметр="{Binding Source={x:Static p:Settings.Default}, Path=параметр, Mode=TwoWay}"
             //SettingsBindableAttribute.Default.Save();
+
+            List<string> listUS = new List<string> { System.Security.Principal.WindowsIdentity.GetCurrent().Name.Split('\\')[1], "true", "false" };//эти данные просто для проверки
+                        bool a = SettingsFX.SaveUserSettings(System.Security.Principal.WindowsIdentity.GetCurrent().Name.Split('\\')[1], listUS);
+            MessageBox.Show(a.ToString());
             base.OnClosing(e);
         }
         
@@ -52,44 +56,37 @@ namespace PROMETEUS_LAST_EDITION
 
         public MainWindow()
         {
-            InitializeComponent();
+
            
             InitializeDefaultSettings();
- InitializeButtons();
 
-            wav = new SoundPlayer();
+            InitializeComponent();           
+            
+
+
+            InitializeButtons();
+
+            wav = new SoundPlayer();           
+             currentVisibleView = StartPage;//
 
             
- 
-            currentVisibleView = StartPage;//
 
             //пример использования функции сохранения и загрузки:
             //List<List<string>> listOfLists = new List<List<string>>();
             //listOfLists=FileFX.LoadDSV("prop.txt", char.Parse(";"));
             //listOfLists[1][1] = "эщкере";
-            //FileFX.SaveDSV(listOfLists,"prop.txt", char.Parse(";"));//изикатка
-
-           
-
+            //FileFX.SaveDSV(listOfLists,"prop.txt", char.Parse(";"));//изикатка       
 
         }
-
         private void InitializeDefaultSettings()
-        {// habr.com/ru/post/271483/
-            var DSettingsTaxiComboBoxes = DSettingsTaxiGrid.Children.OfType<ComboBox>().ToList(); //Все элементы типа ComboBox в таблице выбора идентефикации ячеек
-           for (int i = 0; i< DSettingsTaxiComboBoxes.Count; i++)
-            {
-                DSettingsTaxiComboBoxes[i].SelectedIndex = Int32.Parse(Properties.Settings.Default.report_parser_setsel[i]);//установка значений из DefaultSettings
-            }
-            var DSettingsTaxiTextBoxes = DSettingsTaxiGrid.Children.OfType<TextBox>().ToList(); //Все элементы типаTextBox в таблице выбора идентефикации ячеек
-            for (int i = 0; i < DSettingsTaxiTextBoxes.Count; i++)
-            {
-                DSettingsTaxiTextBoxes[i].Text = Properties.Settings.Default.report_parser_setval[i];//установка значений из DefaultSettings
-            }
-
-
-
+        {
+            List<string> listSettingsOfUser = SettingsFX.LoadUserSettings(System.Security.Principal.WindowsIdentity.GetCurrent().Name.Split('\\')[1]);
+           // string userName = System.Security.Principal.WindowsIdentity.GetCurrent().Name.Split('\\')[1];
+            // string userName = System.Security.Principal.WindowsIdentity.GetCurrent().Name;
+            
+            MessageBox.Show(listSettingsOfUser[0] + " - " + listSettingsOfUser[1] + " - " + listSettingsOfUser[2]);
         }
+        
 
         private void InitializeButtons()
         {
@@ -118,8 +115,6 @@ namespace PROMETEUS_LAST_EDITION
             view.Visibility = Visibility.Visible;
             currentVisibleView = view;
         }
-
-
         private void MenuButton_MouseEnter(object sender, MouseEventArgs e)
         {
             if (sender is SubMenuButton ) ((SubMenuButton)sender).Background = new SolidColorBrush((Color)Application.Current.Resources[key: "ColorNuans"]);
@@ -135,28 +130,32 @@ namespace PROMETEUS_LAST_EDITION
             //
         }
 
-        private void droppanel_Drop(object sender, DragEventArgs e)
-        {
-            string xlFileName = TaxiAnalyzer.GetReportFileName(e); //получение имени файла
-            dropfilelabel.Text = xlFileName;//вывод имени файла в label
-            //Передача имени вайла на загрузку и анализ
-            //TaxiAnalyzer.Taxichecksumm(dataArr);
-            //TaxiAnalyzer.Filtration(TaxiAnalyzer.LoadReport(xlFileName));
-        }
+
 
         
 
-        private void runchecksummButton_Click(object sender, KeyEventArgs e)
-        {
+     
+
+
+
+
+
+
+        //эксперименты с такси
+        private void InitializeTaxiSettings()
+        {// habr.com/ru/post/271483/
+            var DSettingsTaxiComboBoxes = DSettingsTaxiGrid.Children.OfType<ComboBox>().ToList(); //Все элементы типа ComboBox в таблице выбора идентефикации ячеек
+            for (int i = 0; i < DSettingsTaxiComboBoxes.Count; i++)
+            {
+                DSettingsTaxiComboBoxes[i].SelectedIndex = Int32.Parse(Properties.Settings.Default.report_parser_setsel[i]);//установка значений из DefaultSettings
+            }
+            var DSettingsTaxiTextBoxes = DSettingsTaxiGrid.Children.OfType<TextBox>().ToList(); //Все элементы типаTextBox в таблице выбора идентефикации ячеек
+            for (int i = 0; i < DSettingsTaxiTextBoxes.Count; i++)
+            {
+                DSettingsTaxiTextBoxes[i].Text = Properties.Settings.Default.report_parser_setval[i];//установка значений из DefaultSettings
+            }
 
         }
-      
-        
-      
-
-
-
-
         private void TaxiComboBoxesSetSel (object sender, SelectionChangedEventArgs e)
         {
             var DSettingsTaxiComboBoxes = DSettingsTaxiGrid.Children.OfType<ComboBox>().ToList(); //Все элементы типа ComboBox в таблице выбора идентефикации ячеек
@@ -185,7 +184,18 @@ namespace PROMETEUS_LAST_EDITION
             }
 
         }
+        private void droppanel_Drop(object sender, DragEventArgs e)
+        {
+            string xlFileName = TaxiAnalyzer.GetReportFileName(e); //получение имени файла
+            dropfilelabel.Text = xlFileName;//вывод имени файла в label
+            //Передача имени вайла на загрузку и анализ
+            //TaxiAnalyzer.Taxichecksumm(dataArr);
+            //TaxiAnalyzer.Filtration(TaxiAnalyzer.LoadReport(xlFileName));
+        }
+        private void runchecksummButton_Click(object sender, KeyEventArgs e)
+        {
 
+        }
       
     }
    

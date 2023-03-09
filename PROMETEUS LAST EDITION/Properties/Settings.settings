@@ -2,9 +2,6 @@
 <SettingsFile xmlns="http://schemas.microsoft.com/VisualStudio/2004/01/settings" CurrentProfile="(Default)" GeneratedClassNamespace="PROMETEUS_LAST_EDITION.Properties" GeneratedClassName="Settings">
   <Profiles />
   <Settings>
-    <Setting Name="login" Type="System.String" Scope="User">
-      <Value Profile="(Default)">username</Value>
-    </Setting>
     <Setting Name="report_parser_setsel" Type="System.Collections.Specialized.StringCollection" Scope="User">
       <Value Profile="(Default)">&lt;?xml version="1.0" encoding="utf-16"?&gt;
 &lt;ArrayOfString xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:xsd="http://www.w3.org/2001/XMLSchema"&gt;
@@ -28,6 +25,15 @@
 &lt;/ArrayOfString&gt;</Value>
     </Setting>
     <Setting Name="report_parser_sities" Type="System.String[,]" Scope="User">
+      <Value Profile="(Default)" />
+    </Setting>
+    <Setting Name="UserSettings" Type="System.Collections.Specialized.StringCollection" Scope="User">
+      <Value Profile="(Default)">&lt;?xml version="1.0" encoding="utf-16"?&gt;
+&lt;ArrayOfString xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:xsd="http://www.w3.org/2001/XMLSchema"&gt;
+  &lt;string&gt;,true,true&lt;/string&gt;
+&lt;/ArrayOfString&gt;</Value>
+    </Setting>
+    <Setting Name="GlobalSettings" Type="System.Collections.Specialized.StringCollection" Scope="User">
       <Value Profile="(Default)" />
     </Setting>
   </Settings>
