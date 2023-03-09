@@ -204,178 +204,178 @@
     </BootstrapperPackage>
   </ItemGroup>
   <ItemGroup>
-    <None Include="pict\_About.png" />
+    <Resource Include="pict\_About.png" />
   </ItemGroup>
   <ItemGroup>
-    <None Include="pict\_About_g.png" />
+    <Resource Include="pict\_About_g.png" />
   </ItemGroup>
   <ItemGroup>
-    <None Include="pict\_About_o.png" />
+    <Resource Include="pict\_About_o.png" />
   </ItemGroup>
   <ItemGroup>
-    <None Include="pict\_About_v.png" />
+    <Resource Include="pict\_About_v.png" />
   </ItemGroup>
   <ItemGroup>
-    <None Include="pict\_DBedit.png" />
+    <Resource Include="pict\_DBedit.png" />
   </ItemGroup>
   <ItemGroup>
-    <None Include="pict\_DBedit_g.png" />
+    <Resource Include="pict\_DBedit_g.png" />
   </ItemGroup>
   <ItemGroup>
-    <None Include="pict\_DBedit_o.png" />
+    <Resource Include="pict\_DBedit_o.png" />
   </ItemGroup>
   <ItemGroup>
-    <None Include="pict\_DBedit_v.png" />
+    <Resource Include="pict\_DBedit_v.png" />
   </ItemGroup>
   <ItemGroup>
-    <None Include="pict\_Exit.png" />
+    <Resource Include="pict\_Exit.png" />
   </ItemGroup>
   <ItemGroup>
-    <None Include="pict\_Exit_g.png" />
+    <Resource Include="pict\_Exit_g.png" />
   </ItemGroup>
   <ItemGroup>
-    <None Include="pict\_Exit_o.png" />
+    <Resource Include="pict\_Exit_o.png" />
   </ItemGroup>
   <ItemGroup>
-    <None Include="pict\_Exit_v.png" />
+    <Resource Include="pict\_Exit_v.png" />
   </ItemGroup>
   <ItemGroup>
-    <None Include="pict\_KitSet.png" />
+    <Resource Include="pict\_KitSet.png" />
   </ItemGroup>
   <ItemGroup>
-    <None Include="pict\_KitSet_g.png" />
+    <Resource Include="pict\_KitSet_g.png" />
   </ItemGroup>
   <ItemGroup>
-    <None Include="pict\_KitSet_o.png" />
+    <Resource Include="pict\_KitSet_o.png" />
   </ItemGroup>
   <ItemGroup>
-    <None Include="pict\_KitSet_v.png" />
+    <Resource Include="pict\_KitSet_v.png" />
   </ItemGroup>
   <ItemGroup>
-    <None Include="pict\_New32.png" />
+    <Resource Include="pict\_New32.png" />
   </ItemGroup>
   <ItemGroup>
-    <None Include="pict\_New32_g.png" />
+    <Resource Include="pict\_New32_g.png" />
   </ItemGroup>
   <ItemGroup>
-    <None Include="pict\_New32_o.png" />
+    <Resource Include="pict\_New32_o.png" />
   </ItemGroup>
   <ItemGroup>
-    <None Include="pict\_New32_v.png" />
+    <Resource Include="pict\_New32_v.png" />
   </ItemGroup>
   <ItemGroup>
-    <None Include="pict\_Open32.png" />
+    <Resource Include="pict\_Open32.png" />
   </ItemGroup>
   <ItemGroup>
-    <None Include="pict\_Open32_g.png" />
+    <Resource Include="pict\_Open32_g.png" />
   </ItemGroup>
   <ItemGroup>
-    <None Include="pict\_Open32_o.png" />
+    <Resource Include="pict\_Open32_o.png" />
   </ItemGroup>
   <ItemGroup>
-    <None Include="pict\_Open32_v.png" />
+    <Resource Include="pict\_Open32_v.png" />
   </ItemGroup>
   <ItemGroup>
-    <None Include="pict\_Price.png" />
+    <Resource Include="pict\_Price.png" />
   </ItemGroup>
   <ItemGroup>
-    <None Include="pict\_Price_g.png" />
+    <Resource Include="pict\_Price_g.png" />
   </ItemGroup>
   <ItemGroup>
-    <None Include="pict\_Price_o.png" />
+    <Resource Include="pict\_Price_o.png" />
   </ItemGroup>
   <ItemGroup>
-    <None Include="pict\_Price_v.png" />
+    <Resource Include="pict\_Price_v.png" />
   </ItemGroup>
   <ItemGroup>
-    <None Include="pict\_Print32.png" />
+    <Resource Include="pict\_Print32.png" />
   </ItemGroup>
   <ItemGroup>
-    <None Include="pict\_Print32_g.png" />
+    <Resource Include="pict\_Print32_g.png" />
   </ItemGroup>
   <ItemGroup>
-    <None Include="pict\_Print32_o.png" />
+    <Resource Include="pict\_Print32_o.png" />
   </ItemGroup>
   <ItemGroup>
-    <None Include="pict\_Print32_v.png" />
+    <Resource Include="pict\_Print32_v.png" />
   </ItemGroup>
   <ItemGroup>
-    <None Include="pict\_PrintF32.png" />
+    <Resource Include="pict\_PrintF32.png" />
   </ItemGroup>
   <ItemGroup>
-    <None Include="pict\_PrintF32_g.png" />
+    <Resource Include="pict\_PrintF32_g.png" />
   </ItemGroup>
   <ItemGroup>
-    <None Include="pict\_PrintF32_o.png" />
+    <Resource Include="pict\_PrintF32_o.png" />
   </ItemGroup>
   <ItemGroup>
-    <None Include="pict\_PrintF32_v.png" />
+    <Resource Include="pict\_PrintF32_v.png" />
   </ItemGroup>
   <ItemGroup>
-    <None Include="pict\_Save32.png" />
+    <Resource Include="pict\_Save32.png" />
   </ItemGroup>
   <ItemGroup>
-    <None Include="pict\_Save32_g.png" />
+    <Resource Include="pict\_Save32_g.png" />
   </ItemGroup>
   <ItemGroup>
-    <None Include="pict\_Save32_o.png" />
+    <Resource Include="pict\_Save32_o.png" />
   </ItemGroup>
   <ItemGroup>
-    <None Include="pict\_Save32_v.png" />
+    <Resource Include="pict\_Save32_v.png" />
   </ItemGroup>
   <ItemGroup>
-    <None Include="pict\_SaveAs32.png" />
+    <Resource Include="pict\_SaveAs32.png" />
   </ItemGroup>
   <ItemGroup>
-    <None Include="pict\_SaveAs32_g.png" />
+    <Resource Include="pict\_SaveAs32_g.png" />
   </ItemGroup>
   <ItemGroup>
-    <None Include="pict\_SaveAs32_o.png" />
+    <Resource Include="pict\_SaveAs32_o.png" />
   </ItemGroup>
   <ItemGroup>
-    <None Include="pict\_SaveAs32_v.png" />
+    <Resource Include="pict\_SaveAs32_v.png" />
   </ItemGroup>
   <ItemGroup>
-    <None Include="pict\_Settings.png" />
+    <Resource Include="pict\_Settings.png" />
   </ItemGroup>
   <ItemGroup>
-    <None Include="pict\_Settings_g.png" />
+    <Resource Include="pict\_Settings_g.png" />
   </ItemGroup>
   <ItemGroup>
-    <None Include="pict\_Settings_o.png" />
+    <Resource Include="pict\_Settings_o.png" />
   </ItemGroup>
   <ItemGroup>
-    <None Include="pict\_Settings_v.png" />
+    <Resource Include="pict\_Settings_v.png" />
   </ItemGroup>
   <ItemGroup>
-    <None Include="pict\_Taxi.png" />
+    <Resource Include="pict\_Taxi.png" />
   </ItemGroup>
   <ItemGroup>
-    <None Include="pict\_Taxi_g.png" />
+    <Resource Include="pict\_Taxi_g.png" />
   </ItemGroup>
   <ItemGroup>
-    <None Include="pict\_Taxi_o.png" />
+    <Resource Include="pict\_Taxi_o.png" />
   </ItemGroup>
   <ItemGroup>
-    <None Include="pict\_Taxi_v.png" />
+    <Resource Include="pict\_Taxi_v.png" />
   </ItemGroup>
   <ItemGroup>
-    <None Include="pict\ComboArr_b.png" />
+    <Resource Include="pict\ComboArr_b.png" />
   </ItemGroup>
   <ItemGroup>
-    <None Include="pict\ComboArr_o.png" />
+    <Resource Include="pict\ComboArr_o.png" />
   </ItemGroup>
   <ItemGroup>
-    <None Include="pict\ComboArr_v.png" />
+    <Resource Include="pict\ComboArr_v.png" />
   </ItemGroup>
   <ItemGroup>
-    <None Include="pict\icon-0.png" />
+    <Resource Include="pict\icon-0.png" />
   </ItemGroup>
   <ItemGroup>
-    <None Include="pict\PICTURE.png" />
+    <Resource Include="pict\PICTURE.png" />
   </ItemGroup>
   <ItemGroup>
-    <None Include="pict\PICTUREs.png" />
+    <Resource Include="pict\PICTUREs.png" />
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
 </Project>

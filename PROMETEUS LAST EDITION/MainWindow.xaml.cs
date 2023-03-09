@@ -109,7 +109,7 @@ namespace PROMETEUS_LAST_EDITION
                 ResourceDictionary dict = new ResourceDictionary();
                 dict.Source = new Uri("DictionaryDarkTheme.xaml", UriKind.Relative);
                 Application.Current.Resources.MergedDictionaries.Add(dict);
-
+                
             }
             else
             {

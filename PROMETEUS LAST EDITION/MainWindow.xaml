@@ -1523,7 +1523,24 @@ P.S. Ответ на Основной Вопрос Жизни, Вселенно�
             </Grid.RowDefinitions>
             <StackPanel Margin="0,15,0,0" VerticalAlignment="Top" Grid.RowSpan="3" >
                 <!-- -->
-                <local:MainMenuButton x:Name="KitSetButton"  Margin="20,0,0,0" LabelButtonProperty="Путевые листы"  MouseEnter="MenuButton_MouseEnter" MouseLeave="MenuButton_MouseLeave" MouseUp="MenuButton_MouseUp"  Padding="0,5" ImageSourceProperty="pack://siteoforigin:,,,/pict/_KitSet_o.png">
+                
+                <!--
+                
+                Решение
+Неправильный подход для WPF.
+System.Drawing.Bitmap (как и вообще складирование картинок в .resx файл) - используется в Winforms.
+В WPF данными для Image является объект System.Windows.Media.ImageSource и его наследники.
+В WPF картинки слкадываются не в ресурсный файл, а лежат рядом с исходниками (как правило в отдельной папке).
+В WPF обращение к картинкам происходит следующим образом:
+<BitmapImage x:Key="MyImageSource" UriSource="../Media/Image.png" />
+                В Вашем случае здесь Uri типа Pack://... 
+                
+
+                <Image Source="{StaticResource MyImageSource}" />
+
+                -->
+
+                <local:MainMenuButton x:Name="KitSetButton"  Margin="20,0,0,0" LabelButtonProperty="Путевые листы"  MouseEnter="MenuButton_MouseEnter" MouseLeave="MenuButton_MouseLeave" MouseUp="MenuButton_MouseUp"  Padding="0,5" ImageSourceProperty="{DynamicResource KitSet}">
                     <local:MainMenuButton.Background>
                         <SolidColorBrush Color="{DynamicResource ColorMain}"/>
                     </local:MainMenuButton.Background>
