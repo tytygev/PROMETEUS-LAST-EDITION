@@ -3,46 +3,16 @@
              xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
              xmlns:local="clr-namespace:PROMETEUS_LAST_EDITION"
              StartupUri="MainWindow.xaml">
+
     <Application.Resources>
-        <!--_DarkTheme-->
+
+        <ResourceDictionary>
+            <ResourceDictionary.MergedDictionaries>
+                <ResourceDictionary Source="DictionaryDarkTheme.xaml"></ResourceDictionary>
+            </ResourceDictionary.MergedDictionaries>
+        </ResourceDictionary>
+      
         
-<!--раскоментить для работы в конструкторе-->
-        
-        <Color x:Key="ColorMain">#FF282828</Color>
-        <Color x:Key="ColorSub">#FF404040</Color>
-        <Color x:Key="ColorNuans">#FF707070</Color>
-        <Color x:Key="ColorAltNuans">#FFFF9523</Color>
-        <Color x:Key="ColorGridWS">#FF282828</Color>
-
-        
-        <Color x:Key="ColorFont">#FFFFFFF5</Color>
-        <Color x:Key="ColorAltFont">#FFFF9523</Color>
-        <Color x:Key="ColorInvertFont">#FF000000</Color>
-
-        <Color x:Key="ItemsviewHover_Background">#1FFF9523</Color>
-        <Color x:Key="ItemsviewHover_Border">#A8FF9523</Color>
-        <Color x:Key="ItemsviewSelected_Background">#3DFF9523</Color>
-        <Color x:Key="ItemsviewSelected_Border">#FFFF9523</Color>
-        <Color x:Key="ItemsviewSelectedHover_Background">#2EFF9523</Color>
-        <Color x:Key="ItemsviewSelectedHover_Border">#99FF9523</Color>
-        <Color x:Key="ItemsviewSelectedNoFocus_Background">#3DFF9523</Color>
-        <Color x:Key="ItemsviewSelectedNoFocus_Border">#FFFF9523</Color>
-        <Color x:Key="ItemsviewFocus_Border">#FFFF9523</Color>
-        <Color x:Key="ItemsviewHoverFocus_Background">#54FF9523</Color>
-        <Color x:Key="ItemsviewHoverFocus_Border">#FFFF9523</Color>
-
-
-
-
-
-
-
-
-        <BitmapImage x:Key="KitSet" UriSource="/Resources/_KitSet_o.png" ></BitmapImage>
-        <BitmapImage x:Key="Price" UriSource="/Resources/_KitSet_o.png" ></BitmapImage>
-        <BitmapImage x:Key="DBedit" UriSource="/Resources/_KitSet_o.png" ></BitmapImage>
-        <BitmapImage x:Key="Settings" UriSource="/Resources/_KitSet_o.png" ></BitmapImage>
-        <BitmapImage x:Key="About" UriSource="/Resources/_KitSet_o.png" ></BitmapImage>
-
     </Application.Resources>
 </Application>
+   

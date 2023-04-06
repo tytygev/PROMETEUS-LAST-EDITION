@@ -25,4 +25,20 @@
         <Color x:Key="ItemsviewFocus_Border">#FF5133b2</Color>
         <Color x:Key="ItemsviewHoverFocus_Background">#545133b2</Color>
         <Color x:Key="ItemsviewHoverFocus_Border">#FF5133b2</Color>
+
+    <BitmapImage x:Key="KitSet" UriSource="pack://siteoforigin:,,,/pict/_KitSet_v.png" ></BitmapImage>
+    <BitmapImage x:Key="Price" UriSource="pack://siteoforigin:,,,/pict/_Price_v.png" ></BitmapImage>
+    <BitmapImage x:Key="DBedit" UriSource="pack://siteoforigin:,,,/pict/_DBedit_v.png" ></BitmapImage>
+    <BitmapImage x:Key="Taxi" UriSource="pack://siteoforigin:,,,/pict/_Taxi_g.png" ></BitmapImage>
+    <BitmapImage x:Key="Settings" UriSource="pack://siteoforigin:,,,/pict/_Settings_v.png" ></BitmapImage>
+    <BitmapImage x:Key="About" UriSource="pack://siteoforigin:,,,/pict/_About_v.png" ></BitmapImage>
+    <BitmapImage x:Key="Exit" UriSource="pack://siteoforigin:,,,/pict/_Exit_v.png" ></BitmapImage>
+
+    <BitmapImage x:Key="NewKitSet" UriSource="pack://siteoforigin:,,,/pict/_New32_v.png" ></BitmapImage>
+    <BitmapImage x:Key="OpenKitSet" UriSource="pack://siteoforigin:,,,/pict/_Open32_v.png" ></BitmapImage>
+    <BitmapImage x:Key="SaveKitSet" UriSource="pack://siteoforigin:,,,/pict/_Save32_v.png" ></BitmapImage>
+    <BitmapImage x:Key="SaveAsKitSet" UriSource="pack://siteoforigin:,,,/pict/_SaveAs32_v.png" ></BitmapImage>
+    <BitmapImage x:Key="PrintFKitSet" UriSource="pack://siteoforigin:,,,/pict/_PrintF32_v.png" ></BitmapImage>
+    <BitmapImage x:Key="PrintKitSet" UriSource="pack://siteoforigin:,,,/pict/_Print32_v.png" ></BitmapImage>
+    
 </ResourceDictionary>

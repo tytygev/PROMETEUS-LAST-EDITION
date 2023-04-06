@@ -1540,32 +1540,32 @@ System.Drawing.Bitmap (как и вообще складирование кар�
 
                 -->
 
-                <local:MainMenuButton x:Name="KitSetButton"  Margin="20,0,0,0" LabelButtonProperty="Путевые листы"  MouseEnter="MenuButton_MouseEnter" MouseLeave="MenuButton_MouseLeave" MouseUp="MenuButton_MouseUp"  Padding="0,5" ImageSourceProperty="{DynamicResource KitSet}">
+                <local:MainMenuButton x:Name="KitSetButton"  Margin="20,0,0,0" LabelButtonProperty="Путевые листы"  MouseEnter="MenuButton_MouseEnter" MouseLeave="MenuButton_MouseLeave" MouseUp="MenuButton_MouseUp"  Padding="0,5" ImageSourceProperty="{StaticResource KitSet}" Loaded="KitSetButton_Loaded">
                     <local:MainMenuButton.Background>
                         <SolidColorBrush Color="{DynamicResource ColorMain}"/>
                     </local:MainMenuButton.Background>
                 </local:MainMenuButton>
-                <local:MainMenuButton x:Name="PriceButton" Margin="20,0,0,0" LabelButtonProperty="Наряд"  MouseEnter="MenuButton_MouseEnter" MouseLeave="MenuButton_MouseLeave" MouseUp="MenuButton_MouseUp" Padding="0,5" ImageSourceProperty="pack://siteoforigin:,,,/pict/_Price_o.png">
+                <local:MainMenuButton x:Name="PriceButton" Margin="20,0,0,0" LabelButtonProperty="Наряд"  MouseEnter="MenuButton_MouseEnter" MouseLeave="MenuButton_MouseLeave" MouseUp="MenuButton_MouseUp" Padding="0,5" ImageSourceProperty="{StaticResource Price}">
                     <local:MainMenuButton.Background>
                         <SolidColorBrush Color="{DynamicResource ColorMain}"/>
                     </local:MainMenuButton.Background>
                 </local:MainMenuButton>
-                <local:MainMenuButton x:Name="DBEditButton"  Margin="20,0,0,0" LabelButtonProperty="Редактор БД"  MouseEnter="MenuButton_MouseEnter" MouseLeave="MenuButton_MouseLeave" MouseUp="MenuButton_MouseUp" Padding="0,5" ImageSourceProperty="pack://siteoforigin:,,,/pict/_DBedit_o.png" >
+                <local:MainMenuButton x:Name="DBEditButton"  Margin="20,0,0,0" LabelButtonProperty="Редактор БД"  MouseEnter="MenuButton_MouseEnter" MouseLeave="MenuButton_MouseLeave" MouseUp="MenuButton_MouseUp" Padding="0,5" ImageSourceProperty="{StaticResource DBedit}" >
                     <local:MainMenuButton.Background>
                         <SolidColorBrush Color="{DynamicResource ColorMain}"/>
                     </local:MainMenuButton.Background>
                 </local:MainMenuButton>
-                <local:MainMenuButton x:Name="TaxiButton" Margin="20,0,0,0" LabelButtonProperty="Подсчёт такси" MouseEnter="MenuButton_MouseEnter" MouseLeave="MenuButton_MouseLeave" MouseUp="MenuButton_MouseUp"  Padding="0,5" ImageSourceProperty="pack://siteoforigin:,,,/pict/_Taxi_o.png" >
+                <local:MainMenuButton x:Name="TaxiButton" Margin="20,0,0,0" LabelButtonProperty="Подсчёт такси" MouseEnter="MenuButton_MouseEnter" MouseLeave="MenuButton_MouseLeave" MouseUp="MenuButton_MouseUp"  Padding="0,5" ImageSourceProperty="{StaticResource Taxi}" IsEnabled="False" >
                     <local:MainMenuButton.Background>
                         <SolidColorBrush Color="{DynamicResource ColorMain}"/>
                     </local:MainMenuButton.Background>
                 </local:MainMenuButton>
-                <local:MainMenuButton x:Name="SettingsButton" Margin="20,0,0,0" LabelButtonProperty="Настройки"  MouseEnter="MenuButton_MouseEnter" MouseLeave="MenuButton_MouseLeave" MouseUp="MenuButton_MouseUp" Padding="0,5" ImageSourceProperty="pack://siteoforigin:,,,/pict/_Settings_o.png" >
+                <local:MainMenuButton x:Name="SettingsButton" Margin="20,0,0,0" LabelButtonProperty="Настройки"  MouseEnter="MenuButton_MouseEnter" MouseLeave="MenuButton_MouseLeave" MouseUp="MenuButton_MouseUp" Padding="0,5" ImageSourceProperty="{StaticResource Settings}" >
                     <local:MainMenuButton.Background>
                         <SolidColorBrush Color="{DynamicResource ColorMain}"/>
                     </local:MainMenuButton.Background>
                 </local:MainMenuButton>
-                <local:MainMenuButton x:Name="AboutButton" Margin="20,0,0,0" LabelButtonProperty="О программе" MouseEnter="MenuButton_MouseEnter" MouseLeave="MenuButton_MouseLeave" MouseUp="MenuButton_MouseUp"  Padding="0,5" ImageSourceProperty="pack://siteoforigin:,,,/pict/_About_o.png" >
+                <local:MainMenuButton x:Name="AboutButton" Margin="20,0,0,0" LabelButtonProperty="О программе" MouseEnter="MenuButton_MouseEnter" MouseLeave="MenuButton_MouseLeave" MouseUp="MenuButton_MouseUp"  Padding="0,5" ImageSourceProperty="{StaticResource About}" >
                     <local:MainMenuButton.Background>
                         <SolidColorBrush Color="{DynamicResource ColorMain}"/>
                     </local:MainMenuButton.Background>
@@ -1575,7 +1575,7 @@ System.Drawing.Bitmap (как и вообще складирование кар�
             <StackPanel Margin="0" VerticalAlignment="Top" Grid.Row="1" >
 
 
-                <local:MainMenuButton x:Name="ExitButton" Margin="0,5" LabelButtonProperty="Выход" MouseEnter="MenuButton_MouseEnter" MouseLeave="MenuButton_MouseLeave" MouseUp="MenuButton_MouseUp" HorizontalAlignment="Center" ImageSourceProperty="pack://siteoforigin:,,,/pict/_Exit_o.png" >
+                <local:MainMenuButton x:Name="ExitButton" Margin="0,5" LabelButtonProperty="Выход" MouseEnter="MenuButton_MouseEnter" MouseLeave="MenuButton_MouseLeave" MouseUp="MenuButton_MouseUp" HorizontalAlignment="Center" ImageSourceProperty="{StaticResource Exit}" >
                     <local:MainMenuButton.Background>
                         <SolidColorBrush Color="{DynamicResource ColorMain}"/>
                     </local:MainMenuButton.Background>
@@ -1600,10 +1600,10 @@ System.Drawing.Bitmap (как и вообще складирование кар�
                 <RowDefinition Height="*"/>
             </Grid.RowDefinitions>
             <StackPanel Margin="15" Orientation="Horizontal">
-                <local:SubMenuButton x:Name="NewKitSetButton" Margin="0"  MouseEnter="MenuButton_MouseEnter" MouseLeave="MenuButton_MouseLeave" MouseUp="MenuButton_MouseUp" HorizontalAlignment="Center" ImageSourceProperty="pack://siteoforigin:,,,/pict/_New32_o.png" />
-                <local:SubMenuButton x:Name="OpenKitSetButton" Margin="0"  MouseEnter="MenuButton_MouseEnter" MouseLeave="MenuButton_MouseLeave" MouseUp="MenuButton_MouseUp" HorizontalAlignment="Center" ImageSourceProperty="pack://siteoforigin:,,,/pict/_Open32_o.png" />
-                <local:SubMenuButton x:Name="SaveKitSetButton" Margin="0"  MouseEnter="MenuButton_MouseEnter" MouseLeave="MenuButton_MouseLeave" MouseUp="MenuButton_MouseUp" HorizontalAlignment="Center" ImageSourceProperty="pack://siteoforigin:,,,/pict/_Save32_o.png" />
-                <local:SubMenuButton x:Name="SaveasKitSetButton" Margin="0" MouseEnter="MenuButton_MouseEnter" MouseLeave="MenuButton_MouseLeave" MouseUp="MenuButton_MouseUp" HorizontalAlignment="Center" ImageSourceProperty="pack://siteoforigin:,,,/pict/_SaveAs32_o.png" />
+                <local:SubMenuButton x:Name="NewKitSetButton" Margin="0"  MouseEnter="MenuButton_MouseEnter" MouseLeave="MenuButton_MouseLeave" MouseUp="MenuButton_MouseUp" HorizontalAlignment="Center" ImageSourceProperty="{StaticResource NewKitSet}" />
+                <local:SubMenuButton x:Name="OpenKitSetButton" Margin="0"  MouseEnter="MenuButton_MouseEnter" MouseLeave="MenuButton_MouseLeave" MouseUp="MenuButton_MouseUp" HorizontalAlignment="Center"  ImageSourceProperty="{StaticResource OpenKitSet}" />
+                <local:SubMenuButton x:Name="SaveKitSetButton" Margin="0"  MouseEnter="MenuButton_MouseEnter" MouseLeave="MenuButton_MouseLeave" MouseUp="MenuButton_MouseUp" HorizontalAlignment="Center"  ImageSourceProperty="{StaticResource SaveKitSet}" />
+                <local:SubMenuButton x:Name="SaveasKitSetButton" Margin="0" MouseEnter="MenuButton_MouseEnter" MouseLeave="MenuButton_MouseLeave" MouseUp="MenuButton_MouseUp" HorizontalAlignment="Center"  ImageSourceProperty="{StaticResource SaveAsKitSet}" />
                 <Border BorderThickness="1,0,0,1" Margin="5,3" Width="2">
                     <Border.Background>
                         <SolidColorBrush Color="{DynamicResource ColorNuans}"/>
@@ -1612,8 +1612,8 @@ System.Drawing.Bitmap (как и вообще складирование кар�
                         <SolidColorBrush Color="{DynamicResource ColorMain}"/>
                     </Border.BorderBrush>
                 </Border>
-                <local:SubMenuButton x:Name="PrintfKitSetButton" Margin="0" MouseEnter="MenuButton_MouseEnter" MouseLeave="MenuButton_MouseLeave" MouseUp="MenuButton_MouseUp" HorizontalAlignment="Center" ImageSourceProperty="pack://siteoforigin:,,,/pict/_PrintF32_o.png" />
-                <local:SubMenuButton x:Name="PrintKitSetButton" Margin="0" MouseEnter="MenuButton_MouseEnter" MouseLeave="MenuButton_MouseLeave" MouseUp="MenuButton_MouseUp" HorizontalAlignment="Center" ImageSourceProperty="pack://siteoforigin:,,,/pict/_Print32_o.png" />
+                <local:SubMenuButton x:Name="PrintfKitSetButton" Margin="0" MouseEnter="MenuButton_MouseEnter" MouseLeave="MenuButton_MouseLeave" MouseUp="MenuButton_MouseUp" HorizontalAlignment="Center" ImageSourceProperty="{StaticResource PrintFKitSet}" />
+                <local:SubMenuButton x:Name="PrintKitSetButton" Margin="0" MouseEnter="MenuButton_MouseEnter" MouseLeave="MenuButton_MouseLeave" MouseUp="MenuButton_MouseUp" HorizontalAlignment="Center"  ImageSourceProperty="{StaticResource PrintKitSet}" />
 
 
             </StackPanel>
@@ -2567,7 +2567,7 @@ System.Drawing.Bitmap (как и вообще складирование кар�
                             </Label>
                         </StackPanel>
                         <StackPanel Margin="15" Orientation="Horizontal">
-                            <CheckBox Content="Тёмная тема" VerticalAlignment="Center" HorizontalAlignment="Left" IsChecked="True" VerticalContentAlignment="Center">
+                            <CheckBox x:Name="themeCB" Content="Тёмная тема" VerticalAlignment="Center" HorizontalAlignment="Left" IsChecked="True" VerticalContentAlignment="Center">
                                 <CheckBox.BorderBrush>
                                     <SolidColorBrush Color="{DynamicResource ColorSub}"/>
                                 </CheckBox.BorderBrush>

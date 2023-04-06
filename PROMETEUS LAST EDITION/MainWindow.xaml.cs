@@ -48,7 +48,7 @@ namespace PROMETEUS_LAST_EDITION
 
 
             //это  просто для проверки
-                        List<string> listUS = new List<string> { System.Security.Principal.WindowsIdentity.GetCurrent().Name.Split('\\')[1], "false", "false" };
+                        List<string> listUS = new List<string> { System.Security.Principal.WindowsIdentity.GetCurrent().Name.Split('\\')[1], themeCB.IsChecked.ToString(), "false" };
                         bool a = SettingsFX.SaveUserSettings(System.Security.Principal.WindowsIdentity.GetCurrent().Name.Split('\\')[1], listUS);
                         MessageBox.Show("Настройки записаны? - "+a.ToString());
             //
@@ -100,7 +100,7 @@ namespace PROMETEUS_LAST_EDITION
             dictZ.Source = new Uri("DictionaryDarkTheme.xaml", UriKind.Relative);
             Application.Current.Resources.MergedDictionaries.Add(dictZ);
 
-
+            //listSettingsOfUser[1] = "true";
 
             //применение словарей ресурсов
             if (Boolean.TryParse(listSettingsOfUser[1], out flag) & flag)
@@ -124,7 +124,7 @@ namespace PROMETEUS_LAST_EDITION
 
 
             }
-
+         //   (FindResource("documentTemplates") as System.Windows.Data.ObjectDataProvider).Refresh();
 
         }
         
@@ -237,7 +237,11 @@ namespace PROMETEUS_LAST_EDITION
         {
 
         }
-      
+
+        private void KitSetButton_Loaded(object sender, RoutedEventArgs e)
+        {
+
+        }
     }
    
 
