@@ -132,8 +132,8 @@ P.S. Ответ на Основной Вопрос Жизни, Вселенно�
             <Setter Property="Template">
                 <Setter.Value>
                     <ControlTemplate TargetType="{x:Type TextBox}">
-                        <Border x:Name="border" BorderBrush="{TemplateBinding BorderBrush}" BorderThickness="{TemplateBinding BorderThickness}" Background="{TemplateBinding Background}" SnapsToDevicePixels="True">
-                            <ScrollViewer x:Name="PART_ContentHost" Focusable="false" HorizontalScrollBarVisibility="Auto" VerticalScrollBarVisibility="Auto" IsEnabled="true" Foreground="Red" Background="Transparent"/>
+                        <Border x:Name="border" BorderBrush="{TemplateBinding BorderBrush}" BorderThickness="{TemplateBinding BorderThickness}" Background="{TemplateBinding Background}"  Padding="5" Margin="0" VerticalAlignment="Stretch">
+                            <ScrollViewer x:Name="PART_ContentHost" Focusable="false" HorizontalScrollBarVisibility="Auto" VerticalScrollBarVisibility="Auto" IsEnabled="true" Foreground="Red" Background="Transparent" Margin="0" Padding="0"/>
                         </Border>
                         <ControlTemplate.Triggers>
                             <Trigger Property="IsEnabled" Value="false">
@@ -1591,7 +1591,7 @@ System.Drawing.Bitmap (как и вообще складирование кар�
         -->
         </Grid>
 
-        <Grid x:Name="KitSetPage" Grid.Column="1" Margin="0" ScrollViewer.VerticalScrollBarVisibility="Auto" Visibility="Hidden">
+        <Grid x:Name="KitSetPage" Grid.Column="1" Margin="0" ScrollViewer.VerticalScrollBarVisibility="Auto">
             <Grid.Background>
                 <SolidColorBrush Color="{DynamicResource ColorSub}"/>
             </Grid.Background>
@@ -1630,8 +1630,8 @@ System.Drawing.Bitmap (как и вообще складирование кар�
                         <ColumnDefinition Width="auto"/>
                         <ColumnDefinition />
                     </Grid.ColumnDefinitions>
-                    <ScrollViewer VerticalScrollBarVisibility="Visible" HorizontalScrollBarVisibility="Disabled" HorizontalAlignment="Left" Margin="0,0,0,0">
-                        <StackPanel HorizontalAlignment="Left" Margin="0,15,0,0" VerticalAlignment="Top" CanVerticallyScroll="True" ScrollViewer.CanContentScroll="True">
+                    <ScrollViewer VerticalScrollBarVisibility="Visible" HorizontalScrollBarVisibility="Disabled" Margin="0,0,0,0" HorizontalAlignment="Left">
+                        <StackPanel Margin="0,15,0,0" VerticalAlignment="Top" CanVerticallyScroll="True" ScrollViewer.CanContentScroll="True" MinWidth="260">
                             <TextBlock HorizontalAlignment="Left" Margin="10,5" TextWrapping="Wrap" FontSize="14" FontWeight="Normal" TextDecorations="{x:Null}">
                                 <TextBlock.Foreground>
                                     <SolidColorBrush Color="{DynamicResource ColorFont}"/>
@@ -1773,7 +1773,7 @@ System.Drawing.Bitmap (как и вообще складирование кар�
 
                                 </CheckBox>
 
-                                <TextBox Margin="0" TextWrapping="Wrap" FontSize="14" FontWeight="Bold" Grid.Column="1" VerticalContentAlignment="Center" Padding="2,4" UndoLimit="6" SpellCheck.IsEnabled="True" Width="40" Text="77" FontStyle="Italic" HorizontalContentAlignment="Right" IsEnabled="{Binding IsChecked, ElementName=checkBox2}" HorizontalAlignment="Left" VerticalAlignment="Top">
+                                <TextBox Margin="0" FontSize="14" FontWeight="Bold" Grid.Column="1" VerticalContentAlignment="Center" Text="77" FontStyle="Italic" IsEnabled="{Binding IsChecked, ElementName=checkBox2}" VerticalAlignment="Top" ClipToBounds="True" MaxLength="4" MaxLines="1" UndoLimit="0" IsUndoEnabled="False" HorizontalContentAlignment="Right">
                                     <TextBox.Foreground>
                                         <SolidColorBrush Color="{DynamicResource ColorAltFont}"/>
                                     </TextBox.Foreground>
@@ -1810,7 +1810,7 @@ System.Drawing.Bitmap (как и вообще складирование кар�
 
                                 </CheckBox>
 
-                                <TextBox Margin="0" TextWrapping="Wrap" FontSize="14" FontWeight="Bold" HorizontalContentAlignment="Right" Grid.Column="1" VerticalContentAlignment="Center" Padding="2,4" UndoLimit="6" SpellCheck.IsEnabled="True" Width="65" Text="999999" FontStyle="Italic" HorizontalAlignment="Left" VerticalAlignment="Top" IsEnabled="{Binding IsChecked, ElementName=checkBox3}">
+                                <TextBox Margin="0" FontSize="14" FontWeight="Bold" HorizontalContentAlignment="Right" Grid.Column="1" VerticalContentAlignment="Center" UndoLimit="0" Text="99999" FontStyle="Italic" VerticalAlignment="Top" IsEnabled="{Binding IsChecked, ElementName=checkBox3}" Padding="0" MaxLines="1" MaxLength="5" IsUndoEnabled="False">
                                     <TextBox.Foreground>
                                         <SolidColorBrush Color="{DynamicResource ColorAltFont}"/>
                                     </TextBox.Foreground>
@@ -2520,7 +2520,7 @@ System.Drawing.Bitmap (как и вообще складирование кар�
             </StackPanel>
 
         </Grid>
-        <Grid x:Name="SettingsPage" Margin="0" Grid.Column="1" ScrollViewer.VerticalScrollBarVisibility="Auto">
+        <Grid x:Name="SettingsPage" Margin="0" Grid.Column="1" ScrollViewer.VerticalScrollBarVisibility="Auto" Visibility="Hidden">
             <Grid.Background>
                 <SolidColorBrush Color="{DynamicResource ColorSub}"/>
             </Grid.Background>
