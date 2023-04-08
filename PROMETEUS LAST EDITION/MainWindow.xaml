@@ -1540,6 +1540,22 @@ System.Drawing.Bitmap (как и вообще складирование кар�
 
                 -->
 
+                <!--
+                
+                Решение
+Неправильный подход для WPF.
+System.Drawing.Bitmap (как и вообще складирование картинок в .resx файл) - используется в Winforms.
+В WPF данными для Image является объект System.Windows.Media.ImageSource и его наследники.
+В WPF картинки слкадываются не в ресурсный файл, а лежат рядом с исходниками (как правило в отдельной папке).
+В WPF обращение к картинкам происходит следующим образом:
+<BitmapImage x:Key="MyImageSource" UriSource="../Media/Image.png" />
+                В Вашем случае здесь Uri типа Pack://... 
+                
+
+                <Image Source="{StaticResource MyImageSource}" />
+
+                -->
+
                 <local:MainMenuButton x:Name="KitSetButton"  Margin="20,0,0,0" LabelButtonProperty="Путевые листы"  MouseEnter="MenuButton_MouseEnter" MouseLeave="MenuButton_MouseLeave" MouseUp="MenuButton_MouseUp"  Padding="0,5" ImageSourceProperty="{StaticResource KitSet}" Loaded="KitSetButton_Loaded">
                     <local:MainMenuButton.Background>
                         <SolidColorBrush Color="{DynamicResource ColorMain}"/>
@@ -1574,6 +1590,7 @@ System.Drawing.Bitmap (как и вообще складирование кар�
             </StackPanel>
             <StackPanel Margin="0" VerticalAlignment="Top" Grid.Row="1" >
 
+                <Image HorizontalAlignment="Center" Source="{StaticResource ThemeLogo}" Margin="0,0,0,50" MaxWidth="50" VerticalAlignment="Center"/>
 
                 <local:MainMenuButton x:Name="ExitButton" Margin="0,5" LabelButtonProperty="Выход" MouseEnter="MenuButton_MouseEnter" MouseLeave="MenuButton_MouseLeave" MouseUp="MenuButton_MouseUp" HorizontalAlignment="Center" ImageSourceProperty="{StaticResource Exit}" >
                     <local:MainMenuButton.Background>
@@ -1586,6 +1603,7 @@ System.Drawing.Bitmap (как и вообще складирование кар�
                     </TextBlock.Foreground>
                 </TextBlock>
             </StackPanel>
+
             <!-- 
             <MediaElement x:Name="SoundPlayer" HorizontalAlignment="Left" Height="38" Margin="10,567,0,0" VerticalAlignment="Top" Width="40" Source="Windows Menu Command.wav" Visibility="Hidden"/>
         -->
@@ -2155,7 +2173,7 @@ System.Drawing.Bitmap (как и вообще складирование кар�
                 <RowDefinition/>
             </Grid.RowDefinitions>
         </Grid>
-        <Grid x:Name="DBEditPage" Margin="0" Grid.Column="1" ScrollViewer.VerticalScrollBarVisibility="Auto" Visibility="Hidden">
+        <Grid x:Name="DBEditPage" Margin="0" Grid.Column="1" ScrollViewer.VerticalScrollBarVisibility="Auto" d:IsHidden="True">
             <Grid.Background>
                 <SolidColorBrush Color="{DynamicResource ColorSub}"/>
             </Grid.Background>
@@ -2520,7 +2538,7 @@ System.Drawing.Bitmap (как и вообще складирование кар�
             </StackPanel>
 
         </Grid>
-        <Grid x:Name="SettingsPage" Margin="0" Grid.Column="1" ScrollViewer.VerticalScrollBarVisibility="Auto" Visibility="Hidden">
+        <Grid x:Name="SettingsPage" Margin="0" Grid.Column="1" ScrollViewer.VerticalScrollBarVisibility="Auto">
             <Grid.Background>
                 <SolidColorBrush Color="{DynamicResource ColorSub}"/>
             </Grid.Background>
@@ -2546,12 +2564,12 @@ System.Drawing.Bitmap (как и вообще складирование кар�
                                     <SolidColorBrush Color="{DynamicResource ColorNuans}"/>
                                 </GroupBox.BorderBrush>
                                 <StackPanel >
-                                    <RadioButton HorizontalAlignment="Left" Margin="5,10,5,5" VerticalAlignment="Top" Content="Тёмная" Padding="5,1,0,0" IsChecked="True">
+                                    <RadioButton HorizontalAlignment="Left" Margin="5,10,5,5" VerticalAlignment="Top" Content="Тёмная РЕН ТВ" Padding="5,1,0,0" IsChecked="True">
                                         <RadioButton.Foreground>
                                             <SolidColorBrush Color="{DynamicResource ColorFont}"/>
                                         </RadioButton.Foreground>
                                     </RadioButton>
-                                    <RadioButton Content="Светлая" HorizontalAlignment="Left" VerticalAlignment="Top" Padding="5,1,0,0" Margin="5,10,5,5">
+                                    <RadioButton Content="Светлая МИЦ ИЗВЕСТИЯ" HorizontalAlignment="Left" VerticalAlignment="Top" Padding="5,1,0,0" Margin="5,10,5,5" IsChecked="True">
                                         <RadioButton.Foreground>
                                             <SolidColorBrush Color="{DynamicResource ColorFont}"/>
                                         </RadioButton.Foreground>

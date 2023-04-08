@@ -99,6 +99,10 @@
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
     </Page>
+    <Page Include="DictionaryLightThemeRed.xaml">
+      <Generator>MSBuild:Compile</Generator>
+      <SubType>Designer</SubType>
+    </Page>
     <Page Include="DictionaryLightTheme.xaml">
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
@@ -376,6 +380,28 @@
   </ItemGroup>
   <ItemGroup>
     <Resource Include="pict\PICTUREs.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <Resource Include="_KitSet_o.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <Resource Include="pict\ComboArr_r.png" />
+    <Resource Include="pict\logo_o.png" />
+    <Resource Include="pict\logo_r.png" />
+    <Resource Include="pict\logo_v.png" />
+    <Resource Include="pict\_About_r.png" />
+    <Resource Include="pict\_DBedit_r.png" />
+    <Resource Include="pict\_Exit_r.png" />
+    <Resource Include="pict\_KitSet_r.png" />
+    <Resource Include="pict\_New32_r.png" />
+    <Resource Include="pict\_Open32_r.png" />
+    <Resource Include="pict\_Price_r.png" />
+    <Resource Include="pict\_Print32_r.png" />
+    <Resource Include="pict\_PrintF32_r.png" />
+    <Resource Include="pict\_Save32_r.png" />
+    <Resource Include="pict\_SaveAs32_r.png" />
+    <Resource Include="pict\_Settings_r.png" />
+    <Resource Include="pict\_Taxi_r.png" />
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
 </Project>

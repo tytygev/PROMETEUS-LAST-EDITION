@@ -1,7 +1,7 @@
 ﻿<ResourceDictionary xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
                     xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
                     xmlns:local="clr-namespace:PROMETEUS_LAST_EDITION">
-    <!--_DarkTheme-->
+    <!--  _DarkTheme  ren = ff9900  -->
 
     <Color x:Key="ColorMain">#FF282828</Color>
     <Color x:Key="ColorSub">#FF404040</Color>
@@ -42,4 +42,5 @@
     <BitmapImage x:Key="PrintFKitSet" UriSource="pack://siteoforigin:,,,/pict/_PrintF32_o.png" ></BitmapImage>
     <BitmapImage x:Key="PrintKitSet" UriSource="pack://siteoforigin:,,,/pict/_Print32_o.png" ></BitmapImage>
 
+    <BitmapImage x:Key="ThemeLogo" UriSource="pack://siteoforigin:,,,/pict/logo_o.png" ></BitmapImage>
 </ResourceDictionary>
