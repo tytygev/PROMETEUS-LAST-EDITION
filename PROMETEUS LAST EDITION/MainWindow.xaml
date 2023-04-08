@@ -200,9 +200,9 @@ P.S. Ответ на Основной Вопрос Жизни, Вселенно�
                             </Grid.ColumnDefinitions>
                             <Border x:Name="checkBoxBorder" BorderBrush="{TemplateBinding BorderBrush}" BorderThickness="{TemplateBinding BorderThickness}" Background="{TemplateBinding Background}" HorizontalAlignment="{TemplateBinding HorizontalContentAlignment}" Margin="1" VerticalAlignment="{TemplateBinding VerticalContentAlignment}">
                                 <Grid x:Name="markGrid">
-                                    <Path x:Name="optionMark" Data="F1 M 9.97498,1.22334L 4.6983,9.09834L 4.52164,9.09834L 0,5.19331L 1.27664,3.52165L 4.255,6.08833L 8.33331,1.52588e-005L 9.97498,1.22334 Z " Margin="1" Opacity="0.295" Stretch="None" >
+                                    <Path x:Name="optionMark" Data="F1 M 9.97498,1.22334L 4.6983,9.09834L 4.52164,9.09834L 0,5.19331L 1.27664,3.52165L 4.255,6.08833L 8.33331,1.52588e-005L 9.97498,1.22334 Z " Margin="1,1,1,2" Opacity="0.295" Stretch="None" >
                                         <Path.Effect>
-                                            <BlurEffect x:Name="MarkBlur" RenderingBias="Performance" Radius="0"/>
+                                            <BlurEffect x:Name="MarkBlur" RenderingBias="Performance" Radius="0" KernelType="Gaussian"/>
                                         </Path.Effect>
                                         <Path.Fill>
                                             <LinearGradientBrush EndPoint="0.5,1" StartPoint="0.5,0">
@@ -1523,7 +1523,7 @@ P.S. Ответ на Основной Вопрос Жизни, Вселенно�
             </Grid.RowDefinitions>
             <StackPanel Margin="0,15,0,0" VerticalAlignment="Top" Grid.RowSpan="3" >
                 <!-- -->
-                
+
                 <!--
                 
                 Решение
@@ -1545,7 +1545,7 @@ System.Drawing.Bitmap (как и вообще складирование кар�
                         <SolidColorBrush Color="{DynamicResource ColorMain}"/>
                     </local:MainMenuButton.Background>
                 </local:MainMenuButton>
-                <local:MainMenuButton x:Name="PriceButton" Margin="20,0,0,0" LabelButtonProperty="Наряд"  MouseEnter="MenuButton_MouseEnter" MouseLeave="MenuButton_MouseLeave" MouseUp="MenuButton_MouseUp" Padding="0,5" ImageSourceProperty="{StaticResource Price}">
+                <local:MainMenuButton x:Name="PriceButton" Margin="20,0,0,0" LabelButtonProperty="Наряд"  MouseEnter="MenuButton_MouseEnter" MouseLeave="MenuButton_MouseLeave" MouseUp="MenuButton_MouseUp" Padding="0,5" ImageSourceProperty="{StaticResource Price}" IsEnabled="False">
                     <local:MainMenuButton.Background>
                         <SolidColorBrush Color="{DynamicResource ColorMain}"/>
                     </local:MainMenuButton.Background>
@@ -1591,7 +1591,7 @@ System.Drawing.Bitmap (как и вообще складирование кар�
         -->
         </Grid>
 
-        <Grid x:Name="KitSetPage" Grid.Column="1" Margin="0" ScrollViewer.VerticalScrollBarVisibility="Auto">
+        <Grid x:Name="KitSetPage" Grid.Column="1" Margin="0" ScrollViewer.VerticalScrollBarVisibility="Auto" Visibility="Hidden">
             <Grid.Background>
                 <SolidColorBrush Color="{DynamicResource ColorSub}"/>
             </Grid.Background>
@@ -2800,6 +2800,84 @@ System.Drawing.Bitmap (как и вообще складирование кар�
                 <RowDefinition Height="Auto"/>
                 <RowDefinition/>
             </Grid.RowDefinitions>
+            <Ellipse Fill="{x:Null}" HorizontalAlignment="Left" Height="2" Margin="-48,130,0,0" Grid.RowSpan="2" VerticalAlignment="Top" Width="145" RenderTransformOrigin="0.5,0.5">
+                <Ellipse.RenderTransform>
+                    <TransformGroup>
+                        <ScaleTransform/>
+                        <SkewTransform/>
+                        <RotateTransform Angle="54.124"/>
+                        <TranslateTransform/>
+                    </TransformGroup>
+                </Ellipse.RenderTransform>
+                <Ellipse.Stroke>
+                    <SolidColorBrush Color="{DynamicResource ColorAltNuans}"/>
+                </Ellipse.Stroke>
+            </Ellipse>
+            <Ellipse Fill="{x:Null}" HorizontalAlignment="Left" Height="2" Margin="-18,260,0,0" Grid.RowSpan="2" VerticalAlignment="Top" Width="80" RenderTransformOrigin="0.5,0.5">
+                <Ellipse.RenderTransform>
+                    <TransformGroup>
+                        <ScaleTransform/>
+                        <SkewTransform/>
+                        <RotateTransform Angle="-17.177"/>
+                        <TranslateTransform/>
+                    </TransformGroup>
+                </Ellipse.RenderTransform>
+                <Ellipse.Stroke>
+                    <SolidColorBrush Color="{DynamicResource ColorAltNuans}"/>
+                </Ellipse.Stroke>
+            </Ellipse>
+            <Ellipse Fill="{x:Null}" HorizontalAlignment="Left" Height="1" Margin="-23,79,0,0" Grid.RowSpan="2" VerticalAlignment="Top" Width="16" RenderTransformOrigin="0.5,0.5">
+                <Ellipse.RenderTransform>
+                    <TransformGroup>
+                        <ScaleTransform/>
+                        <SkewTransform/>
+                        <RotateTransform Angle="69.659"/>
+                        <TranslateTransform/>
+                    </TransformGroup>
+                </Ellipse.RenderTransform>
+                <Ellipse.Stroke>
+                    <SolidColorBrush Color="{DynamicResource ColorAltNuans}"/>
+                </Ellipse.Stroke>
+            </Ellipse>
+            <Ellipse Fill="{x:Null}" HorizontalAlignment="Left" Height="1" Margin="-20,77,0,0" Grid.RowSpan="2" VerticalAlignment="Top" Width="16" RenderTransformOrigin="0.5,0.5">
+                <Ellipse.RenderTransform>
+                    <TransformGroup>
+                        <ScaleTransform/>
+                        <SkewTransform/>
+                        <RotateTransform Angle="41.526"/>
+                        <TranslateTransform/>
+                    </TransformGroup>
+                </Ellipse.RenderTransform>
+                <Ellipse.Stroke>
+                    <SolidColorBrush Color="{DynamicResource ColorAltNuans}"/>
+                </Ellipse.Stroke>
+            </Ellipse>
+            <Ellipse Fill="{x:Null}" HorizontalAlignment="Left" Height="1" Margin="-23,280,0,0" Grid.RowSpan="2" VerticalAlignment="Top" Width="16" RenderTransformOrigin="0.5,0.5">
+                <Ellipse.RenderTransform>
+                    <TransformGroup>
+                        <ScaleTransform/>
+                        <SkewTransform/>
+                        <RotateTransform Angle="-2.956"/>
+                        <TranslateTransform X="5.105" Y="-7.795"/>
+                    </TransformGroup>
+                </Ellipse.RenderTransform>
+                <Ellipse.Stroke>
+                    <SolidColorBrush Color="{DynamicResource ColorAltNuans}"/>
+                </Ellipse.Stroke>
+            </Ellipse>
+            <Ellipse Fill="{x:Null}" HorizontalAlignment="Left" Height="1" Margin="-20,278,0,0" Grid.RowSpan="2" VerticalAlignment="Top" Width="16" RenderTransformOrigin="0.5,0.5">
+                <Ellipse.RenderTransform>
+                    <TransformGroup>
+                        <ScaleTransform/>
+                        <SkewTransform/>
+                        <RotateTransform Angle="-31.089"/>
+                        <TranslateTransform X="1.093" Y="-9.255"/>
+                    </TransformGroup>
+                </Ellipse.RenderTransform>
+                <Ellipse.Stroke>
+                    <SolidColorBrush Color="{DynamicResource ColorAltNuans}"/>
+                </Ellipse.Stroke>
+            </Ellipse>
             <StackPanel Margin="0,0,15,15" HorizontalAlignment="Right" VerticalAlignment="Bottom" ScrollViewer.VerticalScrollBarVisibility="Disabled" Grid.Row="1">
                 <TextBlock TextWrapping="Wrap" Text="PROMETEUS" Margin="60,10,0,10" FontSize="36" FontFamily="Trebuchet MS" Panel.ZIndex="99" FontWeight="Bold" RenderTransformOrigin="0.5,0.5" HorizontalAlignment="Left">
                     <TextBlock.RenderTransform>
@@ -2834,15 +2912,58 @@ System.Drawing.Bitmap (как и вообще складирование кар�
                         <SolidColorBrush Color="{DynamicResource ColorFont}"/>
                     </TextBlock.Foreground>
                 </TextBlock>
-                <TextBlock x:Name="textBlock2" Margin="15" TextWrapping="Wrap" FontSize="18" Text="«Прометей» - это программа подготовки и печати путевых листов. В версии LE появится новый функционал: подготовка и печать Нарядов и подсчёт количества такси. " TextAlignment="Justify" MaxWidth="742" LineHeight="24">
+                <TextBlock x:Name="textBlock2" Margin="15" TextWrapping="Wrap" FontSize="18" Text="«Прометей» - это программа подготовки и печати путевых листов. В версии LE появится новый функционал: подготовка и печать нарядов и подсчёт количества такси " TextAlignment="Justify" MaxWidth="742" LineHeight="24" Cursor="Hand">
                     <TextBlock.Foreground>
                         <SolidColorBrush Color="{DynamicResource ColorFont}"/>
                     </TextBlock.Foreground></TextBlock>
-                <CheckBox Content="Больше не показывать это окно" Margin="15" VerticalContentAlignment="Center" Padding="5,0,0,0" ScrollViewer.VerticalScrollBarVisibility="Disabled" IsEnabled="False">
-                    <CheckBox.Foreground>
+                <TextBlock x:Name="textBlock3" Margin="60,15" TextWrapping="Wrap" FontSize="18" Text="Работа с путевыми листами теперь на отдельной странице" TextAlignment="Justify" MaxWidth="742" LineHeight="24" Cursor="Hand">
+                    <TextBlock.Foreground>
                         <SolidColorBrush Color="{DynamicResource ColorFont}"/>
+                    </TextBlock.Foreground></TextBlock>
+                <TextBlock x:Name="textBlock3_Copy" Margin="60,15" TextWrapping="Wrap" FontSize="18" Text="Загляните в настройки - там может быть что-то интересное ;)" TextAlignment="Justify" MaxWidth="742" LineHeight="24" Cursor="Hand">
+                    <TextBlock.Foreground>
+                        <SolidColorBrush Color="{DynamicResource ColorFont}"/>
+                    </TextBlock.Foreground></TextBlock>
+                <CheckBox Margin="15" VerticalContentAlignment="Center" Padding="5,0,0,0" ScrollViewer.VerticalScrollBarVisibility="Disabled" Content="Больше не показывать" FontSize="14">
+                    <CheckBox.Foreground>
+                        <SolidColorBrush Color="{DynamicResource ColorNuans}"/>
                     </CheckBox.Foreground>
                 </CheckBox>
+                <StackPanel HorizontalAlignment="Left" VerticalAlignment="Top" Orientation="Horizontal">
+                    <Button Content="Понятно" HorizontalAlignment="Left" Height="24" VerticalAlignment="Top" Width="142" Margin="15" FontSize="14">
+                        <Button.Foreground>
+                            <SolidColorBrush Color="{DynamicResource ColorFont}"/>
+                        </Button.Foreground>
+                        <Button.BorderBrush>
+                            <SolidColorBrush Color="{DynamicResource ColorNuans}"/>
+                        </Button.BorderBrush>
+                        <Button.Background>
+                            <SolidColorBrush Color="{DynamicResource ColorMain}"/>
+                        </Button.Background>
+                    </Button>
+                    <Button Content="Понятно, закрыть окно" HorizontalAlignment="Left" Height="24" VerticalAlignment="Top" Width="207" Margin="15" FontSize="14">
+                        <Button.Foreground>
+                            <SolidColorBrush Color="{DynamicResource ColorFont}"/>
+                        </Button.Foreground>
+                        <Button.BorderBrush>
+                            <SolidColorBrush Color="{DynamicResource ColorNuans}"/>
+                        </Button.BorderBrush>
+                        <Button.Background>
+                            <SolidColorBrush Color="{DynamicResource ColorMain}"/>
+                        </Button.Background>
+                    </Button>
+                    <Button Content="Нихуя не понятно, но очень интересно" HorizontalAlignment="Left" Height="24" VerticalAlignment="Top" Width="327" Margin="15" FontSize="14">
+                        <Button.Foreground>
+                            <SolidColorBrush Color="{DynamicResource ColorFont}"/>
+                        </Button.Foreground>
+                        <Button.BorderBrush>
+                            <SolidColorBrush Color="{DynamicResource ColorNuans}"/>
+                        </Button.BorderBrush>
+                        <Button.Background>
+                            <SolidColorBrush Color="{DynamicResource ColorMain}"/>
+                        </Button.Background>
+                    </Button>
+                </StackPanel>
             </StackPanel>
         </Grid>
     </Grid>
