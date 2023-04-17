@@ -19,5 +19,9 @@ using Excel = Microsoft.Office.Interop.Excel;
 
 namespace PROMETEUS_LAST_EDITION
 {
-   
-}
+    public partial class MainWindow : Window
+    { 
+    
+    
+    }
+    }
