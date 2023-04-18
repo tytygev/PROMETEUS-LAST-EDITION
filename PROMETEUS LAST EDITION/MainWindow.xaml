@@ -1610,7 +1610,7 @@ System.Drawing.Bitmap (как и вообще складирование кар�
         -->
         </Grid>
 
-        <Grid x:Name="KitSetPage" Grid.Column="1" Margin="0" ScrollViewer.VerticalScrollBarVisibility="Auto" Visibility="Hidden">
+        <Grid x:Name="KitSetPage" Grid.Column="1" Margin="0" ScrollViewer.VerticalScrollBarVisibility="Auto">
             <Grid.Background>
                 <SolidColorBrush Color="{DynamicResource ColorSub}"/>
             </Grid.Background>
@@ -1792,9 +1792,12 @@ System.Drawing.Bitmap (как и вообще складирование кар�
 
                                 </CheckBox>
 
-                                <TextBox Margin="0" FontSize="14" FontWeight="Bold" Grid.Column="1" VerticalContentAlignment="Center" Text="77" FontStyle="Italic" IsEnabled="{Binding IsChecked, ElementName=checkBox2}" VerticalAlignment="Top" ClipToBounds="True" MaxLength="4" MaxLines="1" UndoLimit="0" IsUndoEnabled="False" HorizontalContentAlignment="Right">
+                                <TextBox Margin="0" FontSize="14" FontWeight="Bold" Grid.Column="1" VerticalContentAlignment="Center" Text="sdfEDFer456" FontStyle="Italic" IsEnabled="{Binding IsChecked, ElementName=checkBox2}" VerticalAlignment="Top" ClipToBounds="True" MaxLength="4" MaxLines="1" UndoLimit="0" IsUndoEnabled="False" HorizontalContentAlignment="Right">
                                     <TextBox.Foreground>
-                                        <SolidColorBrush Color="{DynamicResource ColorAltFont}"/>
+                                        <LinearGradientBrush EndPoint="0.5,1" StartPoint="0.5,0">
+                                            <GradientStop Color="{DynamicResource ColorSub}" Offset="0"/>
+                                            <GradientStop Color="{DynamicResource ColorAltFont}" Offset="0.3"/>
+                                        </LinearGradientBrush>
                                     </TextBox.Foreground>
                                     <TextBox.CaretBrush>
                                         <SolidColorBrush Color="{DynamicResource ColorFont}"/>
@@ -1831,7 +1834,10 @@ System.Drawing.Bitmap (как и вообще складирование кар�
 
                                 <TextBox Margin="0" FontSize="14" FontWeight="Bold" HorizontalContentAlignment="Right" Grid.Column="1" VerticalContentAlignment="Center" UndoLimit="0" Text="99999" FontStyle="Italic" VerticalAlignment="Top" IsEnabled="{Binding IsChecked, ElementName=checkBox3}" Padding="0" MaxLines="1" MaxLength="5" IsUndoEnabled="False">
                                     <TextBox.Foreground>
-                                        <SolidColorBrush Color="{DynamicResource ColorAltFont}"/>
+                                        <LinearGradientBrush EndPoint="0.5,1" StartPoint="0.5,0">
+                                            <GradientStop Color="{DynamicResource ColorSub}" Offset="0"/>
+                                            <GradientStop Color="{DynamicResource ColorAltFont}" Offset="0.3"/>
+                                        </LinearGradientBrush>
                                     </TextBox.Foreground>
                                     <TextBox.CaretBrush>
                                         <SolidColorBrush Color="{DynamicResource ColorFont}"/>
@@ -2548,7 +2554,7 @@ System.Drawing.Bitmap (как и вообще складирование кар�
                 <RowDefinition/>
             </Grid.RowDefinitions>
             <TabControl x:Name="TabControlSettings" VerticalContentAlignment="Stretch" HorizontalContentAlignment="Stretch" Margin="30" >
-                <TabItem Header="Общие"  Padding="10" IsSelected="True">
+                <TabItem Header="Общие"  Padding="10" IsSelected="True" FontSize="14">
                     <TabItem.Foreground>
                         <SolidColorBrush Color="{DynamicResource ColorFont}"/>
                     </TabItem.Foreground>
@@ -2579,7 +2585,7 @@ System.Drawing.Bitmap (как и вообще складирование кар�
 
                     </StackPanel>
                 </TabItem>
-                <TabItem Header="Путевые листы"  Padding="10">
+                <TabItem Header="Путевые листы"  Padding="10" FontSize="14">
                     <TabItem.Background>
                         <SolidColorBrush Color="{DynamicResource ColorMain}"/>
                     </TabItem.Background>
@@ -2588,7 +2594,7 @@ System.Drawing.Bitmap (как и вообще складирование кар�
                     </TabItem.Foreground>
 
                 </TabItem>
-                <TabItem Header="Наряды"  Padding="10">
+                <TabItem Header="Наряды"  Padding="10" FontSize="14">
                     <TabItem.Background>
                         <SolidColorBrush Color="{DynamicResource ColorMain}"/>
                     </TabItem.Background>
@@ -2597,7 +2603,7 @@ System.Drawing.Bitmap (как и вообще складирование кар�
                     </TabItem.Foreground>
 
                 </TabItem>
-                <TabItem Header="Базы данных"  Padding="10">
+                <TabItem Header="Базы данных"  Padding="10" FontSize="14">
                     <TabItem.Background>
                         <SolidColorBrush Color="{DynamicResource ColorMain}"/>
                     </TabItem.Background>
@@ -2606,7 +2612,7 @@ System.Drawing.Bitmap (как и вообще складирование кар�
                     </TabItem.Foreground>
                     <StackPanel  Margin="15" AllowDrop="True" HorizontalAlignment="Left" VerticalAlignment="Center"/>
                 </TabItem>
-                <TabItem Header="Такси"  Padding="10">
+                <TabItem Header="Такси"  Padding="10" FontSize="14">
                     <TabItem.Background>
                         <SolidColorBrush Color="{DynamicResource ColorMain}"/>
                     </TabItem.Background>
@@ -2615,7 +2621,7 @@ System.Drawing.Bitmap (как и вообще складирование кар�
                     </TabItem.Foreground>
 
                 </TabItem>
-                <TabItem Header="Global" Padding="10" IsSelected="True">
+                <TabItem Header="Global" Padding="10" IsSelected="True" FontSize="14">
                     <TabItem.Foreground>
                         <SolidColorBrush Color="{DynamicResource ColorAltFont}"/>
                     </TabItem.Foreground>
@@ -2672,12 +2678,12 @@ System.Drawing.Bitmap (как и вообще складирование кар�
                                             <SolidColorBrush Color="{DynamicResource ColorNuans}"/>
                                         </GroupBox.BorderBrush>
                                         <StackPanel >
-                                            <RadioButton HorizontalAlignment="Left" Margin="5,10,5,5" VerticalAlignment="Top" Content="По умолчанию" Padding="5,1,0,0" IsChecked="True">
+                                            <RadioButton HorizontalAlignment="Left" Margin="5,10,5,5" Content="По умолчанию: | (вертикальная черта)" Padding="5,1,0,0" IsChecked="True" VerticalAlignment="Top" VerticalContentAlignment="Center">
                                                 <RadioButton.Foreground>
                                                     <SolidColorBrush Color="{DynamicResource ColorFont}"/>
                                                 </RadioButton.Foreground>
                                             </RadioButton>
-                                            <RadioButton VerticalAlignment="Top" Padding="5,1,0,0" Margin="5,10,5,5" IsChecked="True" VerticalContentAlignment="Center" HorizontalContentAlignment="Stretch">
+                                            <RadioButton x:Name="radioButton" VerticalAlignment="Top" Padding="5,1,0,0" Margin="5,10,5,5" IsChecked="True" VerticalContentAlignment="Center" HorizontalContentAlignment="Stretch">
                                                 <RadioButton.Foreground>
                                                     <SolidColorBrush Color="{DynamicResource ColorFont}"/>
                                                 </RadioButton.Foreground>
@@ -2688,11 +2694,11 @@ System.Drawing.Bitmap (как и вообще складирование кар�
                                                         </Label.Foreground>
                                                     </Label>
 
-                                                    <TextBox x:Name="separatorSettingTextBox" TextWrapping="Wrap" FontWeight="Bold" Padding="2,5,4,5" UndoLimit="1" SpellCheck.IsEnabled="True" Text="|" VerticalContentAlignment="Center" HorizontalContentAlignment="Stretch" VerticalAlignment="Center" Margin="0">
+                                                    <TextBox x:Name="SeparatorTextBox" TextWrapping="Wrap" FontWeight="Bold" Padding="2,2,4,5" UndoLimit="0" SpellCheck.IsEnabled="True" VerticalContentAlignment="Center" HorizontalContentAlignment="Center" VerticalAlignment="Center" Margin="0" MaxLines="1" MaxLength="5" IsUndoEnabled="True" MinWidth="60" IsEnabled="{Binding IsChecked, ElementName=radioButton}">
                                                         <TextBox.Foreground>
-                                                            <LinearGradientBrush EndPoint="0.5,1" MappingMode="RelativeToBoundingBox" StartPoint="0.5,0">
-                                                                <GradientStop Color="#FF282828" Offset="0.1"/>
-                                                                <GradientStop Color="#FFFF9523" Offset="0.4"/>
+                                                            <LinearGradientBrush EndPoint="0.5,1" StartPoint="0.5,0">
+                                                                <GradientStop Color="{DynamicResource ColorSub}" Offset="0"/>
+                                                                <GradientStop Color="{DynamicResource ColorAltFont}" Offset="0.3"/>
                                                             </LinearGradientBrush>
                                                         </TextBox.Foreground>
                                                         <TextBox.CaretBrush>

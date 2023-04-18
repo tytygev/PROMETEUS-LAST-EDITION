@@ -593,6 +593,8 @@ namespace PROMETEUS_LAST_EDITION
         /// Полностью очищает переменную UserSettings!
         /// </summary>
         public void SettingsClear() {Properties.Settings.Default.UserSettings.Clear();Properties.Settings.Default.Save();}
+
+        
     }
 
 
