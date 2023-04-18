@@ -37,6 +37,40 @@ namespace PROMETEUS_LAST_EDITION
             return userSettings;
         }
 
+
+        /// <summary>
+        /// Считывает список параметров из PropertiesSettings
+        /// </summary>
+        /// <param name = "PropertiesSettings" >Параметр Properties.Settings.Default</param >
+        /// <param name = "userName" >Имя пользователя (не обязательно)</param >
+        /// <returns>Возвращает строковый список параметров</returns>
+        public List<string> LoadSettingsStringCollect(System.Collections.Specialized.StringCollection PropertiesSettings, string userName=null)//static 
+        {
+            bool flag = true;
+            int length = PropertiesSettings.Count;//узнаем количество трок в параметре            
+            List<string> PropertiesSettingsList = new List<string>();//Список всех настроек построчно
+            for (int i = 0; i < length; i++) PropertiesSettingsList.Add(PropertiesSettings[i]);//получаем все строки из настроек
+            MainWindow.LOG("Параметр "+ PropertiesSettings.ToString() + " из Properties прочитан. Количество строк "+length.ToString (), true, true);                     
+            if (userName!=null) //Теперь поиск юзера, если пришел параметр
+            {
+            List<string> SettingsList = new List<string>();//Список настроек искомой строки   
+            foreach (var line in PropertiesSettingsList) //проходим по строкам
+            {
+                string[] subs = line.Split(new string[] { "///" }, StringSplitOptions.None); //разбиваем строку на массив
+                if (userName == subs[0])//проходим по элементам и добавляем в очищенный список только если нашли юзера
+                {
+                    subs = subs.Skip(1).ToArray(); //удаляем из массива первый элемент (имя юзера)
+                    foreach (var sub in subs) SettingsList.Add(sub);//накидываем в список
+                    MainWindow.LOG("Пользователь "+userName+ " найден в "+ PropertiesSettings.ToString() +". Все значения параметров добавлены в список", true, true);
+                    flag = false;
+                }
+            }
+            if (flag) MainWindow.LOG("Пользователь " + userName + " не найден в " + PropertiesSettings.ToString() + ". Функция вернёт пустой список", true, true);
+            return SettingsList;
+            }
+            return PropertiesSettingsList;
+        }
+
         public static bool SaveUserSettings(string userName, List<string> userSettings)
         {
             bool flag = true;
