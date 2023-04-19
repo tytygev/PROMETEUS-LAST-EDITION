@@ -55,7 +55,7 @@ namespace PROMETEUS_LAST_EDITION
     {
         public SoundPlayer wav = new SoundPlayer();
         private Grid currentVisibleView;
-        public DefUserSettings UserSettings = new DefUserSettings();//создаем экземпляр UserSettings объекта DefUserSettings.
+        public static DefUserSettings UserSettings = new DefUserSettings();//создаем экземпляр UserSettings объекта DefUserSettings.
                                                                     //поля заполнены по умолчанию
         
      
@@ -128,7 +128,7 @@ namespace PROMETEUS_LAST_EDITION
 
             string userName = System.Security.Principal.WindowsIdentity.GetCurrent().Name.Split('\\')[1];//имя юзера без домена!
 
-            ParceUserSettings(SettingsFX.LoadUserSettings(userName));//чтение и парсинг параметров
+            new SettingsFX().ParceUserSettings(new SettingsFX().LoadSettingsStringCollect(Properties.Settings.Default.UserSettings, userName));//чтение и парсинг параметров
 
             InitializeUserSettingsTheme(DefUserSettings.ThemeComboBox);
             InitializeComponent();                       
@@ -154,103 +154,7 @@ namespace PROMETEUS_LAST_EDITION
             return true;
         }
 
-        /// <summary>
-        /// Парсит список с настройками пользователя и обновляет значения свойств объекта UserSettings
-        /// </summary>
-        /// <param name = "SettingsList" >список настроек</param >
-        /// <returns>Возвращает булево значение</returns>
-        private bool ParceUserSettings(List<string> SettingsList)
-        {
 
-            int enumCount = Enum.GetNames(typeof(SettingsElem)).Length;//длинна перечеслителя
-            int listCount = SettingsList.Count;//длинна массива с сохраненными параметрами
-            LOG("Длинна Enum и listSettingsOfUser совпадают? - " + (enumCount == listCount).ToString());
-            if (enumCount == listCount)
-            {
-                for (int i = 0; i < enumCount; i++)
-                {
-                    string nameElem = Enum.GetName(typeof(SettingsElem), i);//имя поля перечеслителя
-                    
-                    //string typeElem = FindName(nameElem).GetType().ToString().Substring(FindName(nameElem).GetType().ToString().LastIndexOf('.') + 1);
-                    string typeElem = UserSettings[nameElem].GetType().ToString().Substring(UserSettings[nameElem].GetType().ToString().LastIndexOf('.') + 1);
-
-                    switch (typeElem)
-                    {
-                        case "Boolean":                            
-                            UserSettings[nameElem] = Convert.ToBoolean(SettingsList[i]);
-                            LOG("Параметр " + nameElem + " = " + SettingsList[i]);                            
-                            break;
-                        case "String":
-                                UserSettings[nameElem] = SettingsList[i];
-                                LOG("Параметр " + nameElem + " = " + SettingsList[i]);                           
-                            break;
-                        case "Int32":                            
-                                UserSettings[nameElem] = Convert.ToInt32(SettingsList[i]);
-                                LOG("Параметр " + nameElem + " = " + SettingsList[i]);                            
-                            break;
-                        default:
-                            LOG("ОШИБКА::: Неучтенный тип объекта nameElem");
-                            break;
-
-                    }
-
-                    //сравнивает имя из перечислителя с именем объекта и в зависимости от типа последнего, конвертирует значение в нужный тип
-                    //if (typeElem != null)
-                    //{
-                    //    switch (typeElem)
-                    //    {
-                    //        case "RadioButton":
-                    //            RadioButton rb = this.FindName(nameElem) as RadioButton;
-                    //            if (rb != null)
-                    //            {
-                    //                UserSettings[nameElem] = Convert.ToBoolean(SettingsList[i]);
-                    //                LOG("Параметр " + nameElem + " = " + SettingsList[i].ToString());
-                    //            } else { LOG("ОШИБКА::: Параметр " + nameElem + "существует, но объект с таким именем не найден"); }
-                    //            break;
-                    //        case "CheckBox":
-                    //            CheckBox chb = this.FindName(nameElem) as CheckBox;
-                    //            if (chb != null)
-                    //            {
-                    //                UserSettings[nameElem] = Convert.ToBoolean(SettingsList[i]);
-                    //                LOG("Параметр " + nameElem + " = " + SettingsList[i].ToString());
-                    //            } else { LOG("ОШИБКА::: Параметр " + nameElem + "существует, но объект с таким именем не найден"); }
-                    //            break;
-                    //        case "TextBox":
-                    //            TextBox tb = this.FindName(nameElem) as TextBox;
-                    //            if (tb != null)
-                    //            {
-                    //                UserSettings[nameElem] = SettingsList[i];
-                    //                LOG("Параметр " + nameElem + " = " + SettingsList[i].ToString());
-                    //            } else { LOG("ОШИБКА::: Параметр " + nameElem + "существует, но объект с таким именем не найден"); }
-                    //            break;
-                    //        case "ComboBox":
-                    //            ComboBox cb = this.FindName(nameElem) as ComboBox;
-                    //            if (cb != null)
-                    //            {
-                    //                UserSettings[nameElem] = Convert.ToInt32(SettingsList[i]);
-                    //                LOG("Параметр " + nameElem + " = " + SettingsList[i].ToString());
-                    //            } else { LOG("ОШИБКА::: Параметр " + nameElem + "существует, но объект с таким именем не найден"); }
-
-                    //            break;
-                    //        default:
-                    //            LOG("ОШИБКА::: Неучтенный тип объекта nameElem");
-                    //            break;
-
-                    //    }
-                    //} else { LOG("ОШИБКА::: объект с именем {nameElem} не найден. пременная typeElem = null"); }
-
-                }
-                LOG("Настройки считаны");
-                return true;
-            }
-            else
-            {
-                LOG("КРИТИЧЕСКАЯ ОШИБКА::: длинна перечислители и длинна списка загруженных параметров отличаются", true, true);
-                LOG("Будут использованы значения настроек по умолчанию");
-                return false;
-            }
-
-        }
 
         /// <summary>
         /// Применяет словари ресурсов темы оформления в зависимости от настроек
