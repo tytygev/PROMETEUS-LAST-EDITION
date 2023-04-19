@@ -34,12 +34,7 @@ namespace PROMETEUS_LAST_EDITION
         StartPage
     }
 
-    enum Themes
-    {
-        DictionaryDarkTheme,
-        DictionaryLightTheme,
-        DictionaryLightThemeRed
-    }
+   
     enum SettingsElem//идет в связке с TypeUserSettingsElements
     {
         NoShowStartPageCheckBox,
@@ -56,9 +51,9 @@ namespace PROMETEUS_LAST_EDITION
         public SoundPlayer wav = new SoundPlayer();
         private Grid currentVisibleView;
         public static DefUserSettings UserSettings = new DefUserSettings();//создаем экземпляр UserSettings объекта DefUserSettings.
-                                                                    //поля заполнены по умолчанию
-        
-     
+                                                                           //поля заполнены по умолчанию
+
+
 
         /// <summary>
         /// Возвращает список отдельных свойств объектов 4х фиксированных типов, 
@@ -124,13 +119,17 @@ namespace PROMETEUS_LAST_EDITION
         public MainWindow()
         {
             File.Delete("LOG.txt");
-            bool flag = InitializeDefaultSettings(); LOG("Применение словаря ресурсов по умолчанию. >>> " + flag.ToString(), true, true);
+
+            bool flag = new UI().InitializeDefaultTheme(); 
+            LOG("Применение словаря ресурсов по умолчанию >>> " + flag.ToString(), true, true);
 
             string userName = System.Security.Principal.WindowsIdentity.GetCurrent().Name.Split('\\')[1];//имя юзера без домена!
-
             new SettingsFX().ParceUserSettings(new SettingsFX().LoadSettingsStringCollect(Properties.Settings.Default.UserSettings, userName));//чтение и парсинг параметров
 
-            InitializeUserSettingsTheme(DefUserSettings.ThemeComboBox);
+            flag= new UI().InitializeUserSettingsTheme(DefUserSettings.ThemeComboBox);
+            if(flag) LOG(">>> Тема изменена");
+            else LOG("ОШИБКА::: Значение параметра SettingsThemeComboBox не соответствует ни одному значению в перечеслителе Themes. Настройки темы не были изменены");
+
             InitializeComponent();                       
             InitializeButtons();
 
@@ -145,59 +144,10 @@ namespace PROMETEUS_LAST_EDITION
             FooterPromtShow("Программа загружена и готова к работе");
         }
 
-        private bool InitializeDefaultSettings()//Применение словаря ресурсов по умолчанию
-        {
-            ResourceDictionary dictZ = new ResourceDictionary();
-            dictZ.Source = new Uri("DictionaryDarkTheme.xaml", UriKind.Relative);
-            Application.Current.Resources.MergedDictionaries.Clear();
-            Application.Current.Resources.MergedDictionaries.Add(dictZ);
-            return true;
-        }
+       
 
 
 
-        /// <summary>
-        /// Применяет словари ресурсов темы оформления в зависимости от настроек
-        /// https://stackoverflow.com/questions/786183/wpf-changing-resources-colors-from-the-app-xaml-during-runtime   
-        /// </summary>
-        /// <param name = "param" >номер темы в перечислителе</param >
-        /// <returns>Возвращает булево значение</returns>
-        private bool InitializeUserSettingsTheme(int param)
-        {
-            bool flag = true;
-            //int param = DefUserSettings.SettingsThemeComboBox;
-            ResourceDictionary dict = new ResourceDictionary();
-            switch (param)
-            {
-                case (int)Themes.DictionaryDarkTheme:                        
-                    dict.Source = new Uri("DictionaryDarkTheme.xaml", UriKind.Relative);
-                    flag = false;
-                    break;
-                case (int)Themes.DictionaryLightTheme:
-                    dict.Source = new Uri("DictionaryLightTheme.xaml", UriKind.Relative);                   
-                    flag = false;
-                    break;
-                case (int)Themes.DictionaryLightThemeRed:
-                    dict.Source = new Uri("DictionaryLightThemeRed.xaml", UriKind.Relative);
-                    flag = false;
-                    break;
-                default:
-                    break;
-            }
-            //Имейте в виду, что MergedDictionaries — это контейнер. Ресурс в самом последнем добавленном ResourceDictionary выигрывает.
-            //Если намерение состоит в том, чтобы переключаться между словарями с какой-либо регулярностью, удаление предыдущего словаря
-            //из списка может быть полезным. (В ответе упоминается «выгрузить его в коде» по умолчанию, указанному в XAML, но не показано,
-            //как его идентифицировать и удалить.) 
-            if (flag) LOG("ОШИБКА::: Значение параметра SettingsThemeComboBox не соответствует ни одному значению в перечеслителе Themes. Настройки темы не были изменены");
-            else
-            {
-                Application.Current.Resources.MergedDictionaries.Clear();
-                Application.Current.Resources.MergedDictionaries.Add(dict);
-                //(FindResource("documentTemplates") as System.Windows.Data.ObjectDataProvider).Refresh();
-                LOG(">>> Тема изменена");
-            }
-            return !flag;
-        }
 
        
         

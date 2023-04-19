@@ -70,7 +70,6 @@ namespace PROMETEUS_LAST_EDITION
             return PropertiesSettingsList;
         }
 
-
         /// <summary>
         /// Парсит список с настройками пользователя и обновляет значения свойств объекта UserSettings
         /// </summary>
@@ -124,6 +123,9 @@ namespace PROMETEUS_LAST_EDITION
             }
 
         }
+
+
+
 
         public static bool SaveUserSettings(string userName, List<string> userSettings)
         {
