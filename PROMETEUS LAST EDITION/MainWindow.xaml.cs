@@ -15,122 +15,30 @@ using System.Collections;
 
 namespace PROMETEUS_LAST_EDITION
 {
-    enum MainMenuButtonEnum
-    {
-        KitSetButton,
-        PriceButton,
-        DBEditButton,
-        SettingsButton,
-        AboutButton,
-        ExitButton
-    }
-    enum ViewPageEnum
-    {
-        KitSetPage,
-        PricePage,
-        DBEditPage,
-        SettingsPage,
-        AboutPage,
-        StartPage
-    }
-
-   
-    enum SettingsElem//идет в связке с TypeUserSettingsElements
-    {
-        NoShowStartPageCheckBox,
-        ThemeComboBox,
-        SaveWinSizeCheckBox
-    }
-    
-
     /// <summary>
     /// Логика взаимодействия для MainWindow.xaml
     /// </summary>
     public partial class MainWindow : Window
     {
-        public SoundPlayer wav = new SoundPlayer();
-        private Grid currentVisibleView;
-        public static DefUserSettings UserSettings = new DefUserSettings();//создаем экземпляр UserSettings объекта DefUserSettings.
-                                                                           //поля заполнены по умолчанию
-
-
-
-        /// <summary>
-        /// Возвращает список отдельных свойств объектов 4х фиксированных типов, 
-        /// имена которых перечислены в SettingsElem
-        /// </summary>
-        /// <returns>Список строк</returns>
-        private List<string> PullUserSettingsVal()
-        {
-            List<string> ListSettings = new List<string>();//Список значений всех элементов
-            var enumCount = Enum.GetNames(typeof(SettingsElem)).Length;//длинна нумератора SettingsElem, учитывающего все элементы считывающиеся для хранения их свойств
-            for (int i = 0; i < enumCount; i++)
-            {
-                string nameElem = Enum.GetName(typeof(SettingsElem), i);
-                string typeElem = this.FindName(nameElem).GetType().ToString().Substring(this.FindName(nameElem).GetType().ToString().LastIndexOf('.')+1);              
-                switch (typeElem)
-                {
-                    case "RadioButton":
-                        RadioButton rb = this.FindName(nameElem) as RadioButton;
-                        if (rb != null) ListSettings.Add(rb.IsChecked.ToString());
-                        break;
-                    case "CheckBox":
-                        CheckBox chb = this.FindName(nameElem) as CheckBox;
-                        if (chb != null) ListSettings.Add(chb.IsChecked.ToString());
-                        break;
-                    case "TextBox":
-                        TextBox tb = this.FindName(nameElem) as TextBox;
-                        if (tb != null) ListSettings.Add(tb.Text);
-                        break;
-                    case "ComboBox":
-                        ComboBox cb = this.FindName(nameElem) as ComboBox;
-                        if (cb != null) ListSettings.Add(cb.SelectedIndex.ToString());
-                        break;
-                    default:
-                        //код, выполняемый если выражение не имеет ни одно из выше указанных значений
-                         break;
-                }
-            }
-                return ListSettings;
-        }
-
-        private  List<string> GrabAllSettingsVal()//аналогично предыдущему, но не используется
-        {
-            int a=0;        
-            List<string> ListSettings = new List<string>();//Список значений всех элементов
-            int count=TabControlSettings.Items.Count;
-            for (int y = 0; y < count;y++)
-            {           
-                TabControlSettings.SelectedIndex=y;
-                LOG(">>> TabControlSettings.SelectedIndex=" + y.ToString());
-                // List<RadioButton> radioButtonElements = new List<RadioButton>();//радиокнопки
-                foreach (RadioButton rb in FindVisualChildren<RadioButton>(TabControlSettings)) { ListSettings.Add(rb.IsChecked.ToString()); a++; LOG("Найден " + a.ToString() + "-й элемент типа RADIOBUTTON со значением " + rb.IsChecked.ToString()); }//родительский контейнер
-                    // List<CheckBox> checkBoxElements = new List<CheckBox>();  //CheckBox
-                foreach (CheckBox chb in FindVisualChildren<CheckBox>(TabControlSettings)) { ListSettings.Add(chb.IsChecked.ToString()); a++; LOG("Найден " + a.ToString() + "-й элемент типа CHECKBOX со значением " + chb.IsChecked.ToString()); }//родительский контейнер
-             // List<TextBox> textBoxElements = new List<TextBox>();  //TextBox
-                foreach (TextBox tb in FindVisualChildren<TextBox>(TabControlSettings)) { ListSettings.Add(tb.Text); a++; LOG("Найден " + a.ToString() + "-й элемент типа TEXTBOX со значением " + tb.Text); }//родительский контейнер
-    // List<ComboBox> comboBoxElements = new List<ComboBox>();  //ComboBox
-                foreach (ComboBox cb in FindVisualChildren<ComboBox>(TabControlSettings)) { ListSettings.Add(cb.SelectedIndex.ToString()); a++; LOG("Найден " + a.ToString() + "-й элемент типа COMBOBOX со значением " + cb.SelectedIndex.ToString()); }//родительский контейнер
-            }
-            return ListSettings;
-        }
-
-   
-        public MainWindow()
+        public SoundPlayer wav = new SoundPlayer(); //тупо эксперименты
+        private Grid currentVisibleView; //это что то для такси (уже не помню)
+        public static DefUserSettings UserSettings = new DefUserSettings();
+        
+       public MainWindow()
         {
             File.Delete("LOG.txt");
 
             bool flag = new UI().InitializeDefaultTheme(); 
-            LOG("Применение словаря ресурсов по умолчанию >>> " + flag.ToString(), true, true);
+            LOG("Применение словаря ресурсов по умолчанию >>> " + flag.ToString());
 
             string userName = System.Security.Principal.WindowsIdentity.GetCurrent().Name.Split('\\')[1];//имя юзера без домена!
             new SettingsFX().ParceUserSettings(new SettingsFX().LoadSettingsStringCollect(Properties.Settings.Default.UserSettings, userName));//чтение и парсинг параметров
 
             flag= new UI().InitializeUserSettingsTheme(DefUserSettings.ThemeComboBox);
             if(flag) LOG(">>> Тема изменена");
-            else LOG("ОШИБКА::: Значение параметра SettingsThemeComboBox не соответствует ни одному значению в перечеслителе Themes. Настройки темы не были изменены");
+            else LOG("ОШИБКА::: Значение параметра SettingsThemeComboBox не соответствует ни одному значению в перечеслителе Themes. Настройки темы не были изменены", true);
 
-            InitializeComponent();                       
+            InitializeComponent();
             InitializeButtons();
 
             wav = new SoundPlayer();
@@ -141,16 +49,10 @@ namespace PROMETEUS_LAST_EDITION
             //listOfLists=FileFX.LoadDSV("prop.txt", char.Parse(";"));
             //listOfLists[1][1] = "эщкере";
             //FileFX.SaveDSV(listOfLists,"prop.txt", char.Parse(";"));//изикатка       
-            FooterPromtShow("Программа загружена и готова к работе");
+
+            new UI().FooterPromtShow(this,"Программа загружена и готова к работе");
         }
 
-       
-
-
-
-
-       
-        
         private void InitializeButtons()
         {
             KitSetButton.MouseUp += (s, e) => ShowView(KitSetPage);
@@ -168,7 +70,6 @@ namespace PROMETEUS_LAST_EDITION
             PrintfKitSetButton.MouseUp += (s, e) => ShowView(KitSetPage);
             PrintKitSetButton.MouseUp += (s, e) => ShowView(KitSetPage);
         }
-
         private void ShowView(Grid view)
         {
             if (view == currentVisibleView)
@@ -193,163 +94,172 @@ namespace PROMETEUS_LAST_EDITION
             wav.Stream = Properties.Resources.ding; wav.Play();
             //
         }
-        /// <summary>
-        /// Выводит сообщение окне программы
-        /// </summary>
-        /// <param name = "m" >Строка для вывода</param >
-        /// <param name = "m2" >Дополнительная строка (null по умолчанию)</param >
-        /// <param name = "newLine" >Дополнительная строка на второй строке (true по умолчанию)</param >
-        /// <returns>Ничего не возвращает</returns>
-        public void FooterPromtShow(object m, object m2=null, bool newLine = true)
+        //установка значений свойств объектов в соотвествии с настройками
+        private void SettingsInitialized(object sender, EventArgs e)
         {
-            string sm = m.ToString()+" ";
-            if (newLine) { sm = sm + Environment.NewLine; }
-            if (m2 != null) { sm=sm+ m2.ToString(); }
-            TextBlock tb = this.FindName("FooterPrompt") as TextBlock;
-            if (tb != null) tb.Text = sm;
+            LOG(">>> Инициализация объекта типа: " + sender.GetType().ToString());
+            switch (sender.GetType().ToString().Substring(sender.GetType().ToString().LastIndexOf('.') + 1))
+            {
+                case "ComboBox":
+                    ComboBox cb = sender as ComboBox;
+                    cb.SelectedIndex = Convert.ToInt32(UserSettings[cb.Name]);
+                    LOG("\t объект типа " + sender.GetType().ToString().Substring(sender.GetType().ToString().LastIndexOf('.') + 1));
+                    LOG("\t поле Name = " + cb.Name);
+                    LOG("\t полю SelectedIndex присвоено значение: " + Convert.ToString(UserSettings[cb.Name]) + " из объекта UserSettings");
+                    break;
+                case "TextBox":
+                    TextBox tb = sender as TextBox;
+                    tb.Text = Convert.ToString(UserSettings[tb.Name]);
+                    LOG("\t объект типа " + sender.GetType().ToString().Substring(sender.GetType().ToString().LastIndexOf('.') + 1));
+                    LOG("\t поле Name = " + tb.Name);
+                    LOG("\t полю Text присвоено значение: " + Convert.ToString(UserSettings[tb.Name]) + " из объекта UserSettings");
+                    break;
+                case "CheckBox":
+                    CheckBox chb = sender as CheckBox;
+                    chb.IsChecked = Convert.ToBoolean(UserSettings[chb.Name]);
+                    LOG("\t объект типа " + sender.GetType().ToString().Substring(sender.GetType().ToString().LastIndexOf('.') + 1));
+                    LOG("\t поле Name = " + chb.Name);
+                    LOG("\t полю IsChecked присвоено значение: " + Convert.ToString(UserSettings[chb.Name]) + " из объекта UserSettings");
+                    break;
+                case "RadioButton":
+                    RadioButton rb = sender as RadioButton;
+                    rb.IsChecked = Convert.ToBoolean(UserSettings[rb.Name]);
+                    LOG("\t объект типа " + sender.GetType().ToString().Substring(sender.GetType().ToString().LastIndexOf('.') + 1));
+                    LOG("\t поле Name = " + rb.Name);
+                    LOG("\t полю IsChecked присвоено значение: " + Convert.ToString(UserSettings[rb.Name]) + " из объекта UserSettings");
+                    break;
+                default:
+                    LOG("ОШИБКА::: неизвестный тип объекта!");
+                    break;
+            }
         }
-        //переопределение свойств объектов (в соответствии с настройками) после инициализации
+
         protected override void OnInitialized(EventArgs e)
         {
             base.OnInitialized(e);
-            //здесь устанавливаем свойства объектов в соотвествии с настройками
-            //List<string> listSettingsOfUser = SettingsFX.LoadUserSettings(System.Security.Principal.WindowsIdentity.GetCurrent().Name.Split('\\')[1]);
-            bool a = SetValUserSettings();//listSettingsOfUser в первой версии передавался как параметр
-            LOG("Свойства объектов переназначены из свойств класса DefUserSettings? >>> "+a.ToString(), true,true);
-
-            //ViewPageEnum
-            //перечислить все странички и выставить им невидимость
-
+            new UI().ViewPageInitVisible(this); //перечислить все странички и выставить им невидимость
+            //переопределение свойств объектов (в соответствии с настройками) после инициализации            
+            bool flag = new UI().SetValUserSettings(this);//listSettingsOfUser в первой версии передавался как параметр
+            LOG("Свойства окна переназначены из свойств класса DefUserSettings? >>> " + flag.ToString());
         }
-
-        /// <summary>
-        /// Полуавтоматически парсит список отдельных свойств объектов 4х фиксированных типов, 
-        /// имена которых перечислены в SettingsElem
-        /// и присваивает значения соотвествующим объевктам
-        /// </summary>
-        /// <param name="userSettings">Список со значениями настроек пользователя</param>
-        /// <returns>булево значение</returns>
-        private bool SetValUserSettings()//парсинг списка в обратном порядке работает после инициализации //List<string> userSettings убрал из параметров
-        {
-            int enumCount = Enum.GetNames(typeof(SettingsElem)).Length; //длинна нумератора с сохраняемыми параметрами
-            for (int i = 0; i < enumCount; i++)
-            {
-                string nameElem = Enum.GetName(typeof(SettingsElem), i);
-                string typeElem = FindName(nameElem).GetType().ToString().Substring(FindName(nameElem).GetType().ToString().LastIndexOf('.') + 1);
-                if (typeElem != null)
-                {
-                    switch (typeElem)
-                    {
-                        case "RadioButton":
-                            RadioButton rb = this.FindName(nameElem) as RadioButton;
-                            if (rb != null)
-                            {
-                                rb.IsChecked = Convert.ToBoolean(UserSettings[nameElem]);
-                                LOG("Свойству IsChecked элемента {nameElem} присвоено значение " + Convert.ToString(UserSettings[nameElem]));
-                            }
-                            break;
-                        case "CheckBox":
-                            CheckBox chb = this.FindName(nameElem) as CheckBox;
-                            if (chb != null)
-                            {
-                                chb.IsChecked = Convert.ToBoolean(UserSettings[nameElem]);
-
-                                LOG("Свойству IsChecked элемента {nameElem} присвоено значение " + Convert.ToString(UserSettings[nameElem]));
-                            }
-                            break;
-                        case "TextBox":
-                            TextBox tb = this.FindName(nameElem) as TextBox;
-                            if (tb != null)
-                            {
-                                tb.Text = Convert.ToString(UserSettings[nameElem]);
-                                LOG("Свойству Text элемента {nameElem} присвоено значение " + Convert.ToString(UserSettings[nameElem]));
-
-                            }
-                            break;
-                        case "ComboBox":
-                            ComboBox cb = this.FindName(nameElem) as ComboBox;
-                            if (cb != null)
-                            {
-                                cb.SelectedIndex = Convert.ToInt32(UserSettings[nameElem]);
-                                LOG("Свойству SelectedIndex элемента {nameElem} присвоено значение " + Convert.ToString(UserSettings[nameElem]));
-
-                            }
-                            break;
-                        default:
-                            LOG("ОШИБКА::: обнаружен нестандартный тип {typeElem} (элемент {nameElem}). Значение не было присвоено");
-
-                            break;
-
-                    }
-                }
-                else { LOG("ОШИБКА::: typeElem = null"); }
-            }
-
-            
-            return true;
-            //первая версия
-            // int enumCount = Enum.GetNames(typeof(SettingsElem)).Length; //длинна нумератора с сохраняемыми параметрами
-            //int listCount = userSettings.Count;//длинна списка с сохраненными параметрами
-            // LOG("Длинна Enum и listSettingsOfUser совпадают? - " + (enumCount == listCount).ToString());
-            // if (enumCount == listCount)
-            // {
-            //     for (int i = 0; i < enumCount; i++)
-            //     {
-            //         string nameElem = Enum.GetName(typeof(SettingsElem), i);
-            //         string typeElem = FindName(nameElem).GetType().ToString().Substring(FindName(nameElem).GetType().ToString().LastIndexOf('.') + 1);
-            //         if (typeElem != null)
-            //         {
-            //             switch (typeElem)
-            //             {
-            //                 case "RadioButton":
-            //                     RadioButton rb = this.FindName(nameElem) as RadioButton;
-            //                     if (rb != null) rb.IsChecked = Convert.ToBoolean(userSettings[i]);                   
-            //                     break;
-            //                 case "CheckBox":
-            //                     CheckBox chb = this.FindName(nameElem) as CheckBox;
-            //                     if (chb != null) chb.IsChecked = Convert.ToBoolean(userSettings[i]);
-            //                     break;
-            //                 case "TextBox":
-            //                     TextBox tb = this.FindName(nameElem) as TextBox;
-            //                     if (tb != null) tb.Text = userSettings[i];
-            //                     break;
-            //                 case "ComboBox":
-            //                     ComboBox cb = this.FindName(nameElem) as ComboBox;
-            //                     if (cb != null) cb.SelectedIndex = Convert.ToInt32(userSettings[i]);
-            //                     break;
-            //                 default:
-            //                     return false;
-
-            //             }
-            //         }
-            //         else { return false; }
-            //     }
-
-            //     LOG("Все настройки загружены>>>");
-            //     return true;
-            // }else            {
-            //     LOG("ОШИБКА::: enumCount не равен длинне listCount. Возможно, проблемы с сохранением параметров. Настройки не загружены",true,true);
-            //     LOG("Будут загружены настройки по умолчанию");
-            //     return false;
-            // }
-        }
-                
-        protected override void OnClosing(System.ComponentModel.CancelEventArgs e)//Сохранение параметров при закрытии
+        protected override void OnClosing(System.ComponentModel.CancelEventArgs e)
         {
             //не помню чё это и зачем
             //параметр="{Binding Source={x:Static p:Settings.Default}, Path=параметр, Mode=TwoWay}"
             //SettingsBindableAttribute.Default.Save();
 
-            //сохранение параметров
+            //Сохранение параметров при закрытии
             string userName = System.Security.Principal.WindowsIdentity.GetCurrent().Name.Split('\\')[1];//имя юзера без домена!
-            // string userName = System.Security.Principal.WindowsIdentity.GetCurrent().Name; //имя юзера с доменом!
-            bool a = SettingsFX.SaveUserSettings(userName, PullUserSettingsVal()); // ответ от SettingsFX
-            LOG("Настройки записаны? - " + a.ToString(), true, true);
+            //string userName = System.Security.Principal.WindowsIdentity.GetCurrent().Name; //имя юзера с доменом!
+            bool flag = SettingsFX.SaveUserSettings(GetValUserSettings(), userName); // ответ от SettingsFX
+            LOG("Настройки записаны? - " + flag.ToString());
 
             base.OnClosing(e);
         }
 
-        private void Button_Click(object sender, RoutedEventArgs e) { SettingsClear(); }
+        /// <summary>
+        /// Возвращает список отдельных свойств объектов 4х фиксированных типов, 
+        /// имена которых перечислены в SettingsElem
+        /// </summary>
+        /// <returns>Список строк</returns>
+        private List<string> GetValUserSettings()
+            //избавиться от этого ужаса в два приёма:
+            //1-
+            //Список формируется в классе SettingsFX 
+            //значения парсятся из класса UserSettings
+            //2-
+            //актуализация значений полей класса UserSettings
+            //происходит по событиям Changed и подобным
+            //
+            //Но пока оно работает и так зае....
+        {
+            List<string> ListSettings = new List<string>();//Список значений всех элементов
+            var enumCount = Enum.GetNames(typeof(DefUserSettings.SettingsElem)).Length;//длинна нумератора SettingsElem, учитывающего все элементы считывающиеся для хранения их свойств
+            for (int i = 0; i < enumCount; i++)
+            {
+                string nameElem = Enum.GetName(typeof(DefUserSettings.SettingsElem), i);
+                try
+                {
+                string typeElem = this.FindName(nameElem).GetType().ToString().Substring(this.FindName(nameElem).GetType().ToString().LastIndexOf('.') + 1);
+                switch (typeElem)
+                {
+                    case "RadioButton":
+                        RadioButton rb = this.FindName(nameElem) as RadioButton;
+                        if (rb != null) ListSettings.Add(rb.IsChecked.ToString());
+                        break;
+                    case "CheckBox":
+                        CheckBox chb = this.FindName(nameElem) as CheckBox;
+                        if (chb != null) ListSettings.Add(chb.IsChecked.ToString());
+                        break;
+                    case "TextBox":
+                        TextBox tb = this.FindName(nameElem) as TextBox;
+                        if (tb != null) ListSettings.Add(tb.Text);
+                        break;
+                    case "ComboBox":
+                        ComboBox cb = this.FindName(nameElem) as ComboBox;
+                        if (cb != null) ListSettings.Add(cb.SelectedIndex.ToString());
+                        break;
+                    default:
+                        //код, выполняемый если выражение не имеет ни одно из выше указанных значений
+                        break;
+                }
+                }
+                catch (System.NullReferenceException)
+                {
+                    LOG(">>> ИСКЛЮЧЕНИЕ: System.NullReferenceException ссылка на объект не указывает на экземпляр объекта");
+                    switch (nameElem)
+                    {
+                        case "WindowState":
+                            //ListSettings.Add()
+                            switch (Convert.ToInt32(this.WindowState))
+                            {
+                                case 0: ListSettings.Add("0"); break;
+                                case 1: ListSettings.Add("1"); break;
+                                case 2: ListSettings.Add("2"); break;
+                                default: break;
+                            }
+                            break;
+                        case "WindowSizeW":
+                            ListSettings.Add(Convert.ToString(this.Width));
+                            break;
+                        case "WindowSizeH":
+                            ListSettings.Add(Convert.ToString(this.Height));
+                            break;
+                    }
+                }
+            }
+            return ListSettings;
+        }
+
+        private void Button_ClickReset(object sender, RoutedEventArgs e) //Очистка параметра с настройками юзера
+        {
+            if (MessageBox.Show("Это действие полностью и безвозвратно аннигилирует ВСЕ данные пользователей касательно настроек программы. \n\nВы уверены???",
+                "АХТУНГ!", MessageBoxButton.YesNo,MessageBoxImage.Warning) == MessageBoxResult.Yes){new SettingsFX().SettingsClear();}
+        }
+        private void Button_ClickCloseStart(object sender, RoutedEventArgs e) {this.StartPage.Visibility = Visibility.Hidden;}
+
+        /// <summary>
+        /// Выводит сообщение в файл LOG.txt и в окно MessageBox
+        /// </summary>
+        /// <param name = "m" >Значение для вывода</param >
+        /// <param name = "newLine" >добавляет в конце строки символ новой (true по умолчанию)</param >
+        /// <param name = "showMB" >выводит сообщение в MessageBox (false по умолчанию)</param >
+        /// <returns>Ничего не возвращает</returns>
+        public static void LOG(object m, bool showMB = false, bool newLine = true)//
+        {
+            string sm = m.ToString();
+            if (newLine) { sm += Environment.NewLine; }
+            File.AppendAllText("LOG.txt", sm);           
+            if (showMB) { MessageBox.Show(sm); }
+            //return;
+        }
+
+
+        //////  //////  //////    //    //
+        //      //  //  //  //  //  //  //
+        ////    //  //  ////    //  //  //
+        //      //  //  ////    //////  //
+        //      //////  //  //  //  //  //////  //foral
 
         //эксперименты с такси
         private void InitializeTaxiSettings()
@@ -366,7 +276,7 @@ namespace PROMETEUS_LAST_EDITION
             }
 
         }
-        private void TaxiComboBoxesSetSel (object sender, SelectionChangedEventArgs e)
+        private void TaxiComboBoxesSetSel(object sender, SelectionChangedEventArgs e)
         {
             var DSettingsTaxiComboBoxes = DSettingsTaxiGrid.Children.OfType<ComboBox>().ToList(); //Все элементы типа ComboBox в таблице выбора идентефикации ячеек
             for (int i = 0; i < DSettingsTaxiComboBoxes.Count; i++)
@@ -374,9 +284,9 @@ namespace PROMETEUS_LAST_EDITION
                 if (ReferenceEquals(sender, DSettingsTaxiComboBoxes[i]))//Если есть совпадение
                 {
                     Properties.Settings.Default.report_parser_setsel[i] = DSettingsTaxiComboBoxes[i].SelectedIndex.ToString();//Записываем индекс выбранного пункта в параметр
-                     Properties.Settings.Default.Save(); // Сохраняем переменные.
+                    Properties.Settings.Default.Save(); // Сохраняем переменные.
                 }
-                
+
             }
 
         }
@@ -394,7 +304,7 @@ namespace PROMETEUS_LAST_EDITION
             }
 
         }
-        private void droppanel_Drop(object sender, DragEventArgs e)
+        private void Droppanel_Drop(object sender, DragEventArgs e)
         {
             string xlFileName = TaxiAnalyzer.GetReportFileName(e); //получение имени файла
             dropfilelabel.Text = xlFileName;//вывод имени файла в label
@@ -402,11 +312,12 @@ namespace PROMETEUS_LAST_EDITION
             //TaxiAnalyzer.Taxichecksumm(dataArr);
             //TaxiAnalyzer.Filtration(TaxiAnalyzer.LoadReport(xlFileName));
         }
-        private void runchecksummButton_Click(object sender, KeyEventArgs e)
+        private void RunchecksummButton_Click(object sender, KeyEventArgs e)
         {
 
         }
 
+        //экспериметы с поиском детей
         /// <summary>
         /// Возвращает все элементы UIElement заданного типа.
         /// </summary>
@@ -425,30 +336,31 @@ namespace PROMETEUS_LAST_EDITION
             }
             yield break;
         }
-
-
-        /// <summary>
-        /// Выводит сообщение в файл LOG.txt и в окно MessageBox
-        /// </summary>
-        /// <param name = "m" >Значение для вывода</param >
-        /// <param name = "newLine" >добавляет в конце строки символ новой (true по умолчанию)</param >
-        /// <param name = "showMB" >выводит сообщение в MessageBox (false по умолчанию)</param >
-        /// <returns>Ничего не возвращает</returns>
-        public static void LOG(object m, bool newLine = true, bool showMB = false)//
+        private List<string> GrabAllSettingsVal()//Возвращает список отдельных свойств объектов 4х фиксированных типов, 
+        //имена которых перечислены в SettingsElem 
+        //использует визуальное дерево потомков 
+        //пока никак не используется
         {
-            string sm = m.ToString();
-            if (newLine) { sm = sm + Environment.NewLine; }
-            File.AppendAllText("LOG.txt", sm);           
-            if (showMB) { MessageBox.Show(sm); }
-            //return;
+            int a = 0;
+            List<string> ListSettings = new List<string>();//Список значений всех элементов
+            int count = TabControlSettings.Items.Count;
+            for (int y = 0; y < count; y++)
+            {
+                TabControlSettings.SelectedIndex = y;
+                LOG(">>> TabControlSettings.SelectedIndex=" + y.ToString());
+                // List<RadioButton> radioButtonElements = new List<RadioButton>();//радиокнопки
+                foreach (RadioButton rb in FindVisualChildren<RadioButton>(TabControlSettings)) { ListSettings.Add(rb.IsChecked.ToString()); a++; LOG("Найден " + a.ToString() + "-й элемент типа RADIOBUTTON со значением " + rb.IsChecked.ToString()); }//родительский контейнер
+                                                                                                                                                                                                                                                          // List<CheckBox> checkBoxElements = new List<CheckBox>();  //CheckBox
+                foreach (CheckBox chb in FindVisualChildren<CheckBox>(TabControlSettings)) { ListSettings.Add(chb.IsChecked.ToString()); a++; LOG("Найден " + a.ToString() + "-й элемент типа CHECKBOX со значением " + chb.IsChecked.ToString()); }//родительский контейнер
+                                                                                                                                                                                                                                                    // List<TextBox> textBoxElements = new List<TextBox>();  //TextBox
+                foreach (TextBox tb in FindVisualChildren<TextBox>(TabControlSettings)) { ListSettings.Add(tb.Text); a++; LOG("Найден " + a.ToString() + "-й элемент типа TEXTBOX со значением " + tb.Text); }//родительский контейнер
+                                                                                                                                                                                                              // List<ComboBox> comboBoxElements = new List<ComboBox>();  //ComboBox
+                foreach (ComboBox cb in FindVisualChildren<ComboBox>(TabControlSettings)) { ListSettings.Add(cb.SelectedIndex.ToString()); a++; LOG("Найден " + a.ToString() + "-й элемент типа COMBOBOX со значением " + cb.SelectedIndex.ToString()); }//родительский контейнер
+            }
+            return ListSettings;
         }
-        
-        /// <summary>
-        /// Полностью очищает переменную UserSettings!
-        /// </summary>
-        public void SettingsClear() {Properties.Settings.Default.UserSettings.Clear();Properties.Settings.Default.Save();}
 
-        
+      
     }
 
 

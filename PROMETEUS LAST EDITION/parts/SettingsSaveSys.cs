@@ -12,30 +12,10 @@ namespace PROMETEUS_LAST_EDITION
 {
     public class SettingsFX
     {
-
-        //public static List<string> LoadUserSettings(string userName)//static
-        //{
-        //    bool flag = true;
-        //    int length = Properties.Settings.Default.UserSettings.Count;//узнаем количество трок в параметре            
-        //    List<string> linesUserSet = new List<string>();//Список всех настроек построчно
-        //    for (int i = 0; i < length; i++) linesUserSet.Add(Properties.Settings.Default.UserSettings[i]);//получаем все строки из настроек
-        //    MainWindow.LOG("Параметр UserSettings из Properties прочитан. Количество строк {length}",true,true);
-        //    List<string> userSettings = new List<string>();//Список настроек искомой строки
-        //    //Теперь поиск юзера
-        //    foreach (var line in linesUserSet) //проходим по строкам
-        //    {
-        //        string[] subs = line.Split(char.Parse(",")); //разбиваем строку на массив
-        //        if (userName == subs[0])//проходим по элементам и добавляем в очищенный список только если нашли юзера
-        //        {//userSettings.Clear(); //очистка требовалась раньше, когда параметры по умолчанию хранились в параметрах и добавлялись из самой первой строки
-        //            subs = subs.Skip(1).ToArray(); //удаляем из массива первый элемент (имя юзера)
-        //            foreach (var sub in subs) userSettings.Add(sub);//накидываем в список
-        //            MainWindow.LOG("Пользователь {userName} найден. Все элементы добавлены в список", true, true);
-        //            flag = false;
-        //        }
-        //    }
-        //    if (flag) MainWindow.LOG("Пользователь {userName} не найден. Функция вернёт пустой список", true, true);
-        //    return userSettings;
-        //}
+        /// <summary>
+        /// Полностью очищает переменную UserSettings!
+        /// </summary>
+        public void SettingsClear() { Properties.Settings.Default.UserSettings.Clear(); Properties.Settings.Default.Save(); MainWindow.LOG("\nProperties.Settings.Default.UserSettings очищен!\n",true); }
 
         /// <summary>
         /// Считывает список параметров из PropertiesSettings
@@ -49,22 +29,22 @@ namespace PROMETEUS_LAST_EDITION
             int length = PropertiesSettings.Count;//узнаем количество трок в параметре            
             List<string> PropertiesSettingsList = new List<string>();//Список всех настроек построчно
             for (int i = 0; i < length; i++) PropertiesSettingsList.Add(PropertiesSettings[i]);//получаем все строки из настроек
-            MainWindow.LOG("Параметр "+ PropertiesSettings.ToString() + " из Properties прочитан. Количество строк "+length.ToString (), true, true);                     
+            MainWindow.LOG("Параметр "+ PropertiesSettings.ToString() + " из Properties прочитан. Количество строк "+length.ToString ());                     
             if (userName!=null) //Теперь поиск юзера, если пришел параметр
             {
             List<string> SettingsList = new List<string>();//Список настроек искомой строки   
             foreach (var line in PropertiesSettingsList) //проходим по строкам
             {
-                string[] subs = line.Split(new string[] { "<|>" }, StringSplitOptions.None); //разбиваем строку на массив
+                string[] subs = line.Split(new string[] { "," }, StringSplitOptions.None); //разбиваем строку на массив
                 if (userName == subs[0])//проходим по элементам и добавляем в очищенный список только если нашли юзера
                 {
                     subs = subs.Skip(1).ToArray(); //удаляем из массива первый элемент (имя юзера)
                     foreach (var sub in subs) SettingsList.Add(sub);//накидываем в список
-                    MainWindow.LOG("Пользователь "+userName+ " найден в "+ PropertiesSettings.ToString() +". Все значения параметров добавлены в список", true, true);
+                    MainWindow.LOG("Пользователь "+userName+ " найден в "+ PropertiesSettings.ToString() +". Все значения параметров добавлены в список");
                     flag = false;
                 }
             }
-            if (flag) MainWindow.LOG("Пользователь " + userName + " не найден в " + PropertiesSettings.ToString() + ". Функция вернёт пустой список", true, true);
+            if (flag) MainWindow.LOG("Пользователь " + userName + " не найден в " + PropertiesSettings.ToString() + ". Функция вернёт пустой список");
             return SettingsList;
             }
             return PropertiesSettingsList;
@@ -78,14 +58,14 @@ namespace PROMETEUS_LAST_EDITION
         public bool ParceUserSettings(List<string> SettingsList)
         {
 
-            int enumCount = Enum.GetNames(typeof(SettingsElem)).Length;//длинна перечеслителя
+            int enumCount = Enum.GetNames(typeof(DefUserSettings.SettingsElem)).Length;//длинна перечеслителя
             int listCount = SettingsList.Count;//длинна массива с сохраненными параметрами
             MainWindow.LOG("Длинна Enum и listSettingsOfUser совпадают? - " + (enumCount == listCount).ToString());
             if (enumCount == listCount)
             {
                 for (int i = 0; i < enumCount; i++)
                 {
-                    string nameElem = Enum.GetName(typeof(SettingsElem), i);//имя поля перечеслителя
+                    string nameElem = Enum.GetName(typeof(DefUserSettings.SettingsElem), i);//имя поля перечеслителя
 
                     //string typeElem = FindName(nameElem).GetType().ToString().Substring(FindName(nameElem).GetType().ToString().LastIndexOf('.') + 1);
                     string typeElem = MainWindow.UserSettings[nameElem].GetType().ToString().Substring(MainWindow.UserSettings[nameElem].GetType().ToString().LastIndexOf('.') + 1);
@@ -105,7 +85,7 @@ namespace PROMETEUS_LAST_EDITION
                             MainWindow.LOG("Параметр " + nameElem + " = " + SettingsList[i]);
                             break;
                         default:
-                            MainWindow.LOG("ОШИБКА::: Неучтенный тип объекта nameElem");
+                            MainWindow.LOG("ОШИБКА::: Неучтенный тип объекта nameElem", true);
                             break;
 
                     }
@@ -117,8 +97,8 @@ namespace PROMETEUS_LAST_EDITION
             }
             else
             {
-                MainWindow.LOG("КРИТИЧЕСКАЯ ОШИБКА::: длинна перечислители и длинна списка загруженных параметров отличаются", true, true);
-                MainWindow.LOG("Будут использованы значения настроек по умолчанию");
+                MainWindow.LOG("КРИТИЧЕСКАЯ ОШИБКА::: длинна перечислители и длинна списка загруженных параметров отличаются", true);
+                MainWindow.LOG("\t\tБудут использованы значения настроек по умолчанию", true);
                 return false;
             }
 
@@ -127,7 +107,7 @@ namespace PROMETEUS_LAST_EDITION
 
 
 
-        public static bool SaveUserSettings(string userName, List<string> userSettings)
+        public static bool SaveUserSettings(List<string> userSettings, string userName = null)
         {
             bool flag = true;
             int length = Properties.Settings.Default.UserSettings.Count;
@@ -136,11 +116,11 @@ namespace PROMETEUS_LAST_EDITION
             for (int i = 0; i < length; i++)
             {
                 linesUserSet.Add(Properties.Settings.Default.UserSettings[i]);//получаем строку из настроек
-                string[] subs = linesUserSet[i].Split(new string[] { "<|>" }, StringSplitOptions.None); //разбиваем строку на массив
+                string[] subs = linesUserSet[i].Split(new string[] { "," }, StringSplitOptions.None); //разбиваем строку на массив
                 if (userName == subs[0])//если находим сохранённого ранее пользователя
                 {
                     string line = userName;
-                    for (int j = 0; j < userSettings.Count; j++) line = line + "<|>" + userSettings[j];//формируем строку
+                    for (int j = 0; j < userSettings.Count; j++) line = line + "," + userSettings[j];//формируем строку
                     Properties.Settings.Default.UserSettings[i] = line;
                     flag = false;
                 }
@@ -149,7 +129,7 @@ namespace PROMETEUS_LAST_EDITION
             if (flag) //если юзера не нашлось, то добавляем новую хапись в сеттингс
             {
                 string line = userName;
-                for (int j = 0; j < userSettings.Count; j++) line = line + "<|>" + userSettings[j];//формируем строку
+                for (int j = 0; j < userSettings.Count; j++) line = line + "," + userSettings[j];//формируем строку
                 Properties.Settings.Default.UserSettings.Add(line);
             }
 
@@ -170,19 +150,27 @@ namespace PROMETEUS_LAST_EDITION
 
 
 
-
+      
     }
 
     public class DefUserSettings
     {
-        enum ElementType
+        //enum ElementType
+        //{
+        //    ComboBox,
+        //    CheckBox
+        //    //TextBox,
+        //    //RadioButton,
+        //}
+        public enum SettingsElem
         {
-            ComboBox,
-            CheckBox
-            //TextBox,
-            //RadioButton,
-        }
-        
+            NoShowStartPageCheckBox,
+            ThemeComboBox,
+            SaveWinSizeCheckBox,
+            WindowState,
+            WindowSizeW,
+            WindowSizeH
+        }        
 
         public object this[string propertyName]
         {
@@ -190,11 +178,14 @@ namespace PROMETEUS_LAST_EDITION
             set { this.GetType().GetProperty(propertyName).SetValue(this, value, null); }
         }
         public static bool NoShowStartPageCheckBox { get; set; } = false;
-        public static int ThemeComboBox { get; set; } = 2;
+        public static int ThemeComboBox { get; set; } = 0;
         public static bool SaveWinSizeCheckBox { get; set; } = false;
+        public static int WindowState { get; set; } = 0;
+        public static int WindowSizeW { get; set; } = 1024;
+        public static int WindowSizeH { get; set; } = 768;
     }
 
-    public class DefGlobalSettings
-    {
-    }
+    
+
+ 
 }

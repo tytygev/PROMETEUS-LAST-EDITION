@@ -80,12 +80,12 @@ namespace PROMETEUS_LAST_EDITION
             //закрытие Excel
             xlWB.Close(true); //сохраняем и закрываем файл
             xlApp.Quit();
-            releaseObject(xlSht);
-            releaseObject(xlWB);
-            releaseObject(xlApp);
+            ReleaseObject(xlSht);
+            ReleaseObject(xlWB);
+            ReleaseObject(xlApp);
             return dataArr;
         }
-        public static void releaseObject(object obj)
+        public static void ReleaseObject(object obj)
         {
             try
             {

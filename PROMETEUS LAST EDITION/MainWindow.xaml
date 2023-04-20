@@ -2210,7 +2210,7 @@ System.Drawing.Bitmap (как и вообще складирование кар�
                                 <SolidColorBrush Color="{DynamicResource ColorFont}"/>
                             </Label.Foreground>
                         </Label>
-                        <StackPanel x:Name="droppanel" Margin="30,0,0,30" Height="{Binding ActualWidth, ElementName=droppanel, Mode=OneWay}" AllowDrop="True" Drop="droppanel_Drop" MaxHeight="151" Orientation="Horizontal" MaxWidth="151" Width="151" HorizontalAlignment="Left">
+                        <StackPanel x:Name="droppanel" Margin="30,0,0,30" Height="{Binding ActualWidth, ElementName=droppanel, Mode=OneWay}" AllowDrop="True" Drop="Droppanel_Drop" MaxHeight="151" Orientation="Horizontal" MaxWidth="151" Width="151" HorizontalAlignment="Left">
                             <StackPanel.Background>
                                 <SolidColorBrush Color="{DynamicResource ColorGridWS}"/>
                             </StackPanel.Background>
@@ -2565,12 +2565,12 @@ System.Drawing.Bitmap (как и вообще складирование кар�
                         <SolidColorBrush Color="{DynamicResource ColorNuans}"/>
                     </TabItem.BorderBrush>
                     <StackPanel Margin="15">
-                        <ComboBox x:Name="ThemeComboBox" Margin="15" HorizontalAlignment="Left" SelectedIndex="0">
+                        <ComboBox x:Name="ThemeComboBox" Margin="15" HorizontalAlignment="Left" SelectedIndex="1" Initialized="SettingsInitialized">
                             <ComboBoxItem Content="Тёмная РЕН ТВ" IsSelected="True"/>
                             <ComboBoxItem Content="Светлая МИЦ ИЗВЕСТИЯ"/>
                             <ComboBoxItem Content="Светлая Пятый Канал"/>
                         </ComboBox>
-                        <CheckBox x:Name="SaveWinSizeCheckBox" Content="Сохранять размеры окна при выходе" VerticalAlignment="Center" HorizontalAlignment="Left" IsChecked="True" VerticalContentAlignment="Center" Margin="15">
+                        <CheckBox x:Name="SaveWinSizeCheckBox" Content="Сохранять размеры окна при выходе" VerticalAlignment="Center" HorizontalAlignment="Left" IsChecked="True" VerticalContentAlignment="Center" Margin="15" Initialized="SettingsInitialized">
                             <CheckBox.BorderBrush>
                                 <SolidColorBrush Color="{DynamicResource ColorNuans}"/>
                             </CheckBox.BorderBrush>
@@ -2658,6 +2658,17 @@ System.Drawing.Bitmap (как и вообще складирование кар�
                                 <TabItem.BorderBrush>
                                     <SolidColorBrush Color="{DynamicResource ColorNuans}"/>
                                 </TabItem.BorderBrush>
+                                <Button Content="Очистить параметр UserSettings" HorizontalAlignment="Left" Height="24" VerticalAlignment="Top" Width="269" Margin="15,15,0,15" FontSize="14" Click="Button_ClickReset">
+                                    <Button.Foreground>
+                                        <SolidColorBrush Color="{DynamicResource ColorAltFont}"/>
+                                    </Button.Foreground>
+                                    <Button.BorderBrush>
+                                        <SolidColorBrush Color="{DynamicResource ColorNuans}"/>
+                                    </Button.BorderBrush>
+                                    <Button.Background>
+                                        <SolidColorBrush Color="{DynamicResource ColorMain}"/>
+                                    </Button.Background>
+                                </Button>
                             </TabItem>
                             <TabItem Header="Базы данных">
                                 <TabItem.Foreground>
@@ -2804,8 +2815,7 @@ System.Drawing.Bitmap (как и вообще складирование кар�
                 </TextBox.Background>
             </TextBox>
         </Grid>
-
-        <Grid x:Name="StartPage" Margin="0" Grid.Column="1" ScrollViewer.VerticalScrollBarVisibility="Auto" d:IsHidden="True">
+        <Grid x:Name="StartPage" Margin="0" Grid.Column="1" ScrollViewer.VerticalScrollBarVisibility="Auto">
             <Grid.Background>
                 <SolidColorBrush Color="{DynamicResource ColorSub}"/>
             </Grid.Background>
@@ -2919,7 +2929,7 @@ System.Drawing.Bitmap (как и вообще складирование кар�
                     </TextBlock.RenderTransform>
                 </TextBlock>
             </StackPanel>
-            <StackPanel Margin="15" Grid.RowSpan="2">
+            <StackPanel Margin="15" Grid.RowSpan="2" HorizontalAlignment="Left">
                 <TextBlock Margin="15" TextWrapping="Wrap" Text="Добро пожаловать в программу «Прометей»!" FontSize="24">
                     <TextBlock.Foreground>
                         <SolidColorBrush Color="{DynamicResource ColorFont}"/>
@@ -2937,7 +2947,7 @@ System.Drawing.Bitmap (как и вообще складирование кар�
                     <TextBlock.Foreground>
                         <SolidColorBrush Color="{DynamicResource ColorFont}"/>
                     </TextBlock.Foreground></TextBlock>
-                <CheckBox x:Name="NoShowStartPageCheckBox" Margin="15" VerticalContentAlignment="Center" Padding="5,0,0,0" ScrollViewer.VerticalScrollBarVisibility="Disabled" Content="Больше не показывать" FontSize="14">
+                <CheckBox x:Name="NoShowStartPageCheckBox" Margin="15" VerticalContentAlignment="Center" Padding="5,0,0,0" ScrollViewer.VerticalScrollBarVisibility="Disabled" Content="Больше не показывать" FontSize="14" Initialized="SettingsInitialized">
                     <CheckBox.BorderBrush>
                         <SolidColorBrush Color="{DynamicResource ColorNuans}"/>
                     </CheckBox.BorderBrush>
@@ -2949,7 +2959,7 @@ System.Drawing.Bitmap (как и вообще складирование кар�
                     </CheckBox.Foreground>
                 </CheckBox>
                 <StackPanel HorizontalAlignment="Left" VerticalAlignment="Top" Orientation="Horizontal">
-                    <Button Content="Понятно" HorizontalAlignment="Left" Height="24" VerticalAlignment="Top" Width="142" Margin="15" FontSize="14">
+                    <Button Content="Понятно" HorizontalAlignment="Left" Height="24" VerticalAlignment="Top" Width="142" Margin="15" FontSize="14" Click="Button_ClickCloseStart">
                         <Button.Foreground>
                             <SolidColorBrush Color="{DynamicResource ColorFont}"/>
                         </Button.Foreground>
@@ -2960,7 +2970,7 @@ System.Drawing.Bitmap (как и вообще складирование кар�
                             <SolidColorBrush Color="{DynamicResource ColorMain}"/>
                         </Button.Background>
                     </Button>
-                    <Button Content="Понятно, закрыть окно" HorizontalAlignment="Left" Height="24" VerticalAlignment="Top" Width="207" Margin="15" FontSize="14">
+                    <Button Content="Понятно, закрыть окно" HorizontalAlignment="Left" Height="24" VerticalAlignment="Top" Width="207" Margin="15" FontSize="14" Click="Button_ClickCloseStart">
                         <Button.Foreground>
                             <SolidColorBrush Color="{DynamicResource ColorFont}"/>
                         </Button.Foreground>
@@ -2971,7 +2981,7 @@ System.Drawing.Bitmap (как и вообще складирование кар�
                             <SolidColorBrush Color="{DynamicResource ColorMain}"/>
                         </Button.Background>
                     </Button>
-                    <Button Content="Нихуя не понятно, но очень интересно" HorizontalAlignment="Left" Height="24" VerticalAlignment="Top" Width="327" Margin="15" FontSize="14" Click="Button_Click">
+                    <Button Content="Нихуя не понятно, но очень интересно" HorizontalAlignment="Left" Height="24" VerticalAlignment="Top" Width="327" Margin="15" FontSize="14" Click="Button_ClickCloseStart">
                         <Button.Foreground>
                             <SolidColorBrush Color="{DynamicResource ColorFont}"/>
                         </Button.Foreground>
