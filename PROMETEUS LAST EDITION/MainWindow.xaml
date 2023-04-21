@@ -7,7 +7,7 @@
         xmlns:local="clr-namespace:PROMETEUS_LAST_EDITION" xmlns:System="clr-namespace:System;assembly=mscorlib" xmlns:Themes="clr-namespace:Microsoft.Windows.Themes;assembly=PresentationFramework.Aero2"
         mc:Ignorable="d"
         
-        Title="Prometeus LE"  MinHeight="768" MinWidth="1024"  Height="768" Width="1024" >
+        Title="Prometeus LE"  MinHeight="768" MinWidth="1024"  Height="768" Width="1024" SizeChanged="Window_SizeChanged" StateChanged="Window_StateChanged" >
 
 
 
@@ -2565,7 +2565,7 @@ System.Drawing.Bitmap (как и вообще складирование кар�
                         <SolidColorBrush Color="{DynamicResource ColorNuans}"/>
                     </TabItem.BorderBrush>
                     <StackPanel Margin="15">
-                        <ComboBox x:Name="ThemeComboBox" Margin="15" HorizontalAlignment="Left" SelectedIndex="1" Initialized="SettingsInitialized">
+                        <ComboBox x:Name="ThemeComboBox" Margin="15" HorizontalAlignment="Left" SelectedIndex="1" Initialized="SettingsInitialized" SelectionChanged="CheckChange">
                             <ComboBoxItem Content="Тёмная РЕН ТВ" IsSelected="True"/>
                             <ComboBoxItem Content="Светлая МИЦ ИЗВЕСТИЯ"/>
                             <ComboBoxItem Content="Светлая Пятый Канал"/>
@@ -2581,6 +2581,17 @@ System.Drawing.Bitmap (как и вообще складирование кар�
                                 <SolidColorBrush Color="{DynamicResource ColorFont}"/>
                             </CheckBox.Foreground>
                         </CheckBox>
+                        <Button Content="По умолчанию" HorizontalAlignment="Left" VerticalAlignment="Top" FontSize="14" Click="Button_ClickUserDef" Margin="15" Padding="15,5">
+                            <Button.Foreground>
+                                <SolidColorBrush Color="{DynamicResource ColorFont}"/>
+                            </Button.Foreground>
+                            <Button.BorderBrush>
+                                <SolidColorBrush Color="{DynamicResource ColorNuans}"/>
+                            </Button.BorderBrush>
+                            <Button.Background>
+                                <SolidColorBrush Color="{DynamicResource ColorMain}"/>
+                            </Button.Background>
+                        </Button>
                         <StackPanel Margin="15" Orientation="Horizontal"/>
 
                     </StackPanel>
@@ -2658,7 +2669,7 @@ System.Drawing.Bitmap (как и вообще складирование кар�
                                 <TabItem.BorderBrush>
                                     <SolidColorBrush Color="{DynamicResource ColorNuans}"/>
                                 </TabItem.BorderBrush>
-                                <Button Content="Очистить параметр UserSettings" HorizontalAlignment="Left" Height="24" VerticalAlignment="Top" Width="269" Margin="15,15,0,15" FontSize="14" Click="Button_ClickReset">
+                                <Button Content="Очистить параметр UserSettings" HorizontalAlignment="Left" VerticalAlignment="Top" Margin="15,15,0,15" FontSize="14" Click="Button_ClickReset" Padding="15,5">
                                     <Button.Foreground>
                                         <SolidColorBrush Color="{DynamicResource ColorAltFont}"/>
                                     </Button.Foreground>
@@ -2947,7 +2958,7 @@ System.Drawing.Bitmap (как и вообще складирование кар�
                     <TextBlock.Foreground>
                         <SolidColorBrush Color="{DynamicResource ColorFont}"/>
                     </TextBlock.Foreground></TextBlock>
-                <CheckBox x:Name="NoShowStartPageCheckBox" Margin="15" VerticalContentAlignment="Center" Padding="5,0,0,0" ScrollViewer.VerticalScrollBarVisibility="Disabled" Content="Больше не показывать" FontSize="14" Initialized="SettingsInitialized">
+                <CheckBox x:Name="NoShowStartPageCheckBox" Margin="15" VerticalContentAlignment="Center" Padding="5,0,0,0" ScrollViewer.VerticalScrollBarVisibility="Disabled" Content="Больше не показывать" FontSize="14" Initialized="SettingsInitialized" Checked="CheckChange">
                     <CheckBox.BorderBrush>
                         <SolidColorBrush Color="{DynamicResource ColorNuans}"/>
                     </CheckBox.BorderBrush>

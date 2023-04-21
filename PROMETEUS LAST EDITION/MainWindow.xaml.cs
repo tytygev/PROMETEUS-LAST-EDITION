@@ -32,7 +32,7 @@ namespace PROMETEUS_LAST_EDITION
             LOG("Применение словаря ресурсов по умолчанию >>> " + flag.ToString());
 
             string userName = System.Security.Principal.WindowsIdentity.GetCurrent().Name.Split('\\')[1];//имя юзера без домена!
-            new SettingsFX().ParceUserSettings(new SettingsFX().LoadSettingsStringCollect(Properties.Settings.Default.UserSettings, userName));//чтение и парсинг параметров
+            new SettingsFX().ParsingUserSettings(new SettingsFX().LoadSettingsStringCollect(Properties.Settings.Default.UserSettings, userName));//чтение и парсинг параметров
 
             flag= new UI().InitializeUserSettingsTheme(DefUserSettings.ThemeComboBox);
             if(flag) LOG(">>> Тема изменена");
@@ -133,7 +133,7 @@ namespace PROMETEUS_LAST_EDITION
                     break;
             }
         }
-        private void CheckChange(object sender, RoutedEventArgs e)
+        private void CheckChange(object sender, EventArgs e)
         {
             string typeElem = sender.GetType().ToString().Substring(sender.GetType().ToString().LastIndexOf('.') + 1);
             switch (typeElem)
@@ -156,10 +156,19 @@ namespace PROMETEUS_LAST_EDITION
                     break;
                 default:
                     //код, выполняемый если выражение не имеет ни одно из выше указанных значений
+                    LOG("ОШИБКА::: не известный тип объекта", true);
                     break;
             }
             
         }
+        private void Window_SizeChanged(object sender, SizeChangedEventArgs e) {
+            if ((bool)UserSettings["SaveWinSizeCheckBox"])
+            {
+                UserSettings["WindowSizeW"] = Convert.ToInt32(this.Width);
+                UserSettings["WindowSizeH"] = Convert.ToInt32(this.Height);
+            }
+        }
+        private void Window_StateChanged(object sender, EventArgs e) { if ((bool)UserSettings["SaveWinSizeCheckBox"]) UserSettings["WindowState"] = this.WindowState; }
         protected override void OnInitialized(EventArgs e)
         {
             base.OnInitialized(e);
@@ -177,93 +186,34 @@ namespace PROMETEUS_LAST_EDITION
             //Сохранение параметров при закрытии
             string userName = System.Security.Principal.WindowsIdentity.GetCurrent().Name.Split('\\')[1];//имя юзера без домена!
             //string userName = System.Security.Principal.WindowsIdentity.GetCurrent().Name; //имя юзера с доменом!
-            bool flag = SettingsFX.SaveUserSettings(GetValUserSettings(), userName); // ответ от SettingsFX
-            LOG("Настройки записаны? - " + flag.ToString());
-
+            bool flag = SettingsFX.SaveUserSettings(new SettingsFX().CollectingUserSettings(), userName); // ответ от SettingsFX
+            LOG(">>> Настройки записаны? - " + flag.ToString());
             base.OnClosing(e);
         }
 
-        /// <summary>
-        /// Возвращает список отдельных свойств объектов 4х фиксированных типов, 
-        /// имена которых перечислены в SettingsElem
-        /// </summary>
-        /// <returns>Список строк</returns>
-        private List<string> GetValUserSettings()
-            //избавиться от этого ужаса в два приёма:
-            //1-
-            //Список формируется в классе SettingsFX 
-            //значения парсятся из класса UserSettings
-            //2-
-            //актуализация значений полей класса UserSettings
-            //происходит по событиям Changed и подобным
-            //
-            //Но пока оно работает и так зае....
+        
+        //избавиться от этого ужаса в два приёма:
+        //1-
+        //Список формируется в классе SettingsFX 
+        //значения парсятся из класса UserSettings
+        //2-
+        //актуализация значений полей класса UserSettings
+        //происходит по событиям Changed и подобным
+        //
+        //Но пока оно работает и так зае....
 
         //Добавить кнопку сброс - приравнивание UserSettings из DefUserSettings    
-        
-        {
-            List<string> ListSettings = new List<string>();//Список значений всех элементов
-            var enumCount = Enum.GetNames(typeof(DefUserSettings.SettingsElem)).Length;//длинна нумератора SettingsElem, учитывающего все элементы считывающиеся для хранения их свойств
-            for (int i = 0; i < enumCount; i++)
-            {
-                string nameElem = Enum.GetName(typeof(DefUserSettings.SettingsElem), i);
-                try
-                {
-                string typeElem = this.FindName(nameElem).GetType().ToString().Substring(this.FindName(nameElem).GetType().ToString().LastIndexOf('.') + 1);
-                switch (typeElem)
-                {
-                    case "RadioButton":
-                        RadioButton rb = this.FindName(nameElem) as RadioButton;
-                        if (rb != null) ListSettings.Add(rb.IsChecked.ToString());
-                        break;
-                    case "CheckBox":
-                        CheckBox chb = this.FindName(nameElem) as CheckBox;
-                        if (chb != null) ListSettings.Add(chb.IsChecked.ToString());
-                        break;
-                    case "TextBox":
-                        TextBox tb = this.FindName(nameElem) as TextBox;
-                        if (tb != null) ListSettings.Add(tb.Text);
-                        break;
-                    case "ComboBox":
-                        ComboBox cb = this.FindName(nameElem) as ComboBox;
-                        if (cb != null) ListSettings.Add(cb.SelectedIndex.ToString());
-                        break;
-                    default:
-                        //код, выполняемый если выражение не имеет ни одно из выше указанных значений
-                        break;
-                }
-                }
-                catch (System.NullReferenceException)
-                {
-                    LOG(">>> ИСКЛЮЧЕНИЕ: System.NullReferenceException ссылка на объект не указывает на экземпляр объекта");
-                    switch (nameElem)
-                    {
-                        case "WindowState":
-                            //ListSettings.Add()
-                            switch (Convert.ToInt32(this.WindowState))
-                            {
-                                case 0: ListSettings.Add("0"); break;
-                                case 1: ListSettings.Add("1"); break;
-                                case 2: ListSettings.Add("2"); break;
-                                default: break;
-                            }
-                            break;
-                        case "WindowSizeW":
-                            ListSettings.Add(Convert.ToString(this.Width));
-                            break;
-                        case "WindowSizeH":
-                            ListSettings.Add(Convert.ToString(this.Height));
-                            break;
-                    }
-                }
-            }
-            return ListSettings;
-        }
+
+       
 
         private void Button_ClickReset(object sender, RoutedEventArgs e) //Очистка параметра с настройками юзера
         {
             if (MessageBox.Show("Это действие полностью и безвозвратно аннигилирует ВСЕ данные пользователей касательно настроек программы. \n\nВы уверены???",
                 "АХТУНГ!", MessageBoxButton.YesNo,MessageBoxImage.Warning) == MessageBoxResult.Yes){new SettingsFX().SettingsClear();}
+        }
+        private void Button_ClickUserDef(object sender, RoutedEventArgs e)
+        {
+              new SettingsFX().SetupDefaultUser();
         }
         private void Button_ClickCloseStart(object sender, RoutedEventArgs e) {this.StartPage.Visibility = Visibility.Hidden;}
 
@@ -389,12 +339,7 @@ namespace PROMETEUS_LAST_EDITION
             return ListSettings;
         }
 
-        private void SaveWinSizeCheckBox_CheckedChanged(Object sender, EventArgs e)
-        {
-            MessageBox.Show("You are in the CheckBox.CheckedChanged event.");
-        }
-
-       
+        
     }
 
 

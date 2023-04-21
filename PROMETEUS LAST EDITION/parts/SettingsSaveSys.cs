@@ -55,7 +55,7 @@ namespace PROMETEUS_LAST_EDITION
         /// </summary>
         /// <param name = "SettingsList" >список настроек</param >
         /// <returns>Возвращает булево значение</returns>
-        public bool ParceUserSettings(List<string> SettingsList)
+        public bool ParsingUserSettings(List<string> SettingsList)
         {
 
             int enumCount = Enum.GetNames(typeof(DefUserSettings.SettingsElem)).Length;//длинна перечеслителя
@@ -104,9 +104,25 @@ namespace PROMETEUS_LAST_EDITION
 
         }
 
-
-
-
+        /// <summary>
+        /// Возвращает список значений полей класса UserSettings, 
+        /// имена которых перечислены в SettingsElem
+        /// </summary>
+        /// <returns>Список строк</returns>
+        public List<string> CollectingUserSettings()
+        {
+            MainWindow.LOG(">>> Подготовка списка значений для сохранения: ");
+            List<string> ListSettings = new List<string>();//Список значений всех элементов
+            var enumCount = Enum.GetNames(typeof(DefUserSettings.SettingsElem)).Length;//длинна нумератора SettingsElem, учитывающего все элементы считывающиеся для хранения их свойств
+            for (int i = 0; i < enumCount; i++)
+            {
+                string nameElem = Enum.GetName(typeof(DefUserSettings.SettingsElem), i);
+                ListSettings.Add(Convert.ToString(MainWindow.UserSettings[nameElem]));
+                MainWindow.LOG("\tСвойство объекта "+ nameElem +" = "+ Convert.ToString(MainWindow.UserSettings[nameElem]));
+            }
+            return ListSettings;
+        }
+        
         public static bool SaveUserSettings(List<string> userSettings, string userName = null)
         {
             bool flag = true;
@@ -148,7 +164,18 @@ namespace PROMETEUS_LAST_EDITION
         }
 
 
-
+        public bool SetupDefaultUser()
+        {
+            MainWindow.LOG(">>> Сброс списка настроек: ");
+            var enumCount = Enum.GetNames(typeof(DefUserSettings.SettingsElem)).Length;//длинна нумератора SettingsElem, учитывающего все элементы считывающиеся для хранения их свойств
+            for (int i = 0; i < enumCount; i++)
+            {
+                string nameElem = Enum.GetName(typeof(DefUserSettings.SettingsElem), i);
+                MainWindow.UserSettings[nameElem] = new DefUserSettings()[nameElem];
+                MainWindow.LOG("\tСвойство объекта " + nameElem + " = " + Convert.ToString(MainWindow.UserSettings[nameElem]));
+            }
+            return true;
+        }
 
       
     }
