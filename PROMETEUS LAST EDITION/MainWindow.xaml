@@ -2570,7 +2570,7 @@ System.Drawing.Bitmap (как и вообще складирование кар�
                             <ComboBoxItem Content="Светлая МИЦ ИЗВЕСТИЯ"/>
                             <ComboBoxItem Content="Светлая Пятый Канал"/>
                         </ComboBox>
-                        <CheckBox x:Name="SaveWinSizeCheckBox" Content="Сохранять размеры окна при выходе" VerticalAlignment="Center" HorizontalAlignment="Left" IsChecked="True" VerticalContentAlignment="Center" Margin="15" Initialized="SettingsInitialized">
+                        <CheckBox x:Name="SaveWinSizeCheckBox" Content="Сохранять размеры окна при выходе" VerticalAlignment="Center" HorizontalAlignment="Left" IsChecked="True" VerticalContentAlignment="Center" Margin="15" Initialized="SettingsInitialized" Checked="CheckChange" Unchecked="CheckChange">
                             <CheckBox.BorderBrush>
                                 <SolidColorBrush Color="{DynamicResource ColorNuans}"/>
                             </CheckBox.BorderBrush>
@@ -2815,7 +2815,7 @@ System.Drawing.Bitmap (как и вообще складирование кар�
                 </TextBox.Background>
             </TextBox>
         </Grid>
-        <Grid x:Name="StartPage" Margin="0" Grid.Column="1" ScrollViewer.VerticalScrollBarVisibility="Auto">
+        <Grid x:Name="StartPage" Margin="0" Grid.Column="1" ScrollViewer.VerticalScrollBarVisibility="Auto" d:IsHidden="True">
             <Grid.Background>
                 <SolidColorBrush Color="{DynamicResource ColorSub}"/>
             </Grid.Background>

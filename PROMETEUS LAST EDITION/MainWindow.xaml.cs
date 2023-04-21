@@ -133,7 +133,33 @@ namespace PROMETEUS_LAST_EDITION
                     break;
             }
         }
-
+        private void CheckChange(object sender, RoutedEventArgs e)
+        {
+            string typeElem = sender.GetType().ToString().Substring(sender.GetType().ToString().LastIndexOf('.') + 1);
+            switch (typeElem)
+            {
+                case "RadioButton":
+                    RadioButton rb = sender as RadioButton;
+                    UserSettings[rb.Name] = rb.IsChecked;
+                    break;
+                case "CheckBox":
+                    CheckBox chb = sender as CheckBox;
+                    UserSettings[chb.Name] = chb.IsChecked;
+                    break;
+                case "TextBox":
+                    TextBox tb = sender as TextBox;
+                    UserSettings[tb.Name] = tb.Text;
+                    break;
+                case "ComboBox":
+                    ComboBox cb = sender as ComboBox;
+                    UserSettings[cb.Name] = cb.SelectedIndex;
+                    break;
+                default:
+                    //код, выполняемый если выражение не имеет ни одно из выше указанных значений
+                    break;
+            }
+            
+        }
         protected override void OnInitialized(EventArgs e)
         {
             base.OnInitialized(e);
@@ -172,6 +198,9 @@ namespace PROMETEUS_LAST_EDITION
             //происходит по событиям Changed и подобным
             //
             //Но пока оно работает и так зае....
+
+        //Добавить кнопку сброс - приравнивание UserSettings из DefUserSettings    
+        
         {
             List<string> ListSettings = new List<string>();//Список значений всех элементов
             var enumCount = Enum.GetNames(typeof(DefUserSettings.SettingsElem)).Length;//длинна нумератора SettingsElem, учитывающего все элементы считывающиеся для хранения их свойств
@@ -360,7 +389,12 @@ namespace PROMETEUS_LAST_EDITION
             return ListSettings;
         }
 
-      
+        private void SaveWinSizeCheckBox_CheckedChanged(Object sender, EventArgs e)
+        {
+            MessageBox.Show("You are in the CheckBox.CheckedChanged event.");
+        }
+
+       
     }
 
 
