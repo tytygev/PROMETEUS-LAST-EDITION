@@ -29,7 +29,7 @@ namespace PROMETEUS_LAST_EDITION
             File.Delete("LOG.txt");
 
             bool flag = new UI().InitializeDefaultTheme(); 
-            LOG("Применение словаря ресурсов по умолчанию >>> " + flag.ToString());
+            LOG(">>> Применение словаря ресурсов по умолчанию - " + flag.ToString());
 
             string userName = System.Security.Principal.WindowsIdentity.GetCurrent().Name.Split('\\')[1];//имя юзера без домена!
             new SettingsFX().ParsingUserSettings(new SettingsFX().LoadSettingsStringCollect(Properties.Settings.Default.UserSettings, userName));//чтение и парсинг параметров
@@ -141,18 +141,22 @@ namespace PROMETEUS_LAST_EDITION
                 case "RadioButton":
                     RadioButton rb = sender as RadioButton;
                     UserSettings[rb.Name] = rb.IsChecked;
+                    LOG("Объекту "+ rb.Name+" присвоено значение " + Convert.ToString(rb.IsChecked));
                     break;
                 case "CheckBox":
                     CheckBox chb = sender as CheckBox;
                     UserSettings[chb.Name] = chb.IsChecked;
+                    LOG("Объекту " + chb.Name + " присвоено значение " + Convert.ToString(chb.IsChecked));
                     break;
                 case "TextBox":
                     TextBox tb = sender as TextBox;
                     UserSettings[tb.Name] = tb.Text;
+                    LOG("Объекту " + tb.Name + " присвоено значение " + Convert.ToString(tb.Text));
                     break;
                 case "ComboBox":
                     ComboBox cb = sender as ComboBox;
                     UserSettings[cb.Name] = cb.SelectedIndex;
+                    LOG("Объекту " + cb.Name + " присвоено значение " + Convert.ToString(cb.SelectedIndex));
                     break;
                 default:
                     //код, выполняемый если выражение не имеет ни одно из выше указанных значений
@@ -166,16 +170,18 @@ namespace PROMETEUS_LAST_EDITION
             {
                 UserSettings["WindowSizeW"] = Convert.ToInt32(this.Width);
                 UserSettings["WindowSizeH"] = Convert.ToInt32(this.Height);
+                LOG("~~~ Поле UserSettings.WindowSizeW = " + Convert.ToString(this.Width));
+                LOG("~~~ Поле UserSettings.WindowSizeH = " + Convert.ToString(this.Height));
             }
         }
-        private void Window_StateChanged(object sender, EventArgs e) { if ((bool)UserSettings["SaveWinSizeCheckBox"]) UserSettings["WindowState"] = this.WindowState; }
+        private void Window_StateChanged(object sender, EventArgs e) { if ((bool)UserSettings["SaveWinSizeCheckBox"]) { UserSettings["WindowState"] = this.WindowState; LOG("~~~ Поле UserSettings.WindowState = " + Convert.ToString(this.WindowState)); } }
         protected override void OnInitialized(EventArgs e)
         {
             base.OnInitialized(e);
             new UI().ViewPageInitVisible(this); //перечислить все странички и выставить им невидимость
             //переопределение свойств объектов (в соответствии с настройками) после инициализации            
             bool flag = new UI().SetValUserSettings(this);//listSettingsOfUser в первой версии передавался как параметр
-            LOG("Свойства окна переназначены из свойств класса DefUserSettings? >>> " + flag.ToString());
+            LOG(">>> Свойства окна переназначены из свойств класса UserSettings - " + flag.ToString());
         }
         protected override void OnClosing(System.ComponentModel.CancelEventArgs e)
         {
@@ -211,10 +217,7 @@ namespace PROMETEUS_LAST_EDITION
             if (MessageBox.Show("Это действие полностью и безвозвратно аннигилирует ВСЕ данные пользователей касательно настроек программы. \n\nВы уверены???",
                 "АХТУНГ!", MessageBoxButton.YesNo,MessageBoxImage.Warning) == MessageBoxResult.Yes){new SettingsFX().SettingsClear();}
         }
-        private void Button_ClickUserDef(object sender, RoutedEventArgs e)
-        {
-              new SettingsFX().SetupDefaultUser();
-        }
+        private void Button_ClickUserDef(object sender, RoutedEventArgs e) {new SettingsFX().SetupDefaultUser();}
         private void Button_ClickCloseStart(object sender, RoutedEventArgs e) {this.StartPage.Visibility = Visibility.Hidden;}
 
         /// <summary>
