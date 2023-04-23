@@ -21,6 +21,7 @@ namespace PROMETEUS_LAST_EDITION
 {
     public class UI
     {
+        public MainWindow mw;
         enum ViewPage
         {
             KitSetPage,
@@ -45,6 +46,7 @@ namespace PROMETEUS_LAST_EDITION
             DictionaryLightTheme,
             DictionaryLightThemeRed
         }
+
         public bool InitializeDefaultTheme()//Применение словаря ресурсов по умолчанию
         {
             ResourceDictionary dictZ = new ResourceDictionary();
@@ -53,7 +55,6 @@ namespace PROMETEUS_LAST_EDITION
             Application.Current.Resources.MergedDictionaries.Add(dictZ);
             return true;
         }
-
         /// <summary>
         /// Применяет словари ресурсов темы оформления в зависимости от настроек
         /// https://stackoverflow.com/questions/786183/wpf-changing-resources-colors-from-the-app-xaml-during-runtime   
@@ -94,8 +95,7 @@ namespace PROMETEUS_LAST_EDITION
                 
             }
             return flag;
-        }
-        public MainWindow mw;        
+        }                
        /// <summary>
        /// Выставить всем страничкам невидимость
        /// </summary>
@@ -125,7 +125,7 @@ namespace PROMETEUS_LAST_EDITION
         /// <returns>булево значение</returns>
         public bool SetValUserSettings(MainWindow mw)
         {
-            MainWindow.LOG(">>> Загрузка параметров главного окна...");
+            MainWindow.LOG(">>> Загрузка параметров главного окна из объекта UserSettings...");
             string nameElem = null;
             int enumCount = Enum.GetNames(typeof(DefUserSettings.SettingsElem)).Length; //длинна нумератора с сохраняемыми параметрами
             nameElem = "SaveWinSizeCheckBox";
@@ -155,6 +155,7 @@ namespace PROMETEUS_LAST_EDITION
                     }
                 }
             }
+            else { MainWindow.LOG("\t\t...отменена!"); }
             nameElem = "NoShowStartPageCheckBox";
             if (Convert.ToBoolean(MainWindow.UserSettings[nameElem])) { mw.StartPage.Visibility = Visibility.Hidden; MainWindow.LOG(">>> Стартовое окно скрыто по просьбам трудящихся"); }
 

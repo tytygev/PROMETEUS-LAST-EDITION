@@ -2553,6 +2553,7 @@ System.Drawing.Bitmap (как и вообще складирование кар�
                 <RowDefinition Height="Auto"/>
                 <RowDefinition/>
             </Grid.RowDefinitions>
+
             <TabControl x:Name="TabControlSettings" VerticalContentAlignment="Stretch" HorizontalContentAlignment="Stretch" Margin="30" >
                 <TabItem Header="Общие"  Padding="10" IsSelected="True" FontSize="14">
                     <TabItem.Foreground>
@@ -2565,7 +2566,7 @@ System.Drawing.Bitmap (как и вообще складирование кар�
                         <SolidColorBrush Color="{DynamicResource ColorNuans}"/>
                     </TabItem.BorderBrush>
                     <StackPanel Margin="15">
-                        <ComboBox x:Name="ThemeComboBox" Margin="15" HorizontalAlignment="Left" SelectedIndex="1" Initialized="SettingsInitialized" SelectionChanged="CheckChange">
+                        <ComboBox x:Name="ThemeComboBox" Margin="15" HorizontalAlignment="Left" SelectedIndex="1" Initialized="SettingsInitialized" SelectionChanged="CheckChange" ToolTip="Выбор темы оформления. Для принятия изменений необходимо перезапустить программу.">
                             <ComboBoxItem Content="Тёмная РЕН ТВ" IsSelected="True"/>
                             <ComboBoxItem Content="Светлая МИЦ ИЗВЕСТИЯ"/>
                             <ComboBoxItem Content="Светлая Пятый Канал"/>
@@ -2581,7 +2582,7 @@ System.Drawing.Bitmap (как и вообще складирование кар�
                                 <SolidColorBrush Color="{DynamicResource ColorFont}"/>
                             </CheckBox.Foreground>
                         </CheckBox>
-                        <Button Content="По умолчанию" HorizontalAlignment="Left" VerticalAlignment="Top" FontSize="14" Click="Button_ClickUserDef" Margin="15" Padding="15,5">
+                        <Button Content="По умолчанию" HorizontalAlignment="Left" VerticalAlignment="Top" FontSize="14" Click="Button_ClickUserDef" Margin="15" Padding="15,5" ToolTip="Сброс настроек. Для принятия изменений необходимо перезапустить программу.">
                             <Button.Foreground>
                                 <SolidColorBrush Color="{DynamicResource ColorFont}"/>
                             </Button.Foreground>

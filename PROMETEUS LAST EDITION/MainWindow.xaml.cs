@@ -22,8 +22,8 @@ namespace PROMETEUS_LAST_EDITION
     {
         public SoundPlayer wav = new SoundPlayer(); //тупо эксперименты
         private Grid currentVisibleView; //это что то для такси (уже не помню)
-        public static DefUserSettings UserSettings = new DefUserSettings();
-        
+        public static DefUserSettings UserSettings = new DefUserSettings();//static
+        private bool flagInitEnd = false;
        public MainWindow()
         {
             File.Delete("LOG.txt");
@@ -34,7 +34,7 @@ namespace PROMETEUS_LAST_EDITION
             string userName = System.Security.Principal.WindowsIdentity.GetCurrent().Name.Split('\\')[1];//имя юзера без домена!
             new SettingsFX().ParsingUserSettings(new SettingsFX().LoadSettingsStringCollect(Properties.Settings.Default.UserSettings, userName));//чтение и парсинг параметров
 
-            flag= new UI().InitializeUserSettingsTheme(DefUserSettings.ThemeComboBox);
+            flag= new UI().InitializeUserSettingsTheme((int)UserSettings["ThemeComboBox"]);
             if(flag) LOG(">>> Тема изменена");
             else LOG("ОШИБКА::: Значение параметра SettingsThemeComboBox не соответствует ни одному значению в перечеслителе Themes. Настройки темы не были изменены", true);
 
@@ -51,6 +51,8 @@ namespace PROMETEUS_LAST_EDITION
             //FileFX.SaveDSV(listOfLists,"prop.txt", char.Parse(";"));//изикатка       
 
             new UI().FooterPromtShow(this,"Программа загружена и готова к работе");
+            LOG("< < < Программа загружена и готова к работе > > >");
+            flagInitEnd = true;
         }
 
         private void InitializeButtons()
@@ -135,35 +137,45 @@ namespace PROMETEUS_LAST_EDITION
         }
         private void CheckChange(object sender, EventArgs e)
         {
+            if (flagInitEnd) { 
+            LOG("!!! СОБЫТИЕ CheckChange: ");
             string typeElem = sender.GetType().ToString().Substring(sender.GetType().ToString().LastIndexOf('.') + 1);
             switch (typeElem)
             {
                 case "RadioButton":
                     RadioButton rb = sender as RadioButton;
                     UserSettings[rb.Name] = rb.IsChecked;
-                    LOG("Объекту "+ rb.Name+" присвоено значение " + Convert.ToString(rb.IsChecked));
+                    LOG("\tПолю IsChecked объекта " + rb.Name+" присвоено значение " + Convert.ToString(rb.IsChecked));
                     break;
                 case "CheckBox":
                     CheckBox chb = sender as CheckBox;
                     UserSettings[chb.Name] = chb.IsChecked;
-                    LOG("Объекту " + chb.Name + " присвоено значение " + Convert.ToString(chb.IsChecked));
+                    LOG("\tПолю IsChecked объекта " + chb.Name + " присвоено значение " + Convert.ToString(chb.IsChecked));
                     break;
                 case "TextBox":
                     TextBox tb = sender as TextBox;
                     UserSettings[tb.Name] = tb.Text;
-                    LOG("Объекту " + tb.Name + " присвоено значение " + Convert.ToString(tb.Text));
+                    LOG("\tПолю Text объекта " + tb.Name + " присвоено значение " + Convert.ToString(tb.Text));
                     break;
                 case "ComboBox":
                     ComboBox cb = sender as ComboBox;
                     UserSettings[cb.Name] = cb.SelectedIndex;
-                    LOG("Объекту " + cb.Name + " присвоено значение " + Convert.ToString(cb.SelectedIndex));
+                    LOG("\tПолю SelectedIndex объекта " + cb.Name + " присвоено значение " + Convert.ToString(cb.SelectedIndex));                   
+                    
+                    //if (cb.Name== "ThemeComboBox")
+                    //{
+
+                    //    bool flag = new UI().InitializeUserSettingsTheme((int)UserSettings["ThemeComboBox"]);
+                    //    if (flag) LOG(">>> Тема изменена");
+                    //    else LOG("ОШИБКА::: Значение параметра SettingsThemeComboBox не соответствует ни одному значению в перечеслителе Themes. Настройки темы не были изменены", true);
+                    //}
                     break;
                 default:
                     //код, выполняемый если выражение не имеет ни одно из выше указанных значений
                     LOG("ОШИБКА::: не известный тип объекта", true);
                     break;
             }
-            
+            }
         }
         private void Window_SizeChanged(object sender, SizeChangedEventArgs e) {
             if ((bool)UserSettings["SaveWinSizeCheckBox"])
@@ -182,6 +194,7 @@ namespace PROMETEUS_LAST_EDITION
             //переопределение свойств объектов (в соответствии с настройками) после инициализации            
             bool flag = new UI().SetValUserSettings(this);//listSettingsOfUser в первой версии передавался как параметр
             LOG(">>> Свойства окна переназначены из свойств класса UserSettings - " + flag.ToString());
+            
         }
         protected override void OnClosing(System.ComponentModel.CancelEventArgs e)
         {
@@ -197,27 +210,20 @@ namespace PROMETEUS_LAST_EDITION
             base.OnClosing(e);
         }
 
-        
-        //избавиться от этого ужаса в два приёма:
-        //1-
-        //Список формируется в классе SettingsFX 
-        //значения парсятся из класса UserSettings
-        //2-
-        //актуализация значений полей класса UserSettings
-        //происходит по событиям Changed и подобным
-        //
-        //Но пока оно работает и так зае....
-
-        //Добавить кнопку сброс - приравнивание UserSettings из DefUserSettings    
-
-       
-
         private void Button_ClickReset(object sender, RoutedEventArgs e) //Очистка параметра с настройками юзера
         {
             if (MessageBox.Show("Это действие полностью и безвозвратно аннигилирует ВСЕ данные пользователей касательно настроек программы. \n\nВы уверены???",
-                "АХТУНГ!", MessageBoxButton.YesNo,MessageBoxImage.Warning) == MessageBoxResult.Yes){new SettingsFX().SettingsClear();}
+                "АХТУНГ!", MessageBoxButton.YesNo,MessageBoxImage.Warning) == MessageBoxResult.Yes){new SettingsFX().SettingsClear();
+            }
         }
-        private void Button_ClickUserDef(object sender, RoutedEventArgs e) {new SettingsFX().SetupDefaultUser();}
+        private void Button_ClickUserDef(object sender, RoutedEventArgs e) {new SettingsFX().SetupDefaultUser();
+            InitializeComponent();
+            InitializeButtons();
+            OnInitialized(e);
+            new UI().ViewPageInitVisible(this);
+            StartPage.Visibility = Visibility.Hidden;
+            SettingsPage.Visibility = Visibility.Visible;
+        }
         private void Button_ClickCloseStart(object sender, RoutedEventArgs e) {this.StartPage.Visibility = Visibility.Hidden;}
 
         /// <summary>
@@ -227,7 +233,7 @@ namespace PROMETEUS_LAST_EDITION
         /// <param name = "newLine" >добавляет в конце строки символ новой (true по умолчанию)</param >
         /// <param name = "showMB" >выводит сообщение в MessageBox (false по умолчанию)</param >
         /// <returns>Ничего не возвращает</returns>
-        public static void LOG(object m, bool showMB = false, bool newLine = true)//
+        public static void LOG(object m, bool showMB = false, bool newLine = true)//static
         {
             string sm = m.ToString();
             if (newLine) { sm += Environment.NewLine; }
