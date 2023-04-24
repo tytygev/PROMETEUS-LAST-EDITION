@@ -10,9 +10,9 @@ using System.Windows;
 [assembly: AssemblyTitle("PROMETEUS LAST EDITION")]
 [assembly: AssemblyDescription("")]
 [assembly: AssemblyConfiguration("")]
-[assembly: AssemblyCompany("ХТО Продакшн®")]
+[assembly: AssemblyCompany("ХТО Продакшн ®")]
 [assembly: AssemblyProduct("PROMETEUS LAST EDITION ™")]
-[assembly: AssemblyCopyright("Copyright ©  2023")]
+[assembly: AssemblyCopyright("Copyright ©  2023 ХТО Продакшн ®")]
 [assembly: AssemblyTrademark("")]
 [assembly: AssemblyCulture("")]
 
@@ -52,5 +52,7 @@ using System.Windows;
 // используя "*", как показано ниже:
 // [assembly: AssemblyVersion("1.0.*")]
 [assembly: AssemblyVersion("0.0.0.0")]
-[assembly: AssemblyFileVersion("0.1.0.0")]
+[assembly: AssemblyFileVersion("0.0.1.*")]
 [assembly: NeutralResourcesLanguage("ru-RU")]
+[assembly: AssemblyInformationalVersion("3.0 a")]
+

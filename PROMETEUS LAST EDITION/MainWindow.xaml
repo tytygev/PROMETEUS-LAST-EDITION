@@ -7,7 +7,7 @@
         xmlns:local="clr-namespace:PROMETEUS_LAST_EDITION" xmlns:System="clr-namespace:System;assembly=mscorlib" xmlns:Themes="clr-namespace:Microsoft.Windows.Themes;assembly=PresentationFramework.Aero2"
         mc:Ignorable="d"
         
-        Title="Prometeus LE"  MinHeight="768" MinWidth="1024"  Height="768" Width="1024" SizeChanged="Window_SizeChanged" StateChanged="Window_StateChanged" >
+        Title="Prometeus LE"  MinHeight="768" MinWidth="1024"  Height="768" Width="1024" SizeChanged="Window_SizeChanged" StateChanged="Window_StateChanged" Background="{x:Null}" >
 
 
 
@@ -43,7 +43,7 @@
 
         <BooleanToVisibilityConverter x:Key="BooleanToVisibilityConverter"/>
 
-        <System:String x:Key="License" xml:space="preserve">Copyright © 2017—2023 Каримов Александр и «ХТО Продакшн» ™ при участии Каримова Михаила aka MiXeRaToS  
+        <System:String x:Key="License" xml:space="preserve">Copyright © 2017—2023 Каримов Александр и «ХТО Продакшн» ™ при участии Каримова Михаила (aka MiXeRaToS, aka Mortron)  
 
 Если вы используете «Прометей» в своей работе, Каримов Александр был бы рад узнать об этом. Вы можете написать, направив письмо на photodc@ya.ru  И если вам доведется встретиться с Каримовым Александром в баре, можете угостить его напитком по его выбору, если «Прометей» действительно пригодилась вам.  В остальном, можете делать с этой программой всё, что вам угодно и, естественно, автор не несёт никакой ответственности:))  
 
@@ -1486,6 +1486,9 @@ P.S. Ответ на Основной Вопрос Жизни, Вселенно�
 
 
     </Window.Resources>
+    <Window.Foreground>
+        <SolidColorBrush Color="{DynamicResource ColorFont}"/>
+    </Window.Foreground>
 
 
     <Grid x:Name="grid" Margin="0">
@@ -1500,7 +1503,7 @@ P.S. Ответ на Основной Вопрос Жизни, Вселенно�
         <Grid.Background>
             <SolidColorBrush Color="{DynamicResource ColorMain}"/>
         </Grid.Background>
-        <ProgressBar Margin="10" Grid.ColumnSpan="1" Grid.Row="1" BorderThickness="1" IsTabStop="False">
+        <ProgressBar x:Name="PB" Margin="10" Grid.ColumnSpan="1" Grid.Row="1" BorderThickness="1" IsTabStop="False">
             <ProgressBar.BorderBrush>
                 <SolidColorBrush Color="{DynamicResource ColorSub}"/>
             </ProgressBar.BorderBrush>
@@ -1598,7 +1601,7 @@ System.Drawing.Bitmap (как и вообще складирование кар�
                         <SolidColorBrush Color="{DynamicResource ColorMain}"/>
                     </local:MainMenuButton.Background>
                 </local:MainMenuButton>
-                <TextBlock Margin="0,5,20,5" TextWrapping="Wrap" Text="ver.: {0.0.0.0a}" VerticalAlignment="Top" FontSize="10" HorizontalAlignment="Right">
+                <TextBlock x:Name="FileVersionTextBlock" Margin="0,5,20,5" TextWrapping="Wrap" Text="ver.: {0.0.0.0a}" VerticalAlignment="Top" FontSize="10" HorizontalAlignment="Right">
                     <TextBlock.Foreground>
                         <SolidColorBrush Color="{DynamicResource ColorFont}"/>
                     </TextBlock.Foreground>
@@ -1610,7 +1613,7 @@ System.Drawing.Bitmap (как и вообще складирование кар�
         -->
         </Grid>
 
-        <Grid x:Name="KitSetPage" Grid.Column="1" Margin="0" ScrollViewer.VerticalScrollBarVisibility="Auto">
+        <Grid x:Name="KitSetPage" Grid.Column="1" Margin="0" ScrollViewer.VerticalScrollBarVisibility="Auto" d:IsHidden="True">
             <Grid.Background>
                 <SolidColorBrush Color="{DynamicResource ColorSub}"/>
             </Grid.Background>
@@ -2171,7 +2174,7 @@ System.Drawing.Bitmap (как и вообще складирование кар�
                 </Grid>
             </GroupBox>
         </Grid>
-        <Grid x:Name="PricePage" Margin="0" Grid.Column="1" ScrollViewer.VerticalScrollBarVisibility="Auto" Visibility="Hidden">
+        <Grid x:Name="PricePage" Margin="0" Grid.Column="1" ScrollViewer.VerticalScrollBarVisibility="Auto" d:IsHidden="True">
             <Grid.Background>
                 <SolidColorBrush Color="{DynamicResource ColorSub}"/>
             </Grid.Background>
@@ -2180,7 +2183,7 @@ System.Drawing.Bitmap (как и вообще складирование кар�
                 <RowDefinition/>
             </Grid.RowDefinitions>
         </Grid>
-        <Grid x:Name="DBEditPage" Margin="0" Grid.Column="1" ScrollViewer.VerticalScrollBarVisibility="Auto" d:IsHidden="True">
+        <Grid x:Name="DBEditPage" Margin="0" Grid.Column="1" ScrollViewer.VerticalScrollBarVisibility="Auto">
             <Grid.Background>
                 <SolidColorBrush Color="{DynamicResource ColorSub}"/>
             </Grid.Background>
@@ -2189,7 +2192,7 @@ System.Drawing.Bitmap (как и вообще складирование кар�
                 <RowDefinition/>
             </Grid.RowDefinitions>
         </Grid>
-        <Grid x:Name="TaxiPage" Margin="0" Grid.Column="1" ScrollViewer.VerticalScrollBarVisibility="Auto" Width="797" Visibility="Hidden">
+        <Grid x:Name="TaxiPage" Margin="0" Grid.Column="1" ScrollViewer.VerticalScrollBarVisibility="Auto" Width="797" d:IsHidden="True">
             <Grid.Background>
                 <SolidColorBrush Color="{DynamicResource ColorSub}"/>
             </Grid.Background>
@@ -2545,7 +2548,7 @@ System.Drawing.Bitmap (как и вообще складирование кар�
             </StackPanel>
 
         </Grid>
-        <Grid x:Name="SettingsPage" Margin="0" Grid.Column="1" ScrollViewer.VerticalScrollBarVisibility="Auto">
+        <Grid x:Name="SettingsPage" Margin="0" Grid.Column="1" ScrollViewer.VerticalScrollBarVisibility="Auto" d:IsHidden="True">
             <Grid.Background>
                 <SolidColorBrush Color="{DynamicResource ColorSub}"/>
             </Grid.Background>
@@ -2572,6 +2575,17 @@ System.Drawing.Bitmap (как и вообще складирование кар�
                             <ComboBoxItem Content="Светлая Пятый Канал"/>
                         </ComboBox>
                         <CheckBox x:Name="SaveWinSizeCheckBox" Content="Сохранять размеры окна при выходе" VerticalAlignment="Center" HorizontalAlignment="Left" IsChecked="True" VerticalContentAlignment="Center" Margin="15" Initialized="SettingsInitialized" Checked="CheckChange" Unchecked="CheckChange">
+                            <CheckBox.BorderBrush>
+                                <SolidColorBrush Color="{DynamicResource ColorNuans}"/>
+                            </CheckBox.BorderBrush>
+                            <CheckBox.Background>
+                                <SolidColorBrush Color="{DynamicResource ColorMain}"/>
+                            </CheckBox.Background>
+                            <CheckBox.Foreground>
+                                <SolidColorBrush Color="{DynamicResource ColorFont}"/>
+                            </CheckBox.Foreground>
+                        </CheckBox>
+                        <CheckBox x:Name="NoShowStartPageCheckBox2" Margin="15" VerticalContentAlignment="Center" Padding="5,0,0,0" ScrollViewer.VerticalScrollBarVisibility="Disabled" Content="Не показывать окно приветствия" FontSize="14" VerticalAlignment="Center" HorizontalAlignment="Left" IsChecked="{Binding IsChecked, ElementName=NoShowStartPageCheckBox, Mode=TwoWay}" Checked="NoShowStartPageCheckBox2_CheckedUnChecked" Unchecked="NoShowStartPageCheckBox2_CheckedUnChecked">
                             <CheckBox.BorderBrush>
                                 <SolidColorBrush Color="{DynamicResource ColorNuans}"/>
                             </CheckBox.BorderBrush>
@@ -2753,7 +2767,7 @@ System.Drawing.Bitmap (как и вообще складирование кар�
 
 
         </Grid>
-        <Grid x:Name="AboutPage" Margin="0" Grid.Column="1" ScrollViewer.VerticalScrollBarVisibility="Auto" Visibility="Hidden">
+        <Grid x:Name="AboutPage" Margin="0" Grid.Column="1" ScrollViewer.VerticalScrollBarVisibility="Auto" d:IsHidden="True">
             <Grid.Background>
                 <SolidColorBrush Color="{DynamicResource ColorSub}"/>
             </Grid.Background>
@@ -2793,17 +2807,34 @@ System.Drawing.Bitmap (как и вообще складирование кар�
                         <SolidColorBrush Color="{DynamicResource ColorFont}"/>
                     </TextBlock.Foreground>
                 </TextBlock>
-                <TextBlock Margin="15,10,10,10" TextWrapping="WrapWithOverflow" Text="Версия &lt;version&gt;" Height="Auto" VerticalAlignment="Center">
+                <StackPanel Margin="0" Orientation="Horizontal">
+                    <TextBlock x:Name="ProductVersionTextBlock" Margin="15,10" TextWrapping="WrapWithOverflow" Height="Auto" VerticalAlignment="Center" HorizontalAlignment="Left">
+                        <TextBlock.Foreground>
+                            <SolidColorBrush Color="{DynamicResource ColorFont}"/>
+                        </TextBlock.Foreground><Run Text="Версия &lt;version&gt;"/></TextBlock>
+                    <Button Content="Показать полную информацию о версии" HorizontalAlignment="Left" VerticalAlignment="Center" Padding="15,5" Margin="15,0" Click="Button_Click">
+                        <Button.BorderBrush>
+                            <SolidColorBrush Color="{DynamicResource ColorNuans}"/>
+                        </Button.BorderBrush>
+                        <Button.Background>
+                            <SolidColorBrush Color="{DynamicResource ColorMain}"/>
+                        </Button.Background>
+                        <Button.Foreground>
+                            <SolidColorBrush Color="{DynamicResource ColorFont}"/>
+                        </Button.Foreground>
+                    </Button>
+                </StackPanel>
+                <TextBlock x:Name="FullVersionInfoTextBlock" TextWrapping="Wrap" Text="TextBlock" Margin="15" VerticalAlignment="Center" FontSize="10" Visibility="Collapsed">
+                    <TextBlock.Foreground>
+                        <SolidColorBrush Color="{DynamicResource ColorAltNuans}"/>
+                    </TextBlock.Foreground>
+                </TextBlock>
+                <TextBlock Margin="15,10,10,10" TextWrapping="WrapWithOverflow" Text="Защищена открытой лицензией. Распространяется свободно.&#xA;По вопросам работы программы писать на почту автору: a.karimov@iz.ru" Height="Auto" VerticalAlignment="Center" UseLayoutRounding="False">
                     <TextBlock.Foreground>
                         <SolidColorBrush Color="{DynamicResource ColorFont}"/>
                     </TextBlock.Foreground>
                 </TextBlock>
-                <TextBlock Margin="15,10,10,10" TextWrapping="WrapWithOverflow" Text="Защищена открытой лицензией. Распространяется свободно.&#xA;По вопросам работы программы писать на почту автору: photodc@ya.ru" Height="Auto" VerticalAlignment="Center" TextDecorations="{x:Null}" UseLayoutRounding="False">
-                    <TextBlock.Foreground>
-                        <SolidColorBrush Color="{DynamicResource ColorFont}"/>
-                    </TextBlock.Foreground>
-                </TextBlock>
-                <TextBlock Margin="15,10,10,10" TextWrapping="WrapWithOverflow" Text="Продолжая использовать программу, вы принимаете условия лицензии:" Height="Auto" VerticalAlignment="Center" TextDecorations="{x:Null}" UseLayoutRounding="False" FontSize="14">
+                <TextBlock Margin="15,10,10,10" TextWrapping="WrapWithOverflow" Text="Продолжая использовать программу, вы принимаете условия лицензии:" Height="Auto" VerticalAlignment="Center" UseLayoutRounding="False" FontSize="14">
                     <TextBlock.Foreground>
                         <SolidColorBrush Color="{DynamicResource ColorFont}"/>
                     </TextBlock.Foreground>
@@ -2959,7 +2990,7 @@ System.Drawing.Bitmap (как и вообще складирование кар�
                     <TextBlock.Foreground>
                         <SolidColorBrush Color="{DynamicResource ColorFont}"/>
                     </TextBlock.Foreground></TextBlock>
-                <CheckBox x:Name="NoShowStartPageCheckBox" Margin="15" VerticalContentAlignment="Center" Padding="5,0,0,0" ScrollViewer.VerticalScrollBarVisibility="Disabled" Content="Больше не показывать" FontSize="14" Initialized="SettingsInitialized" Checked="CheckChange">
+                <CheckBox x:Name="NoShowStartPageCheckBox" Margin="15" VerticalContentAlignment="Center" Padding="5,0,0,0" ScrollViewer.VerticalScrollBarVisibility="Disabled" Content="Больше не показывать" FontSize="14" Initialized="SettingsInitialized" Checked="CheckChange" Unchecked="CheckChange">
                     <CheckBox.BorderBrush>
                         <SolidColorBrush Color="{DynamicResource ColorNuans}"/>
                     </CheckBox.BorderBrush>

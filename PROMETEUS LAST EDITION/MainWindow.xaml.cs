@@ -12,6 +12,8 @@ using Excel = Microsoft.Office.Interop.Excel;
 
 using System.IO;
 using System.Collections;
+using System.Reflection;
+using System.Diagnostics;
 
 namespace PROMETEUS_LAST_EDITION
 {
@@ -52,6 +54,12 @@ namespace PROMETEUS_LAST_EDITION
 
             new UI().FooterPromtShow(this,"Программа загружена и готова к работе");
             LOG("< < < Программа загружена и готова к работе > > >");
+
+            Assembly assembly = Assembly.GetExecutingAssembly();
+            FileVersionInfo fileVersionInfo = FileVersionInfo.GetVersionInfo(assembly.Location);
+            ProductVersionTextBlock.Text = "Версия " + fileVersionInfo.ProductVersion;
+            FileVersionTextBlock.Text = "ver.: " + fileVersionInfo.FileVersion;
+            FullVersionInfoTextBlock.Text = fileVersionInfo.ToString ();
             flagInitEnd = true;
         }
 
@@ -103,31 +111,31 @@ namespace PROMETEUS_LAST_EDITION
             switch (sender.GetType().ToString().Substring(sender.GetType().ToString().LastIndexOf('.') + 1))
             {
                 case "ComboBox":
-                    ComboBox cb = sender as ComboBox;
-                    cb.SelectedIndex = Convert.ToInt32(UserSettings[cb.Name]);
                     LOG("\t объект типа " + sender.GetType().ToString().Substring(sender.GetType().ToString().LastIndexOf('.') + 1));
+                    ComboBox cb = sender as ComboBox;
                     LOG("\t поле Name = " + cb.Name);
+                    cb.SelectedIndex = Convert.ToInt32(UserSettings[cb.Name]);                    
                     LOG("\t полю SelectedIndex присвоено значение: " + Convert.ToString(UserSettings[cb.Name]) + " из объекта UserSettings");
                     break;
                 case "TextBox":
-                    TextBox tb = sender as TextBox;
-                    tb.Text = Convert.ToString(UserSettings[tb.Name]);
                     LOG("\t объект типа " + sender.GetType().ToString().Substring(sender.GetType().ToString().LastIndexOf('.') + 1));
+                    TextBox tb = sender as TextBox;
                     LOG("\t поле Name = " + tb.Name);
+                    tb.Text = Convert.ToString(UserSettings[tb.Name]);
                     LOG("\t полю Text присвоено значение: " + Convert.ToString(UserSettings[tb.Name]) + " из объекта UserSettings");
                     break;
                 case "CheckBox":
-                    CheckBox chb = sender as CheckBox;
-                    chb.IsChecked = Convert.ToBoolean(UserSettings[chb.Name]);
                     LOG("\t объект типа " + sender.GetType().ToString().Substring(sender.GetType().ToString().LastIndexOf('.') + 1));
+                    CheckBox chb = sender as CheckBox;
                     LOG("\t поле Name = " + chb.Name);
+                    chb.IsChecked = Convert.ToBoolean(UserSettings[chb.Name]);
                     LOG("\t полю IsChecked присвоено значение: " + Convert.ToString(UserSettings[chb.Name]) + " из объекта UserSettings");
                     break;
                 case "RadioButton":
-                    RadioButton rb = sender as RadioButton;
-                    rb.IsChecked = Convert.ToBoolean(UserSettings[rb.Name]);
                     LOG("\t объект типа " + sender.GetType().ToString().Substring(sender.GetType().ToString().LastIndexOf('.') + 1));
+                    RadioButton rb = sender as RadioButton;
                     LOG("\t поле Name = " + rb.Name);
+                    rb.IsChecked = Convert.ToBoolean(UserSettings[rb.Name]);
                     LOG("\t полю IsChecked присвоено значение: " + Convert.ToString(UserSettings[rb.Name]) + " из объекта UserSettings");
                     break;
                 default:
@@ -138,29 +146,30 @@ namespace PROMETEUS_LAST_EDITION
         private void CheckChange(object sender, EventArgs e)
         {
             if (flagInitEnd) { 
-            LOG("!!! СОБЫТИЕ CheckChange: ");
             string typeElem = sender.GetType().ToString().Substring(sender.GetType().ToString().LastIndexOf('.') + 1);
-            switch (typeElem)
+
+                LOG("!!! СОБЫТИЕ Checked/UnChecked на объекте "+ typeElem+": ");
+                switch (typeElem)
             {
                 case "RadioButton":
                     RadioButton rb = sender as RadioButton;
                     UserSettings[rb.Name] = rb.IsChecked;
-                    LOG("\tПолю IsChecked объекта " + rb.Name+" присвоено значение " + Convert.ToString(rb.IsChecked));
+                    LOG("\tПолю " + rb.Name+ " класса UserSettings присвоено значение " + Convert.ToString(rb.IsChecked));
                     break;
                 case "CheckBox":
                     CheckBox chb = sender as CheckBox;
                     UserSettings[chb.Name] = chb.IsChecked;
-                    LOG("\tПолю IsChecked объекта " + chb.Name + " присвоено значение " + Convert.ToString(chb.IsChecked));
+                    LOG("\tПолю " + chb.Name + " класса UserSettings присвоено значение " + Convert.ToString(chb.IsChecked));
                     break;
                 case "TextBox":
                     TextBox tb = sender as TextBox;
                     UserSettings[tb.Name] = tb.Text;
-                    LOG("\tПолю Text объекта " + tb.Name + " присвоено значение " + Convert.ToString(tb.Text));
+                    LOG("\tПолю " + tb.Name + " класса UserSettings присвоено значение " + Convert.ToString(tb.Text));
                     break;
                 case "ComboBox":
                     ComboBox cb = sender as ComboBox;
                     UserSettings[cb.Name] = cb.SelectedIndex;
-                    LOG("\tПолю SelectedIndex объекта " + cb.Name + " присвоено значение " + Convert.ToString(cb.SelectedIndex));                   
+                    LOG("\tПолю " + cb.Name + " класса UserSettings присвоено значение " + Convert.ToString(cb.SelectedIndex));                   
                     
                     //if (cb.Name== "ThemeComboBox")
                     //{
@@ -175,6 +184,18 @@ namespace PROMETEUS_LAST_EDITION
                     LOG("ОШИБКА::: не известный тип объекта", true);
                     break;
             }
+            }
+        }
+        private void NoShowStartPageCheckBox2_CheckedUnChecked(object sender, RoutedEventArgs e){
+            if (flagInitEnd)
+            {
+                LOG("!!! СОБЫТИЕ Checked/UnChecked на объекте NoShowStartPageCheckBox2: ");
+                NoShowStartPageCheckBox.IsChecked = NoShowStartPageCheckBox2.IsChecked;
+                UserSettings["NoShowStartPageCheckBox"] = NoShowStartPageCheckBox2.IsChecked;
+                LOG("\tПолю NoShowStartPageCheckBox класса UserSettings присвоено значение " + Convert.ToString(NoShowStartPageCheckBox2.IsChecked));
+                //Type myTypeA = typeof(CheckBox);
+                //FieldInfo myFieldInfo = typeof(CheckBox).GetField("NoShowStartPageCheckBox");
+                //CheckChange(myFieldInfo, e);
             }
         }
         private void Window_SizeChanged(object sender, SizeChangedEventArgs e) {
@@ -348,7 +369,15 @@ namespace PROMETEUS_LAST_EDITION
             return ListSettings;
         }
 
-        
+        private void Button_Click(object sender, RoutedEventArgs e)
+        {
+            if (FullVersionInfoTextBlock.Visibility == Visibility.Collapsed)
+            {
+                FullVersionInfoTextBlock.Visibility = Visibility.Visible;
+
+            }
+            else { FullVersionInfoTextBlock.Visibility = Visibility.Collapsed; }
+        }
     }
 
 
