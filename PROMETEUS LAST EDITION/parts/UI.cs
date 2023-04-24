@@ -17,6 +17,9 @@ using System.Media;
 using Microsoft.Office.Interop;
 using Excel = Microsoft.Office.Interop.Excel;
 
+using System.Reflection;
+using System.Diagnostics;
+
 namespace PROMETEUS_LAST_EDITION
 {
     public class UI
@@ -27,6 +30,7 @@ namespace PROMETEUS_LAST_EDITION
             KitSetPage,
             PricePage,
             DBEditPage,
+            TaxiPage,
             SettingsPage,
             AboutPage,
             StartPage
@@ -127,12 +131,12 @@ namespace PROMETEUS_LAST_EDITION
         {
             MainWindow.LOG(">>> Загрузка параметров главного окна из объекта UserSettings...");
             string nameElem = null;
-            int enumCount = Enum.GetNames(typeof(DefUserSettings.SettingsElem)).Length; //длинна нумератора с сохраняемыми параметрами
+            int enumCount = Enum.GetNames(typeof(DefUserSettings.UserSettingsElem)).Length; //длинна нумератора с сохраняемыми параметрами
             nameElem = "SaveWinSizeCheckBox";
             if (Convert.ToBoolean(MainWindow.UserSettings[nameElem])) {
                 for (int i = 0; i < enumCount; i++)
                 {
-                    nameElem = Enum.GetName(typeof(DefUserSettings.SettingsElem), i);
+                    nameElem = Enum.GetName(typeof(DefUserSettings.UserSettingsElem), i);
                     switch (nameElem)
                     {
                         case "WindowState":
@@ -178,5 +182,16 @@ namespace PROMETEUS_LAST_EDITION
             TextBlock tb = mw.FindName("FooterPrompt") as TextBlock;
             if (tb != null) tb.Text = sm;
         }
+
+        public void VersionIngect(MainWindow mw)
+        {
+            Assembly assembly = Assembly.GetExecutingAssembly();
+            FileVersionInfo fileVersionInfo = FileVersionInfo.GetVersionInfo(assembly.Location);
+            mw.ProductVersionTextBlock.Text = "Версия " + fileVersionInfo.ProductVersion;
+            mw.FileVersionTextBlock.Text = "ver.: " + fileVersionInfo.FileVersion;
+            mw.FullInfoVersionTextBlock.Text = fileVersionInfo.ToString();
+        }
+
+       
     }
 }

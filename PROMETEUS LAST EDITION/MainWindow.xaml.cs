@@ -12,8 +12,6 @@ using Excel = Microsoft.Office.Interop.Excel;
 
 using System.IO;
 using System.Collections;
-using System.Reflection;
-using System.Diagnostics;
 
 namespace PROMETEUS_LAST_EDITION
 {
@@ -43,23 +41,17 @@ namespace PROMETEUS_LAST_EDITION
             InitializeComponent();
             InitializeButtons();
 
+
+            new DBMS().ParseToDGrid(this, 1);
+
+
+
+            //Завершение загрузки
             wav = new SoundPlayer();
             currentVisibleView = StartPage;//
-
-            //пример использования функции сохранения и загрузки БД:
-            //List<List<string>> listOfLists = new List<List<string>>();
-            //listOfLists=FileFX.LoadDSV("prop.txt", char.Parse(";"));
-            //listOfLists[1][1] = "эщкере";
-            //FileFX.SaveDSV(listOfLists,"prop.txt", char.Parse(";"));//изикатка       
-
+            new UI().VersionIngect(this);//Получение информации о версии программы           
             new UI().FooterPromtShow(this,"Программа загружена и готова к работе");
             LOG("< < < Программа загружена и готова к работе > > >");
-
-            Assembly assembly = Assembly.GetExecutingAssembly();
-            FileVersionInfo fileVersionInfo = FileVersionInfo.GetVersionInfo(assembly.Location);
-            ProductVersionTextBlock.Text = "Версия " + fileVersionInfo.ProductVersion;
-            FileVersionTextBlock.Text = "ver.: " + fileVersionInfo.FileVersion;
-            FullVersionInfoTextBlock.Text = fileVersionInfo.ToString ();
             flagInitEnd = true;
         }
 
@@ -215,7 +207,7 @@ namespace PROMETEUS_LAST_EDITION
             //переопределение свойств объектов (в соответствии с настройками) после инициализации            
             bool flag = new UI().SetValUserSettings(this);//listSettingsOfUser в первой версии передавался как параметр
             LOG(">>> Свойства окна переназначены из свойств класса UserSettings - " + flag.ToString());
-            
+            new GlobalSettings().LoadGeneralProperties(this);
         }
         protected override void OnClosing(System.ComponentModel.CancelEventArgs e)
         {
@@ -224,17 +216,29 @@ namespace PROMETEUS_LAST_EDITION
             //SettingsBindableAttribute.Default.Save();
 
             //Сохранение параметров при закрытии
+            new GlobalSettings().UploadGeneralProperties(this);
             string userName = System.Security.Principal.WindowsIdentity.GetCurrent().Name.Split('\\')[1];//имя юзера без домена!
             //string userName = System.Security.Principal.WindowsIdentity.GetCurrent().Name; //имя юзера с доменом!
-            bool flag = SettingsFX.SaveUserSettings(new SettingsFX().CollectingUserSettings(), userName); // ответ от SettingsFX
+            bool flag = new SettingsFX().SaveUserSettings(new SettingsFX().CollectingUserSettings(), userName); // ответ от SettingsFX
             LOG(">>> Настройки записаны? - " + flag.ToString());
             base.OnClosing(e);
         }
 
-        private void Button_ClickReset(object sender, RoutedEventArgs e) //Очистка параметра с настройками юзера
+        private void ResetUserSettingsProp(object sender, RoutedEventArgs e) //Очистка параметра с настройками юзера
         {
             if (MessageBox.Show("Это действие полностью и безвозвратно аннигилирует ВСЕ данные пользователей касательно настроек программы. \n\nВы уверены???",
-                "АХТУНГ!", MessageBoxButton.YesNo,MessageBoxImage.Warning) == MessageBoxResult.Yes){new SettingsFX().SettingsClear();
+                "АХТУНГ!", MessageBoxButton.YesNo,MessageBoxImage.Warning) == MessageBoxResult.Yes)
+            {new SettingsFX().SettingsClear();
+            
+            }
+        }
+        private void ResetGlobalProperties(object sender, RoutedEventArgs e)
+        {
+            if (MessageBox.Show("Это действие сбросит глобальные настройки программы на значения по умолчанию. \n\nВы уверены???",
+               "АХТУНГ!", MessageBoxButton.YesNo, MessageBoxImage.Warning) == MessageBoxResult.Yes)
+            {
+                new GlobalSettings().ResetGeneralProperties(this);
+                LOG("Глобальные настройки сброшены. Перезагрузите программу.",true);
             }
         }
         private void Button_ClickUserDef(object sender, RoutedEventArgs e) {new SettingsFX().SetupDefaultUser();
@@ -246,6 +250,7 @@ namespace PROMETEUS_LAST_EDITION
             SettingsPage.Visibility = Visibility.Visible;
         }
         private void Button_ClickCloseStart(object sender, RoutedEventArgs e) {this.StartPage.Visibility = Visibility.Hidden;}
+        private void FullInfoVersionShow(object sender, RoutedEventArgs e) { if (FullInfoVersionTextBlock.Visibility == Visibility.Collapsed) FullInfoVersionTextBlock.Visibility = Visibility.Visible; else FullInfoVersionTextBlock.Visibility = Visibility.Collapsed; }
 
         /// <summary>
         /// Выводит сообщение в файл LOG.txt и в окно MessageBox
@@ -369,15 +374,8 @@ namespace PROMETEUS_LAST_EDITION
             return ListSettings;
         }
 
-        private void Button_Click(object sender, RoutedEventArgs e)
-        {
-            if (FullVersionInfoTextBlock.Visibility == Visibility.Collapsed)
-            {
-                FullVersionInfoTextBlock.Visibility = Visibility.Visible;
-
-            }
-            else { FullVersionInfoTextBlock.Visibility = Visibility.Collapsed; }
-        }
+        
+       
     }
 
 

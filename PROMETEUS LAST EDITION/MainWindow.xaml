@@ -53,7 +53,7 @@
 
 ДАННОЕ ПРОГРАММНОЕ ОБЕСПЕЧЕНИЕ ПРЕДОСТАВЛЯЕТСЯ «КАК ЕСТЬ», БЕЗ КАКИХ-ЛИБО ГАРАНТИЙ, ЯВНО ВЫРАЖЕННЫХ ИЛИ ПОДРАЗУМЕВАЕМЫХ, ВКЛЮЧАЯ ГАРАНТИИ ТОВАРНОЙ ПРИГОДНОСТИ, СООТВЕТСТВИЯ ПО ЕГО КОНКРЕТНОМУ НАЗНАЧЕНИЮ И ОТСУТСТВИЯ НАРУШЕНИЙ, НО НЕ ОГРАНИЧИВАЯСЬ ИМИ. НИ В КАКОМ СЛУЧАЕ АВТОРЫ ИЛИ ПРАВООБЛАДАТЕЛИ НЕ НЕСУТ ОТВЕТСТВЕННОСТИ ПО КАКИМ-ЛИБО ИСКАМ, ЗА УЩЕРБ ИЛИ ПО ИНЫМ ТРЕБОВАНИЯМ, В ТОМ ЧИСЛЕ, ПРИ ДЕЙСТВИИ КОНТРАКТА, ДЕЛИКТЕ ИЛИ ИНОЙ СИТУАЦИИ, ВОЗНИКШИМ ИЗ-ЗА ИСПОЛЬЗОВАНИЯ ПРОГРАММНОГО ОБЕСПЕЧЕНИЯ ИЛИ ИНЫХ ДЕЙСТВИЙ С ПРОГРАММНЫМ ОБЕСПЕЧЕНИЕМ.  
 
-P.S. Ответ на Основной Вопрос Жизни, Вселенной и Вообще - 42. Вы знаете что с этим делать xD</System:String>
+P.S. Ответ на Основной Вопрос Жизни, Вселенной и Вообще - 42. Очевидно же...</System:String>
 
         <Style x:Key="FocusVisual">
             <Setter Property="Control.Template">
@@ -112,6 +112,8 @@ P.S. Ответ на Основной Вопрос Жизни, Вселенно�
                 </Setter.Value>
             </Setter>
         </Style>
+        <!--#ENDregion groupbox template-->
+
         <!--#region TEXTBOX template-->
         <SolidColorBrush x:Key="TextBox.Static.Border" Color="{DynamicResource ColorNuans}"/>
         <SolidColorBrush x:Key="TextBox.MouseOver.Border" Color="{DynamicResource ColorNuans}"/>
@@ -162,6 +164,8 @@ P.S. Ответ на Основной Вопрос Жизни, Вселенно�
                 </MultiTrigger>
             </Style.Triggers>
         </Style>
+        <!--#ENDregion TEXTBOX template-->
+
         <!--#region OptionMark template-->
         <SolidColorBrush x:Key="OptionMark.Static.Background" Color="{DynamicResource ColorMain}"/>
         <SolidColorBrush x:Key="OptionMark.Static.Border" Color="{DynamicResource ColorSub}"/>
@@ -257,7 +261,7 @@ P.S. Ответ на Основной Вопрос Жизни, Вселенно�
                 </Setter.Value>
             </Setter>
         </Style>
-
+        <!--#ENDregion OptionMark template-->
 
         <!--#region COMBOBOX template -->
         <LinearGradientBrush x:Key="ComboBox.Static.Background" EndPoint="0,1" StartPoint="0,0">
@@ -673,7 +677,7 @@ P.S. Ответ на Основной Вопрос Жизни, Вселенно�
                 </Setter.Value>
             </Setter>
         </Style>
-
+        <!--#ENDregion COMBOBOX template -->
 
         <!--#region RADIOBUTTON template-->
         <SolidColorBrush x:Key="RadioButton.Static.Background" Color="{DynamicResource ColorMain}"/>
@@ -756,7 +760,7 @@ P.S. Ответ на Основной Вопрос Жизни, Вселенно�
                 </Setter.Value>
             </Setter>
         </Style>
-
+        <!--#ENDregion RADIOBUTTON template-->
 
         <!--#region BUTTON template-->
         <SolidColorBrush x:Key="Button.Static.Background" Color="{DynamicResource ColorSub}"/>
@@ -805,7 +809,7 @@ P.S. Ответ на Основной Вопрос Жизни, Вселенно�
                 </Setter.Value>
             </Setter>
         </Style>
-
+        <!--#ENDregion BUTTON template-->
 
         <!--#region ScrollBar template-->
         <SolidColorBrush x:Key="ScrollBar.Static.Background" Color="{DynamicResource ColorSub}"/>
@@ -1158,7 +1162,7 @@ P.S. Ответ на Основной Вопрос Жизни, Вселенно�
 
             </Style.Triggers>
         </Style>
-
+        <!--#ENDregion ScrollBar template-->
 
         <!--#region ScrollViewer template-->
         <Style TargetType="{x:Type ScrollViewer}">
@@ -1212,7 +1216,7 @@ P.S. Ответ на Основной Вопрос Жизни, Вселенно�
 
         <!--#ENDregion ScrollViewer template-->
 
-
+        <!--#region TabItem template-->
         <SolidColorBrush x:Key="TabItem.Selected.Background" Color="{DynamicResource ColorSub}"/>
         <SolidColorBrush x:Key="TabItem.Selected.Border" Color="{DynamicResource ColorNuans}"/>
         <Style TargetType="{x:Type TabControl}">
@@ -1483,7 +1487,212 @@ P.S. Ответ на Основной Вопрос Жизни, Вселенно�
                 </Setter.Value>
             </Setter>
         </Style>
-
+        <Style x:Key="{ComponentResourceKey ResourceId=DataGridSelectAllButtonStyle, TypeInTargetAssembly={x:Type DataGrid}}" TargetType="{x:Type Button}">
+            <Setter Property="Template">
+                <Setter.Value>
+                    <ControlTemplate TargetType="{x:Type Button}">
+                        <Grid>
+                            <Rectangle x:Name="Border" Fill="{DynamicResource {x:Static SystemColors.ControlBrushKey}}" SnapsToDevicePixels="True"/>
+                            <Polygon x:Name="Arrow" Fill="Black" HorizontalAlignment="Right" Margin="8,8,3,3" Opacity="0.15" Points="0,10 10,10 10,0" Stretch="Uniform" VerticalAlignment="Bottom"/>
+                        </Grid>
+                        <ControlTemplate.Triggers>
+                            <Trigger Property="IsMouseOver" Value="True">
+                                <Setter Property="Stroke" TargetName="Border" Value="{DynamicResource {x:Static SystemColors.ControlDarkBrushKey}}"/>
+                            </Trigger>
+                            <Trigger Property="IsPressed" Value="True">
+                                <Setter Property="Fill" TargetName="Border" Value="{DynamicResource {x:Static SystemColors.ControlDarkBrushKey}}"/>
+                            </Trigger>
+                            <Trigger Property="IsEnabled" Value="False">
+                                <Setter Property="Visibility" TargetName="Arrow" Value="Collapsed"/>
+                            </Trigger>
+                        </ControlTemplate.Triggers>
+                    </ControlTemplate>
+                </Setter.Value>
+            </Setter>
+        </Style>
+        <Style TargetType="{x:Type DataGrid}">
+            <Setter Property="Background" Value="{DynamicResource {x:Static SystemColors.ControlBrushKey}}"/>
+            <Setter Property="Foreground" Value="{DynamicResource {x:Static SystemColors.ControlTextBrushKey}}"/>
+            <Setter Property="BorderBrush" Value="#FF688CAF"/>
+            <Setter Property="BorderThickness" Value="1"/>
+            <Setter Property="RowDetailsVisibilityMode" Value="VisibleWhenSelected"/>
+            <Setter Property="ScrollViewer.CanContentScroll" Value="true"/>
+            <Setter Property="ScrollViewer.PanningMode" Value="Both"/>
+            <Setter Property="Stylus.IsFlicksEnabled" Value="False"/>
+            <Setter Property="Template">
+                <Setter.Value>
+                    <ControlTemplate TargetType="{x:Type DataGrid}">
+                        <Border BorderBrush="{TemplateBinding BorderBrush}" BorderThickness="{TemplateBinding BorderThickness}" Background="{TemplateBinding Background}" Padding="{TemplateBinding Padding}" SnapsToDevicePixels="True">
+                            <ScrollViewer x:Name="DG_ScrollViewer" Focusable="false" Background="{x:Null}">
+                                <ScrollViewer.Foreground>
+                                    <SolidColorBrush Color="{DynamicResource ColorFont}"/>
+                                </ScrollViewer.Foreground>
+                                <ScrollViewer.Template>
+                                    <ControlTemplate TargetType="{x:Type ScrollViewer}">
+                                        <Grid>
+                                            <Grid.ColumnDefinitions>
+                                                <ColumnDefinition Width="Auto"/>
+                                                <ColumnDefinition Width="*"/>
+                                                <ColumnDefinition Width="Auto"/>
+                                            </Grid.ColumnDefinitions>
+                                            <Grid.RowDefinitions>
+                                                <RowDefinition Height="Auto"/>
+                                                <RowDefinition Height="*"/>
+                                                <RowDefinition Height="Auto"/>
+                                            </Grid.RowDefinitions>
+                                            <Button Command="{x:Static DataGrid.SelectAllCommand}" Focusable="false" Style="{DynamicResource {ComponentResourceKey ResourceId=DataGridSelectAllButtonStyle, TypeInTargetAssembly={x:Type DataGrid}}}" Visibility="{Binding HeadersVisibility, ConverterParameter={x:Static DataGridHeadersVisibility.All}, Converter={x:Static DataGrid.HeadersVisibilityConverter}, RelativeSource={RelativeSource AncestorType={x:Type DataGrid}}}" Width="{Binding CellsPanelHorizontalOffset, RelativeSource={RelativeSource AncestorType={x:Type DataGrid}}}"/>
+                                            <DataGridColumnHeadersPresenter x:Name="PART_ColumnHeadersPresenter" Grid.Column="1" Visibility="{Binding HeadersVisibility, ConverterParameter={x:Static DataGridHeadersVisibility.Column}, Converter={x:Static DataGrid.HeadersVisibilityConverter}, RelativeSource={RelativeSource AncestorType={x:Type DataGrid}}}"/>
+                                            <ScrollContentPresenter x:Name="PART_ScrollContentPresenter" CanContentScroll="{TemplateBinding CanContentScroll}" Grid.ColumnSpan="2" Grid.Row="1"/>
+                                            <ScrollBar x:Name="PART_VerticalScrollBar" Grid.Column="2" Maximum="{TemplateBinding ScrollableHeight}" Orientation="Vertical" Grid.Row="1" Visibility="{TemplateBinding ComputedVerticalScrollBarVisibility}" Value="{Binding VerticalOffset, Mode=OneWay, RelativeSource={RelativeSource TemplatedParent}}" ViewportSize="{TemplateBinding ViewportHeight}"/>
+                                            <Grid Grid.Column="1" Grid.Row="2">
+                                                <Grid.ColumnDefinitions>
+                                                    <ColumnDefinition Width="{Binding NonFrozenColumnsViewportHorizontalOffset, RelativeSource={RelativeSource AncestorType={x:Type DataGrid}}}"/>
+                                                    <ColumnDefinition Width="*"/>
+                                                </Grid.ColumnDefinitions>
+                                                <ScrollBar x:Name="PART_HorizontalScrollBar" Grid.Column="1" Maximum="{TemplateBinding ScrollableWidth}" Orientation="Horizontal" Visibility="{TemplateBinding ComputedHorizontalScrollBarVisibility}" Value="{Binding HorizontalOffset, Mode=OneWay, RelativeSource={RelativeSource TemplatedParent}}" ViewportSize="{TemplateBinding ViewportWidth}"/>
+                                            </Grid>
+                                        </Grid>
+                                    </ControlTemplate>
+                                </ScrollViewer.Template>
+                                <ItemsPresenter SnapsToDevicePixels="{TemplateBinding SnapsToDevicePixels}"/>
+                            </ScrollViewer>
+                        </Border>
+                    </ControlTemplate>
+                </Setter.Value>
+            </Setter>
+            <Style.Triggers>
+                <MultiTrigger>
+                    <MultiTrigger.Conditions>
+                        <Condition Property="IsGrouping" Value="true"/>
+                        <Condition Property="VirtualizingPanel.IsVirtualizingWhenGrouping" Value="false"/>
+                    </MultiTrigger.Conditions>
+                    <Setter Property="ScrollViewer.CanContentScroll" Value="false"/>
+                </MultiTrigger>
+            </Style.Triggers>
+        </Style>
+        <Style x:Key="ColumnHeaderGripperStyle" TargetType="{x:Type Thumb}">
+            <Setter Property="Width" Value="8"/>
+            <Setter Property="Background" Value="Transparent"/>
+            <Setter Property="Cursor" Value="SizeWE"/>
+            <Setter Property="Template">
+                <Setter.Value>
+                    <ControlTemplate TargetType="{x:Type Thumb}">
+                        <Border Background="{TemplateBinding Background}" Padding="{TemplateBinding Padding}"/>
+                    </ControlTemplate>
+                </Setter.Value>
+            </Setter>
+        </Style>
+        <Style TargetType="{x:Type DataGridColumnHeader}">
+            <Setter Property="VerticalContentAlignment" Value="Center"/>
+            <Setter Property="Template">
+                <Setter.Value>
+                    <ControlTemplate TargetType="{x:Type DataGridColumnHeader}">
+                        <Grid>
+                            <Themes:DataGridHeaderBorder BorderBrush="{TemplateBinding BorderBrush}" BorderThickness="{TemplateBinding BorderThickness}" Background="{TemplateBinding Background}" IsClickable="{TemplateBinding CanUserSort}" IsPressed="{TemplateBinding IsPressed}" IsHovered="{TemplateBinding IsMouseOver}" Padding="{TemplateBinding Padding}" SortDirection="{TemplateBinding SortDirection}" SeparatorBrush="{TemplateBinding SeparatorBrush}" SeparatorVisibility="{TemplateBinding SeparatorVisibility}">
+                                <ContentPresenter HorizontalAlignment="{TemplateBinding HorizontalContentAlignment}" RecognizesAccessKey="True" SnapsToDevicePixels="{TemplateBinding SnapsToDevicePixels}" VerticalAlignment="{TemplateBinding VerticalContentAlignment}"/>
+                            </Themes:DataGridHeaderBorder>
+                            <Thumb x:Name="PART_LeftHeaderGripper" HorizontalAlignment="Left" Style="{StaticResource ColumnHeaderGripperStyle}">
+                                <Thumb.Foreground>
+                                    <SolidColorBrush Color="{DynamicResource ColorAltFont}"/>
+                                </Thumb.Foreground>
+                            </Thumb>
+                            <Thumb x:Name="PART_RightHeaderGripper" HorizontalAlignment="Right" Style="{StaticResource ColumnHeaderGripperStyle}">
+                                <Thumb.Foreground>
+                                    <SolidColorBrush Color="{DynamicResource ColorAltFont}"/>
+                                </Thumb.Foreground>
+                            </Thumb>
+                        </Grid>
+                    </ControlTemplate>
+                </Setter.Value>
+            </Setter>
+        </Style>
+        <Style TargetType="{x:Type DataGridRow}">
+            <Setter Property="Background" Value="{DynamicResource {x:Static SystemColors.WindowBrushKey}}"/>
+            <Setter Property="SnapsToDevicePixels" Value="true"/>
+            <Setter Property="Validation.ErrorTemplate" Value="{x:Null}"/>
+            <Setter Property="ValidationErrorTemplate">
+                <Setter.Value>
+                    <ControlTemplate>
+                        <TextBlock Foreground="Red" Margin="2,0,0,0" Text="!" VerticalAlignment="Center"/>
+                    </ControlTemplate>
+                </Setter.Value>
+            </Setter>
+            <Setter Property="Template">
+                <Setter.Value>
+                    <ControlTemplate TargetType="{x:Type DataGridRow}">
+                        <Border x:Name="DGR_Border" BorderBrush="{TemplateBinding BorderBrush}" BorderThickness="{TemplateBinding BorderThickness}" Background="{TemplateBinding Background}" SnapsToDevicePixels="True">
+                            <SelectiveScrollingGrid>
+                                <SelectiveScrollingGrid.ColumnDefinitions>
+                                    <ColumnDefinition Width="Auto"/>
+                                    <ColumnDefinition Width="*"/>
+                                </SelectiveScrollingGrid.ColumnDefinitions>
+                                <SelectiveScrollingGrid.RowDefinitions>
+                                    <RowDefinition Height="*"/>
+                                    <RowDefinition Height="Auto"/>
+                                </SelectiveScrollingGrid.RowDefinitions>
+                                <DataGridCellsPresenter Grid.Column="1" ItemsPanel="{TemplateBinding ItemsPanel}" SnapsToDevicePixels="{TemplateBinding SnapsToDevicePixels}">
+                                    <DataGridCellsPresenter.Foreground>
+                                        <SolidColorBrush Color="{DynamicResource ColorFont}"/>
+                                    </DataGridCellsPresenter.Foreground>
+                                </DataGridCellsPresenter>
+                                <DataGridDetailsPresenter Grid.Column="1" Grid.Row="1" SelectiveScrollingGrid.SelectiveScrollingOrientation="{Binding AreRowDetailsFrozen, ConverterParameter={x:Static SelectiveScrollingOrientation.Vertical}, Converter={x:Static DataGrid.RowDetailsScrollingConverter}, RelativeSource={RelativeSource AncestorType={x:Type DataGrid}}}" Visibility="{TemplateBinding DetailsVisibility}"/>
+                                <DataGridRowHeader Grid.RowSpan="2" SelectiveScrollingGrid.SelectiveScrollingOrientation="Vertical" Visibility="{Binding HeadersVisibility, ConverterParameter={x:Static DataGridHeadersVisibility.Row}, Converter={x:Static DataGrid.HeadersVisibilityConverter}, RelativeSource={RelativeSource AncestorType={x:Type DataGrid}}}">
+                                    <DataGridRowHeader.Foreground>
+                                        <SolidColorBrush Color="{DynamicResource ColorFont}"/>
+                                    </DataGridRowHeader.Foreground>
+                                </DataGridRowHeader>
+                            </SelectiveScrollingGrid>
+                        </Border>
+                    </ControlTemplate>
+                </Setter.Value>
+            </Setter>
+            <Style.Triggers>
+                <Trigger Property="IsNewItem" Value="True">
+                    <Setter Property="Margin" Value="{Binding NewItemMargin, RelativeSource={RelativeSource AncestorType={x:Type DataGrid}}}"/>
+                </Trigger>
+            </Style.Triggers>
+        </Style>
+        <SolidColorBrush x:Key="{x:Static DataGrid.FocusBorderBrushKey}" Color="#FF000000"/>
+        <Style TargetType="{x:Type DataGridCell}">
+            <Setter Property="Background" Value="Transparent"/>
+            <Setter Property="BorderBrush" Value="Transparent"/>
+            <Setter Property="BorderThickness" Value="1"/>
+            <Setter Property="Template">
+                <Setter.Value>
+                    <ControlTemplate TargetType="{x:Type DataGridCell}">
+                        <Border BorderBrush="{TemplateBinding BorderBrush}" BorderThickness="{TemplateBinding BorderThickness}" Background="{TemplateBinding Background}" SnapsToDevicePixels="True">
+                            <ContentPresenter SnapsToDevicePixels="{TemplateBinding SnapsToDevicePixels}"/>
+                        </Border>
+                    </ControlTemplate>
+                </Setter.Value>
+            </Setter>
+            <Style.Triggers>
+                <Trigger Property="IsSelected" Value="True">
+                    <Setter Property="Background" Value="{DynamicResource {x:Static SystemColors.HighlightBrushKey}}"/>
+                    <Setter Property="Foreground" Value="{DynamicResource {x:Static SystemColors.HighlightTextBrushKey}}"/>
+                    <Setter Property="BorderBrush" Value="{DynamicResource {x:Static SystemColors.HighlightBrushKey}}"/>
+                </Trigger>
+                <Trigger Property="IsKeyboardFocusWithin" Value="True">
+                    <Setter Property="BorderBrush" Value="{DynamicResource {x:Static DataGrid.FocusBorderBrushKey}}"/>
+                </Trigger>
+                <MultiTrigger>
+                    <MultiTrigger.Conditions>
+                        <Condition Property="IsSelected" Value="true"/>
+                        <Condition Property="Selector.IsSelectionActive" Value="false"/>
+                    </MultiTrigger.Conditions>
+                    <Setter Property="Background" Value="{DynamicResource {x:Static SystemColors.InactiveSelectionHighlightBrushKey}}"/>
+                    <Setter Property="BorderBrush" Value="{DynamicResource {x:Static SystemColors.InactiveSelectionHighlightBrushKey}}"/>
+                    <Setter Property="Foreground" Value="{DynamicResource {x:Static SystemColors.InactiveSelectionHighlightTextBrushKey}}"/>
+                </MultiTrigger>
+                <Trigger Property="IsEnabled" Value="false">
+                    <Setter Property="Foreground" Value="{DynamicResource {x:Static SystemColors.GrayTextBrushKey}}"/>
+                </Trigger>
+            </Style.Triggers>
+        </Style>
+        <ItemsPanelTemplate x:Key="ItemsPanelTemplate1">
+            <DataGridRowsPresenter x:Name="PART_RowsPresenter" IsItemsHost="True"/>
+        </ItemsPanelTemplate>
+        <!--#ENDregion TabItem template-->
 
     </Window.Resources>
     <Window.Foreground>
@@ -2191,6 +2400,61 @@ System.Drawing.Bitmap (как и вообще складирование кар�
                 <RowDefinition Height="Auto"/>
                 <RowDefinition/>
             </Grid.RowDefinitions>
+            <StackPanel >
+                <Menu Margin="0,10" VerticalAlignment="Top" FontSize="14" BorderThickness="0,0,0,1" Padding="10,0">
+                    <Menu.Foreground>
+                        <SolidColorBrush Color="{DynamicResource ColorFont}"/>
+                    </Menu.Foreground>
+                    <Menu.BorderBrush>
+                        <SolidColorBrush Color="{DynamicResource ColorNuans}"/>
+                    </Menu.BorderBrush>
+                    <Menu.Background>
+                        <SolidColorBrush Color="{DynamicResource ColorSub}"/>
+                    </Menu.Background>
+                    <MenuItem Header="БД">Padding="6"
+                        <MenuItem.Foreground>
+                            <SolidColorBrush Color="{DynamicResource ColorFont}"/>
+                        </MenuItem.Foreground>
+                    </MenuItem>
+
+                    <MenuItem Header="Файл">
+                        <MenuItem.Foreground>
+                            <SolidColorBrush Color="{DynamicResource ColorFont}"/>
+                        </MenuItem.Foreground>
+                    </MenuItem>
+                    <MenuItem Header="Правка">
+                        <MenuItem.Foreground>
+                            <SolidColorBrush Color="{DynamicResource ColorFont}"/>
+                        </MenuItem.Foreground>
+                    </MenuItem>
+                    <MenuItem Header="Вид">
+                        <MenuItem.Foreground>
+                            <SolidColorBrush Color="{DynamicResource ColorFont}"/>
+                        </MenuItem.Foreground>
+                    </MenuItem>
+                </Menu>
+                <DataGrid x:Name="DBMSdataGrid" Margin="10" CanUserReorderColumns="False" CanUserResizeRows="False" MinRowHeight="10" ItemsPanel="{DynamicResource ItemsPanelTemplate1}" AutoGenerateColumns="False" VerticalScrollBarVisibility="Visible" HorizontalScrollBarVisibility="Visible">
+                    <DataGrid.RowBackground>
+                        <SolidColorBrush Color="{DynamicResource ColorGridWS}"/>
+                    </DataGrid.RowBackground>
+                    <DataGrid.VerticalGridLinesBrush>
+                        <SolidColorBrush Color="{DynamicResource ColorNuans}"/>
+                    </DataGrid.VerticalGridLinesBrush>
+                    <DataGrid.HorizontalGridLinesBrush>
+                        <SolidColorBrush Color="{DynamicResource ColorNuans}"/>
+                    </DataGrid.HorizontalGridLinesBrush>
+                    <DataGrid.Foreground>
+                        <SolidColorBrush Color="{DynamicResource ColorFont}"/>
+                    </DataGrid.Foreground>
+                    <DataGrid.Background>
+                        <SolidColorBrush Color="{DynamicResource ColorGridWS}"/>
+                    </DataGrid.Background>
+                    <DataGrid.BorderBrush>
+                        <SolidColorBrush Color="{DynamicResource ColorNuans}"/>
+                    </DataGrid.BorderBrush>
+                </DataGrid>
+
+            </StackPanel>
         </Grid>
         <Grid x:Name="TaxiPage" Margin="0" Grid.Column="1" ScrollViewer.VerticalScrollBarVisibility="Auto" Width="797" d:IsHidden="True">
             <Grid.Background>
@@ -2684,17 +2948,30 @@ System.Drawing.Bitmap (как и вообще складирование кар�
                                 <TabItem.BorderBrush>
                                     <SolidColorBrush Color="{DynamicResource ColorNuans}"/>
                                 </TabItem.BorderBrush>
-                                <Button Content="Очистить параметр UserSettings" HorizontalAlignment="Left" VerticalAlignment="Top" Margin="15,15,0,15" FontSize="14" Click="Button_ClickReset" Padding="15,5">
-                                    <Button.Foreground>
-                                        <SolidColorBrush Color="{DynamicResource ColorAltFont}"/>
-                                    </Button.Foreground>
-                                    <Button.BorderBrush>
-                                        <SolidColorBrush Color="{DynamicResource ColorNuans}"/>
-                                    </Button.BorderBrush>
-                                    <Button.Background>
-                                        <SolidColorBrush Color="{DynamicResource ColorMain}"/>
-                                    </Button.Background>
-                                </Button>
+                                <StackPanel Margin="0">
+                                    <Button Content="Очистить параметр UserSettings" HorizontalAlignment="Left" VerticalAlignment="Top" Margin="15" FontSize="14" Click="ResetUserSettingsProp" Padding="15,5">
+                                        <Button.Foreground>
+                                            <SolidColorBrush Color="{DynamicResource ColorAltFont}"/>
+                                        </Button.Foreground>
+                                        <Button.BorderBrush>
+                                            <SolidColorBrush Color="{DynamicResource ColorNuans}"/>
+                                        </Button.BorderBrush>
+                                        <Button.Background>
+                                            <SolidColorBrush Color="{DynamicResource ColorMain}"/>
+                                        </Button.Background>
+                                    </Button>
+                                    <Button Content="Reset Global Properties" HorizontalAlignment="Left" VerticalAlignment="Top" FontSize="14" Click="ResetGlobalProperties" Padding="15,5" Margin="15,13,15,15">
+                                        <Button.Foreground>
+                                            <SolidColorBrush Color="{DynamicResource ColorAltFont}"/>
+                                        </Button.Foreground>
+                                        <Button.BorderBrush>
+                                            <SolidColorBrush Color="{DynamicResource ColorNuans}"/>
+                                        </Button.BorderBrush>
+                                        <Button.Background>
+                                            <SolidColorBrush Color="{DynamicResource ColorMain}"/>
+                                        </Button.Background>
+                                    </Button>
+                                </StackPanel>
                             </TabItem>
                             <TabItem Header="Базы данных">
                                 <TabItem.Foreground>
@@ -2715,12 +2992,12 @@ System.Drawing.Bitmap (как и вообще складирование кар�
                                             <SolidColorBrush Color="{DynamicResource ColorNuans}"/>
                                         </GroupBox.BorderBrush>
                                         <StackPanel >
-                                            <RadioButton HorizontalAlignment="Left" Margin="5,10,5,5" Content="По умолчанию: | (вертикальная черта)" Padding="5,1,0,0" IsChecked="True" VerticalAlignment="Top" VerticalContentAlignment="Center">
+                                            <RadioButton x:Name="DefDelRadioButton" HorizontalAlignment="Left" Margin="5,10,5,5" Content="По умолчанию: | (вертикальная черта)" Padding="5,1,0,0" IsChecked="True" VerticalAlignment="Top" VerticalContentAlignment="Center">
                                                 <RadioButton.Foreground>
                                                     <SolidColorBrush Color="{DynamicResource ColorFont}"/>
                                                 </RadioButton.Foreground>
                                             </RadioButton>
-                                            <RadioButton x:Name="radioButton" VerticalAlignment="Top" Padding="5,1,0,0" Margin="5,10,5,5" IsChecked="True" VerticalContentAlignment="Center" HorizontalContentAlignment="Stretch">
+                                            <RadioButton x:Name="CustomDelRadioButton" VerticalAlignment="Top" Padding="5,1,0,0" Margin="5,10,5,5" IsChecked="True" VerticalContentAlignment="Center" HorizontalContentAlignment="Stretch">
                                                 <RadioButton.Foreground>
                                                     <SolidColorBrush Color="{DynamicResource ColorFont}"/>
                                                 </RadioButton.Foreground>
@@ -2731,7 +3008,7 @@ System.Drawing.Bitmap (как и вообще складирование кар�
                                                         </Label.Foreground>
                                                     </Label>
 
-                                                    <TextBox x:Name="SeparatorTextBox" TextWrapping="Wrap" FontWeight="Bold" Padding="2,2,4,5" UndoLimit="0" SpellCheck.IsEnabled="True" VerticalContentAlignment="Center" HorizontalContentAlignment="Center" VerticalAlignment="Center" Margin="0" MaxLines="1" MaxLength="5" IsUndoEnabled="True" MinWidth="60" IsEnabled="{Binding IsChecked, ElementName=radioButton}">
+                                                    <TextBox x:Name="SeparatorTextBox" TextWrapping="Wrap" FontWeight="Bold" Padding="2,2,4,5" UndoLimit="0" SpellCheck.IsEnabled="True" VerticalContentAlignment="Center" HorizontalContentAlignment="Center" VerticalAlignment="Center" Margin="0" MaxLines="1" MaxLength="5" IsUndoEnabled="True" MinWidth="60" IsEnabled="{Binding IsChecked, ElementName=CustomDelRadioButton}">
                                                         <TextBox.Foreground>
                                                             <LinearGradientBrush EndPoint="0.5,1" StartPoint="0.5,0">
                                                                 <GradientStop Color="{DynamicResource ColorSub}" Offset="0"/>
@@ -2812,7 +3089,7 @@ System.Drawing.Bitmap (как и вообще складирование кар�
                         <TextBlock.Foreground>
                             <SolidColorBrush Color="{DynamicResource ColorFont}"/>
                         </TextBlock.Foreground><Run Text="Версия &lt;version&gt;"/></TextBlock>
-                    <Button Content="Показать полную информацию о версии" HorizontalAlignment="Left" VerticalAlignment="Center" Padding="15,5" Margin="15,0" Click="Button_Click">
+                    <Button Content="Показать полную информацию о версии" HorizontalAlignment="Left" VerticalAlignment="Center" Padding="15,5" Margin="15,0" Click="FullInfoVersionShow">
                         <Button.BorderBrush>
                             <SolidColorBrush Color="{DynamicResource ColorNuans}"/>
                         </Button.BorderBrush>
@@ -2824,7 +3101,7 @@ System.Drawing.Bitmap (как и вообще складирование кар�
                         </Button.Foreground>
                     </Button>
                 </StackPanel>
-                <TextBlock x:Name="FullVersionInfoTextBlock" TextWrapping="Wrap" Text="TextBlock" Margin="15" VerticalAlignment="Center" FontSize="10" Visibility="Collapsed">
+                <TextBlock x:Name="FullInfoVersionTextBlock" TextWrapping="Wrap" Text="TextBlock" Margin="15" VerticalAlignment="Center" FontSize="10" Visibility="Collapsed">
                     <TextBlock.Foreground>
                         <SolidColorBrush Color="{DynamicResource ColorAltNuans}"/>
                     </TextBlock.Foreground>

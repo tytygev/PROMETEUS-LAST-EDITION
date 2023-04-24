@@ -21,9 +21,9 @@ using System.IO;
 namespace PROMETEUS_LAST_EDITION
 {
  
- public  class FileFX 
+ public class FileFX 
     {
-        public static List<List<string>> LoadDSV(string path, char separator)
+        public List<List<string>> LoadDSV(string path, char separator)
         {
             string[] lines = File.ReadAllLines(path); //считываем построчно в массив строк
             List<List<string>> listOfLists = new List<List<string>>(); //экземпляр списка списков
@@ -41,7 +41,7 @@ namespace PROMETEUS_LAST_EDITION
 
         }
 
-        public static void SaveDSV(List<List<string>> listOfLists, string path, char separator)
+        public void SaveDSV(List<List<string>> listOfLists, string path, char separator)
         {
           string[] lines = new string[listOfLists.Count];
             for (int i = 0; i < listOfLists.Count; i++) //формируем массив строк с сепараторами из списка списков

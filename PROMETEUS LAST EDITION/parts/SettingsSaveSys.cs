@@ -13,6 +13,8 @@ namespace PROMETEUS_LAST_EDITION
     public class SettingsFX
     {
         public MainWindow mw;
+
+        #region Пользовательские настройки
         /// <summary>
         /// Полностью очищает переменную UserSettings!
         /// </summary>
@@ -59,7 +61,7 @@ namespace PROMETEUS_LAST_EDITION
         public bool ParsingUserSettings(List<string> SettingsList)
         {
             
-            int enumCount = Enum.GetNames(typeof(DefUserSettings.SettingsElem)).Length;//длинна перечеслителя
+            int enumCount = Enum.GetNames(typeof(DefUserSettings.UserSettingsElem)).Length;//длинна перечеслителя
             int listCount = SettingsList.Count;//длинна массива с сохраненными параметрами
             MainWindow.LOG(">>> Длинна SettingsElem и listSettingsOfUser совпадают? - " + (enumCount == listCount).ToString());
             if (enumCount == listCount)
@@ -67,7 +69,7 @@ namespace PROMETEUS_LAST_EDITION
                 MainWindow.LOG(">>> Начат парсинг списка с настройками:");
                 for (int i = 0; i < enumCount; i++)
                 {
-                    string nameElem = Enum.GetName(typeof(DefUserSettings.SettingsElem), i);//имя поля перечеслителя
+                    string nameElem = Enum.GetName(typeof(DefUserSettings.UserSettingsElem), i);//имя поля перечеслителя
 
                     //string typeElem = FindName(nameElem).GetType().ToString().Substring(FindName(nameElem).GetType().ToString().LastIndexOf('.') + 1);
                     string typeElem = MainWindow.UserSettings[nameElem].GetType().ToString().Substring(MainWindow.UserSettings[nameElem].GetType().ToString().LastIndexOf('.') + 1);
@@ -115,17 +117,17 @@ namespace PROMETEUS_LAST_EDITION
         {
             MainWindow.LOG(">>> Подготовка списка значений для сохранения: ");
             List<string> ListSettings = new List<string>();//Список значений всех элементов
-            var enumCount = Enum.GetNames(typeof(DefUserSettings.SettingsElem)).Length;//длинна нумератора SettingsElem, учитывающего все элементы считывающиеся для хранения их свойств
+            var enumCount = Enum.GetNames(typeof(DefUserSettings.UserSettingsElem)).Length;//длинна нумератора SettingsElem, учитывающего все элементы считывающиеся для хранения их свойств
             for (int i = 0; i < enumCount; i++)
             {
-                string nameElem = Enum.GetName(typeof(DefUserSettings.SettingsElem), i);
+                string nameElem = Enum.GetName(typeof(DefUserSettings.UserSettingsElem), i);
                 ListSettings.Add(Convert.ToString(MainWindow.UserSettings[nameElem]));
                 MainWindow.LOG("\tСвойство объекта "+ nameElem +" = "+ Convert.ToString(MainWindow.UserSettings[nameElem]));
             }
             return ListSettings;
         }
         
-        public static bool SaveUserSettings(List<string> userSettings, string userName = null)
+        public  bool SaveUserSettings(List<string> userSettings, string userName = null)//static
         {
             bool flag = true;
             int length = Properties.Settings.Default.UserSettings.Count;
@@ -165,22 +167,26 @@ namespace PROMETEUS_LAST_EDITION
             return true;
         }
 
-
         public bool SetupDefaultUser()
         {
             MainWindow.LOG(">>> Сброс списка настроек: ");
             DefUserSettings defUseSet = new DefUserSettings();
-            var enumCount = Enum.GetNames(typeof(DefUserSettings.SettingsElem)).Length;//длинна нумератора SettingsElem, учитывающего все элементы считывающиеся для хранения их свойств
+            var enumCount = Enum.GetNames(typeof(DefUserSettings.UserSettingsElem)).Length;//длинна нумератора SettingsElem, учитывающего все элементы считывающиеся для хранения их свойств
             for (int i = 0; i < enumCount; i++)
             {
-                string nameElem = Enum.GetName(typeof(DefUserSettings.SettingsElem), i);
+                string nameElem = Enum.GetName(typeof(DefUserSettings.UserSettingsElem), i);
                 MainWindow.UserSettings[nameElem] = defUseSet[nameElem];
                 MainWindow.LOG("\tСвойство объекта " + nameElem + " = " + Convert.ToString(MainWindow.UserSettings[nameElem]));
             }
             return true;
         }
+        #endregion
 
-      
+        #region Глобальные настройки
+       
+        #endregion
+
+
     }
 
     public class DefUserSettings
@@ -192,7 +198,7 @@ namespace PROMETEUS_LAST_EDITION
         //    //TextBox,
         //    //RadioButton,
         //}
-        public enum SettingsElem
+        public enum UserSettingsElem
         {
             //flagResetUserSettings,
             NoShowStartPageCheckBox,
@@ -217,7 +223,53 @@ namespace PROMETEUS_LAST_EDITION
         public  int WindowSizeH { get; set; } = 768;
     }
 
-    
 
- 
+    public class GlobalSettings
+    {
+        public enum GlobalSettingsElem
+        {
+            DefDelRadioButton,
+            CustomDelRadioButton,
+            SeparatorTextBox
+        }
+        public object this[string propertyName]
+        {
+            get { return this.GetType().GetProperty(propertyName).GetValue(this, null); }
+            set { this.GetType().GetProperty(propertyName).SetValue(this, value, null); }
+        }
+        public bool DefDelRadioButton { get; set; } = true;
+        public bool CustomDelRadioButton { get; set; } = false;
+        public string SeparatorTextBox { get; set; } = "";
+
+        public void LoadGeneralProperties(MainWindow mw)
+        {
+            mw.DefDelRadioButton.IsChecked = Properties.Settings.Default.DefDelRadioButton;
+            mw.CustomDelRadioButton.IsChecked = Properties.Settings.Default.CustomDelRadioButton;
+            mw.SeparatorTextBox.Text = Properties.Settings.Default.SeparatorTextBox;
+        }
+
+        public void UploadGeneralProperties(MainWindow mw)
+        {          
+           Properties.Settings.Default.DefDelRadioButton = (bool)mw.DefDelRadioButton.IsChecked;                   
+           Properties.Settings.Default.CustomDelRadioButton = (bool)mw.CustomDelRadioButton.IsChecked;                    
+           Properties.Settings.Default.SeparatorTextBox = mw.SeparatorTextBox.Text;
+        }
+
+        public void ResetGeneralProperties(MainWindow mw)
+        {
+
+           
+                    Properties.Settings.Default.DefDelRadioButton = DefDelRadioButton;                   
+                    Properties.Settings.Default.CustomDelRadioButton =CustomDelRadioButton;                  
+                    Properties.Settings.Default.SeparatorTextBox =SeparatorTextBox;
+
+            mw.DefDelRadioButton.IsChecked =DefDelRadioButton;
+            mw.CustomDelRadioButton.IsChecked =CustomDelRadioButton;
+            mw.SeparatorTextBox.Text =SeparatorTextBox;
+        
+        }
+        
+    }
+
+
 }
