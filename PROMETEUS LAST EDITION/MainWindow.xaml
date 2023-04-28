@@ -1498,16 +1498,16 @@ P.S. Ответ на Основной Вопрос Жизни, Вселенно�
             </Grid.RowDefinitions>
             <StackPanel Margin="0,15,0,0" VerticalAlignment="Top" Grid.RowSpan="3" >
                 <!-- -->
-                <local:MainMenuButton x:Name="KitSetButton"  Margin="20,0,0,0" LabelButtonProperty="Путевые листы" ImageSourceProperty="_KitSet_o.png" MouseEnter="MenuButton_MouseEnter" MouseLeave="MenuButton_MouseLeave" MouseUp="MenuButton_MouseUp"  Padding="0,5"/>
-                <local:MainMenuButton x:Name="PriceButton" Margin="20,0,0,0" LabelButtonProperty="Наряд" ImageSourceProperty="_Price_o.png" MouseEnter="MenuButton_MouseEnter" MouseLeave="MenuButton_MouseLeave" MouseUp="MenuButton_MouseUp" Padding="0,5"/>
-                <local:MainMenuButton x:Name="DBEditButton"  Margin="20,0,0,0" LabelButtonProperty="Редактор БД" ImageSourceProperty="_DBedit_o.png" MouseEnter="MenuButton_MouseEnter" MouseLeave="MenuButton_MouseLeave" MouseUp="MenuButton_MouseUp" Padding="0,5" />
-                <local:MainMenuButton x:Name="TaxiButton" Margin="20,0,0,0" LabelButtonProperty="Подсчёт такси" MouseEnter="MenuButton_MouseEnter" MouseLeave="MenuButton_MouseLeave" MouseUp="MenuButton_MouseUp" ImageSourceProperty="_Taxi_o.png" Padding="0,5" />
-                <local:MainMenuButton x:Name="SettingsButton" Margin="20,0,0,0" LabelButtonProperty="Настройки" ImageSourceProperty="_Settings_o.png" MouseEnter="MenuButton_MouseEnter" MouseLeave="MenuButton_MouseLeave" MouseUp="MenuButton_MouseUp" Padding="0,5" />
-                <local:MainMenuButton x:Name="AboutButton" Margin="20,0,0,0" LabelButtonProperty="О программе" MouseEnter="MenuButton_MouseEnter" MouseLeave="MenuButton_MouseLeave" MouseUp="MenuButton_MouseUp" ImageSourceProperty="_About_o.png" Padding="0,5" />
+                <local:MainMenuButton x:Name="KitSetButton"  Margin="20,0,0,0" LabelButtonProperty="Путевые листы"  MouseEnter="MenuButton_MouseEnter" MouseLeave="MenuButton_MouseLeave" MouseUp="MenuButton_MouseUp"  Padding="0,5"/>
+                <local:MainMenuButton x:Name="PriceButton" Margin="20,0,0,0" LabelButtonProperty="Наряд"  MouseEnter="MenuButton_MouseEnter" MouseLeave="MenuButton_MouseLeave" MouseUp="MenuButton_MouseUp" Padding="0,5"/>
+                <local:MainMenuButton x:Name="DBEditButton"  Margin="20,0,0,0" LabelButtonProperty="Редактор БД"  MouseEnter="MenuButton_MouseEnter" MouseLeave="MenuButton_MouseLeave" MouseUp="MenuButton_MouseUp" Padding="0,5" />
+                <local:MainMenuButton x:Name="TaxiButton" Margin="20,0,0,0" LabelButtonProperty="Подсчёт такси" MouseEnter="MenuButton_MouseEnter" MouseLeave="MenuButton_MouseLeave" MouseUp="MenuButton_MouseUp"  Padding="0,5" />
+                <local:MainMenuButton x:Name="SettingsButton" Margin="20,0,0,0" LabelButtonProperty="Настройки"  MouseEnter="MenuButton_MouseEnter" MouseLeave="MenuButton_MouseLeave" MouseUp="MenuButton_MouseUp" Padding="0,5" />
+                <local:MainMenuButton x:Name="AboutButton" Margin="20,0,0,0" LabelButtonProperty="О программе" MouseEnter="MenuButton_MouseEnter" MouseLeave="MenuButton_MouseLeave" MouseUp="MenuButton_MouseUp"  Padding="0,5" />
 
             </StackPanel>
             <StackPanel Margin="0" VerticalAlignment="Top" Grid.Row="1" >
-                <local:MainMenuButton x:Name="ExitButton" Margin="0,5" LabelButtonProperty="Выход" ImageSourceProperty="_Exit_o.png" MouseEnter="MenuButton_MouseEnter" MouseLeave="MenuButton_MouseLeave" MouseUp="MenuButton_MouseUp" HorizontalAlignment="Center" />
+                <local:MainMenuButton x:Name="ExitButton" Margin="0,5" LabelButtonProperty="Выход" MouseEnter="MenuButton_MouseEnter" MouseLeave="MenuButton_MouseLeave" MouseUp="MenuButton_MouseUp" HorizontalAlignment="Center" />
                 <TextBlock Margin="0,5,20,5" TextWrapping="Wrap" Text="ver.: {0.0.0.0a}" VerticalAlignment="Top" FontSize="10" HorizontalAlignment="Right">
                     <TextBlock.Foreground>
                         <SolidColorBrush Color="{DynamicResource ColorFont}"/>
@@ -1528,12 +1528,12 @@ P.S. Ответ на Основной Вопрос Жизни, Вселенно�
                 <RowDefinition Height="*"/>
             </Grid.RowDefinitions>
             <StackPanel Margin="0" Orientation="Horizontal">
-                <local:SubMenuButton Margin="0" ImageSourceProperty="_New32_o.png" MouseEnter="MenuButton_MouseEnter" MouseLeave="MenuButton_MouseLeave" MouseUp="MenuButton_MouseUp" HorizontalAlignment="Center" />
-                <local:SubMenuButton Margin="0" ImageSourceProperty="_Open32_o.png" MouseEnter="MenuButton_MouseEnter" MouseLeave="MenuButton_MouseLeave" MouseUp="MenuButton_MouseUp" HorizontalAlignment="Center" />
-                <local:SubMenuButton Margin="0" ImageSourceProperty="_Save32_o.png" MouseEnter="MenuButton_MouseEnter" MouseLeave="MenuButton_MouseLeave" MouseUp="MenuButton_MouseUp" HorizontalAlignment="Center" />
-                <local:SubMenuButton Margin="0" ImageSourceProperty="_SaveAs32_o.png" MouseEnter="MenuButton_MouseEnter" MouseLeave="MenuButton_MouseLeave" MouseUp="MenuButton_MouseUp" HorizontalAlignment="Center" />
-                <local:SubMenuButton Margin="0" ImageSourceProperty="_Print32_o.png" MouseEnter="MenuButton_MouseEnter" MouseLeave="MenuButton_MouseLeave" MouseUp="MenuButton_MouseUp" HorizontalAlignment="Center" />
-                <local:SubMenuButton Margin="0" ImageSourceProperty="_PrintF32_o.png" MouseEnter="MenuButton_MouseEnter" MouseLeave="MenuButton_MouseLeave" MouseUp="MenuButton_MouseUp" HorizontalAlignment="Center" />
+                <local:SubMenuButton Margin="0"  MouseEnter="MenuButton_MouseEnter" MouseLeave="MenuButton_MouseLeave" MouseUp="MenuButton_MouseUp" HorizontalAlignment="Center" />
+                <local:SubMenuButton Margin="0"  MouseEnter="MenuButton_MouseEnter" MouseLeave="MenuButton_MouseLeave" MouseUp="MenuButton_MouseUp" HorizontalAlignment="Center" />
+                <local:SubMenuButton Margin="0" MouseEnter="MenuButton_MouseEnter" MouseLeave="MenuButton_MouseLeave" MouseUp="MenuButton_MouseUp" HorizontalAlignment="Center" />
+                <local:SubMenuButton Margin="0"  MouseEnter="MenuButton_MouseEnter" MouseLeave="MenuButton_MouseLeave" MouseUp="MenuButton_MouseUp" HorizontalAlignment="Center" />
+                <local:SubMenuButton Margin="0"  MouseEnter="MenuButton_MouseEnter" MouseLeave="MenuButton_MouseLeave" MouseUp="MenuButton_MouseUp" HorizontalAlignment="Center" />
+                <local:SubMenuButton Margin="0"  MouseEnter="MenuButton_MouseEnter" MouseLeave="MenuButton_MouseLeave" MouseUp="MenuButton_MouseUp" HorizontalAlignment="Center" />
 
 
             </StackPanel>

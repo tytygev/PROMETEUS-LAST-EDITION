@@ -281,31 +281,7 @@
     <WCFMetadata Include="Connected Services\" />
   </ItemGroup>
   <ItemGroup>
-    <Resource Include="_KitSet_o.png" />
-  </ItemGroup>
-  <ItemGroup>
-    <Resource Include="_Price_o.png" />
-  </ItemGroup>
-  <ItemGroup>
-    <Resource Include="_DBedit_o.png" />
-  </ItemGroup>
-  <ItemGroup>
-    <Resource Include="_Settings_o.png" />
-  </ItemGroup>
-  <ItemGroup>
-    <Resource Include="_Taxi_o.png" />
-    <Resource Include="_PrintF32_o.png" />
-    <Resource Include="_SaveAs32_o.png" />
-    <Resource Include="_Save32_o.png" />
-    <Resource Include="_Open32_o.png" />
-    <Resource Include="_Print32_o.png" />
-    <Resource Include="PICTUREs.png" />
-    <Resource Include="_New32_o.png" />
-    <Resource Include="_Exit_o.png" />
-    <Resource Include="PICTURE.png" />
     <Resource Include="icon.ico" />
-    <Content Include="Windows Menu Command.wav" />
-    <Resource Include="_About_o.png" />
   </ItemGroup>
   <ItemGroup>
     <COMReference Include="Microsoft.Office.Core">

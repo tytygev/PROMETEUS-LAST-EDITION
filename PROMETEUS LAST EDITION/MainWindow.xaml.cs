@@ -61,7 +61,9 @@ namespace PROMETEUS_LAST_EDITION
 
 
             var database = new DataBase();
-            //database.Data.City = new City("Mahachkala", false);
+            database.Data.City = new City("Mahachkala", false);
+
+            database.Data.City = new City("Bahta", true);
             database.Save();
 
             var settings = new Settings();
