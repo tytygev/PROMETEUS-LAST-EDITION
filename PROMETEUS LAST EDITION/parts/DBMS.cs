@@ -3,6 +3,8 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
+using System.Windows.Controls;
+using System.Windows.Data;
 
 namespace PROMETEUS_LAST_EDITION
 {
@@ -31,8 +33,8 @@ namespace PROMETEUS_LAST_EDITION
 
             //mw.DBMSdataGrid.ItemsSource = listOfLists;
 
-            int Rows = listOfLists.Count();
-            int Cols = listOfLists[0].Count();
+            int rows = listOfLists.Count();
+            int cols = listOfLists[0].Count();
 
             //mw.DBMSdataGrid.Row = N;
             //dataGridView1.ColumnCount = M;
@@ -43,9 +45,82 @@ namespace PROMETEUS_LAST_EDITION
             //    for (c = 0; c < Cols; ++j)
             //        mw.DBMSdataGrid.Rows[rr][cc + 1] = data[rr, cc];
             //mw.DBMSdataGrid.Row
+
+            //DataGridTextColumn textColumn = new DataGridTextColumn();
+            //                    textColumn.Header = "First Name";
+            //                    textColumn.Binding = new Binding("хуета");
+            //                    mw.DBMSdataGrid.Columns.Add(textColumn);
+            //            mw.DBMSdataGrid.Items.Add(mw.DBMSdataGrid.Columns);
+
+            //            for (int r = 0; r < rows; r++)
+            //            {
+
+            //                for (int c = 0; c < cols; c++)
+
+            //                {
+
+
+
+            //                }
+
+            //            }
+
+
+
+
+
+            DataGridTextColumn col1 = new DataGridTextColumn();
+            DataGridTextColumn col2 = new DataGridTextColumn();
+            DataGridTextColumn col3 = new DataGridTextColumn();
+            DataGridTextColumn col4 = new DataGridTextColumn();
+            DataGridTextColumn col5 = new DataGridTextColumn();
+            mw.DBMSdataGrid.Columns.Add(col1);
+            mw.DBMSdataGrid.Columns.Add(col2);
+            mw.DBMSdataGrid.Columns.Add(col3);
+            mw.DBMSdataGrid.Columns.Add(col4);
+            mw.DBMSdataGrid.Columns.Add(col5);
+            col1.Binding = new Binding("id");
+            col2.Binding = new Binding("title");
+            col3.Binding = new Binding("jobint");
+            col4.Binding = new Binding("lastrun");
+            col5.Binding = new Binding("nextrun");
+            col1.Header = "ID";
+            col2.Header = "title";
+            col3.Header = "jobint";
+            col4.Header = "lastrun";
+            col5.Header = "nextrun";
+
+            mw.DBMSdataGrid.Items.Add(new MyData { id = 1, title = "Test", jobint = 2, lastrun = new DateTime(), nextrun = new DateTime() });
+            mw.DBMSdataGrid.Items.Add(new MyData { id = 12, title = "Test2", jobint = 24, lastrun = new DateTime(), nextrun = new DateTime() });
+
+
+
+
+
             return true;
         }
 
-          
+        //            Решение 3
+        //Привет!
+        //Используя учебник, найденный здесь,
+        //я, программист
+        //, проработал пример и адаптировал его для ваших нужд.
+        //Развернуть ▼   
+
+        public struct MyData
+        {
+            public int id { set; get; }
+            public string title { set; get; }
+            public int jobint { set; get; }
+            public DateTime lastrun { set; get; }
+            public DateTime nextrun { set; get; }
+        }
+
+
+
+        //Код, показанный выше, кажется довольно простым.XAML выглядит следующим образом:
+
+        //<DataGrid x:Name= "myDataGrid" />
+
     }
 }

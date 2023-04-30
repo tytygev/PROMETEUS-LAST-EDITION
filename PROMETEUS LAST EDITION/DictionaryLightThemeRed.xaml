@@ -3,16 +3,19 @@
                      xmlns:local="clr-namespace:PROMETEUS_LAST_EDITION">
     <!-- _LightTheme 5=d40026 -->
 
-     <Color x:Key="ColorMain">#FFd8d8d8</Color>
-        <Color x:Key="ColorSub">#FFc0c0c0</Color>
-        <Color x:Key="ColorNuans">#FF909090</Color>
+    <Color x:Key="ColorMain">#FFd8d8d8</Color>
+    <Color x:Key="ColorMainNA">#d8d8d8</Color>
+    <Color x:Key="ColorSub">#FFc0c0c0</Color>
+    <Color x:Key="ColorNuans">#FF909090</Color>
+    <Color x:Key="ColorNuansNA">#909090</Color>
     <Color x:Key="ColorAltNuans">#FFd40026</Color>
-        <Color x:Key="ColorGridWS">#FFd8d8d8</Color>
-
+    <Color x:Key="ColorAltNuansNA">#d40026</Color>
+    <Color x:Key="ColorGridWS">#FFd8d8d8</Color>
+    <Color x:Key="ColorGridHeaderNA">#c0c0c0</Color>
        
-        <Color x:Key="ColorFont">#FF000000</Color>
+    <Color x:Key="ColorFont">#FF000000</Color>
     <Color x:Key="ColorAltFont">#FFd40026</Color>
-        <Color x:Key="ColorInvertFont">#FFFFFFF5</Color>
+    <Color x:Key="ColorInvertFont">#FFFFFFF5</Color>
 
     <Color x:Key="ItemsviewHover_Background">#1Fd40026</Color>
     <Color x:Key="ItemsviewHover_Border">#A8d40026</Color>

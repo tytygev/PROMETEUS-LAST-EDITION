@@ -1,20 +1,23 @@
 ﻿<ResourceDictionary xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
                     xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
-                     xmlns:local="clr-namespace:PROMETEUS_LAST_EDITION">
+                    xmlns:local="clr-namespace:PROMETEUS_LAST_EDITION">
     <!-- _LightTheme iz=481475-->
 
-     <Color x:Key="ColorMain">#FFd8d8d8</Color>
-        <Color x:Key="ColorSub">#FFc0c0c0</Color>
-        <Color x:Key="ColorNuans">#FF909090</Color>
+    <Color x:Key="ColorMain">#FFd8d8d8</Color>
+    <Color x:Key="ColorMainNA">#d8d8d8</Color>
+    <Color x:Key="ColorSub">#FFc0c0c0</Color>
+    <Color x:Key="ColorNuans">#FF909090</Color>
+    <Color x:Key="ColorNuansNA">#909090</Color>
     <Color x:Key="ColorAltNuans">#FF481475</Color>
-        <Color x:Key="ColorGridWS">#FFd8d8d8</Color>
+    <Color x:Key="ColorAltNuansNA">#481475</Color>
+    <Color x:Key="ColorGridWS">#FFd8d8d8</Color>
+    <Color x:Key="ColorGridHeaderNA">#c0c0c0</Color>
 
-       
-        <Color x:Key="ColorFont">#FF000000</Color>
+    <Color x:Key="ColorFont">#FF000000</Color>
     <Color x:Key="ColorAltFont">#FF481475</Color>
-        <Color x:Key="ColorInvertFont">#FFFFFFF5</Color>
+    <Color x:Key="ColorInvertFont">#FFFFFFF5</Color>
 
-        <Color x:Key="ItemsviewHover_Background">#1F5133b2</Color>
+    <Color x:Key="ItemsviewHover_Background">#1F5133b2</Color>
     <Color x:Key="ItemsviewHover_Border">#A8481475</Color>
     <Color x:Key="ItemsviewSelected_Background">#3D481475</Color>
     <Color x:Key="ItemsviewSelected_Border">#FF481475</Color>

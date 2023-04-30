@@ -4,11 +4,14 @@
     <!--  _DarkTheme  ren = ff9900  -->
 
     <Color x:Key="ColorMain">#FF282828</Color>
+    <Color x:Key="ColorMainNA">#282828</Color>
     <Color x:Key="ColorSub">#FF404040</Color>
     <Color x:Key="ColorNuans">#FF707070</Color>
+    <Color x:Key="ColorNuansNA">#707070</Color>
     <Color x:Key="ColorAltNuans">#FFFF9523</Color>
+    <Color x:Key="ColorAltNuansNA">#FF9523</Color>
     <Color x:Key="ColorGridWS">#FF282828</Color>
-
+    <Color x:Key="ColorGridHeaderNA">#404040</Color>
 
     <Color x:Key="ColorFont">#FFFFFFF5</Color>
     <Color x:Key="ColorAltFont">#FFFF9523</Color>
