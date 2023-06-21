@@ -14,33 +14,14 @@
 
     <Window.Resources>
 
-
-
-
-
         <!--#endregion groupbox template-->
         <!--#endregion TEXTBOX template-->
         <!--#endregion OptionMark template-->
-
-
         <!--endregion  COMBOBOX template -->
-
-
         <!--#endregion RADIOBUTTON template-->
-
-
         <!--#endregion BUTTON template-->
-
-
         <!--#endregion ScrollBar template-->
-
-
         <ZoomPercentageConverter x:Key="ZoomPercentageConverter"/>
-
-
-
-
-
         <BooleanToVisibilityConverter x:Key="BooleanToVisibilityConverter"/>
 
         <System:String x:Key="License" xml:space="preserve">Copyright © 2017—2023 Каримов Александр и «ХТО Продакшн» ™ при участии Каримова Михаила (aka MiXeRaToS, aka Mortron)  
@@ -1487,7 +1468,13 @@ P.S. Ответ на Основной Вопрос Жизни, Вселенно�
                 </Setter.Value>
             </Setter>
         </Style>
-        <Style x:Key="{ComponentResourceKey ResourceId=DataGridSelectAllButtonStyle, TypeInTargetAssembly={x:Type DataGrid}}" TargetType="{x:Type Button}">
+        <!--#endregion TabItem template-->
+
+
+
+
+        <!--#region DataGrid template-->
+        <!--<Style x:Key="{ComponentResourceKey ResourceId=DataGridSelectAllButtonStyle, TypeInTargetAssembly={x:Type DataGrid}}" TargetType="{x:Type Button}">
             <Setter Property="Template">
                 <Setter.Value>
                     <ControlTemplate TargetType="{x:Type Button}">
@@ -1513,7 +1500,7 @@ P.S. Ответ на Основной Вопрос Жизни, Вселенно�
         <Style TargetType="{x:Type DataGrid}">
             <Setter Property="Background" Value="{DynamicResource {x:Static SystemColors.ControlBrushKey}}"/>
             <Setter Property="Foreground" Value="{DynamicResource {x:Static SystemColors.ControlTextBrushKey}}"/>
-            <Setter Property="BorderBrush" Value="{DynamicResource ColorNuans}"/>
+            <Setter Property="BorderBrush" Value="{DynamicResource ColorNuansNA}"/>
             <Setter Property="BorderThickness" Value="1"/>
             <Setter Property="RowDetailsVisibilityMode" Value="VisibleWhenSelected"/>
             <Setter Property="ScrollViewer.CanContentScroll" Value="true"/>
@@ -1737,7 +1724,7 @@ P.S. Ответ на Основной Вопрос Жизни, Вселенно�
             </Setter>
             <Style.Triggers>
                 <Trigger Property="IsSelected" Value="True">
-                    <Setter Property="Background" Value="{DynamicResource ColorAltNuansNA}"/>
+                    <Setter Property="Background" Value="#ff0000"/>
                     <Setter Property="Foreground" Value="{DynamicResource {x:Static SystemColors.HighlightTextBrushKey}}"/>
                     <Setter Property="BorderBrush" Value="{DynamicResource {x:Static SystemColors.HighlightBrushKey}}"/>
                 </Trigger>
@@ -1761,7 +1748,7 @@ P.S. Ответ на Основной Вопрос Жизни, Вселенно�
         <Style x:Key="DataGridStyle1" TargetType="{x:Type DataGrid}">
             <Setter Property="Background" Value="{DynamicResource {x:Static SystemColors.ControlBrushKey}}"/>
             <Setter Property="Foreground" Value="{DynamicResource {x:Static SystemColors.ControlTextBrushKey}}"/>
-            <Setter Property="BorderBrush" Value="{DynamicResource ColorNuans}"/>
+            <Setter Property="BorderBrush" Value="{DynamicResource ColorNuansNA}"/>
             <Setter Property="BorderThickness" Value="1"/>
             <Setter Property="RowDetailsVisibilityMode" Value="VisibleWhenSelected"/>
             <Setter Property="ScrollViewer.CanContentScroll" Value="true"/>
@@ -1823,8 +1810,8 @@ P.S. Ответ на Основной Вопрос Жизни, Вселенно�
                     <Setter Property="ScrollViewer.CanContentScroll" Value="false"/>
                 </MultiTrigger>
             </Style.Triggers>
-        </Style>
-        <!--#ENDregion TabItem template-->
+        </Style>-->
+        <!--#endregion DataGrid template-->
 
     </Window.Resources>
     <Window.Foreground>
@@ -2530,9 +2517,8 @@ System.Drawing.Bitmap (как и вообще складирование кар�
             </Grid.Background>
             <Grid.RowDefinitions>
                 <RowDefinition Height="Auto"/>
-                <RowDefinition/>
             </Grid.RowDefinitions>
-            <StackPanel >
+            <StackPanel ScrollViewer.HorizontalScrollBarVisibility="Visible" >
                 <Menu Margin="0,10" VerticalAlignment="Top" FontSize="14" BorderThickness="0,0,0,1" Padding="10,0">
                     <Menu.Foreground>
                         <SolidColorBrush Color="{DynamicResource ColorFont}"/>
@@ -2565,7 +2551,7 @@ System.Drawing.Bitmap (как и вообще складирование кар�
                         </MenuItem.Foreground>
                     </MenuItem>
                 </Menu>
-                <DataGrid x:Name="DBMSdataGrid" Margin="10" CanUserReorderColumns="False" CanUserResizeRows="False" MinRowHeight="10" ItemsPanel="{DynamicResource ItemsPanelTemplate1}" AutoGenerateColumns="False" VerticalScrollBarVisibility="Visible" HorizontalScrollBarVisibility="Visible" ColumnHeaderStyle="{DynamicResource DataGridColumnHeaderStyle1}" CellStyle="{DynamicResource DataGridCellStyle1}" Padding="0" DropLocationIndicatorStyle="{DynamicResource DataGridStyle1}">
+               <!-- <DataGrid x:Name="DBMSdataGrid" Margin="10" CanUserReorderColumns="true" CanUserResizeRows="true" MinRowHeight="10"  AutoGenerateColumns="False" VerticalScrollBarVisibility="Visible" HorizontalScrollBarVisibility="Visible" Padding="0" EnableRowVirtualization="False" CanUserResizeColumns="true">
                     <DataGrid.RowBackground>
                         <SolidColorBrush Color="{DynamicResource ColorGridWS}"/>
                     </DataGrid.RowBackground>
@@ -2584,9 +2570,43 @@ System.Drawing.Bitmap (как и вообще складирование кар�
                     <DataGrid.BorderBrush>
                         <SolidColorBrush Color="{DynamicResource ColorNuans}"/>
                     </DataGrid.BorderBrush>
-                </DataGrid>
+                </DataGrid>-->
+                
+                
+                <ScrollViewer Margin="10" HorizontalScrollBarVisibility="Visible">
+                    <Grid x:Name="DBMSGrid" HorizontalAlignment="Left" Margin="10">
+                    <Grid.RowDefinitions>
+                        <RowDefinition Height="Auto"/>
+                        <RowDefinition/>
+                    </Grid.RowDefinitions>
+                    <Grid.ColumnDefinitions>
+                        <ColumnDefinition Width="Auto"/>
+                        <ColumnDefinition/>
+                    </Grid.ColumnDefinitions>
+                    <Button Grid.Row="0" Grid.Column="0" Margin="0" MinWidth="10" MinHeight="10" FontSize="10" Content=""/>
+                    <Button Grid.Row="0" Grid.Column="1" Margin="0" MinWidth="10" MinHeight="10" FontSize="10" FontWeight="Bold" Content="Заголовок" Padding="5,1" HorizontalContentAlignment="Left" VerticalContentAlignment="Center">
+                        <Button.Foreground>
+                            <SolidColorBrush Color="{DynamicResource ColorFont}"/>
+                        </Button.Foreground>
+                    </Button>
+                    <Button Grid.Row="1" Grid.Column="0" Margin="0" MinWidth="10" MinHeight="10" FontSize="10" FontWeight="Bold" Content="⏵*" Padding="5,1" >
+                        <Button.Foreground>
+                            <SolidColorBrush Color="{DynamicResource ColorFont}"/>
+                        </Button.Foreground>
+                    </Button>
+                    <TextBox Grid.Row="1" Grid.Column="1" Margin="0" MinWidth="10" MinHeight="10" FontSize="10" Padding="0,-5" Text="Бороненко Ю.В." >
+                        <TextBox.Foreground>
+                            <SolidColorBrush Color="{DynamicResource ColorFont}"/>
+                        </TextBox.Foreground>
+                        <TextBox.SelectionBrush>
+                            <SolidColorBrush Color="{DynamicResource ColorAltNuans}"/>
+                        </TextBox.SelectionBrush>
+                    </TextBox>
 
+                    </Grid>
+                </ScrollViewer>
             </StackPanel>
+
         </Grid>
         <Grid x:Name="TaxiPage" Margin="0" Grid.Column="1" ScrollViewer.VerticalScrollBarVisibility="Auto" Width="797" d:IsHidden="True">
             <Grid.Background>

@@ -10,6 +10,7 @@
     <Color x:Key="ColorNuansNA">#707070</Color>
     <Color x:Key="ColorAltNuans">#FFFF9523</Color>
     <Color x:Key="ColorAltNuansNA">#FF9523</Color>
+    <Color x:Key="aaa">orange</Color>
     <Color x:Key="ColorGridWS">#FF282828</Color>
     <Color x:Key="ColorGridHeaderNA">#404040</Color>
 
