@@ -42,7 +42,7 @@ namespace PROMETEUS_LAST_EDITION
             InitializeButtons();
            
 
-            new DBMS().ParseToDGrid(this, 1);
+            new DBMS().ParseDB(this, 1);
 
 
 

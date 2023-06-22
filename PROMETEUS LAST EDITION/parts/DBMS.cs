@@ -5,6 +5,8 @@ using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Controls;
 using System.Windows.Data;
+using System.Windows;
+using System.Windows.Media;
 
 namespace PROMETEUS_LAST_EDITION
 {
@@ -43,11 +45,90 @@ namespace PROMETEUS_LAST_EDITION
 
             for (int r = 0; r < rows; r++)
             {
+                RowDefinition rowDef = new RowDefinition();
+                mw.DBMSGrid.RowDefinitions.Add(rowDef);
+
                 for (int c = 0; c < cols; c++)
                 {
                     ColumnDefinition colDef = new ColumnDefinition();
                     mw.DBMSGrid.ColumnDefinitions.Add(colDef);
 
+                    //System.Windows.UIElement body;
+                    System.Windows.UIElement body =new System.Windows.UIElement();
+                    if (r == 0)
+                    {                       //Button
+                                            //Margin = "0"
+                                            //Padding = "5,1"
+                                            //MinWidth = "10"
+                                            //MinHeight = "10"
+                                            //FontSize = "10"
+                                            //FontWeight = "Bold"
+                                            //HorizontalContentAlignment = "Left"
+                                            //VerticalContentAlignment = "Center"
+                                            //Content = ""
+                                            //< Button.Foreground >< SolidColorBrush Color = "{DynamicResource ColorFont}" /></ Button.Foreground >
+                       
+                        Button butt = new Button() as Button;
+                        mw.DBMSGrid.Children.Add(butt);
+                        butt.Margin = new Thickness(0);
+                        butt.Padding = new Thickness(5, 1, 5, 1);
+                        butt.MinWidth = 10;
+                        butt.MinHeight = 10;
+                        butt.FontSize = 10;
+                        butt.FontWeight = FontWeights.Bold;
+                        butt.FontFamily = new FontFamily("Segoe UI");
+                        butt.HorizontalContentAlignment = HorizontalAlignment.Left;
+                        butt.VerticalContentAlignment = VerticalAlignment.Center;
+                        //butt.Foreground = (System.Windows.Media.SolidColorBrush)Application.Current.Resources["ColorFont"];
+                        Color color = new Color();
+                        color = (Color)Application.Current.Resources["ColorFont"];
+                        butt.Foreground = new SolidColorBrush (color);
+                        butt.Content = listOfLists[r][c];
+
+                        body = butt as System.Windows.UIElement;
+                    }
+                    else
+                    {                       //TextBox
+                                            //Margin = "0"
+                                            //Padding = "0,-5"
+                                            //MinWidth = "10"
+                                            //MinHeight = "10"
+                                            //FontSize = "10"
+                                            //Text = ""                
+                                            //< TextBox.Foreground >< SolidColorBrush Color = "{DynamicResource ColorFont}" />                
+                                            //< TextBox.SelectionBrush >< SolidColorBrush Color = "{DynamicResource ColorAltNuans}" />               
+
+                        TextBox text = new TextBox();
+                        mw.DBMSGrid.Children.Add(text);
+                        text.Margin = new Thickness(0);
+                        text.Padding = new Thickness(0, -5, 0, -5);
+                        text.MinWidth = 10;
+                        text.MinHeight = 10;
+                        text.FontSize = 10;
+                        text.FontFamily = new FontFamily("Segoe UI");
+                        text.HorizontalContentAlignment = HorizontalAlignment.Left;
+                        text.VerticalContentAlignment = VerticalAlignment.Center;
+                        //text.Foreground = (System.Windows.Media.SolidColorBrush)Application.Current.Resources["ColorFont"];
+                        //text.SelectionBrush = (System.Windows.Media.SolidColorBrush)Application.Current.Resources["ColorAltNuans"];
+                        Color color = new Color();
+                        color = (Color)Application.Current.Resources["ColorFont"];
+                        text.Foreground = new SolidColorBrush(color);
+                        color = (Color)Application.Current.Resources["ColorAltNuans"];
+                        text.SelectionBrush = new SolidColorBrush(color);
+                        text.Text = listOfLists[r][c];
+                        
+                        body = text as System.Windows.UIElement;
+                    }
+
+                        Grid.SetRow(body, r);
+                        Grid.SetColumn(body, c+1);
+
+
+                
+                    
+
+
+                   
 
                 }
 
