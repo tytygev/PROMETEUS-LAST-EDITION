@@ -40,11 +40,12 @@ namespace PROMETEUS_LAST_EDITION
 
             InitializeComponent();
             InitializeButtons();
-           
-
-            new DBMS().ParseDB(this, 1);
 
 
+            //new DBMS().ParseDB(this, 1);
+            new DBMS().CreateClearGrid(this);
+            new DBMS().CreateDataGrid(this, new DBMS().ParseDB(this, 1));
+            new DBMS().FinishedCreateGrid(this);
 
             //Завершение загрузки
             wav = new SoundPlayer();
@@ -53,6 +54,7 @@ namespace PROMETEUS_LAST_EDITION
             new UI().FooterPromtShow(this,"Программа загружена и готова к работе");
             LOG("< < < Программа загружена и готова к работе > > >");
             flagInitEnd = true;
+            
         }
 
         private void InitializeButtons()
@@ -94,6 +96,7 @@ namespace PROMETEUS_LAST_EDITION
         private void MenuButton_MouseUp(object sender, MouseButtonEventArgs e)
         {
             wav.Stream = Properties.Resources.ding; wav.Play();
+            new DBMS().ColumnWidthLeveling(DBMSGridHeader, DBMSGrid);
             //
         }
         //установка значений свойств объектов в соотвествии с настройками

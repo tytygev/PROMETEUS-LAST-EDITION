@@ -2517,12 +2517,13 @@ System.Drawing.Bitmap (как и вообще складирование кар�
             </Grid.Background>
             <Grid.RowDefinitions>
                 <RowDefinition Height="Auto"/>
+                <RowDefinition Height="Auto"/>
                 <RowDefinition Height="*"/>
             </Grid.RowDefinitions>
 
-            
-            <StackPanel Margin="15" Orientation="Horizontal">
-                <Menu Margin="0,10,0,0" FontSize="14" BorderThickness="0,0,0,1" Padding="10,0" VerticalAlignment="Top" HorizontalContentAlignment="Stretch">
+
+            <StackPanel x:Name="stackPanel4" Margin="15" Orientation="Horizontal" >
+                <Menu Margin="0,10,0,0" FontSize="14" BorderThickness="0,0,0,1" Padding="10,0" VerticalAlignment="Top" HorizontalContentAlignment="Stretch" MinWidth="{Binding ActualWidth, ElementName=stackPanel4, Mode=OneWay}">
                     <Menu.Foreground>
                         <SolidColorBrush Color="{DynamicResource ColorFont}"/>
                     </Menu.Foreground>
@@ -2532,39 +2533,50 @@ System.Drawing.Bitmap (как и вообще складирование кар�
                     <Menu.Background>
                         <SolidColorBrush Color="{DynamicResource ColorSub}"/>
                     </Menu.Background>
-                    <MenuItem Header="БД">
+                    <MenuItem Header="БД" Padding="6,2">
                         <MenuItem.Foreground>
                             <SolidColorBrush Color="{DynamicResource ColorFont}"/>
                         </MenuItem.Foreground>
                         <System:String>Padding="6"</System:String>
                     </MenuItem>
 
-                    <MenuItem Header="Файл">
+                    <MenuItem Header="Файл" Padding="6,2">
                         <MenuItem.Foreground>
                             <SolidColorBrush Color="{DynamicResource ColorFont}"/>
                         </MenuItem.Foreground>
                     </MenuItem>
-                    <MenuItem Header="Правка">
+                    <MenuItem Header="Правка" Padding="6,2">
                         <MenuItem.Foreground>
                             <SolidColorBrush Color="{DynamicResource ColorFont}"/>
                         </MenuItem.Foreground>
                     </MenuItem>
-                    <MenuItem Header="Вид">
+                    <MenuItem Header="Вид" Padding="6,2">
                         <MenuItem.Foreground>
                             <SolidColorBrush Color="{DynamicResource ColorFont}"/>
                         </MenuItem.Foreground>
                     </MenuItem>
                 </Menu>
             </StackPanel>
-            <Border x:Name="border" BorderThickness="1" Margin="20" Grid.Row="1"  >
-                    <Border.Background>
-                        <SolidColorBrush Color="{DynamicResource ColorMain}"/>
-                    </Border.Background>
-                    <Border.BorderBrush>
-                        <SolidColorBrush Color="{DynamicResource ColorNuans}"/>
-                    </Border.BorderBrush>
-                
-            <!--<GroupBox Margin="10" Grid.Row="1" ScrollViewer.VerticalScrollBarVisibility="Auto" ScrollViewer.HorizontalScrollBarVisibility="Auto" VerticalContentAlignment="Stretch" FontSize="16" Header="" BorderThickness="1" Padding="0" UseLayoutRounding="False" FontWeight="Bold">
+            <Border BorderThickness="1" Margin="20,10,20,0" Grid.Row="1">
+                <Border.Background>
+                    <SolidColorBrush Color="{DynamicResource ColorGridHeaderNA}"/>
+                </Border.Background>
+                <Border.BorderBrush>
+                    <SolidColorBrush Color="{DynamicResource ColorNuans}"/>
+                </Border.BorderBrush>
+
+
+                <Grid x:Name="DBMSGridHeader" Margin="1,0" MinHeight="10" HorizontalAlignment="Left"/>
+            </Border>
+            <Border x:Name="border" BorderThickness="1" Margin="20,0,20,20" Grid.Row="2"  >
+                <Border.Background>
+                    <SolidColorBrush Color="{DynamicResource ColorMain}"/>
+                </Border.Background>
+                <Border.BorderBrush>
+                    <SolidColorBrush Color="{DynamicResource ColorNuans}"/>
+                </Border.BorderBrush>
+
+                <!--<GroupBox Margin="10" Grid.Row="1" ScrollViewer.VerticalScrollBarVisibility="Auto" ScrollViewer.HorizontalScrollBarVisibility="Auto" VerticalContentAlignment="Stretch" FontSize="16" Header="" BorderThickness="1" Padding="0" UseLayoutRounding="False" FontWeight="Bold">
                 <GroupBox.BorderBrush>
                     <SolidColorBrush Color="{DynamicResource ColorNuans}"/>
                 </GroupBox.BorderBrush>
@@ -2576,10 +2588,13 @@ System.Drawing.Bitmap (как и вообще складирование кар�
                     <Grid.ColumnDefinitions>
                         <ColumnDefinition/>
                     </Grid.ColumnDefinitions>
-                    <ScrollViewer VerticalScrollBarVisibility="Visible" HorizontalScrollBarVisibility="Visible" Margin="0,0,0,0" HorizontalContentAlignment="Stretch" VerticalContentAlignment="Stretch">
+                    <ScrollViewer x:Name="DataGridScroll" VerticalScrollBarVisibility="Visible" HorizontalScrollBarVisibility="Visible" Margin="0,0,0,0" HorizontalContentAlignment="Stretch" VerticalContentAlignment="Stretch">
                         <StackPanel Margin="0" VerticalAlignment="Top" CanVerticallyScroll="True" ScrollViewer.CanContentScroll="True" HorizontalAlignment="Left">
 
-                            <Grid x:Name="DBMSGrid" Margin="0" Background="#FFB83D3D">
+                            <Grid x:Name="DBMSGrid" Margin="0">
+                                <Grid.Background>
+                                    <SolidColorBrush Color="{DynamicResource ColorFont}"/>
+                                </Grid.Background>
                                 <Grid.RowDefinitions>
                                     <RowDefinition MinHeight="10"/>
                                     <RowDefinition MinHeight="10"/>
@@ -2591,13 +2606,16 @@ System.Drawing.Bitmap (как и вообще складирование кар�
                                     <Button.Foreground>
                                         <SolidColorBrush Color="{DynamicResource ColorFont}"/>
                                     </Button.Foreground>
-                                </Button>                                
-                                <Button Grid.Row="1" Grid.Column="0" Margin="0" MinWidth="10" MinHeight="10" FontSize="10" FontWeight="Bold" Content="⏵*" Padding="5,1" >
+                                </Button>
+                                <Button Grid.Row="1" Grid.Column="0" Margin="0" MinWidth="10" MinHeight="10" FontSize="10" FontWeight="Bold" Content="▶*" Padding="5,1" FontFamily="Segoe UI Symbol" >
+                                    <Button.Background>
+                                        <SolidColorBrush Color="{DynamicResource ColorSub}"/>
+                                    </Button.Background>
                                     <Button.Foreground>
                                         <SolidColorBrush Color="{DynamicResource ColorFont}"/>
                                     </Button.Foreground>
                                 </Button>
-                               
+
 
                             </Grid>
 
@@ -2607,9 +2625,9 @@ System.Drawing.Bitmap (как и вообще складирование кар�
 
 
                 </Grid>
-            
-            <!--</GroupBox>-->
-</Border>
+
+                <!--</GroupBox>-->
+            </Border>
 
 
             <!--<StackPanel ScrollViewer.HorizontalScrollBarVisibility="Visible" Margin="0" >-->
