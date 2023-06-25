@@ -2839,7 +2839,6 @@ System.Drawing.Bitmap (как и вообще складирование кар�
                 <RowDefinition Height="*"/>
             </Grid.RowDefinitions>
 
-
             <StackPanel x:Name="stackPanel4" Margin="15" Orientation="Horizontal" >
                 <Menu Margin="0,10,0,0" FontSize="14" BorderThickness="0,0,0,1" Padding="10,0" VerticalAlignment="Top" HorizontalContentAlignment="Stretch" MinWidth="{Binding ActualWidth, ElementName=stackPanel4, Mode=OneWay}">
                     <Menu.Foreground>
@@ -2882,6 +2881,7 @@ System.Drawing.Bitmap (как и вообще складирование кар�
                     </MenuItem>
                 </Menu>
             </StackPanel>
+            
             <Border BorderThickness="1" Margin="20,10,20,0" Grid.Row="1">
                 <Border.Background>
                     <SolidColorBrush Color="{DynamicResource ColorGridHeaderNA}"/>
@@ -2891,7 +2891,21 @@ System.Drawing.Bitmap (как и вообще складирование кар�
                 </Border.BorderBrush>
 
 
-                <Grid x:Name="DBMSGridHeader" Margin="1,0" MinHeight="20" ScrollViewer.VerticalScrollBarVisibility="Disabled" ScrollViewer.HorizontalScrollBarVisibility="Hidden" Height="21"/>
+               
+
+                <Grid Margin="0" ScrollViewer.HorizontalScrollBarVisibility="Auto" >
+                    <Grid.ColumnDefinitions>
+                        <ColumnDefinition/>
+                    </Grid.ColumnDefinitions>
+                    <ScrollViewer x:Name="DataGridHeaderScroll" VerticalScrollBarVisibility="Disabled" HorizontalScrollBarVisibility="Hidden" Margin="0,0,0,0" HorizontalContentAlignment="Stretch" VerticalContentAlignment="Stretch">
+                        <StackPanel Margin="0,0,17,0" VerticalAlignment="Top" CanVerticallyScroll="True" ScrollViewer.CanContentScroll="True" HorizontalAlignment="Left">
+
+                           <Grid x:Name="DBMSGridHeader" Margin="1,0" MinHeight="20" Height="21" HorizontalAlignment="Left" MinWidth="10"/>
+
+                        </StackPanel>
+                    </ScrollViewer>
+                </Grid>
+
             </Border>
             <Border x:Name="border" BorderThickness="1" Margin="20,0,20,20" Grid.Row="2"  >
                 <Border.Background>
@@ -2901,19 +2915,11 @@ System.Drawing.Bitmap (как и вообще складирование кар�
                     <SolidColorBrush Color="{DynamicResource ColorNuans}"/>
                 </Border.BorderBrush>
 
-                <!--<GroupBox Margin="10" Grid.Row="1" ScrollViewer.VerticalScrollBarVisibility="Auto" ScrollViewer.HorizontalScrollBarVisibility="Auto" VerticalContentAlignment="Stretch" FontSize="16" Header="" BorderThickness="1" Padding="0" UseLayoutRounding="False" FontWeight="Bold">
-                <GroupBox.BorderBrush>
-                    <SolidColorBrush Color="{DynamicResource ColorNuans}"/>
-                </GroupBox.BorderBrush>
-                <GroupBox.Foreground>
-                    <SolidColorBrush Color="{DynamicResource ColorAltFont}"/>
-                </GroupBox.Foreground>-->
-
                 <Grid Margin="1" ScrollViewer.HorizontalScrollBarVisibility="Auto" >
                     <Grid.ColumnDefinitions>
                         <ColumnDefinition/>
                     </Grid.ColumnDefinitions>
-                    <ScrollViewer x:Name="DataGridScroll" VerticalScrollBarVisibility="Visible" HorizontalScrollBarVisibility="Visible" Margin="0,0,0,0" HorizontalContentAlignment="Stretch" VerticalContentAlignment="Stretch">
+                    <ScrollViewer x:Name="DataGridScroll" ScrollChanged="ScrollChanged" VerticalScrollBarVisibility="Visible" HorizontalScrollBarVisibility="Visible" Margin="0,0,0,0" HorizontalContentAlignment="Stretch" VerticalContentAlignment="Stretch">
                         <StackPanel Margin="0" VerticalAlignment="Top" CanVerticallyScroll="True" ScrollViewer.CanContentScroll="True" HorizontalAlignment="Left">
 
                             <Grid x:Name="DBMSGrid" Margin="0">
@@ -2933,12 +2939,8 @@ System.Drawing.Bitmap (как и вообще складирование кар�
 
                         </StackPanel>
                     </ScrollViewer>
-
-
-
                 </Grid>
 
-                <!--</GroupBox>-->
             </Border>
 
 

@@ -119,15 +119,21 @@ namespace PROMETEUS_LAST_EDITION
         }
 
         public void CreateClearGrid(MainWindow mw)
-        {            
-            CreateRow(mw.DBMSGrid);//создаём строку в основной таблице
-            CreateRow(mw.DBMSGridHeader);//создаём строку в таблице заголовка
+        {
+
+            mw.DBMSGrid.ColumnDefinitions.Clear();
+            mw.DBMSGridHeader.ColumnDefinitions.Clear();
+            mw.DBMSGrid.RowDefinitions.Clear();
+            mw.DBMSGridHeader.RowDefinitions.Clear();
+            //CreateRow(mw.DBMSGridHeader);//создаём строку в таблице заголовка
         }
 
         public void FinishedCreateGrid(MainWindow mw) {
             int cols = mw.DBMSGrid.ColumnDefinitions.Count;
             int rows = mw.DBMSGrid.RowDefinitions.Count;
+
             int col =cols/rows;
+            
             CreateRow(mw.DBMSGrid);//создаём строку в основной таблице
             for (int i = 0; i < col; i++) {
                CreateCol(mw.DBMSGrid);//создаём колонку в основной таблице
