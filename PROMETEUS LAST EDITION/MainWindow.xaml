@@ -2857,11 +2857,11 @@ System.Drawing.Bitmap (как и вообще складирование кар�
                             <SolidColorBrush Color="{DynamicResource ColorFont}"/>
                         </MenuItem.Foreground>
 
-                        <MenuItem Header="Авто"/>
-                        <MenuItem Header="Водители"/>
-                        <MenuItem Header="Компании"/>
-                        <MenuItem Header="Медицина"/>
-                        <MenuItem Header="Персонал"/>
+                        <MenuItem Header="Авто" Click="OpenDB"/>
+                        <MenuItem Header="Водители" Click="OpenDB"/>
+                        <MenuItem Header="Компании" Click="OpenDB"/>
+                        <MenuItem Header="Медицина" Click="OpenDB"/>
+                        <MenuItem Header="Персонал" Click="OpenDB"/>
 
                     </MenuItem>
 
@@ -2891,7 +2891,7 @@ System.Drawing.Bitmap (как и вообще складирование кар�
                 </Border.BorderBrush>
 
 
-                <Grid x:Name="DBMSGridHeader" Margin="1,0" MinHeight="10" HorizontalAlignment="Left"/>
+                <Grid x:Name="DBMSGridHeader" Margin="1,0" MinHeight="20" ScrollViewer.VerticalScrollBarVisibility="Disabled" ScrollViewer.HorizontalScrollBarVisibility="Hidden" Height="21"/>
             </Border>
             <Border x:Name="border" BorderThickness="1" Margin="20,0,20,20" Grid.Row="2"  >
                 <Border.Background>
@@ -2927,19 +2927,6 @@ System.Drawing.Bitmap (как и вообще складирование кар�
                                 <Grid.ColumnDefinitions>
                                     <ColumnDefinition Width="Auto"/>
                                 </Grid.ColumnDefinitions>
-                                <Button Grid.Row="0" Grid.Column="0" Margin="0" MinWidth="10" MinHeight="10" FontSize="10" FontWeight="Bold" Padding="5,1" HorizontalContentAlignment="Left" VerticalContentAlignment="Center" Content="">
-                                    <Button.Foreground>
-                                        <SolidColorBrush Color="{DynamicResource ColorFont}"/>
-                                    </Button.Foreground>
-                                </Button>
-                                <Button Grid.Row="1" Grid.Column="0" Margin="0" MinWidth="10" MinHeight="10" FontSize="10" FontWeight="Bold" Content="▶*" Padding="5,1" FontFamily="Segoe UI Symbol" >
-                                    <Button.Background>
-                                        <SolidColorBrush Color="{DynamicResource ColorSub}"/>
-                                    </Button.Background>
-                                    <Button.Foreground>
-                                        <SolidColorBrush Color="{DynamicResource ColorFont}"/>
-                                    </Button.Foreground>
-                                </Button>
 
 
                             </Grid>

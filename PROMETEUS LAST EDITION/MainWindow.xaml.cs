@@ -41,11 +41,10 @@ namespace PROMETEUS_LAST_EDITION
             InitializeComponent();
             InitializeButtons();
 
-
-            //new DBMS().ParseDB(this, 1);
             new DBMS().CreateClearGrid(this);
             new DBMS().CreateDataGrid(this, new DBMS().ParseDB(this, 1));
             new DBMS().FinishedCreateGrid(this);
+
 
             //Завершение загрузки
             wav = new SoundPlayer();
@@ -98,6 +97,36 @@ namespace PROMETEUS_LAST_EDITION
             wav.Stream = Properties.Resources.ding; wav.Play();
             new DBMS().ColumnWidthLeveling(DBMSGridHeader, DBMSGrid);
             //
+        }
+        private void OpenDB(object sender, RoutedEventArgs e)
+        {
+            MenuItem menuI = sender as MenuItem;
+            int file=100; bool flag = true;
+            switch (menuI.Header.ToString())
+            {
+                case "Авто":
+                    file = 0;
+                    break;
+                case "Водители":
+                    file = 1;
+                    break;
+                case "Компании":
+                    file = 2;
+                    break;
+                case "Медицина":
+                    file = 3;
+                    break;
+                case "Персонал":
+                    file = 4;
+                    break;
+                default:
+                    flag = false;
+                    break;                   
+            }
+            //new DBMS().ParseDB(this, 1);
+            new DBMS().CreateClearGrid(this);
+            if (flag) new DBMS().CreateDataGrid(this, new DBMS().ParseDB(this, file));
+            new DBMS().FinishedCreateGrid(this);
         }
         //установка значений свойств объектов в соотвествии с настройками
         private void SettingsInitialized(object sender, EventArgs e)
