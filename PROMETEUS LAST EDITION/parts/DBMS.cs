@@ -139,6 +139,7 @@ namespace PROMETEUS_LAST_EDITION
                 CreateCell("TextBox", mw.DBMSGrid, rows+1, i + 1);//создаём в ячейке текстовое поле, но распологаем со смещение на одну ячеёку вправо
             }
 
+            mw.DataGridScroll.ScrollToEnd();
             List<TextBox> list= mw.DBMSGrid.Children.OfType<TextBox>().ToList();
             for (int l=0;l<list.Count; l++)
             {
@@ -149,7 +150,7 @@ namespace PROMETEUS_LAST_EDITION
 
                 }
             }
-            mw.DataGridScroll.ScrollToEnd();
+            
         }
 
         public bool CreateDataGrid(MainWindow mw, List<List<string>> listOfLists)
