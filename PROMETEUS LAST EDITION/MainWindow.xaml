@@ -2900,7 +2900,19 @@ System.Drawing.Bitmap (как и вообще складирование кар�
                     <ScrollViewer x:Name="DataGridHeaderScroll" VerticalScrollBarVisibility="Disabled" HorizontalScrollBarVisibility="Hidden" Margin="0,0,0,0" HorizontalContentAlignment="Stretch" VerticalContentAlignment="Stretch">
                         <StackPanel Margin="0,0,17,0" VerticalAlignment="Top" CanVerticallyScroll="True" ScrollViewer.CanContentScroll="True" HorizontalAlignment="Left">
 
-                           <Grid x:Name="DBMSGridHeader" Margin="1,0" MinHeight="20" Height="21" HorizontalAlignment="Left" MinWidth="10"/>
+                            
+                            
+                            
+                            
+                            
+                            <!--ТАБЛИЦА ЗАГОЛОВКА-->
+                           <Grid x:Name="DBMSGridHeader" Margin="1,0">
+                                <Grid.Background>
+                                    <SolidColorBrush Color="{DynamicResource ColorFont}"/>
+                                </Grid.Background>
+                            </Grid>
+                            
+                            
 
                         </StackPanel>
                     </ScrollViewer>
@@ -2922,17 +2934,23 @@ System.Drawing.Bitmap (как и вообще складирование кар�
                     <ScrollViewer x:Name="DataGridScroll" ScrollChanged="ScrollChanged" VerticalScrollBarVisibility="Visible" HorizontalScrollBarVisibility="Visible" Margin="0,0,0,0" HorizontalContentAlignment="Stretch" VerticalContentAlignment="Stretch">
                         <StackPanel Margin="0" VerticalAlignment="Top" CanVerticallyScroll="True" ScrollViewer.CanContentScroll="True" HorizontalAlignment="Left">
 
+                            
+                            
+                            
+                            
+                            
+                            <!--ОСНОВНАЯ ТАБЛИЦА-->
                             <Grid x:Name="DBMSGrid" Margin="0">
                                 <Grid.Background>
                                     <SolidColorBrush Color="{DynamicResource ColorFont}"/>
                                 </Grid.Background>
-                                <Grid.RowDefinitions>
+                                <!--<Grid.RowDefinitions>
                                     <RowDefinition MinHeight="10"/>
                                     <RowDefinition MinHeight="10"/>
                                 </Grid.RowDefinitions>
                                 <Grid.ColumnDefinitions>
                                     <ColumnDefinition Width="Auto"/>
-                                </Grid.ColumnDefinitions>
+                                </Grid.ColumnDefinitions>-->
 
 
                             </Grid>

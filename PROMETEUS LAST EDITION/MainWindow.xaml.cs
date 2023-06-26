@@ -41,8 +41,8 @@ namespace PROMETEUS_LAST_EDITION
             InitializeComponent();
             InitializeButtons();
 
-            //new DBMS().CreateClearGrid(this);
-            new DBMS().CreateDataGrid(this, new DBMS().ParseDB(this,1));
+            new DBMS().CreateClearGrid(this);
+            new DBMS().CreateDataGrid(this, new DBMS().ParseDB(this, 1));
             //new DBMS().FinishedCreateGrid(this);
 
 
@@ -100,7 +100,7 @@ namespace PROMETEUS_LAST_EDITION
         }
         private void OpenDB(object sender, RoutedEventArgs e)
         {
-            new DBMS().CreateDataGrid(this, new DBMS().ParseDB(this, 0));
+            //new DBMS().CreateDataGrid(this, new DBMS().ParseDB(this, 0));
             MenuItem menuI = sender as MenuItem;
             int file=100; bool flag = true;
             switch (menuI.Header.ToString())
@@ -125,8 +125,8 @@ namespace PROMETEUS_LAST_EDITION
                     break;                   
             }
             //new DBMS().ParseDB(this, 1);
-            //new DBMS().CreateClearGrid(this);
-            //if (flag) new DBMS().CreateDataGrid(this, new DBMS().ParseDB(this, file));
+            new DBMS().CreateClearGrid(this);
+            if (flag) new DBMS().CreateDataGrid(this, new DBMS().ParseDB(this, file));
             //new DBMS().FinishedCreateGrid(this);
         }
         private void ScrollChanged(object sender, ScrollChangedEventArgs e)

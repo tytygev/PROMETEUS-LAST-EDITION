@@ -120,12 +120,14 @@ namespace PROMETEUS_LAST_EDITION
 
         public void CreateClearGrid(MainWindow mw)
         {
+            mw.DBMSGrid.Children.Clear();
+                mw.DBMSGridHeader.Children.Clear();
 
             mw.DBMSGrid.ColumnDefinitions.Clear();
             mw.DBMSGridHeader.ColumnDefinitions.Clear();
+
             mw.DBMSGrid.RowDefinitions.Clear();
             mw.DBMSGridHeader.RowDefinitions.Clear();
-            //CreateRow(mw.DBMSGridHeader);//создаём строку в таблице заголовка
         }
 
         public void FinishedCreateGrid(MainWindow mw) {
@@ -162,19 +164,18 @@ namespace PROMETEUS_LAST_EDITION
         public bool CreateDataGrid(MainWindow mw, List<List<string>> listOfLists)
         {
             int rows = listOfLists.Count();
-            int cols = listOfLists[0].Count();
+            int cols = listOfLists[0].Count();            
 
             for (int r = 0; r < rows; r++)
             {                 
-                CreateRow(mw.DBMSGrid);//создаём строку в основной таблице
+                CreateRow(mw.DBMSGrid);//создаём строку в основной таблице 
+                if (r==0) CreateRow(mw.DBMSGridHeader);//создаём строку в таблице заголовка
 
                 for (int c = 0; c < cols; c++)
                 {
-                    CreateCol(mw.DBMSGrid);//создаём колонку в основной таблице
 
                     if (r == 0)//если нулевая строка (заголовок)
                     {
-                        CreateCol(mw.DBMSGridHeader);//дополнительно создаём колонку в таблице заголовка
 
                         if (c == 0)//если нулевая колонка (управляющая - заголовки строк)
                         {
@@ -183,19 +184,22 @@ namespace PROMETEUS_LAST_EDITION
 
                             CreateCell("RowHeadButt", mw.DBMSGridHeader,r,c);//создаём в ячейке кнопку заголовка строки в таблице заголовка
                             CreateCell("RowHeadButt", mw.DBMSGrid, r, c);//создаём в ячейке кнопку заголовка строки
-                        }                        
-                       
+                        }
+
+                        CreateCol(mw.DBMSGridHeader);//создаём дополнительную колонку в таблице заголовка
+                        CreateCol(mw.DBMSGrid);//создаём дополнительную колонку
+
                         CreateCell("HeaderButt", mw.DBMSGridHeader, r, c+1, listOfLists[r][c]);//создаём в ячейке кнопку заголовка в таблице заголовка
                         CreateCell("HeaderButt", mw.DBMSGrid, r, c + 1, listOfLists[r][c]);//создаём в ячейке кнопку заголовка в основной таблице (для синхронизации)
                     }
                     else//если остальные строки
                     {
-                        
                         if (c == 0)//если нулевая колонка (управляющая - заголовки строк)
                         {
                             CreateCol(mw.DBMSGrid);//создаём дополнительную колонку
                             CreateCell("RowHeadButt", mw.DBMSGrid, r, c);//и управляющую кнопку заголовка строки
                         }
+                        CreateCol(mw.DBMSGrid);//создаём дополнительную колонку
                         CreateCell("TextBox", mw.DBMSGrid, r, c + 1, listOfLists[r][c]);//создаём в ячейке текстовое поле, но распологаем со смещение на одну ячеёку вправо
                     }
                 }
@@ -203,7 +207,7 @@ namespace PROMETEUS_LAST_EDITION
 
             mw.DBMSGrid.RowDefinitions[0].Height = new GridLength(0);
             mw.DBMSGrid.RowDefinitions[0].MinHeight = 0;
-            ColumnWidthLeveling(mw.DBMSGridHeader, mw.DBMSGrid);
+            //ColumnWidthLeveling(mw.DBMSGridHeader, mw.DBMSGrid);
 
             return true;
         }
