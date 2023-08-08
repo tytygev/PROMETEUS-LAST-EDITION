@@ -23,6 +23,8 @@ namespace PROMETEUS_LAST_EDITION
  
  public class FileFX 
     {
+        public string LoadXML(string path){string xml = File.ReadAllText(path);return xml;}
+        
         public List<List<string>> LoadDSV(string path, char separator)
         {
             string[] lines = File.ReadAllLines(path); //считываем построчно в массив строк

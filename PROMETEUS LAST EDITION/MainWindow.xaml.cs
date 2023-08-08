@@ -24,6 +24,7 @@ namespace PROMETEUS_LAST_EDITION
         private Grid currentVisibleView; //это что то для такси (уже не помню)
         public static DefUserSettings UserSettings = new DefUserSettings();//static
         private bool flagInitEnd = false;
+
        public MainWindow()
         {
             File.Delete("LOG.txt");
@@ -41,9 +42,7 @@ namespace PROMETEUS_LAST_EDITION
             InitializeComponent();
             InitializeButtons();
 
-            new DBMS().CreateClearGrid(this);
-            new DBMS().CreateDataGrid(this, new DBMS().ParseDB(this, 1));
-            //new DBMS().FinishedCreateGrid(this);
+            DBMS.LoadParserXml(new FileFX().LoadXML("drivers.xml"));
 
 
             //Завершение загрузки
@@ -95,8 +94,7 @@ namespace PROMETEUS_LAST_EDITION
         private void MenuButton_MouseUp(object sender, MouseButtonEventArgs e)
         {
             wav.Stream = Properties.Resources.ding; wav.Play();
-            new DBMS().ColumnWidthLeveling(DBMSGridHeader, DBMSGrid);
-            //
+            
         }
         private void OpenDB(object sender, RoutedEventArgs e)
         {
@@ -124,10 +122,7 @@ namespace PROMETEUS_LAST_EDITION
                     flag = false;
                     break;                   
             }
-            //new DBMS().ParseDB(this, 1);
-            new DBMS().CreateClearGrid(this);
-            if (flag) new DBMS().CreateDataGrid(this, new DBMS().ParseDB(this, file));
-            //new DBMS().FinishedCreateGrid(this);
+           
         }
         private void ScrollChanged(object sender, ScrollChangedEventArgs e)
         {

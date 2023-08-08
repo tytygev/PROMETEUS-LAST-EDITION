@@ -22,15 +22,11 @@ namespace PROMETEUS_LAST_EDITION
             staff
         }
 
-
-
-
-
-        //пример использования функции сохранения и загрузки БД:
-        //List<List<string>> listOfLists = new List<List<string>>();
-        //listOfLists=FileFX.LoadDSV("prop.txt", char.Parse(";"));
-        //listOfLists[1][1] = "эщкере";
-        //FileFX.SaveDSV(listOfLists,"prop.txt", char.Parse(";"));//изикатка    
+    //пример использования функции сохранения и загрузки БД:
+    //List<List<string>> listOfLists = new List<List<string>>();
+    //listOfLists=FileFX.LoadDSV("prop.txt", char.Parse(";"));
+    //listOfLists[1][1] = "эщкере";
+    //FileFX.SaveDSV(listOfLists,"prop.txt", char.Parse(";"));//изикатка    
         public List<List<string>> ParseDB(MainWindow mw, int item, string path = "")
         {
             var db = (DBList)item;
@@ -39,249 +35,8 @@ namespace PROMETEUS_LAST_EDITION
             List<List<string>> listOfLists = new FileFX().LoadDSV(path, char.Parse("|"));
 
 
-            //mw.DBMSdataGrid.ItemsSource = listOfLists;
-
-         
-
-            //
-            //mw.DBMSdataGrid.Row = N;
-            //dataGridView1.ColumnCount = M;
-            //int r, c;
-
-     
-                //    
-                //        mw.DBMSdataGrid.Rows[rr][cc + 1] = data[rr, cc];
-                //mw.DBMSdataGrid.Row
-
-                //DataGridTextColumn textColumn = new DataGridTextColumn();
-                //                    textColumn.Header = "First Name";
-                //                    textColumn.Binding = new Binding("хуета");
-                //                    mw.DBMSdataGrid.Columns.Add(textColumn);
-                //            mw.DBMSdataGrid.Items.Add(mw.DBMSdataGrid.Columns);
-
-                //            for (int r = 0; r < rows; r++)
-                //            {
-
-                //                for (int c = 0; c < cols; c++)
-
-                //                {
-
-
-
-                //                }
-
-                //            }
-
-
-
-
-
-
-
-
+           
                 return listOfLists;
-        }
-
-        private void CreateRow(Grid gr) {RowDefinition rowDef = new RowDefinition(); gr.RowDefinitions.Add(rowDef);}
-        private void CreateCol(Grid gr) {ColumnDefinition colDef = new ColumnDefinition(); gr.ColumnDefinitions.Add(colDef);}
-        private void CreateCell(string typeCell, Grid gr,  int row, int col,string content="") {
-            //System.Windows.UIElement body;
-            if (typeCell == "TextBox") {
-                TextBox text = new TextBox();
-                gr.Children.Add(text);
-
-                SettingsTextBoxGrid(text);
-
-                text.Text = content;
-                Grid.SetRow(text, row);
-                Grid.SetColumn(text, col);
-                //body = text as System.Windows.UIElement;
-            }
-            else { 
-                Button butt = new Button() as Button;
-                gr.Children.Add(butt);
-                if (typeCell== "RowHeadButt")
-                {
-                    SettingsRowHeadButtGrid(butt);
-                    if (row == 0) butt.BorderThickness = new Thickness(1, 1, 2, 1);
-                }
-                else if(typeCell == "HeaderButt")
-                {
-                    SettingsHeaderButtGrid(butt);
-                }
-                butt.Content = content;
-                Grid.SetRow(butt, row);
-                Grid.SetColumn(butt, col);
-                //body = butt as System.Windows.UIElement;
-            }
-            //Grid.SetRow(body, row);
-            //Grid.SetColumn(body, col);
-        }
-
-        public void CreateClearGrid(MainWindow mw)
-        {
-            mw.DBMSGrid.Children.Clear();
-                mw.DBMSGridHeader.Children.Clear();
-
-            mw.DBMSGrid.ColumnDefinitions.Clear();
-            mw.DBMSGridHeader.ColumnDefinitions.Clear();
-
-            mw.DBMSGrid.RowDefinitions.Clear();
-            mw.DBMSGridHeader.RowDefinitions.Clear();
-        }
-
-        public void FinishedCreateGrid(MainWindow mw) {
-            int cols = mw.DBMSGrid.ColumnDefinitions.Count;
-            int rows = mw.DBMSGrid.RowDefinitions.Count;
-
-            int col =cols/rows;
-            
-            CreateRow(mw.DBMSGrid);//создаём строку в основной таблице
-            for (int i = 0; i < col; i++) {
-               CreateCol(mw.DBMSGrid);//создаём колонку в основной таблице
-                if (i == 0)//если нулевая колонка (управляющая - заголовки строк)
-                {
-                    CreateCol(mw.DBMSGrid);//создаём дополнительную колонку
-                    CreateCell("RowHeadButt", mw.DBMSGrid, rows+1, i, "▶*");//и управляющую кнопку заголовка строки
-                }
-                CreateCell("TextBox", mw.DBMSGrid, rows+1, i + 1);//создаём в ячейке текстовое поле, но распологаем со смещение на одну ячеёку вправо
-            }
-
-            mw.DataGridScroll.ScrollToEnd();
-            List<TextBox> list= mw.DBMSGrid.Children.OfType<TextBox>().ToList();
-            for (int l=0;l<list.Count; l++)
-            {
-                if (Grid.GetRow(list[l])==rows+1 & Grid.GetColumn (list[l])==1) {
-                    list[l].Focus();
-                    list[l].Focusable = true; 
-                    Keyboard.Focus(list[l]);
-
-                }
-            }
-            
-        }
-
-        public bool CreateDataGrid(MainWindow mw, List<List<string>> listOfLists)
-        {
-            int rows = listOfLists.Count();
-            int cols = listOfLists[0].Count();            
-
-            for (int r = 0; r < rows; r++)
-            {                 
-                CreateRow(mw.DBMSGrid);//создаём строку в основной таблице 
-                if (r==0) CreateRow(mw.DBMSGridHeader);//создаём строку в таблице заголовка
-
-                for (int c = 0; c < cols; c++)
-                {
-
-                    if (r == 0)//если нулевая строка (заголовок)
-                    {
-
-                        if (c == 0)//если нулевая колонка (управляющая - заголовки строк)
-                        {
-                            CreateCol(mw.DBMSGridHeader);//создаём дополнительную колонку в таблице заголовка
-                            CreateCol(mw.DBMSGrid);//создаём дополнительную колонку
-
-                            CreateCell("RowHeadButt", mw.DBMSGridHeader,r,c);//создаём в ячейке кнопку заголовка строки в таблице заголовка
-                            CreateCell("RowHeadButt", mw.DBMSGrid, r, c);//создаём в ячейке кнопку заголовка строки
-                        }
-
-                        CreateCol(mw.DBMSGridHeader);//создаём дополнительную колонку в таблице заголовка
-                        CreateCol(mw.DBMSGrid);//создаём дополнительную колонку
-
-                        CreateCell("HeaderButt", mw.DBMSGridHeader, r, c+1, listOfLists[r][c]);//создаём в ячейке кнопку заголовка в таблице заголовка
-                        CreateCell("HeaderButt", mw.DBMSGrid, r, c + 1, listOfLists[r][c]);//создаём в ячейке кнопку заголовка в основной таблице (для синхронизации)
-                    }
-                    else//если остальные строки
-                    {
-                        if (c == 0)//если нулевая колонка (управляющая - заголовки строк)
-                        {
-                            CreateCol(mw.DBMSGrid);//создаём дополнительную колонку
-                            CreateCell("RowHeadButt", mw.DBMSGrid, r, c);//и управляющую кнопку заголовка строки
-                        }
-                        CreateCol(mw.DBMSGrid);//создаём дополнительную колонку
-                        CreateCell("TextBox", mw.DBMSGrid, r, c + 1, listOfLists[r][c]);//создаём в ячейке текстовое поле, но распологаем со смещение на одну ячеёку вправо
-                    }
-                }
-            }
-
-            mw.DBMSGrid.RowDefinitions[0].Height = new GridLength(0);
-            mw.DBMSGrid.RowDefinitions[0].MinHeight = 0;
-            //ColumnWidthLeveling(mw.DBMSGridHeader, mw.DBMSGrid);
-
-            return true;
-        }
-
-
-        private void SettingsTextBoxGrid(TextBox text) {
-            text.Margin = new Thickness(0);
-            text.Padding = new Thickness(0, -5, 0, -5);
-            text.BorderThickness = new Thickness(0, 0, 1, 1);
-            text.MinWidth = 10;
-            text.MinHeight = 10;
-            text.FontSize = 12;
-            text.FontFamily = new FontFamily("Segoe UI");
-            text.HorizontalContentAlignment = HorizontalAlignment.Left;
-            text.VerticalContentAlignment = VerticalAlignment.Center;
-            //text.Foreground = (System.Windows.Media.SolidColorBrush)Application.Current.Resources["ColorFont"];
-            //text.SelectionBrush = (System.Windows.Media.SolidColorBrush)Application.Current.Resources["ColorAltNuans"];
-            Color color = new Color();
-            color = (Color)Application.Current.Resources["ColorFont"];
-            text.Foreground = new SolidColorBrush(color);
-            color = (Color)Application.Current.Resources["ColorAltNuans"];
-            text.SelectionBrush = new SolidColorBrush(color);
-        }
-        private void SettingsHeaderButtGrid(Button butt) {
-            butt.Margin = new Thickness(0);
-            butt.Padding = new Thickness(5, 1, 5, 1);
-            butt.BorderThickness = new Thickness(1, 1,2, 0);
-            butt.MinWidth = 10;
-            butt.MinHeight = 0;
-            butt.FontSize = 12;
-            butt.FontWeight = FontWeights.Bold;
-            butt.FontFamily = new FontFamily("Segoe UI");
-            butt.HorizontalContentAlignment = HorizontalAlignment.Left;
-            butt.VerticalContentAlignment = VerticalAlignment.Center;
-            //butt.Foreground = (System.Windows.Media.SolidColorBrush)Application.Current.Resources["ColorFont"];
-            Color color = new Color();
-            color = (Color)Application.Current.Resources["ColorFont"];
-            butt.Foreground = new SolidColorBrush(color);
-        }
-        private void SettingsRowHeadButtGrid(Button butt) {
-            butt.Margin = new Thickness(0);
-            butt.Padding = new Thickness(5, 1, 5, 1);
-            butt.BorderThickness = new Thickness(1, 1, 2, 2);
-            butt.MinWidth = 10;
-            butt.MinHeight = 10;
-            butt.FontSize = 12;
-            butt.FontWeight = FontWeights.Bold;
-            butt.FontFamily = new FontFamily("Segoe UI Symbol");
-            Color color = new Color();
-            color = (Color)Application.Current.Resources["ColorFont"];
-            butt.Foreground = new SolidColorBrush(color);
-        }
-
-        public void ColumnWidthLeveling(Grid grid1, Grid grid2)
-        {
-            int col1 = grid1.ColumnDefinitions.Count;
-            int col2 = grid2.ColumnDefinitions.Count;
-            int row1 = grid1.RowDefinitions.Count;
-            int row2 = grid2.RowDefinitions.Count;
-
-                for (int c = 0; c < col1; c++)
-                {
-
-                grid1.ColumnDefinitions[c].Width = new GridLength(grid2.ColumnDefinitions[c].ActualWidth);
-                //if (grid1.ColumnDefinitions[c].Width < grid2.ColumnDefinitions[c].Width)
-                //{
-
-
-                //}
-            }
-            if (col1 == col2)
-            {
-            }
-
         }
 
         public bool ParseToDGrid(MainWindow mw,int item,string path="")
@@ -361,27 +116,146 @@ namespace PROMETEUS_LAST_EDITION
             return true;
         }
 
-        //            Решение 3
-        //Привет!
-        //Используя учебник, найденный здесь,
-        //я, программист
-        //, проработал пример и адаптировал его для ваших нужд.
-        //Развернуть ▼   
-
-        public struct MyData
+        public static void LoadParserXml(string xml)
         {
-            public int id { set; get; }
-            public string title { set; get; }
-            public int jobint { set; get; }
-            public DateTime lastrun { set; get; }
-            public DateTime nextrun { set; get; }
+//            var xml =
+//@"<note>
+//           <to>Tove</to>
+//           <from>Jani</from>
+//           <heading>Reminder</heading>
+//           <body>Don't forget me this weekend!</body>
+//        </note>";
+
+            Console.WriteLine("== LEXEMS ==");
+
+            foreach (var lexem in LexemAnalyser.ParseLexems(xml))
+                Console.WriteLine(lexem);
+
+            Console.WriteLine();
+            Console.WriteLine("== XML TREE ==");
+
+            var root = XmlParser.Parse(xml);
+            TypeXmlTree(root);
+
+            Console.ReadLine();
+        }
+
+        static void TypeXmlTree(XmlNode node, string prefix = "")
+        {
+            Console.WriteLine(prefix + node.Content);
+            foreach (var child in node.Children)
+                TypeXmlTree(child, prefix + "\t");
         }
 
 
-
-        //Код, показанный выше, кажется довольно простым.XAML выглядит следующим образом:
-
-        //<DataGrid x:Name= "myDataGrid" />
-
     }
+
+
+    static class XmlParser
+    {
+        public static XmlNode Parse(string xml)
+        {
+            //get lexems
+            var lexems = LexemAnalyser.ParseLexems(xml).ToList();
+            //check
+            if (lexems.Count < 2) throw new Exception("Пустой XML");
+            if (lexems[0].Type != LexemType.OpenTag) throw new Exception("XML should start with tag");
+            //build node tree
+            var stack = new Stack<XmlNode>();
+            foreach (var lexem in lexems)
+                switch (lexem.Type)
+                {
+                    case LexemType.OpenTag:
+                        var node = new XmlNode() { Type = lexem.Type, Content = lexem.Text };
+                        if (stack.Count > 0)
+                            stack.Peek().Children.Add(node);
+                        stack.Push(node);
+                        break;
+                    case LexemType.CloseTag:
+                        var open = stack.Pop();
+                        if (open.Content != lexem.Text)
+                            throw new Exception("Close tag does not correspond to open tag");
+                        if (stack.Count == 0)
+                            return open;
+                        break;
+                    case LexemType.Content:
+                        var textNode = new XmlNode() { Type = lexem.Type, Content = lexem.Text };
+                        stack.Peek().Children.Add(textNode);
+                        break;
+                }
+
+            throw new Exception("No close tag");
+        }
+    }
+
+    class XmlNode
+    {
+        public List<XmlNode> Children = new List<XmlNode>();
+        public LexemType Type;
+        public string Content;
+    }
+
+    static class LexemAnalyser
+    {
+        public static IEnumerable<Lexem> ParseLexems(string xml)
+        {
+            return ParseLexemsRaw(xml).Where(lexem => lexem.Type != LexemType.Content || lexem.Text.Trim() != "");//ignore empty content lexems
+        }
+
+        private static IEnumerable<Lexem> ParseLexemsRaw(string xml)
+        {
+            LexemType type = LexemType.Content;
+            string text = "";
+
+            foreach (var c in xml)
+                switch (c)
+                {
+                    case '<':
+                        yield return new Lexem(type, text);
+                        type = LexemType.OpenTag; text = "";
+                        break;
+                    case '/':
+                        if (type == LexemType.OpenTag && text == "")
+                            type = LexemType.CloseTag;
+                        else
+                            goto default;
+                        break;
+                    case '>':
+                        if (type == LexemType.Content)
+                            goto default;
+                        yield return new Lexem(type, text);
+                        type = LexemType.Content; text = "";
+                        break;
+                    default:
+                        text += c;
+                        break;
+                }
+
+            yield return new Lexem(type, text);
+        }
+    }
+
+    enum LexemType
+    {
+        OpenTag, CloseTag, Content
+    }
+
+    class Lexem
+    {
+        public LexemType Type { get; set; }
+        public string Text { get; set; }
+
+        public Lexem(LexemType type, string text)
+        {
+            Type = type;
+            Text = text;
+        }
+
+        public override string ToString()
+        {
+            return Type + ": " + Text;
+        }
+    }
+
+
 }
