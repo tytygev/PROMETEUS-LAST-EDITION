@@ -22,10 +22,6 @@ namespace PROMETEUS_LAST_EDITION
             staff
         }
 
-
-
-
-
         //пример использования функции сохранения и загрузки БД:
         //List<List<string>> listOfLists = new List<List<string>>();
         //listOfLists=FileFX.LoadDSV("prop.txt", char.Parse(";"));
@@ -35,88 +31,11 @@ namespace PROMETEUS_LAST_EDITION
         {
             var db = (DBList)item;
             path = "data\\" + db + ".dsv";
-
             List<List<string>> listOfLists = new FileFX().LoadDSV(path, char.Parse("|"));
-
-
-            //mw.DBMSdataGrid.ItemsSource = listOfLists;
-
-         
-
-            //
-            //mw.DBMSdataGrid.Row = N;
-            //dataGridView1.ColumnCount = M;
-            //int r, c;
-
-     
-                //    
-                //        mw.DBMSdataGrid.Rows[rr][cc + 1] = data[rr, cc];
-                //mw.DBMSdataGrid.Row
-
-                //DataGridTextColumn textColumn = new DataGridTextColumn();
-                //                    textColumn.Header = "First Name";
-                //                    textColumn.Binding = new Binding("хуета");
-                //                    mw.DBMSdataGrid.Columns.Add(textColumn);
-                //            mw.DBMSdataGrid.Items.Add(mw.DBMSdataGrid.Columns);
-
-                //            for (int r = 0; r < rows; r++)
-                //            {
-
-                //                for (int c = 0; c < cols; c++)
-
-                //                {
-
-
-
-                //                }
-
-                //            }
-
-
-
-
-
-
-
-
                 return listOfLists;
         }
 
-        private void CreateRow(Grid gr) {RowDefinition rowDef = new RowDefinition(); gr.RowDefinitions.Add(rowDef);}
-        private void CreateCol(Grid gr) {ColumnDefinition colDef = new ColumnDefinition(); gr.ColumnDefinitions.Add(colDef);}
-        private void CreateCell(string typeCell, Grid gr,  int row, int col,string content="") {
-            //System.Windows.UIElement body;
-            if (typeCell == "TextBox") {
-                TextBox text = new TextBox();
-                gr.Children.Add(text);
-
-                SettingsTextBoxGrid(text);
-
-                text.Text = content;
-                Grid.SetRow(text, row);
-                Grid.SetColumn(text, col);
-                //body = text as System.Windows.UIElement;
-            }
-            else { 
-                Button butt = new Button() as Button;
-                gr.Children.Add(butt);
-                if (typeCell== "RowHeadButt")
-                {
-                    SettingsRowHeadButtGrid(butt);
-                    if (row == 0) butt.BorderThickness = new Thickness(1, 1, 2, 1);
-                }
-                else if(typeCell == "HeaderButt")
-                {
-                    SettingsHeaderButtGrid(butt);
-                }
-                butt.Content = content;
-                Grid.SetRow(butt, row);
-                Grid.SetColumn(butt, col);
-                //body = butt as System.Windows.UIElement;
-            }
-            //Grid.SetRow(body, row);
-            //Grid.SetColumn(body, col);
-        }
+        
 
         public void CreateClearGrid(MainWindow mw)
         {
@@ -182,15 +101,16 @@ namespace PROMETEUS_LAST_EDITION
                             CreateCol(mw.DBMSGridHeader);//создаём дополнительную колонку в таблице заголовка
                             CreateCol(mw.DBMSGrid);//создаём дополнительную колонку
 
-                            CreateCell("RowHeadButt", mw.DBMSGridHeader,r,c);//создаём в ячейке кнопку заголовка строки в таблице заголовка
-                            CreateCell("RowHeadButt", mw.DBMSGrid, r, c);//создаём в ячейке кнопку заголовка строки
+CreateCell("RowHeadButt", mw.DBMSGrid, r, c);//создаём в ячейке кнопку заголовка строки
+                            CreateCell("RowHeadButtH", mw.DBMSGridHeader,r,c);//создаём в ячейке кнопку заголовка строки в таблице заголовка
+                            
                         }
 
                         CreateCol(mw.DBMSGridHeader);//создаём дополнительную колонку в таблице заголовка
                         CreateCol(mw.DBMSGrid);//создаём дополнительную колонку
 
-                        CreateCell("HeaderButt", mw.DBMSGridHeader, r, c+1, listOfLists[r][c]);//создаём в ячейке кнопку заголовка в таблице заголовка
                         CreateCell("HeaderButt", mw.DBMSGrid, r, c + 1, listOfLists[r][c]);//создаём в ячейке кнопку заголовка в основной таблице (для синхронизации)
+                        CreateCell("HeaderButtH", mw.DBMSGridHeader, r, c+1, listOfLists[r][c]);//создаём в ячейке кнопку заголовка в таблице заголовка
                     }
                     else//если остальные строки
                     {
@@ -205,14 +125,67 @@ namespace PROMETEUS_LAST_EDITION
                 }
             }
 
-            mw.DBMSGrid.RowDefinitions[0].Height = new GridLength(0);
-            mw.DBMSGrid.RowDefinitions[0].MinHeight = 0;
-            //ColumnWidthLeveling(mw.DBMSGridHeader, mw.DBMSGrid);
+            //mw.DBMSGrid.RowDefinitions[0].Height = new GridLength(0);
+            //mw.DBMSGrid.RowDefinitions[0].MinHeight = 0;
+                     
 
             return true;
         }
 
+        private void CreateRow(Grid gr) {RowDefinition rowDef = new RowDefinition(); gr.RowDefinitions.Add(rowDef);}
+        private void CreateCol(Grid gr) {ColumnDefinition colDef = new ColumnDefinition(); gr.ColumnDefinitions.Add(colDef);}
+        private void CreateCell(string typeCell, Grid gr,  int row, int col,string content="") {
+            //System.Windows.UIElement body;
+            if (typeCell == "TextBox") {
+                TextBox text = new TextBox();
+                gr.Children.Add(text);
 
+                SettingsTextBoxGrid(text);
+
+                text.Text = content;
+                Grid.SetRow(text, row);
+                Grid.SetColumn(text, col);
+                //body = text as System.Windows.UIElement;
+            }
+            else { 
+                Button butt = new Button() as Button;
+                gr.Children.Add(butt);
+                if (typeCell== "RowHeadButt")
+                {
+                    SettingsRowHeadButtGrid(butt);
+                    if (row == 0) butt.BorderThickness = new Thickness(1, 1, 2, 1);
+                }
+                else if(typeCell == "HeaderButt")
+                {
+                    SettingsHeaderButtGrid(butt);
+                }
+                else if (typeCell == "HeaderButtH")
+                {
+                    SettingsHeaderButtGrid(butt);
+
+                    Binding mybinding = new Binding();
+                    //                mybinding.Path.Path = "ActualWidth";
+                    //                mybinding.ElementName = "img"
+                    //Mytarget.SetBinding(MYTARGET.WidthProperty, mybinding);
+                    //                MYTARGET класс и Mytarget имя объекта.
+
+
+
+                }
+
+
+
+            
+
+
+                butt.Content = content;
+                Grid.SetRow(butt, row);
+                Grid.SetColumn(butt, col);
+                //body = butt as System.Windows.UIElement;
+            }
+            //Grid.SetRow(body, row);
+            //Grid.SetColumn(body, col);
+        }
         private void SettingsTextBoxGrid(TextBox text) {
             text.Margin = new Thickness(0);
             text.Padding = new Thickness(0, -5, 0, -5);
@@ -263,25 +236,59 @@ namespace PROMETEUS_LAST_EDITION
 
         public void ColumnWidthLeveling(Grid grid1, Grid grid2)
         {
+
+
+           
+            List<string> ListSettings = new List<string>();//Список значений всех элементов
+           
+           
+                
+                // List<RadioButton> radioButtonElements = new List<RadioButton>();//радиокнопки
+                foreach (Button rb in MainWindow.FindVisualChildren<Button>(grid1) )
+                { 
+                    ListSettings.Add(rb.Width.ToString()); 
+                    
+                    MainWindow.LOG("### grid1  Button.Whidth = " + rb.Width.ToString()); 
+                //родительский контейнер
+                                                                                                                            // List<CheckBox> checkBoxElements = new List<CheckBox>();  //CheckBox
+                
+            }
+
+
+
+            UIElementCollection allbuttgrid1 = grid1.Children;
+            UIElementCollection allbuttgrid2 = grid2.Children;
+
             int col1 = grid1.ColumnDefinitions.Count;
-            int col2 = grid2.ColumnDefinitions.Count;
-            int row1 = grid1.RowDefinitions.Count;
-            int row2 = grid2.RowDefinitions.Count;
-
-                for (int c = 0; c < col1; c++)
-                {
-
-                grid1.ColumnDefinitions[c].Width = new GridLength(grid2.ColumnDefinitions[c].ActualWidth);
-                //if (grid1.ColumnDefinitions[c].Width < grid2.ColumnDefinitions[c].Width)
-                //{
-
-
-                //}
-            }
-            if (col1 == col2)
+            //int col2 = grid2.ColumnDefinitions.Count;
+            //int row1 = grid1.RowDefinitions.Count;
+            //int row2 = grid2.RowDefinitions.Count;
+            for (int c = 0; c < col1; c++)
             {
+                Button butt1 = allbuttgrid1[c] as Button;
+                Button butt2 = allbuttgrid2[c] as Button;
+
+                double h1 = butt1.Width;
+                double h2 = butt2.Width;
+
+                MainWindow.LOG("Butt1 = "+ h1.ToString());
+
+                MainWindow.LOG("Butt2 = " + h2.ToString());
+
+                if (butt1.Width < butt2.Width)
+                {
+                    butt1.Width = butt2.Width;
+
+                }
+                else if (butt1.Width >  butt2.Width)
+                {
+                    butt2.Width = butt1.Width;
+                }
+
+                //grid1.Children[c];
             }
 
+            
         }
 
         public bool ParseToDGrid(MainWindow mw,int item,string path="")
@@ -291,97 +298,14 @@ namespace PROMETEUS_LAST_EDITION
 
             List < List<string> > listOfLists = new FileFX().LoadDSV(path, char.Parse("|"));
 
-
-            //mw.DBMSdataGrid.ItemsSource = listOfLists;
-
             int rows = listOfLists.Count();
             int cols = listOfLists[0].Count();
 
-            //mw.DBMSdataGrid.Row = N;
-            //dataGridView1.ColumnCount = M;
-            //int r, c;
-
-            //for (r = 0; r < Rows; r++)
-
-            //    for (c = 0; c < Cols; ++j)
-            //        mw.DBMSdataGrid.Rows[rr][cc + 1] = data[rr, cc];
-            //mw.DBMSdataGrid.Row
-
-            //DataGridTextColumn textColumn = new DataGridTextColumn();
-            //                    textColumn.Header = "First Name";
-            //                    textColumn.Binding = new Binding("хуета");
-            //                    mw.DBMSdataGrid.Columns.Add(textColumn);
-            //            mw.DBMSdataGrid.Items.Add(mw.DBMSdataGrid.Columns);
-
-            //            for (int r = 0; r < rows; r++)
-            //            {
-
-            //                for (int c = 0; c < cols; c++)
-
-            //                {
-
-
-
-            //                }
-
-            //            }
-
-
-
-
-
-            //DataGridTextColumn col1 = new DataGridTextColumn();
-            //DataGridTextColumn col2 = new DataGridTextColumn();
-            //DataGridTextColumn col3 = new DataGridTextColumn();
-            //DataGridTextColumn col4 = new DataGridTextColumn();
-            //DataGridTextColumn col5 = new DataGridTextColumn();
-            //mw.DBMSdataGrid.Columns.Add(col1);
-            //mw.DBMSdataGrid.Columns.Add(col2);
-            //mw.DBMSdataGrid.Columns.Add(col3);
-            //mw.DBMSdataGrid.Columns.Add(col4);
-            //mw.DBMSdataGrid.Columns.Add(col5);
-            //col1.Binding = new Binding("id");
-            //col2.Binding = new Binding("title");
-            //col3.Binding = new Binding("jobint");
-            //col4.Binding = new Binding("lastrun");
-            //col5.Binding = new Binding("nextrun");
-            //col1.Header = "ID";
-            //col2.Header = "title";
-            //col3.Header = "jobint";
-            //col4.Header = "lastrun";
-            //col5.Header = "nextrun";
-
-            //mw.DBMSdataGrid.Items.Add(new MyData { id = 1, title = "Test", jobint = 2, lastrun = new DateTime(), nextrun = new DateTime() });
-            //mw.DBMSdataGrid.Items.Add(new MyData { id = 12, title = "Test2", jobint = 24, lastrun = new DateTime(), nextrun = new DateTime() });
-
-
-
-
-
+           
             return true;
         }
 
-        //            Решение 3
-        //Привет!
-        //Используя учебник, найденный здесь,
-        //я, программист
-        //, проработал пример и адаптировал его для ваших нужд.
-        //Развернуть ▼   
-
-        public struct MyData
-        {
-            public int id { set; get; }
-            public string title { set; get; }
-            public int jobint { set; get; }
-            public DateTime lastrun { set; get; }
-            public DateTime nextrun { set; get; }
-        }
-
-
-
-        //Код, показанный выше, кажется довольно простым.XAML выглядит следующим образом:
-
-        //<DataGrid x:Name= "myDataGrid" />
+      
 
     }
 }

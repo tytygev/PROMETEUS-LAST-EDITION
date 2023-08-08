@@ -41,8 +41,8 @@ namespace PROMETEUS_LAST_EDITION
             InitializeComponent();
             InitializeButtons();
 
-            new DBMS().CreateClearGrid(this);
-            new DBMS().CreateDataGrid(this, new DBMS().ParseDB(this, 1));
+            //new DBMS().CreateClearGrid(this);
+            //new DBMS().CreateDataGrid(this, new DBMS().ParseDB(this, 1));
             //new DBMS().FinishedCreateGrid(this);
 
 
@@ -95,12 +95,10 @@ namespace PROMETEUS_LAST_EDITION
         private void MenuButton_MouseUp(object sender, MouseButtonEventArgs e)
         {
             wav.Stream = Properties.Resources.ding; wav.Play();
-            new DBMS().ColumnWidthLeveling(DBMSGridHeader, DBMSGrid);
             //
         }
         private void OpenDB(object sender, RoutedEventArgs e)
         {
-            //new DBMS().CreateDataGrid(this, new DBMS().ParseDB(this, 0));
             MenuItem menuI = sender as MenuItem;
             int file=100; bool flag = true;
             switch (menuI.Header.ToString())
@@ -124,18 +122,23 @@ namespace PROMETEUS_LAST_EDITION
                     flag = false;
                     break;                   
             }
-            //new DBMS().ParseDB(this, 1);
+           
             new DBMS().CreateClearGrid(this);
             if (flag) new DBMS().CreateDataGrid(this, new DBMS().ParseDB(this, file));
-            //new DBMS().FinishedCreateGrid(this);
-        }
-        private void ScrollChanged(object sender, ScrollChangedEventArgs e)
-        {
 
-            //DataGridHeaderScroll.ScrollToVerticalOffset(e.VerticalOffset);
-            DataGridHeaderScroll.ScrollToHorizontalOffset(e.HorizontalOffset);
+            //new DBMS().FinishedCreateGrid(this);
+          
+            new DBMS().ColumnWidthLeveling(DBMSGridHeader, DBMSGrid);
+          
+
            
+
         }
+        private void StartColumnWidthLeveling(object sender, EventArgs e) {new DBMS().ColumnWidthLeveling(DBMSGridHeader, DBMSGrid);}
+        private void StartColumnWidthLeveling(object sender, TextCompositionEventArgs e) {new DBMS().ColumnWidthLeveling(DBMSGridHeader, DBMSGrid);}
+        private void StartColumnWidthLeveling(object sender, RoutedEventArgs e) {new DBMS().ColumnWidthLeveling(DBMSGridHeader, DBMSGrid);}
+        private void ScrollChanged(object sender, ScrollChangedEventArgs e) {DataGridHeaderScroll.ScrollToHorizontalOffset(e.HorizontalOffset);}
+        
         //установка значений свойств объектов в соотвествии с настройками
         private void SettingsInitialized(object sender, EventArgs e)
         {
@@ -414,7 +417,7 @@ namespace PROMETEUS_LAST_EDITION
             return ListSettings;
         }
 
-        
+       
     }
 
 

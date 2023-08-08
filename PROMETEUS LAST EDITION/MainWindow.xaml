@@ -2940,7 +2940,7 @@ System.Drawing.Bitmap (как и вообще складирование кар�
                             
                             
                             <!--ОСНОВНАЯ ТАБЛИЦА-->
-                            <Grid x:Name="DBMSGrid" Margin="0">
+                            <Grid x:Name="DBMSGrid" Margin="0" Initialized="StartColumnWidthLeveling" TextInput="StartColumnWidthLeveling" Loaded="StartColumnWidthLeveling">
                                 <Grid.Background>
                                     <SolidColorBrush Color="{DynamicResource ColorFont}"/>
                                 </Grid.Background>
