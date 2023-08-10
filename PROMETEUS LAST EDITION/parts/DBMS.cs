@@ -1,13 +1,7 @@
 ﻿using System;
 using System.Collections.Generic;
 using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
-using System.Windows.Controls;
-using System.Windows.Data;
-using System.Windows;
-using System.Windows.Media;
-using System.Windows.Input;
+
 
 namespace PROMETEUS_LAST_EDITION
 {
@@ -22,240 +16,122 @@ namespace PROMETEUS_LAST_EDITION
             staff
         }
 
-    //пример использования функции сохранения и загрузки БД:
-    //List<List<string>> listOfLists = new List<List<string>>();
-    //listOfLists=FileFX.LoadDSV("prop.txt", char.Parse(";"));
-    //listOfLists[1][1] = "эщкере";
-    //FileFX.SaveDSV(listOfLists,"prop.txt", char.Parse(";"));//изикатка    
-        public List<List<string>> ParseDB(MainWindow mw, int item, string path = "")
+        /// <summary>
+        /// Парсит XML таблицу Excel 
+        /// </summary>
+        /// <param name = "xml" >Принимает на вход строку, содержащую таблицу Excel в формате Таблица XML 2003</param >
+        /// <returns>Возвращает список строковых списков</returns>
+        public List<List<string>> HandParseXML(string xml)
         {
-            var db = (DBList)item;
-            path = "data\\" + db + ".dsv";
+            List<List<string>> listOfLists = new List<List<string>>(); //экземпляр списка списков
+            string[] rowWords;
+            string[] cellWords;
+            //string[] dataWords;
 
-            List<List<string>> listOfLists = new FileFX().LoadDSV(path, char.Parse("|"));
+            //обрезаем строку от первого ROW до последнего//
+            int isubstring = xml.IndexOf("<Row");
+            xml = xml.Substring(isubstring);
+            int jsubstring = xml.IndexOf("</Table>");
+            xml = xml.Remove(jsubstring);
+            ////////////////////////////////////////////////
 
+            //получаем массив строк ROW
+            //ssIndex игнорируется и пустые строки будут пропущены
+            string[] rowSeparatingStrings = { "<Row" };
+            rowWords = xml.Split(rowSeparatingStrings, System.StringSplitOptions.RemoveEmptyEntries);
 
-           
-                return listOfLists;
-        }
-
-        public bool ParseToDGrid(MainWindow mw,int item,string path="")
-        {
-            var db = (DBList)item;
-            path="data\\"+db+".dsv";
-
-            List < List<string> > listOfLists = new FileFX().LoadDSV(path, char.Parse("|"));
-
-
-            //mw.DBMSdataGrid.ItemsSource = listOfLists;
-
-            int rows = listOfLists.Count();
-            int cols = listOfLists[0].Count();
-
-            //mw.DBMSdataGrid.Row = N;
-            //dataGridView1.ColumnCount = M;
-            //int r, c;
-
-            //for (r = 0; r < Rows; r++)
-
-            //    for (c = 0; c < Cols; ++j)
-            //        mw.DBMSdataGrid.Rows[rr][cc + 1] = data[rr, cc];
-            //mw.DBMSdataGrid.Row
-
-            //DataGridTextColumn textColumn = new DataGridTextColumn();
-            //                    textColumn.Header = "First Name";
-            //                    textColumn.Binding = new Binding("хуета");
-            //                    mw.DBMSdataGrid.Columns.Add(textColumn);
-            //            mw.DBMSdataGrid.Items.Add(mw.DBMSdataGrid.Columns);
-
-            //            for (int r = 0; r < rows; r++)
-            //            {
-
-            //                for (int c = 0; c < cols; c++)
-
-            //                {
-
-
-
-            //                }
-
-            //            }
-
-
-
-
-
-            //DataGridTextColumn col1 = new DataGridTextColumn();
-            //DataGridTextColumn col2 = new DataGridTextColumn();
-            //DataGridTextColumn col3 = new DataGridTextColumn();
-            //DataGridTextColumn col4 = new DataGridTextColumn();
-            //DataGridTextColumn col5 = new DataGridTextColumn();
-            //mw.DBMSdataGrid.Columns.Add(col1);
-            //mw.DBMSdataGrid.Columns.Add(col2);
-            //mw.DBMSdataGrid.Columns.Add(col3);
-            //mw.DBMSdataGrid.Columns.Add(col4);
-            //mw.DBMSdataGrid.Columns.Add(col5);
-            //col1.Binding = new Binding("id");
-            //col2.Binding = new Binding("title");
-            //col3.Binding = new Binding("jobint");
-            //col4.Binding = new Binding("lastrun");
-            //col5.Binding = new Binding("nextrun");
-            //col1.Header = "ID";
-            //col2.Header = "title";
-            //col3.Header = "jobint";
-            //col4.Header = "lastrun";
-            //col5.Header = "nextrun";
-
-            //mw.DBMSdataGrid.Items.Add(new MyData { id = 1, title = "Test", jobint = 2, lastrun = new DateTime(), nextrun = new DateTime() });
-            //mw.DBMSdataGrid.Items.Add(new MyData { id = 12, title = "Test2", jobint = 24, lastrun = new DateTime(), nextrun = new DateTime() });
-
-
-
-
-
-            return true;
-        }
-
-        public static void LoadParserXml(string xml)
-        {
-//            var xml =
-//@"<note>
-//           <to>Tove</to>
-//           <from>Jani</from>
-//           <heading>Reminder</heading>
-//           <body>Don't forget me this weekend!</body>
-//        </note>";
-
-            Console.WriteLine("== LEXEMS ==");
-
-            foreach (var lexem in LexemAnalyser.ParseLexems(xml))
-                Console.WriteLine(lexem);
-
-            Console.WriteLine();
-            Console.WriteLine("== XML TREE ==");
-
-            var root = XmlParser.Parse(xml);
-            TypeXmlTree(root);
-
-            Console.ReadLine();
-        }
-
-        static void TypeXmlTree(XmlNode node, string prefix = "")
-        {
-            Console.WriteLine(prefix + node.Content);
-            foreach (var child in node.Children)
-                TypeXmlTree(child, prefix + "\t");
-        }
-
-
-    }
-
-
-    static class XmlParser
-    {
-        public static XmlNode Parse(string xml)
-        {
-            //get lexems
-            var lexems = LexemAnalyser.ParseLexems(xml).ToList();
-            //check
-            if (lexems.Count < 2) throw new Exception("Пустой XML");
-            if (lexems[0].Type != LexemType.OpenTag) throw new Exception("XML should start with tag");
-            //build node tree
-            var stack = new Stack<XmlNode>();
-            foreach (var lexem in lexems)
-                switch (lexem.Type)
+            string[] cellSeparatingStrings = { "<Cell" };
+            for (int j = 0; j < rowWords.Count(); j++)
+            {
+                //получаем массив ячеек каждой отдельной строки
+                cellWords = rowWords[j].Split(cellSeparatingStrings, System.StringSplitOptions.RemoveEmptyEntries);
+                //анализируем массив ячеек и загоняем в list
+                List<string> listOfCells = new List<string>(); //Создаём новый экземпляр
+                for (int i = 1; i < cellWords.Count(); i++)
                 {
-                    case LexemType.OpenTag:
-                        var node = new XmlNode() { Type = lexem.Type, Content = lexem.Text };
-                        if (stack.Count > 0)
-                            stack.Peek().Children.Add(node);
-                        stack.Push(node);
-                        break;
-                    case LexemType.CloseTag:
-                        var open = stack.Pop();
-                        if (open.Content != lexem.Text)
-                            throw new Exception("Close tag does not correspond to open tag");
-                        if (stack.Count == 0)
-                            return open;
-                        break;
-                    case LexemType.Content:
-                        var textNode = new XmlNode() { Type = lexem.Type, Content = lexem.Text };
-                        stack.Peek().Children.Add(textNode);
-                        break;
+
+                    cellWords[i] = cellWords[i].Trim();
+
+                    int ssIndexSubstring = cellWords[i].IndexOf("ss:Index");
+                    int dataSubstring = cellWords[i].IndexOf("<Data");
+
+                    //если ss:Index найден раньше <Data...>, т.е. относится к <Cell...>
+                    if (ssIndexSubstring != -1 && ssIndexSubstring <= dataSubstring)
+                    {
+                        //позиция начала числа
+                        int intSubstring = cellWords[i].IndexOf("\"", ssIndexSubstring) + 1;
+                        //позиция конца числа
+                        int intEndSubstring = cellWords[i].IndexOf("\"", intSubstring);
+                        //количество символов числа
+                        int ssIndexLengt = intEndSubstring - intSubstring;
+
+                        Int32.TryParse(cellWords[i].Substring(intSubstring, ssIndexLengt), out int ssIndexCell);
+
+                        //добавить пустые строки в list в количестве значение_ss:Index - 1 - длинна_List
+                        for (int k = 0; k < ssIndexCell - listOfCells.Count(); k++) { listOfCells.Add(""); }
+                    }
+                    int dataContentSubstring=0;
+                    int dataEndContentSubstring=0;
+                    if (dataSubstring >= 0) 
+                    { 
+                    dataContentSubstring = cellWords[i].IndexOf(">", dataSubstring) + 1;
+                    dataEndContentSubstring = cellWords[i].IndexOf("</Data>", dataContentSubstring);
+                    }
+                    int dataLength = dataEndContentSubstring- dataContentSubstring;
+                    if (dataLength < 0)
+                    {
+                        int a = 0;
+                    }
+                    listOfCells.Add(cellWords[i].Substring(dataContentSubstring, dataLength));
+
                 }
+                listOfLists.Add(listOfCells); //полученый список добавляем в список списков (как двумерный массив)
 
-            throw new Exception("No close tag");
-        }
-    }
-
-    class XmlNode
-    {
-        public List<XmlNode> Children = new List<XmlNode>();
-        public LexemType Type;
-        public string Content;
-    }
-
-    static class LexemAnalyser
-    {
-        public static IEnumerable<Lexem> ParseLexems(string xml)
-        {
-            return ParseLexemsRaw(xml).Where(lexem => lexem.Type != LexemType.Content || lexem.Text.Trim() != "");//ignore empty content lexems
+            }
+            return listOfLists;
         }
 
-        private static IEnumerable<Lexem> ParseLexemsRaw(string xml)
-        {
-            LexemType type = LexemType.Content;
-            string text = "";
+        //добавить создание резервной копии перед выходом
 
-            foreach (var c in xml)
-                switch (c)
-                {
-                    case '<':
-                        yield return new Lexem(type, text);
-                        type = LexemType.OpenTag; text = "";
-                        break;
-                    case '/':
-                        if (type == LexemType.OpenTag && text == "")
-                            type = LexemType.CloseTag;
-                        else
-                            goto default;
-                        break;
-                    case '>':
-                        if (type == LexemType.Content)
-                            goto default;
-                        yield return new Lexem(type, text);
-                        type = LexemType.Content; text = "";
-                        break;
-                    default:
-                        text += c;
-                        break;
-                }
+        //добавить сравнение текущей версии и резервной копии
 
-            yield return new Lexem(type, text);
-        }
+        //пример использования функции сохранения и загрузки БД:
+        //List<List<string>> listOfLists = new List<List<string>>();
+        //listOfLists=FileFX.LoadDSV("prop.txt", char.Parse(";"));
+        //listOfLists[1][1] = "эщкере";
+        //FileFX.SaveDSV(listOfLists,"prop.txt", char.Parse(";"));//изикатка    
+        //public List<List<string>> ParseDB(MainWindow mw, int item, string path = "")
+        //{
+        //    var db = (DBList)item;
+        //    path = "data\\" + db + ".dsv";
+
+        //    List<List<string>> listOfLists = new FileFX().LoadDSV(path, char.Parse("|"));
+
+
+
+        //    return listOfLists;
+        //}
+
+        //public bool ParseToDGrid(MainWindow mw, int item, string path = "")
+        //{
+        //    var db = (DBList)item;
+        //    path = "data\\" + db + ".dsv";
+
+        //    List<List<string>> listOfLists = new FileFX().LoadDSV(path, char.Parse("|"));
+
+
+        //    //mw.DBMSdataGrid.ItemsSource = listOfLists;
+
+        //    int rows = listOfLists.Count();
+        //    int cols = listOfLists[0].Count();
+
+
+
+        //    return true;
+        //}
+
     }
 
-    enum LexemType
-    {
-        OpenTag, CloseTag, Content
-    }
-
-    class Lexem
-    {
-        public LexemType Type { get; set; }
-        public string Text { get; set; }
-
-        public Lexem(LexemType type, string text)
-        {
-            Type = type;
-            Text = text;
-        }
-
-        public override string ToString()
-        {
-            return Type + ": " + Text;
-        }
-    }
-
+   
 
 }

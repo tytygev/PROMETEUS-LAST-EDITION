@@ -2934,11 +2934,12 @@ System.Drawing.Bitmap (как и вообще складирование кар�
                     <ScrollViewer x:Name="DataGridScroll" ScrollChanged="ScrollChanged" VerticalScrollBarVisibility="Visible" HorizontalScrollBarVisibility="Visible" Margin="0,0,0,0" HorizontalContentAlignment="Stretch" VerticalContentAlignment="Stretch">
                         <StackPanel Margin="0" VerticalAlignment="Top" CanVerticallyScroll="True" ScrollViewer.CanContentScroll="True" HorizontalAlignment="Left">
 
-                            
-                            
-                            
-                            
-                            
+
+
+                            <!--<local:FilePreviewControl Path="Book1.xlsx" Width="500" Height="500" />-->
+
+
+
                             <!--ОСНОВНАЯ ТАБЛИЦА-->
                             <Grid x:Name="DBMSGrid" Margin="0">
                                 <Grid.Background>
@@ -2951,7 +2952,6 @@ System.Drawing.Bitmap (как и вообще складирование кар�
                                 <Grid.ColumnDefinitions>
                                     <ColumnDefinition Width="Auto"/>
                                 </Grid.ColumnDefinitions>-->
-
 
                             </Grid>
 

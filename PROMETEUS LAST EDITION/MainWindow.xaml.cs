@@ -42,8 +42,12 @@ namespace PROMETEUS_LAST_EDITION
             InitializeComponent();
             InitializeButtons();
 
-            DBMS.LoadParserXml(new FileFX().LoadXML("drivers.xml"));
+            //DBMS.LoadParserXml(new FileFX().LoadXML("data/drivers.xml"));
+            string ch = "|";
+            //new DBMS().HandParseXML(new FileFX().LoadXML("data/drivers.xml"));
+            new FileFX().SaveDSV(new DBMS().HandParseXML(new FileFX().LoadXML("data/drivers.xml")), "data/test.DSV", char.Parse(ch));
 
+            
 
             //Завершение загрузки
             wav = new SoundPlayer();
