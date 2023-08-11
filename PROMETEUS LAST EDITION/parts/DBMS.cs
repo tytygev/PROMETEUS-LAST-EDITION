@@ -1,5 +1,6 @@
 ﻿using System;
 using System.Collections.Generic;
+using System.IO;
 using System.Linq;
 
 
@@ -7,6 +8,8 @@ namespace PROMETEUS_LAST_EDITION
 {
     public class DBMS
     {
+        
+
         public enum DBList
         {
             cars,
@@ -16,12 +19,97 @@ namespace PROMETEUS_LAST_EDITION
             staff
         }
 
+        public bool XMLloadManager(string path)
+        {
+            bool f = true;
+            string xml = File.ReadAllText(path);
+
+            List<List<string>>listOfLists = XMLseparateWorksheet(xml);
+
+            for (int i=0; i < listOfLists.Count();i++)
+            {
+                List<string> lists = listOfLists.ElementAt(i);
+
+                switch (lists.ElementAt(0))
+                {
+                    case "cars":
+                        MainWindow.cars = XMLhandParse(lists.ElementAt(1));
+                        break;
+                    case "drivers":
+                        MainWindow.drivers = XMLhandParse(lists.ElementAt(1));
+                        break;
+                    case "companies":
+                        MainWindow.companies = XMLhandParse(lists.ElementAt(1));
+                        break;
+                    case "medical":
+                        MainWindow.medical = XMLhandParse(lists.ElementAt(1));
+                        break;
+                    case "staff":
+                        MainWindow.staff = XMLhandParse(lists.ElementAt(1));
+                        break;
+                    default:
+                        f = false;
+                        break;
+                }
+            }
+
+            return f;
+        }
+
+        public bool XMLbackup(string path)
+        {
+            File.Copy(path, "backup_db.xml", true);
+            return true;
+        }
+
         /// <summary>
         /// Парсит XML таблицу Excel 
         /// </summary>
         /// <param name = "xml" >Принимает на вход строку, содержащую таблицу Excel в формате Таблица XML 2003</param >
-        /// <returns>Возвращает список строковых списков</returns>
-        public List<List<string>> HandParseXML(string xml)
+        /// <returns>Возвращает списки имён рабочих листов XML таблицы Excel <br/>с фрагментами таблицы, соотвествующих имени, <br/>вложенные в список</returns>
+        public List<List<string>> XMLseparateWorksheet(string xml)
+        {
+            List<List<string>> xmlSeparateWSh = new List<List<string>>();
+
+            //обрезаем строку от первого Worksheet до последнего//
+            int iStartWShs = xml.IndexOf("<Worksheet ss:Name");
+            xml = xml.Substring(iStartWShs);
+            int iEndWShs = xml.IndexOf("</Workbook>");
+            xml = xml.Remove(iEndWShs);
+            ////////////////////////////////////////////////
+
+            //получаем массив строк Worksheet
+            string[] worksheetSeparateStrings = { "<Worksheet ss:Name" };
+            string[] worksheets = xml.Split(worksheetSeparateStrings, System.StringSplitOptions.RemoveEmptyEntries);
+
+            //анализируем массив worksheets и загоняем в list
+            for (int i = 0; i < worksheets.Count(); i++)
+            {
+                worksheets[i] = worksheets[i].Trim();
+
+                //int ssNameWShIndexSubstring = worksheets[i].IndexOf("<Worksheet ss:Name=\"");
+                int ssNameEndIndex = worksheets[i].IndexOf("\">");
+                string ssNameWSh = worksheets[i].Remove(ssNameEndIndex);
+
+                int ssNameStartIndex = ssNameWSh.IndexOf("\"") + 1;
+                ssNameWSh = ssNameWSh.Substring(ssNameStartIndex);
+
+
+                List<string> listOfWorksheets = new List<string>();
+                listOfWorksheets.Add(ssNameWSh);
+                listOfWorksheets.Add(worksheets[i]);
+
+                xmlSeparateWSh.Add(listOfWorksheets);
+            }
+            return xmlSeparateWSh;
+        }
+
+        /// <summary>
+        /// Парсит XML таблицу Excel 
+        /// </summary>
+        /// <param name = "xml" >Принимает на вход строку, содержащую таблицу Excel в формате Таблица XML 2003</param >
+        /// <returns>Возвращает списки с данными ячеек XML таблицы Excel, <br/>вложенные в список</returns>
+        public List<List<string>> XMLhandParse(string xml)
         {
             List<List<string>> listOfLists = new List<List<string>>(); //экземпляр списка списков
             string[] rowWords;
@@ -43,6 +131,7 @@ namespace PROMETEUS_LAST_EDITION
             string[] cellSeparatingStrings = { "<Cell" };
             for (int j = 0; j < rowWords.Count(); j++)
             {
+                if (j != 1) { //пропускаем вторую строку, которая с заголовками
                 //получаем массив ячеек каждой отдельной строки
                 cellWords = rowWords[j].Split(cellSeparatingStrings, System.StringSplitOptions.RemoveEmptyEntries);
                 //анализируем массив ячеек и загоняем в list
@@ -86,7 +175,7 @@ namespace PROMETEUS_LAST_EDITION
 
                 }
                 listOfLists.Add(listOfCells); //полученый список добавляем в список списков (как двумерный массив)
-
+                }
             }
             return listOfLists;
         }
@@ -94,6 +183,9 @@ namespace PROMETEUS_LAST_EDITION
         //добавить создание резервной копии перед выходом
 
         //добавить сравнение текущей версии и резервной копии
+
+
+
 
         //пример использования функции сохранения и загрузки БД:
         //List<List<string>> listOfLists = new List<List<string>>();
@@ -132,6 +224,6 @@ namespace PROMETEUS_LAST_EDITION
 
     }
 
-   
+
 
 }

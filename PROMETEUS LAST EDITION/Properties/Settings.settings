@@ -38,7 +38,10 @@
       <Value Profile="(Default)">False</Value>
     </Setting>
     <Setting Name="SeparatorTextBox" Type="System.String" Scope="User">
-      <Value Profile="(Default)" />
+      <Value Profile="(Default)">|</Value>
+    </Setting>
+    <Setting Name="DefDBPath" Type="System.String" Scope="User">
+      <Value Profile="(Default)">db.xml</Value>
     </Setting>
   </Settings>
 </SettingsFile>

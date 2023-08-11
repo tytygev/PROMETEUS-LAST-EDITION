@@ -25,7 +25,15 @@ namespace PROMETEUS_LAST_EDITION
         public static DefUserSettings UserSettings = new DefUserSettings();//static
         private bool flagInitEnd = false;
 
-       public MainWindow()
+        public static List<List<string>> cars;
+        public static List<List<string>> companies;
+        public static List<List<string>> drivers;
+        public static List<List<string>> medical;
+        public static List<List<string>> staff;
+
+        const string dbDefPath = "db.xml";
+
+        public MainWindow()
         {
             File.Delete("LOG.txt");
 
@@ -42,12 +50,17 @@ namespace PROMETEUS_LAST_EDITION
             InitializeComponent();
             InitializeButtons();
 
-            //DBMS.LoadParserXml(new FileFX().LoadXML("data/drivers.xml"));
-            string ch = "|";
-            //new DBMS().HandParseXML(new FileFX().LoadXML("data/drivers.xml"));
-            new FileFX().SaveDSV(new DBMS().HandParseXML(new FileFX().LoadXML("data/drivers.xml")), "data/test.DSV", char.Parse(ch));
-
             
+            if (new DBMS().XMLloadManager(dbDefPath))
+            {
+                new DBMS().XMLbackup(dbDefPath);
+                LOG(">>> Загрузка из файла "+ dbDefPath+" прошла успешно. Бекап перезаписан.");
+            }
+            else
+            {
+                new DBMS().XMLloadManager("backup_db.xml");
+                LOG(">>> Загрузка из файла " + dbDefPath + " не удалась. Загружены данные из файла бекапа.");
+            }
 
             //Завершение загрузки
             wav = new SoundPlayer();

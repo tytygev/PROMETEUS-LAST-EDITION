@@ -113,13 +113,25 @@ namespace PROMETEUS_LAST_EDITION.Properties {
         
         [global::System.Configuration.UserScopedSettingAttribute()]
         [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
-        [global::System.Configuration.DefaultSettingValueAttribute("")]
+        [global::System.Configuration.DefaultSettingValueAttribute("|")]
         public string SeparatorTextBox {
             get {
                 return ((string)(this["SeparatorTextBox"]));
             }
             set {
                 this["SeparatorTextBox"] = value;
+            }
+        }
+        
+        [global::System.Configuration.UserScopedSettingAttribute()]
+        [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+        [global::System.Configuration.DefaultSettingValueAttribute("db.xml")]
+        public string DefDBPath {
+            get {
+                return ((string)(this["DefDBPath"]));
+            }
+            set {
+                this["DefDBPath"] = value;
             }
         }
     }
