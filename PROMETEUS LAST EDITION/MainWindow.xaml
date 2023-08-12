@@ -2259,7 +2259,7 @@ System.Drawing.Bitmap (как и вообще складирование кар�
         -->
         </Grid>
 
-        <Grid x:Name="KitSetPage" Grid.Column="1" Margin="0" ScrollViewer.VerticalScrollBarVisibility="Auto" d:IsHidden="True">
+        <Grid x:Name="KitSetPage" Grid.Column="1" Margin="0" ScrollViewer.VerticalScrollBarVisibility="Auto">
             <Grid.Background>
                 <SolidColorBrush Color="{DynamicResource ColorSub}"/>
             </Grid.Background>
@@ -2298,9 +2298,9 @@ System.Drawing.Bitmap (как и вообще складирование кар�
                         <ColumnDefinition Width="auto"/>
                         <ColumnDefinition />
                     </Grid.ColumnDefinitions>
-                    <ScrollViewer VerticalScrollBarVisibility="Visible" HorizontalScrollBarVisibility="Disabled" Margin="0,0,0,0" HorizontalAlignment="Left">
-                        <StackPanel Margin="0,15,0,0" VerticalAlignment="Top" CanVerticallyScroll="True" ScrollViewer.CanContentScroll="True" MinWidth="260">
-                            <TextBlock HorizontalAlignment="Left" Margin="10,5" TextWrapping="Wrap" FontSize="14" FontWeight="Normal" TextDecorations="{x:Null}">
+                    <ScrollViewer VerticalScrollBarVisibility="Visible" HorizontalScrollBarVisibility="Disabled" Margin="0,5,0,0" HorizontalAlignment="Left">
+                        <StackPanel Margin="0" VerticalAlignment="Top" CanVerticallyScroll="True" ScrollViewer.CanContentScroll="True" MinWidth="260">
+                            <TextBlock HorizontalAlignment="Left" Margin="10,15,10,5" TextWrapping="Wrap" FontSize="14" FontWeight="Normal" TextDecorations="{x:Null}">
                                 <TextBlock.Foreground>
                                     <SolidColorBrush Color="{DynamicResource ColorFont}"/>
                                 </TextBlock.Foreground><Run Text="Организация"/></TextBlock>
@@ -2318,7 +2318,7 @@ System.Drawing.Bitmap (как и вообще складирование кар�
                                     <SolidColorBrush Color="{DynamicResource ColorMain}"/>
                                 </ComboBox.Background>
                             </ComboBox>
-                            <CheckBox x:Name="checkBox8" Margin="10,5,10,15" FontSize="14" BorderThickness="1" Padding="5,0,0,0" HorizontalAlignment="Right" RenderTransformOrigin="0.5,0.5" Width="{Binding ActualWidth, ElementName=comboBox2, Mode=OneWay}" Content="Без адреса осмотра/подачи" FontWeight="Normal" >
+                            <CheckBox x:Name="checkBox8" Margin="10,5" FontSize="14" BorderThickness="1" Padding="5,0,0,0" HorizontalAlignment="Right" RenderTransformOrigin="0.5,0.5" Width="{Binding ActualWidth, ElementName=comboBox2, Mode=OneWay}" Content="Без адреса осмотра" FontWeight="Normal" >
                                 <CheckBox.Foreground>
                                     <SolidColorBrush Color="{DynamicResource ColorFont}"/>
                                 </CheckBox.Foreground>
@@ -2330,12 +2330,24 @@ System.Drawing.Bitmap (как и вообще складирование кар�
                                 </CheckBox.Background>
 
                             </CheckBox>
-                            <TextBlock HorizontalAlignment="Left" Margin="10,5" TextWrapping="Wrap" Text="Механик" FontSize="14" FontWeight="Normal" TextDecorations="{x:Null}">
+                            <CheckBox x:Name="checkBox8_Copy" Margin="10,5" FontSize="14" BorderThickness="1" Padding="5,0,0,0" HorizontalAlignment="Right" RenderTransformOrigin="0.5,0.5" Width="{Binding ActualWidth, ElementName=comboBox2, Mode=OneWay}" Content="Без адреса подачи" FontWeight="Normal" >
+                                <CheckBox.Foreground>
+                                    <SolidColorBrush Color="{DynamicResource ColorFont}"/>
+                                </CheckBox.Foreground>
+                                <CheckBox.BorderBrush>
+                                    <SolidColorBrush Color="{DynamicResource ColorNuans}"/>
+                                </CheckBox.BorderBrush>
+                                <CheckBox.Background>
+                                    <SolidColorBrush Color="{DynamicResource ColorMain}"/>
+                                </CheckBox.Background>
+
+                            </CheckBox>
+                            <TextBlock HorizontalAlignment="Left" Margin="10,15,10,5" TextWrapping="Wrap" Text="Механик" FontSize="14" FontWeight="Normal" TextDecorations="{x:Null}">
                                 <TextBlock.Foreground>
                                     <SolidColorBrush Color="{DynamicResource ColorFont}"/>
                                 </TextBlock.Foreground>
                             </TextBlock>
-                            <ComboBox HorizontalAlignment="Right" Margin="10,5,10,15" Text="" MinWidth="180" FontSize="14" FontWeight="Normal" Padding="2,4,2,2" IsEditable="True" MaxWidth="250">
+                            <ComboBox HorizontalAlignment="Right" Margin="10,5" Text="" MinWidth="180" FontSize="14" FontWeight="Normal" Padding="2,4,2,2" IsEditable="True" MaxWidth="250">
                                 <ComboBox.Foreground>
                                     <LinearGradientBrush EndPoint="0.5,1" StartPoint="0.5,0">
                                         <GradientStop Color="Black" Offset="0"/>
@@ -2349,7 +2361,7 @@ System.Drawing.Bitmap (как и вообще складирование кар�
                                     <SolidColorBrush Color="{DynamicResource ColorMain}"/>
                                 </ComboBox.Background>
                             </ComboBox>
-                            <TextBlock HorizontalAlignment="Left" Margin="10,5" TextWrapping="Wrap" Text="Диспетчер-нарядчик" FontSize="14" FontWeight="Normal" TextDecorations="{x:Null}">
+                            <TextBlock HorizontalAlignment="Left" Margin="10,15,10,5" TextWrapping="Wrap" Text="Диспетчер-нарядчик" FontSize="14" FontWeight="Normal" TextDecorations="{x:Null}">
                                 <TextBlock.Foreground>
                                     <SolidColorBrush Color="{DynamicResource ColorFont}"/>
                                 </TextBlock.Foreground>
@@ -2366,7 +2378,7 @@ System.Drawing.Bitmap (как и вообще складирование кар�
                                 </CheckBox.Background>
 
                             </CheckBox>
-                            <ComboBox x:Name="comboBox2" HorizontalAlignment="Right" Margin="10,5,10,15" Text="" MinWidth="180" FontSize="14" FontWeight="Normal" Padding="2,4,2,2" IsEditable="True" MaxWidth="250">
+                            <ComboBox x:Name="comboBox2" HorizontalAlignment="Right" Margin="10,5" Text="" MinWidth="180" FontSize="14" FontWeight="Normal" Padding="2,4,2,2" IsEditable="True" MaxWidth="250">
                                 <ComboBox.Foreground>
                                     <LinearGradientBrush EndPoint="0.5,1" StartPoint="0.5,0">
                                         <GradientStop Color="Black" Offset="0"/>
@@ -2380,7 +2392,7 @@ System.Drawing.Bitmap (как и вообще складирование кар�
                                     <SolidColorBrush Color="{DynamicResource ColorMain}"/>
                                 </ComboBox.Background>
                             </ComboBox>
-                            <TextBlock HorizontalAlignment="Left" Margin="10,5" TextWrapping="Wrap" Text="Медработник" FontSize="14" FontWeight="Normal" TextDecorations="{x:Null}">
+                            <TextBlock HorizontalAlignment="Left" Margin="10,15,10,5" TextWrapping="Wrap" Text="Медработник" FontSize="14" FontWeight="Normal" TextDecorations="{x:Null}">
                                 <TextBlock.Foreground>
                                     <SolidColorBrush Color="{DynamicResource ColorFont}"/>
                                 </TextBlock.Foreground>
@@ -2399,7 +2411,7 @@ System.Drawing.Bitmap (как и вообще складирование кар�
                                     <SolidColorBrush Color="{DynamicResource ColorMain}"/>
                                 </ComboBox.Background>
                             </ComboBox>
-                            <CheckBox x:Name="checkBox7" Content="Только Лицензия" Margin="10,5,10,15" FontSize="14" FontWeight="Normal" BorderThickness="1" Padding="5,0,0,0"  IsChecked="True" HorizontalAlignment="Right" RenderTransformOrigin="0.5,0.5" Width="{Binding ActualWidth, ElementName=comboBox2, Mode=OneWay}" >
+                            <CheckBox x:Name="checkBox7" Content="Только Лицензия" Margin="10,5" FontSize="14" FontWeight="Normal" BorderThickness="1" Padding="5,0,0,0"  IsChecked="True" HorizontalAlignment="Right" RenderTransformOrigin="0.5,0.5" Width="{Binding ActualWidth, ElementName=comboBox2, Mode=OneWay}" >
                                 <CheckBox.Foreground>
                                     <SolidColorBrush Color="{DynamicResource ColorFont}"/>
                                 </CheckBox.Foreground>
@@ -2411,7 +2423,7 @@ System.Drawing.Bitmap (как и вообще складирование кар�
                                 </CheckBox.Background>
 
                             </CheckBox>
-                            <CheckBox Content="Не печатать пустые" Margin="10,5,10,15" FontSize="14" FontWeight="Normal" BorderThickness="1" Padding="5,0,0,0" >
+                            <CheckBox Content="Не печатать пустые" Margin="10,15,10,5" FontSize="14" FontWeight="Normal" BorderThickness="1" Padding="5,0,0,0" >
                                 <CheckBox.Foreground>
                                     <SolidColorBrush Color="{DynamicResource ColorFont}"/>
                                 </CheckBox.Foreground>
@@ -2423,7 +2435,7 @@ System.Drawing.Bitmap (как и вообще складирование кар�
                                 </CheckBox.Background>
 
                             </CheckBox>
-                            <Grid Margin="10,5,10,15" VerticalAlignment="Center">
+                            <Grid Margin="10,15,10,5" VerticalAlignment="Center">
                                 <Grid.ColumnDefinitions>
                                     <ColumnDefinition Width="auto"/>
                                     <ColumnDefinition Width="*"/>
@@ -2463,7 +2475,7 @@ System.Drawing.Bitmap (как и вообще складирование кар�
                                 </TextBox>
 
                             </Grid>
-                            <Grid Margin="10,5,10,15" VerticalAlignment="Center">
+                            <Grid Margin="10,15,10,5" VerticalAlignment="Center">
                                 <Grid.ColumnDefinitions>
                                     <ColumnDefinition Width="auto"/>
                                     <ColumnDefinition Width="*"/>
@@ -2515,7 +2527,7 @@ System.Drawing.Bitmap (как и вообще складирование кар�
                                 </CheckBox.Background>
 
                             </CheckBox>
-                            <GroupBox Header="" Margin="10,5,10,15" FontSize="12" FontWeight="Normal" Padding="0" UseLayoutRounding="True" BorderThickness="1,0,1,1" VerticalAlignment="Top" IsEnabled="{Binding IsChecked, ElementName=checkBox4}">
+                            <GroupBox Header="" Margin="10,15,10,5" FontSize="12" FontWeight="Normal" Padding="0" UseLayoutRounding="True" BorderThickness="1,0,1,1" VerticalAlignment="Top" IsEnabled="{Binding IsChecked, ElementName=checkBox4}">
 
                                 <GroupBox.Foreground>
                                     <SolidColorBrush Color="{DynamicResource ColorFont}"/>
@@ -2574,7 +2586,7 @@ System.Drawing.Bitmap (как и вообще складирование кар�
                                 </CheckBox.Background>
 
                             </CheckBox>
-                            <GroupBox Header="" Margin="10,5,10,15" FontSize="12" FontWeight="Normal" Padding="0" UseLayoutRounding="True" BorderThickness="1,0,1,1" VerticalAlignment="Top" IsEnabled="{Binding IsChecked, ElementName=checkBox5}">
+                            <GroupBox Header="" Margin="10,15,10,2" FontSize="12" FontWeight="Normal" Padding="0" UseLayoutRounding="True" BorderThickness="1,0,1,1" VerticalAlignment="Top" IsEnabled="{Binding IsChecked, ElementName=checkBox5}">
 
                                 <GroupBox.Foreground>
                                     <SolidColorBrush Color="{DynamicResource ColorFont}"/>
@@ -2829,7 +2841,7 @@ System.Drawing.Bitmap (как и вообще складирование кар�
                 <RowDefinition/>
             </Grid.RowDefinitions>
         </Grid>
-        <Grid x:Name="DBEditPage" Margin="0" Grid.Column="1" ScrollViewer.VerticalScrollBarVisibility="Auto">
+        <Grid x:Name="DBEditPage" Margin="0" Grid.Column="1" ScrollViewer.VerticalScrollBarVisibility="Auto" d:IsHidden="True">
             <Grid.Background>
                 <SolidColorBrush Color="{DynamicResource ColorSub}"/>
             </Grid.Background>
@@ -2881,7 +2893,7 @@ System.Drawing.Bitmap (как и вообще складирование кар�
                     </MenuItem>
                 </Menu>
             </StackPanel>
-            
+
             <Border BorderThickness="1" Margin="20,10,20,0" Grid.Row="1">
                 <Border.Background>
                     <SolidColorBrush Color="{DynamicResource ColorGridHeaderNA}"/>
@@ -2891,7 +2903,7 @@ System.Drawing.Bitmap (как и вообще складирование кар�
                 </Border.BorderBrush>
 
 
-               
+
 
                 <Grid Margin="0" ScrollViewer.HorizontalScrollBarVisibility="Auto" >
                     <Grid.ColumnDefinitions>
@@ -2900,19 +2912,19 @@ System.Drawing.Bitmap (как и вообще складирование кар�
                     <ScrollViewer x:Name="DataGridHeaderScroll" VerticalScrollBarVisibility="Disabled" HorizontalScrollBarVisibility="Hidden" Margin="0,0,0,0" HorizontalContentAlignment="Stretch" VerticalContentAlignment="Stretch">
                         <StackPanel Margin="0,0,17,0" VerticalAlignment="Top" CanVerticallyScroll="True" ScrollViewer.CanContentScroll="True" HorizontalAlignment="Left">
 
-                            
-                            
-                            
-                            
-                            
+
+
+
+
+
                             <!--ТАБЛИЦА ЗАГОЛОВКА-->
-                           <Grid x:Name="DBMSGridHeader" Margin="1,0">
+                            <Grid x:Name="DBMSGridHeader" Margin="1,0">
                                 <Grid.Background>
                                     <SolidColorBrush Color="{DynamicResource ColorFont}"/>
                                 </Grid.Background>
                             </Grid>
-                            
-                            
+
+
 
                         </StackPanel>
                     </ScrollViewer>
