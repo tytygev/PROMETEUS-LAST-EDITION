@@ -183,7 +183,7 @@ P.S. Ответ на Основной Вопрос Жизни, Вселенно�
                                 <ColumnDefinition Width="Auto"/>
                                 <ColumnDefinition Width="*"/>
                             </Grid.ColumnDefinitions>
-                            <Border x:Name="checkBoxBorder" BorderBrush="{TemplateBinding BorderBrush}" BorderThickness="{TemplateBinding BorderThickness}" Background="{TemplateBinding Background}" HorizontalAlignment="{TemplateBinding HorizontalContentAlignment}" Margin="1" VerticalAlignment="{TemplateBinding VerticalContentAlignment}">
+                            <Border x:Name="checkBoxBorder" BorderBrush="{TemplateBinding BorderBrush}" BorderThickness="{TemplateBinding BorderThickness}" Background="{TemplateBinding Background}" HorizontalAlignment="{TemplateBinding HorizontalContentAlignment}" Margin="1" VerticalAlignment="Center">
                                 <Grid x:Name="markGrid">
                                     <Path x:Name="optionMark" Data="F1 M 9.97498,1.22334L 4.6983,9.09834L 4.52164,9.09834L 0,5.19331L 1.27664,3.52165L 4.255,6.08833L 8.33331,1.52588e-005L 9.97498,1.22334 Z " Margin="1,1,1,2" Opacity="0.295" Stretch="None" >
                                         <Path.Effect>
@@ -199,7 +199,7 @@ P.S. Ответ на Основной Вопрос Жизни, Вселенно�
                                     <Rectangle x:Name="indeterminateMark" Margin="2" Opacity="0" Stroke="{x:Null}" Fill="{x:Null}"/>
                                 </Grid>
                             </Border>
-                            <ContentPresenter x:Name="MycontentPresenter" Grid.Column="1" Focusable="False" HorizontalAlignment="{TemplateBinding HorizontalContentAlignment}" Margin="{TemplateBinding Padding}" RecognizesAccessKey="True" SnapsToDevicePixels="{TemplateBinding SnapsToDevicePixels}" VerticalAlignment="{TemplateBinding VerticalContentAlignment}"/>
+                            <ContentPresenter x:Name="MycontentPresenter" Grid.Column="1" Focusable="False" HorizontalAlignment="{TemplateBinding HorizontalContentAlignment}" Margin="{TemplateBinding Padding}" RecognizesAccessKey="True" SnapsToDevicePixels="{TemplateBinding SnapsToDevicePixels}" VerticalAlignment="Center"/>
                         </Grid>
                         <ControlTemplate.Triggers>
                             <Trigger Property="HasContent" Value="true">
@@ -687,7 +687,7 @@ P.S. Ответ на Основной Вопрос Жизни, Вселенно�
                                 <ColumnDefinition Width="Auto"/>
                                 <ColumnDefinition Width="*"/>
                             </Grid.ColumnDefinitions>
-                            <Border x:Name="radioButtonBorder" BorderBrush="{TemplateBinding BorderBrush}" BorderThickness="{TemplateBinding BorderThickness}" Background="{TemplateBinding Background}" CornerRadius="100" HorizontalAlignment="{TemplateBinding HorizontalContentAlignment}" Margin="1,1,2,1" VerticalAlignment="{TemplateBinding VerticalContentAlignment}">
+                            <Border x:Name="radioButtonBorder" BorderBrush="{TemplateBinding BorderBrush}" BorderThickness="{TemplateBinding BorderThickness}" Background="{TemplateBinding Background}" CornerRadius="100" HorizontalAlignment="{TemplateBinding HorizontalContentAlignment}" Margin="1,1,2,1" VerticalAlignment="Center">
                                 <Grid x:Name="markGrid" Margin="2">
                                     <Ellipse x:Name="optionMark" MinWidth="6" MinHeight="6" Opacity="0">
                                         <Ellipse.Fill>
@@ -699,7 +699,7 @@ P.S. Ответ на Основной Вопрос Жизни, Вселенно�
                                     </Ellipse>
                                 </Grid>
                             </Border>
-                            <ContentPresenter x:Name="MycontentPresenter" Grid.Column="1" Focusable="False" HorizontalAlignment="{TemplateBinding HorizontalContentAlignment}" Margin="{TemplateBinding Padding}" RecognizesAccessKey="True" SnapsToDevicePixels="{TemplateBinding SnapsToDevicePixels}" VerticalAlignment="{TemplateBinding VerticalContentAlignment}"/>
+                            <ContentPresenter x:Name="MycontentPresenter" Grid.Column="1" Focusable="False" HorizontalAlignment="{TemplateBinding HorizontalContentAlignment}" Margin="{TemplateBinding Padding}" RecognizesAccessKey="True" SnapsToDevicePixels="{TemplateBinding SnapsToDevicePixels}" VerticalAlignment="Center"/>
                         </Grid>
                         <ControlTemplate.Triggers>
                             <Trigger Property="HasContent" Value="true">
@@ -2249,7 +2249,7 @@ System.Drawing.Bitmap (как и вообще складирование кар�
                 </local:MainMenuButton>
                 <TextBlock x:Name="FileVersionTextBlock" Margin="0,5,20,5" TextWrapping="Wrap" Text="ver.: {0.0.0.0a}" VerticalAlignment="Top" FontSize="10" HorizontalAlignment="Right">
                     <TextBlock.Foreground>
-                        <SolidColorBrush Color="{DynamicResource ColorFont}"/>
+                        <SolidColorBrush Color="{DynamicResource ColorAltFont}"/>
                     </TextBlock.Foreground>
                 </TextBlock>
             </StackPanel>
@@ -2259,33 +2259,77 @@ System.Drawing.Bitmap (как и вообще складирование кар�
         -->
         </Grid>
 
-        <Grid x:Name="KitSetPage" Grid.Column="1" Margin="0" ScrollViewer.VerticalScrollBarVisibility="Auto">
+        <Grid x:Name="KitSetPage" Grid.Column="1" Margin="0" ScrollViewer.VerticalScrollBarVisibility="Auto" d:IsHidden="True">
             <Grid.Background>
                 <SolidColorBrush Color="{DynamicResource ColorSub}"/>
             </Grid.Background>
             <Grid.RowDefinitions>
                 <RowDefinition Height="Auto"/>
-                <RowDefinition Height="*"/>
+                <RowDefinition/>
             </Grid.RowDefinitions>
-            <StackPanel Margin="15" Orientation="Horizontal">
-                <local:SubMenuButton x:Name="NewKitSetButton" Margin="0"  MouseEnter="MenuButton_MouseEnter" MouseLeave="MenuButton_MouseLeave" MouseUp="MenuButton_MouseUp" HorizontalAlignment="Center" ImageSourceProperty="{StaticResource NewKitSet}" />
-                <local:SubMenuButton x:Name="OpenKitSetButton" Margin="0"  MouseEnter="MenuButton_MouseEnter" MouseLeave="MenuButton_MouseLeave" MouseUp="MenuButton_MouseUp" HorizontalAlignment="Center"  ImageSourceProperty="{StaticResource OpenKitSet}" />
-                <local:SubMenuButton x:Name="SaveKitSetButton" Margin="0"  MouseEnter="MenuButton_MouseEnter" MouseLeave="MenuButton_MouseLeave" MouseUp="MenuButton_MouseUp" HorizontalAlignment="Center"  ImageSourceProperty="{StaticResource SaveKitSet}" />
-                <local:SubMenuButton x:Name="SaveasKitSetButton" Margin="0" MouseEnter="MenuButton_MouseEnter" MouseLeave="MenuButton_MouseLeave" MouseUp="MenuButton_MouseUp" HorizontalAlignment="Center"  ImageSourceProperty="{StaticResource SaveAsKitSet}" />
-                <Border BorderThickness="1,0,0,1" Margin="5,3" Width="2">
-                    <Border.Background>
+            <StackPanel Margin="15,0,15,15" UseLayoutRounding="False" Focusable="True" VerticalAlignment="Bottom">
+                <Menu FontSize="14" BorderThickness="0,0,0,1" Padding="10,0" HorizontalContentAlignment="Stretch" VerticalContentAlignment="Center" UseLayoutRounding="False" VerticalAlignment="Top" Margin="0,5,0,0" Visibility="Collapsed">
+                    <Menu.Foreground>
+                        <SolidColorBrush Color="{DynamicResource ColorFont}"/>
+                    </Menu.Foreground>
+                    <Menu.BorderBrush>
                         <SolidColorBrush Color="{DynamicResource ColorNuans}"/>
-                    </Border.Background>
-                    <Border.BorderBrush>
-                        <SolidColorBrush Color="{DynamicResource ColorMain}"/>
-                    </Border.BorderBrush>
-                </Border>
-                <local:SubMenuButton x:Name="PrintfKitSetButton" Margin="0" MouseEnter="MenuButton_MouseEnter" MouseLeave="MenuButton_MouseLeave" MouseUp="MenuButton_MouseUp" HorizontalAlignment="Center" ImageSourceProperty="{StaticResource PrintFKitSet}" />
-                <local:SubMenuButton x:Name="PrintKitSetButton" Margin="0" MouseEnter="MenuButton_MouseEnter" MouseLeave="MenuButton_MouseLeave" MouseUp="MenuButton_MouseUp" HorizontalAlignment="Center"  ImageSourceProperty="{StaticResource PrintKitSet}" />
+                    </Menu.BorderBrush>
+                    <Menu.Background>
+                        <SolidColorBrush Color="{DynamicResource ColorSub}"/>
+                    </Menu.Background>
+
+                    <MenuItem Header="Файл" Padding="6,2" Background="{x:Null}" BorderBrush="{x:Null}">
+                        <MenuItem.Foreground>
+                            <SolidColorBrush Color="{DynamicResource ColorFont}"/>
+                        </MenuItem.Foreground>
+                        <MenuItem Header="Новый" Click="OpenDB"  Icon="{Binding ImageSourceProperty, ElementName=NewKitSetButton}"/>
+                        <Separator/>
+                        <MenuItem Header="Открыть..." Click="OpenDB" Icon="{Binding ImageSourceProperty, ElementName=OpenKitSetButton}"/>
+                        <MenuItem Header="Последние" Click="OpenDB" >
+                            <MenuItem Header="Медицина" Click="OpenDB" Width="169"/>
+                            <MenuItem Header="Персонал" Click="OpenDB" Width="169"/>
+                        </MenuItem>
+                        <Separator/>
+                        <MenuItem Header="Сохранить" Click="OpenDB" Icon="{Binding ImageSourceProperty, ElementName=SaveKitSetButton}"/>
+                        <MenuItem Header="Сохранить как..." Click="OpenDB" Icon="{Binding ImageSourceProperty, ElementName=SaveasKitSetButton}"/>
+                        <Separator/>
+                        <MenuItem Header="Печать..." Icon="{Binding ImageSourceProperty, ElementName=PrintKitSetButton}"/>
+                        <MenuItem Header="Быстрая печать" Icon="{Binding ImageSourceProperty, ElementName=PrintfKitSetButton}"/>
+                        <Separator/>
+                        <MenuItem Header="Закрыть"/>
+                    </MenuItem>
+                    <MenuItem Header="Правка" Padding="6,2" Background="{x:Null}" BorderBrush="{x:Null}">
+                        <MenuItem.Foreground>
+                            <SolidColorBrush Color="{DynamicResource ColorFont}"/>
+                        </MenuItem.Foreground>
+                    </MenuItem>
+                    <MenuItem Header="Вид" Padding="6,2" Background="{x:Null}" BorderBrush="{x:Null}">
+                        <MenuItem.Foreground>
+                            <SolidColorBrush Color="{DynamicResource ColorFont}"/>
+                        </MenuItem.Foreground>
+                    </MenuItem>
+                </Menu>
+                <StackPanel Orientation="Horizontal" UseLayoutRounding="False" Focusable="True" Width="763" Margin="0,5,0,0" HorizontalAlignment="Left">
+                    <local:SubMenuButton x:Name="NewKitSetButton" Margin="0"  MouseEnter="MenuButton_MouseEnter" MouseLeave="MenuButton_MouseLeave" MouseUp="MenuButton_MouseUp" HorizontalAlignment="Center" ImageSourceProperty="{StaticResource NewKitSet}" />
+                    <local:SubMenuButton x:Name="OpenKitSetButton" Margin="0"  MouseEnter="MenuButton_MouseEnter" MouseLeave="MenuButton_MouseLeave" MouseUp="MenuButton_MouseUp" HorizontalAlignment="Center"  ImageSourceProperty="{StaticResource OpenKitSet}" />
+                    <local:SubMenuButton x:Name="SaveKitSetButton" Margin="0"  MouseEnter="MenuButton_MouseEnter" MouseLeave="MenuButton_MouseLeave" MouseUp="MenuButton_MouseUp" HorizontalAlignment="Center"  ImageSourceProperty="{StaticResource SaveKitSet}" />
+                    <local:SubMenuButton x:Name="SaveasKitSetButton" Margin="0" MouseEnter="MenuButton_MouseEnter" MouseLeave="MenuButton_MouseLeave" MouseUp="MenuButton_MouseUp" HorizontalAlignment="Center"  ImageSourceProperty="{StaticResource SaveAsKitSet}" />
+                    <Border BorderThickness="1,0,0,1" Margin="5,3" Width="2">
+                        <Border.Background>
+                            <SolidColorBrush Color="{DynamicResource ColorNuans}"/>
+                        </Border.Background>
+                        <Border.BorderBrush>
+                            <SolidColorBrush Color="{DynamicResource ColorMain}"/>
+                        </Border.BorderBrush>
+                    </Border>
+                    <local:SubMenuButton x:Name="PrintfKitSetButton" Margin="0" MouseEnter="MenuButton_MouseEnter" MouseLeave="MenuButton_MouseLeave" MouseUp="MenuButton_MouseUp" HorizontalAlignment="Center" ImageSourceProperty="{StaticResource PrintFKitSet}" />
+                    <local:SubMenuButton x:Name="PrintKitSetButton" Margin="0" MouseEnter="MenuButton_MouseEnter" MouseLeave="MenuButton_MouseLeave" MouseUp="MenuButton_MouseUp" HorizontalAlignment="Center"  ImageSourceProperty="{StaticResource PrintKitSet}" />
 
 
+                </StackPanel>
             </StackPanel>
-            <GroupBox Margin="10" Grid.Row="1" ScrollViewer.VerticalScrollBarVisibility="Auto" ScrollViewer.HorizontalScrollBarVisibility="Auto" VerticalContentAlignment="Stretch" FontSize="16" Header="[новый]*" BorderThickness="1" Padding="0" UseLayoutRounding="False" FontWeight="Bold">
+            <GroupBox Margin="10,0,10,10" Grid.Row="1" ScrollViewer.VerticalScrollBarVisibility="Auto" ScrollViewer.HorizontalScrollBarVisibility="Auto" VerticalContentAlignment="Stretch" FontSize="16" Header="[новый]*" BorderThickness="1" Padding="0" UseLayoutRounding="False" FontWeight="Bold">
                 <GroupBox.BorderBrush>
                     <SolidColorBrush Color="{DynamicResource ColorNuans}"/>
                 </GroupBox.BorderBrush>
@@ -2411,7 +2455,7 @@ System.Drawing.Bitmap (как и вообще складирование кар�
                                     <SolidColorBrush Color="{DynamicResource ColorMain}"/>
                                 </ComboBox.Background>
                             </ComboBox>
-                            <CheckBox x:Name="checkBox7" Content="Только Лицензия" Margin="10,5" FontSize="14" FontWeight="Normal" BorderThickness="1" Padding="5,0,0,0"  IsChecked="True" HorizontalAlignment="Right" RenderTransformOrigin="0.5,0.5" Width="{Binding ActualWidth, ElementName=comboBox2, Mode=OneWay}" >
+                            <CheckBox x:Name="checkBox7" Content="Только Лицензия" Margin="10,5" FontSize="14" FontWeight="Normal" BorderThickness="1" Padding="5,0,0,0" HorizontalAlignment="Right" RenderTransformOrigin="0.5,0.5" Width="{Binding ActualWidth, ElementName=comboBox2, Mode=OneWay}" >
                                 <CheckBox.Foreground>
                                     <SolidColorBrush Color="{DynamicResource ColorFont}"/>
                                 </CheckBox.Foreground>
@@ -2423,7 +2467,7 @@ System.Drawing.Bitmap (как и вообще складирование кар�
                                 </CheckBox.Background>
 
                             </CheckBox>
-                            <CheckBox Content="Не печатать пустые" Margin="10,15,10,5" FontSize="14" FontWeight="Normal" BorderThickness="1" Padding="5,0,0,0" >
+                            <CheckBox Content="Не печатать пустые" Margin="10,15,10,5" FontSize="14" FontWeight="Normal" BorderThickness="1" Padding="5,0,0,0" IsChecked="True" >
                                 <CheckBox.Foreground>
                                     <SolidColorBrush Color="{DynamicResource ColorFont}"/>
                                 </CheckBox.Foreground>
@@ -2453,7 +2497,7 @@ System.Drawing.Bitmap (как и вообще складирование кар�
 
                                 </CheckBox>
 
-                                <TextBox Margin="0" FontSize="14" FontWeight="Bold" Grid.Column="1" VerticalContentAlignment="Center" Text="sdfEDFer456" FontStyle="Italic" IsEnabled="{Binding IsChecked, ElementName=checkBox2}" VerticalAlignment="Top" ClipToBounds="True" MaxLength="4" MaxLines="1" UndoLimit="0" IsUndoEnabled="False" HorizontalContentAlignment="Right">
+                                <TextBox Margin="0" FontSize="14" FontWeight="Bold" Grid.Column="1" VerticalContentAlignment="Center" FontStyle="Italic" IsEnabled="{Binding IsChecked, ElementName=checkBox2}" VerticalAlignment="Top" ClipToBounds="True" MaxLength="4" MaxLines="1" UndoLimit="0" IsUndoEnabled="False" HorizontalContentAlignment="Right">
                                     <TextBox.Foreground>
                                         <LinearGradientBrush EndPoint="0.5,1" StartPoint="0.5,0">
                                             <GradientStop Color="{DynamicResource ColorSub}" Offset="0"/>
@@ -2480,7 +2524,7 @@ System.Drawing.Bitmap (как и вообще складирование кар�
                                     <ColumnDefinition Width="auto"/>
                                     <ColumnDefinition Width="*"/>
                                 </Grid.ColumnDefinitions>
-                                <CheckBox x:Name="checkBox3" Content="Печатать номера&#xD;&#xA;начиная с:" Margin="0,0,10,0" FontSize="14" FontWeight="Normal" BorderThickness="1" Padding="5,0,0,0" VerticalAlignment="Center">
+                                <CheckBox x:Name="checkBox3" Content="Печатать номера&#xA;начиная с:" Margin="0,0,10,0" FontSize="14" FontWeight="Normal" BorderThickness="1" Padding="5,0,0,0" VerticalAlignment="Center">
                                     <CheckBox.Background>
                                         <SolidColorBrush Color="{DynamicResource ColorMain}"/>
                                     </CheckBox.Background>
@@ -2493,7 +2537,7 @@ System.Drawing.Bitmap (как и вообще складирование кар�
 
                                 </CheckBox>
 
-                                <TextBox Margin="0" FontSize="14" FontWeight="Bold" HorizontalContentAlignment="Right" Grid.Column="1" VerticalContentAlignment="Center" UndoLimit="0" Text="99999" FontStyle="Italic" VerticalAlignment="Top" IsEnabled="{Binding IsChecked, ElementName=checkBox3}" Padding="0" MaxLines="1" MaxLength="5" IsUndoEnabled="False">
+                                <TextBox Margin="0" FontSize="14" FontWeight="Bold" HorizontalContentAlignment="Right" Grid.Column="1" VerticalContentAlignment="Center" UndoLimit="0" FontStyle="Italic" VerticalAlignment="Top" IsEnabled="{Binding IsChecked, ElementName=checkBox3}" Padding="0" MaxLines="1" MaxLength="5" IsUndoEnabled="False">
                                     <TextBox.Foreground>
                                         <LinearGradientBrush EndPoint="0.5,1" StartPoint="0.5,0">
                                             <GradientStop Color="{DynamicResource ColorSub}" Offset="0"/>
@@ -2660,8 +2704,8 @@ System.Drawing.Bitmap (как и вообще складирование кар�
                     </ScrollViewer>
 
 
-                    <ScrollViewer x:Name="scrollViewer1" VerticalScrollBarVisibility="Disabled" HorizontalScrollBarVisibility="Visible" Margin="30,0,0,0" Grid.Column="1" UseLayoutRounding="False">
-                        <Grid Grid.Column="1" Margin="0,15,0,0" VerticalAlignment="Top" Width="{Binding ActualWidth, ElementName=scrollViewer1, Mode=OneWay}" HorizontalAlignment="Left" MaxWidth="471">
+                    <ScrollViewer x:Name="scrollViewer1" VerticalScrollBarVisibility="Disabled" HorizontalScrollBarVisibility="Visible" Margin="30,5,0,0" Grid.Column="1" UseLayoutRounding="False">
+                        <Grid Grid.Column="1" Margin="0,10,0,0" VerticalAlignment="Top" Width="{Binding ActualWidth, ElementName=scrollViewer1, Mode=OneWay}" HorizontalAlignment="Left" MaxWidth="471">
                             <Grid.RowDefinitions>
                                 <RowDefinition Height="Auto"/>
                                 <RowDefinition Height="Auto"/>
@@ -2828,7 +2872,7 @@ System.Drawing.Bitmap (как и вообще складирование кар�
                             <ComboBox Margin="10,0" VerticalAlignment="Center" FontSize="12" MinWidth="100" Width="100" Background="{x:Null}" BorderBrush="{x:Null}" Foreground="{x:Null}"/>
                         </StackPanel>
                     </StackPanel>-->
-                    </ScrollViewer >
+                    </ScrollViewer>
                 </Grid>
             </GroupBox>
         </Grid>
@@ -2841,7 +2885,7 @@ System.Drawing.Bitmap (как и вообще складирование кар�
                 <RowDefinition/>
             </Grid.RowDefinitions>
         </Grid>
-        <Grid x:Name="DBEditPage" Margin="0" Grid.Column="1" ScrollViewer.VerticalScrollBarVisibility="Auto" d:IsHidden="True">
+        <Grid x:Name="DBEditPage" Margin="0" Grid.Column="1" ScrollViewer.VerticalScrollBarVisibility="Auto">
             <Grid.Background>
                 <SolidColorBrush Color="{DynamicResource ColorSub}"/>
             </Grid.Background>
@@ -2851,7 +2895,7 @@ System.Drawing.Bitmap (как и вообще складирование кар�
                 <RowDefinition Height="*"/>
             </Grid.RowDefinitions>
 
-            <StackPanel x:Name="stackPanel4" Margin="15" Orientation="Horizontal" >
+            <StackPanel x:Name="stackPanel4" Margin="15" Orientation="Horizontal" Visibility="Collapsed" d:IsHidden="True" >
                 <Menu Margin="0,10,0,0" FontSize="14" BorderThickness="0,0,0,1" Padding="10,0" VerticalAlignment="Top" HorizontalContentAlignment="Stretch" MinWidth="{Binding ActualWidth, ElementName=stackPanel4, Mode=OneWay}">
                     <Menu.Foreground>
                         <SolidColorBrush Color="{DynamicResource ColorFont}"/>
@@ -2894,7 +2938,7 @@ System.Drawing.Bitmap (как и вообще складирование кар�
                 </Menu>
             </StackPanel>
 
-            <Border BorderThickness="1" Margin="20,10,20,0" Grid.Row="1">
+            <Border BorderThickness="1" Margin="20,10,20,0" Grid.Row="1" Visibility="Collapsed" d:IsHidden="True">
                 <Border.Background>
                     <SolidColorBrush Color="{DynamicResource ColorGridHeaderNA}"/>
                 </Border.Background>
@@ -2931,7 +2975,7 @@ System.Drawing.Bitmap (как и вообще складирование кар�
                 </Grid>
 
             </Border>
-            <Border x:Name="border" BorderThickness="1" Margin="20,0,20,20" Grid.Row="2"  >
+            <Border x:Name="border" BorderThickness="1" Margin="20,0,20,20" Grid.Row="2" Visibility="Collapsed" d:IsHidden="True"  >
                 <Border.Background>
                     <SolidColorBrush Color="{DynamicResource ColorMain}"/>
                 </Border.Background>
@@ -2972,6 +3016,46 @@ System.Drawing.Bitmap (как и вообще складирование кар�
                 </Grid>
 
             </Border>
+            <ScrollViewer ScrollChanged="ScrollChanged" VerticalScrollBarVisibility="Visible" Margin="0" VerticalContentAlignment="Stretch" Grid.RowSpan="3" HorizontalContentAlignment="Stretch">
+                <StackPanel HorizontalAlignment="Left">
+                    <TextBlock TextWrapping="Wrap" Margin="15" HorizontalAlignment="Left"><Run Text="В новой версии программы редактирование данных происходит в стороннем приложении для работы с таблицами&#xA;&#xA;Данные хранятся в формате Таблица XML 2003"/></TextBlock>
+                    <Button Content="Показать подробную информацию по работе с данными" HorizontalAlignment="Left" VerticalAlignment="Center" Padding="15,5" Margin="15" Click="FullInfoEditRulesShow">
+                        <Button.BorderBrush>
+                            <SolidColorBrush Color="{DynamicResource ColorNuans}"/>
+                        </Button.BorderBrush>
+                        <Button.Background>
+                            <SolidColorBrush Color="{DynamicResource ColorMain}"/>
+                        </Button.Background>
+                        <Button.Foreground>
+                            <SolidColorBrush Color="{DynamicResource ColorFont}"/>
+                        </Button.Foreground>
+                    </Button>
+                    <TextBlock x:Name="FullInfoEditRulesTextBlock" TextWrapping="Wrap" Text="• Для редактирования данных подходит любое приложение для работы с таблицами, имеющее возможножность сохранения в формате Таблица XML 2003.&#xA;&#xA;• Содержимое файла предстваляет собой книгу Excel с несколькими рабочими листами.&#xA;&#xA;• При редактировании запрещается изменять имя файла, названия рабочих листов и изменять первую строку, содержащую идентефикаторы столбцов.&#xA;&#xA;• Формат ВСЕХ без исключения ячеек должен быть текстовым.&#xA;&#xA;• Для корректной работы программы Прометей также важно следить за содержанием стобца 'Код Компании', т.к. эти данные являются идентефикаторами. Этот столбец является обязательным для заполнения там, где он присутствует.&#xA;&#xA;• Ещё одним обязательным для заполнения является столбец 'id020' в рабочем личте 'cars'.&#xA;&#xA;• В рабочем листе 'drivers' важным является столбец 'id090'.&#xA;Возможные варианты значений (регистр символов не важен):&#xA; · true&#xA; · yes&#xA; · да&#xA; · false&#xA; · no&#xA; · нет&#xA;&#xA;• В случае повреждения основного файла данных программа попытается загрузить автоматическую резервную копию.&#xA;Автоматическая резервная копия обновляется каждый раз после успешной загрузки основного файла." Margin="30,0,15,15" HorizontalAlignment="Left" Visibility="Collapsed">
+                        
+                    </TextBlock>
+                    <TextBlock TextWrapping="Wrap" Text="Настоятельно рекомендуется вручную сделать копию файла 'db.xml' перед его редактированием на тот случай, если данные будут отредактированы некорректно&#xA;&#xA;Для применения изменений после редактирования БД программу Прометей необходимо перезапустить" Margin="15" HorizontalAlignment="Left"/>
+                    <Button Content="Открыть файл в Excel" HorizontalAlignment="Left" VerticalAlignment="Center" Padding="15,5" Margin="15" Click="FullInfoVersionShow">
+                        <Button.BorderBrush>
+                            <SolidColorBrush Color="{DynamicResource ColorNuans}"/>
+                        </Button.BorderBrush>
+                        <Button.Background>
+                            <SolidColorBrush Color="{DynamicResource ColorMain}"/>
+                        </Button.Background>
+                        <Button.Foreground>
+                            <SolidColorBrush Color="{DynamicResource ColorFont}"/>
+                        </Button.Foreground>
+                    </Button>
+                    <CheckBox Content="Не показывать это окно. Сразу открывать файл" HorizontalAlignment="Left" Margin="15,0,15,15">
+                        <CheckBox.Foreground>
+                            <SolidColorBrush Color="{DynamicResource ColorFont}"/>
+                        </CheckBox.Foreground>
+                    </CheckBox>
+                    <TextBlock x:Name="DBInfoTextBlock" TextWrapping="Wrap" Margin="30,0,15,15" HorizontalAlignment="Left" FontSize="10" Text="{}{db.xml info}">
+                        <TextBlock.Foreground>
+                            <SolidColorBrush Color="{DynamicResource ColorAltFont}"/>
+                        </TextBlock.Foreground></TextBlock>
+                </StackPanel>
+            </ScrollViewer>
 
 
             <!--<StackPanel ScrollViewer.HorizontalScrollBarVisibility="Visible" Margin="0" >-->

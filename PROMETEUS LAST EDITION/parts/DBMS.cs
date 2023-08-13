@@ -55,7 +55,7 @@ namespace PROMETEUS_LAST_EDITION
 
             return f;
         }
-
+        //добавить создание резервной копии перед выходом
         public bool XMLbackup(string path)
         {
             File.Copy(path, "backup_db.xml", true);
@@ -180,7 +180,26 @@ namespace PROMETEUS_LAST_EDITION
             return listOfLists;
         }
 
-        //добавить создание резервной копии перед выходом
+        public bool XMLInfoExtractor(MainWindow mw,string xml,bool f)
+        {           
+            //<DocumentProperties xmlns="urn:schemas-microsoft-com:office:office"> 
+            //<Author>SuperUser</Author> 
+            //<LastAuthor>SuperUser</LastAuthor> 
+            //<Created> 2023 - 08 - 08T10: 31:29Z </Created>         
+            //<LastSaved> 2023 - 08 - 11T15: 55:17Z </LastSaved>                 
+            //<Version> 16.00 </Version>                 
+            //</DocumentProperties>
+
+            int iStartXML = xml.IndexOf("<DocumentProperties");
+            xml = xml.Substring(iStartXML);
+            int iEndXML = xml.IndexOf("<OfficeDocumentSettings");
+            xml = xml.Remove(iEndXML);
+            ////////////////////////////////////////////////
+            string text;
+            if (f) text = "БД загружена из основного файла: \n\n " + xml; else text = "БД загружена из архивной копии: \n\n " + xml;
+            mw.DBInfoTextBlock.Text = text;
+            return true;
+        }
 
         //добавить сравнение текущей версии и резервной копии
 

@@ -51,15 +51,18 @@ namespace PROMETEUS_LAST_EDITION
             InitializeButtons();
 
             
+            //загрузка БД
             if (new DBMS().XMLloadManager(dbDefPath))
             {
                 new DBMS().XMLbackup(dbDefPath);
                 LOG(">>> Загрузка из файла "+ dbDefPath+" прошла успешно. Бекап перезаписан.");
+                new DBMS().XMLInfoExtractor(this, File.ReadAllText(dbDefPath),true);
             }
             else
             {
                 new DBMS().XMLloadManager("backup_db.xml");
                 LOG(">>> Загрузка из файла " + dbDefPath + " не удалась. Загружены данные из файла бекапа.");
+                new DBMS().XMLInfoExtractor(this, File.ReadAllText("backup_db.xml"),false);
             }
 
             //Завершение загрузки
@@ -303,6 +306,7 @@ namespace PROMETEUS_LAST_EDITION
         }
         private void Button_ClickCloseStart(object sender, RoutedEventArgs e) {this.StartPage.Visibility = Visibility.Hidden;}
         private void FullInfoVersionShow(object sender, RoutedEventArgs e) { if (FullInfoVersionTextBlock.Visibility == Visibility.Collapsed) FullInfoVersionTextBlock.Visibility = Visibility.Visible; else FullInfoVersionTextBlock.Visibility = Visibility.Collapsed; }
+        private void FullInfoEditRulesShow(object sender, RoutedEventArgs e) { if (FullInfoEditRulesTextBlock.Visibility == Visibility.Collapsed) FullInfoEditRulesTextBlock.Visibility = Visibility.Visible; else FullInfoEditRulesTextBlock.Visibility = Visibility.Collapsed; }
 
         /// <summary>
         /// Выводит сообщение в файл LOG.txt и в окно MessageBox
