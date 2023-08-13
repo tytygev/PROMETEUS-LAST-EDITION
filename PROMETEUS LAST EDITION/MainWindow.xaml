@@ -2348,7 +2348,7 @@ System.Drawing.Bitmap (как и вообще складирование кар�
                                 <TextBlock.Foreground>
                                     <SolidColorBrush Color="{DynamicResource ColorFont}"/>
                                 </TextBlock.Foreground><Run Text="Организация"/></TextBlock>
-                            <ComboBox HorizontalAlignment="Right" Margin="10,5" Text="" MinWidth="180" FontSize="14" FontWeight="Normal" Padding="2,4,2,2" MaxWidth="250">
+                            <ComboBox HorizontalAlignment="Right" Margin="10,5" Text="" MinWidth="180" FontSize="14" FontWeight="Normal" Padding="2,4,2,2" MaxWidth="250" MouseEnter="Object_MouseEnter" MouseLeave="Object_MouseLeave" Tag="Выберите название организации">
                                 <ComboBox.Foreground>
                                     <LinearGradientBrush EndPoint="0.5,1" StartPoint="0.5,0">
                                         <GradientStop Color="Black" Offset="0"/>
@@ -2362,7 +2362,7 @@ System.Drawing.Bitmap (как и вообще складирование кар�
                                     <SolidColorBrush Color="{DynamicResource ColorMain}"/>
                                 </ComboBox.Background>
                             </ComboBox>
-                            <CheckBox x:Name="checkBox8" Margin="10,5" FontSize="14" BorderThickness="1" Padding="5,0,0,0" HorizontalAlignment="Right" RenderTransformOrigin="0.5,0.5" Width="{Binding ActualWidth, ElementName=comboBox2, Mode=OneWay}" Content="Без адреса осмотра" FontWeight="Normal" >
+                            <CheckBox x:Name="checkBox8" Margin="10,5" FontSize="14" BorderThickness="1" Padding="5,0,0,0" HorizontalAlignment="Right" RenderTransformOrigin="0.5,0.5" Width="{Binding ActualWidth, ElementName=comboBox2, Mode=OneWay}" Content="Без адреса осмотра" FontWeight="Normal" MouseEnter="Object_MouseEnter" MouseLeave="Object_MouseLeave">
                                 <CheckBox.Foreground>
                                     <SolidColorBrush Color="{DynamicResource ColorFont}"/>
                                 </CheckBox.Foreground>
@@ -2374,7 +2374,7 @@ System.Drawing.Bitmap (как и вообще складирование кар�
                                 </CheckBox.Background>
 
                             </CheckBox>
-                            <CheckBox x:Name="checkBox8_Copy" Margin="10,5" FontSize="14" BorderThickness="1" Padding="5,0,0,0" HorizontalAlignment="Right" RenderTransformOrigin="0.5,0.5" Width="{Binding ActualWidth, ElementName=comboBox2, Mode=OneWay}" Content="Без адреса подачи" FontWeight="Normal" >
+                            <CheckBox x:Name="checkBox9" Margin="10,5" FontSize="14" BorderThickness="1" Padding="5,0,0,0" HorizontalAlignment="Right" RenderTransformOrigin="0.5,0.5" Width="{Binding ActualWidth, ElementName=comboBox2, Mode=OneWay}" Content="Без адреса подачи" FontWeight="Normal" MouseEnter="Object_MouseEnter" MouseLeave="Object_MouseLeave">
                                 <CheckBox.Foreground>
                                     <SolidColorBrush Color="{DynamicResource ColorFont}"/>
                                 </CheckBox.Foreground>
@@ -2391,7 +2391,7 @@ System.Drawing.Bitmap (как и вообще складирование кар�
                                     <SolidColorBrush Color="{DynamicResource ColorFont}"/>
                                 </TextBlock.Foreground>
                             </TextBlock>
-                            <ComboBox HorizontalAlignment="Right" Margin="10,5" Text="" MinWidth="180" FontSize="14" FontWeight="Normal" Padding="2,4,2,2" IsEditable="True" MaxWidth="250">
+                            <ComboBox HorizontalAlignment="Right" Margin="10,5" Text="" MinWidth="180" FontSize="14" FontWeight="Normal" Padding="2,4,2,2" IsEditable="True" MaxWidth="250" MouseEnter="Object_MouseEnter" MouseLeave="Object_MouseLeave">
                                 <ComboBox.Foreground>
                                     <LinearGradientBrush EndPoint="0.5,1" StartPoint="0.5,0">
                                         <GradientStop Color="Black" Offset="0"/>
@@ -2410,7 +2410,7 @@ System.Drawing.Bitmap (как и вообще складирование кар�
                                     <SolidColorBrush Color="{DynamicResource ColorFont}"/>
                                 </TextBlock.Foreground>
                             </TextBlock>
-                            <CheckBox x:Name="checkBox1" Content="Связать с Механик" Margin="10,5" FontSize="14" FontWeight="Normal" BorderThickness="1" Padding="5,0,0,0"  IsChecked="True" HorizontalAlignment="Right" RenderTransformOrigin="0.5,0.5" Width="{Binding ActualWidth, ElementName=comboBox2, Mode=OneWay}" >
+                            <CheckBox x:Name="checkBox1" Content="Связать с Механик" Margin="10,5" FontSize="14" FontWeight="Normal" BorderThickness="1" Padding="5,0,0,0"  IsChecked="True" HorizontalAlignment="Right" RenderTransformOrigin="0.5,0.5" Width="{Binding ActualWidth, ElementName=comboBox2, Mode=OneWay}" MouseEnter="Object_MouseEnter" MouseLeave="Object_MouseLeave">
                                 <CheckBox.Foreground>
                                     <SolidColorBrush Color="{DynamicResource ColorFont}"/>
                                 </CheckBox.Foreground>
@@ -2422,7 +2422,7 @@ System.Drawing.Bitmap (как и вообще складирование кар�
                                 </CheckBox.Background>
 
                             </CheckBox>
-                            <ComboBox x:Name="comboBox2" HorizontalAlignment="Right" Margin="10,5" Text="" MinWidth="180" FontSize="14" FontWeight="Normal" Padding="2,4,2,2" IsEditable="True" MaxWidth="250">
+                            <ComboBox x:Name="comboBox2" HorizontalAlignment="Right" Margin="10,5" Text="" MinWidth="180" FontSize="14" FontWeight="Normal" Padding="2,4,2,2" IsEditable="True" MaxWidth="250" MouseEnter="Object_MouseEnter" MouseLeave="Object_MouseLeave">
                                 <ComboBox.Foreground>
                                     <LinearGradientBrush EndPoint="0.5,1" StartPoint="0.5,0">
                                         <GradientStop Color="Black" Offset="0"/>
@@ -2441,7 +2441,7 @@ System.Drawing.Bitmap (как и вообще складирование кар�
                                     <SolidColorBrush Color="{DynamicResource ColorFont}"/>
                                 </TextBlock.Foreground>
                             </TextBlock>
-                            <ComboBox HorizontalAlignment="Right" Margin="10,5" Text="" MinWidth="180" FontSize="14" FontWeight="Normal" Padding="2,4,2,2" MaxWidth="250">
+                            <ComboBox HorizontalAlignment="Right" Margin="10,5" Text="" MinWidth="180" FontSize="14" FontWeight="Normal" Padding="2,4,2,2" MaxWidth="250" MouseEnter="Object_MouseEnter" MouseLeave="Object_MouseLeave">
                                 <ComboBox.Foreground>
                                     <LinearGradientBrush EndPoint="0.5,1" StartPoint="0.5,0">
                                         <GradientStop Color="Black" Offset="0"/>
@@ -2455,7 +2455,7 @@ System.Drawing.Bitmap (как и вообще складирование кар�
                                     <SolidColorBrush Color="{DynamicResource ColorMain}"/>
                                 </ComboBox.Background>
                             </ComboBox>
-                            <CheckBox x:Name="checkBox7" Content="Только Лицензия" Margin="10,5" FontSize="14" FontWeight="Normal" BorderThickness="1" Padding="5,0,0,0" HorizontalAlignment="Right" RenderTransformOrigin="0.5,0.5" Width="{Binding ActualWidth, ElementName=comboBox2, Mode=OneWay}" >
+                            <CheckBox x:Name="checkBox7" Content="Только Лицензия" Margin="10,5" FontSize="14" FontWeight="Normal" BorderThickness="1" Padding="5,0,0,0" HorizontalAlignment="Right" RenderTransformOrigin="0.5,0.5" Width="{Binding ActualWidth, ElementName=comboBox2, Mode=OneWay}" MouseEnter="Object_MouseEnter" MouseLeave="Object_MouseLeave" Tag="Печатать только номер, дату и срок действия лицензии">
                                 <CheckBox.Foreground>
                                     <SolidColorBrush Color="{DynamicResource ColorFont}"/>
                                 </CheckBox.Foreground>
@@ -2467,7 +2467,7 @@ System.Drawing.Bitmap (как и вообще складирование кар�
                                 </CheckBox.Background>
 
                             </CheckBox>
-                            <CheckBox Content="Не печатать пустые" Margin="10,15,10,5" FontSize="14" FontWeight="Normal" BorderThickness="1" Padding="5,0,0,0" IsChecked="True" >
+                            <CheckBox Content="Не печатать пустые" Margin="10,15,10,5" FontSize="14" FontWeight="Normal" BorderThickness="1" Padding="5,0,0,0" IsChecked="True" MouseEnter="Object_MouseEnter" MouseLeave="Object_MouseLeave" Tag="Путёвки с некорректными данными будут пропущены">
                                 <CheckBox.Foreground>
                                     <SolidColorBrush Color="{DynamicResource ColorFont}"/>
                                 </CheckBox.Foreground>
@@ -2484,7 +2484,7 @@ System.Drawing.Bitmap (как и вообще складирование кар�
                                     <ColumnDefinition Width="auto"/>
                                     <ColumnDefinition Width="*"/>
                                 </Grid.ColumnDefinitions>
-                                <CheckBox x:Name="checkBox2" Content="Печатать серию:" Margin="0,0,10,0" FontSize="14" FontWeight="Normal" BorderThickness="1" Padding="5,0,0,0" IsChecked="True" VerticalAlignment="Center">
+                                <CheckBox x:Name="checkBox2" Content="Печатать серию:" Margin="0,0,10,0" FontSize="14" FontWeight="Normal" BorderThickness="1" Padding="5,0,0,0" IsChecked="True" VerticalAlignment="Center" MouseEnter="Object_MouseEnter" MouseLeave="Object_MouseLeave">
                                     <CheckBox.Background>
                                         <SolidColorBrush Color="{DynamicResource ColorMain}"/>
                                     </CheckBox.Background>
@@ -2497,7 +2497,7 @@ System.Drawing.Bitmap (как и вообще складирование кар�
 
                                 </CheckBox>
 
-                                <TextBox Margin="0" FontSize="14" FontWeight="Bold" Grid.Column="1" VerticalContentAlignment="Center" FontStyle="Italic" IsEnabled="{Binding IsChecked, ElementName=checkBox2}" VerticalAlignment="Top" ClipToBounds="True" MaxLength="4" MaxLines="1" UndoLimit="0" IsUndoEnabled="False" HorizontalContentAlignment="Right">
+                                <TextBox Margin="0" FontSize="14" FontWeight="Bold" Grid.Column="1" VerticalContentAlignment="Center" FontStyle="Italic" IsEnabled="{Binding IsChecked, ElementName=checkBox2}" VerticalAlignment="Top" ClipToBounds="True" MaxLength="4" MaxLines="1" UndoLimit="0" IsUndoEnabled="False" HorizontalContentAlignment="Right" MouseEnter="Object_MouseEnter" MouseLeave="Object_MouseLeave">
                                     <TextBox.Foreground>
                                         <LinearGradientBrush EndPoint="0.5,1" StartPoint="0.5,0">
                                             <GradientStop Color="{DynamicResource ColorSub}" Offset="0"/>
@@ -2524,7 +2524,7 @@ System.Drawing.Bitmap (как и вообще складирование кар�
                                     <ColumnDefinition Width="auto"/>
                                     <ColumnDefinition Width="*"/>
                                 </Grid.ColumnDefinitions>
-                                <CheckBox x:Name="checkBox3" Content="Печатать номера&#xA;начиная с:" Margin="0,0,10,0" FontSize="14" FontWeight="Normal" BorderThickness="1" Padding="5,0,0,0" VerticalAlignment="Center">
+                                <CheckBox x:Name="checkBox3" Content="Печатать номера&#xA;начиная с:" Margin="0,0,10,0" FontSize="14" FontWeight="Normal" BorderThickness="1" Padding="5,0,0,0" VerticalAlignment="Center" MouseEnter="Object_MouseEnter" MouseLeave="Object_MouseLeave">
                                     <CheckBox.Background>
                                         <SolidColorBrush Color="{DynamicResource ColorMain}"/>
                                     </CheckBox.Background>
@@ -2537,7 +2537,7 @@ System.Drawing.Bitmap (как и вообще складирование кар�
 
                                 </CheckBox>
 
-                                <TextBox Margin="0" FontSize="14" FontWeight="Bold" HorizontalContentAlignment="Right" Grid.Column="1" VerticalContentAlignment="Center" UndoLimit="0" FontStyle="Italic" VerticalAlignment="Top" IsEnabled="{Binding IsChecked, ElementName=checkBox3}" Padding="0" MaxLines="1" MaxLength="5" IsUndoEnabled="False">
+                                <TextBox Margin="0" FontSize="14" FontWeight="Bold" HorizontalContentAlignment="Right" Grid.Column="1" VerticalContentAlignment="Center" UndoLimit="0" FontStyle="Italic" VerticalAlignment="Top" IsEnabled="{Binding IsChecked, ElementName=checkBox3}" Padding="0" MaxLines="1" MaxLength="5" IsUndoEnabled="False" MouseEnter="Object_MouseEnter" MouseLeave="Object_MouseLeave" Tag="Номер должен содержать только цифры">
                                     <TextBox.Foreground>
                                         <LinearGradientBrush EndPoint="0.5,1" StartPoint="0.5,0">
                                             <GradientStop Color="{DynamicResource ColorSub}" Offset="0"/>
@@ -2559,7 +2559,7 @@ System.Drawing.Bitmap (как и вообще складирование кар�
                                 </TextBox>
 
                             </Grid>
-                            <CheckBox x:Name="checkBox4" Content="Печатать дату печати" Margin="10,5,10,-20" FontSize="14" FontWeight="Normal" BorderThickness="1" Padding="5,0,0,0" IsChecked="True" Panel.ZIndex="1">
+                            <CheckBox x:Name="checkBox4" Content="Печатать дату печати" Margin="10,5,10,-20" FontSize="14" FontWeight="Normal" BorderThickness="1" Padding="5,0,0,0" IsChecked="True" Panel.ZIndex="1" MouseEnter="Object_MouseEnter" MouseLeave="Object_MouseLeave">
                                 <CheckBox.Foreground>
                                     <SolidColorBrush Color="{DynamicResource ColorFont}"/>
                                 </CheckBox.Foreground>
@@ -2581,7 +2581,7 @@ System.Drawing.Bitmap (как и вообще складирование кар�
                                 </GroupBox.BorderBrush>
 
                                 <StackPanel VerticalAlignment="Top">
-                                    <RadioButton Content="Текущую" Margin="10,10,10,5" FontSize="14" IsChecked="True">
+                                    <RadioButton Content="Текущую" Margin="10,10,10,5" FontSize="14" IsChecked="True" MouseEnter="Object_MouseEnter" MouseLeave="Object_MouseLeave">
                                         <RadioButton.Background>
                                             <SolidColorBrush Color="{DynamicResource ColorMain}"/>
                                         </RadioButton.Background>
@@ -2592,7 +2592,7 @@ System.Drawing.Bitmap (как и вообще складирование кар�
                                             <SolidColorBrush Color="{DynamicResource ColorFont}"/>
                                         </RadioButton.Foreground>
                                     </RadioButton>
-                                    <RadioButton Content="Выбрать дату" Margin="10,5" FontSize="14">
+                                    <RadioButton Content="Выбрать дату" Margin="10,5" FontSize="14" MouseEnter="Object_MouseEnter" MouseLeave="Object_MouseLeave">
                                         <RadioButton.Background>
                                             <SolidColorBrush Color="{DynamicResource ColorMain}"/>
                                         </RadioButton.Background>
@@ -2603,7 +2603,7 @@ System.Drawing.Bitmap (как и вообще складирование кар�
                                             <SolidColorBrush Color="{DynamicResource ColorFont}"/>
                                         </RadioButton.Foreground>
                                     </RadioButton>
-                                    <CheckBox Content="Только месяц и год" Margin="10,5" FontSize="14" FontWeight="Normal" BorderThickness="1" Padding="5,0,0,0" >
+                                    <CheckBox Content="Только месяц и год" Margin="10,5" FontSize="14" FontWeight="Normal" BorderThickness="1" Padding="5,0,0,0" MouseEnter="Object_MouseEnter" MouseLeave="Object_MouseLeave">
                                         <CheckBox.Foreground>
                                             <SolidColorBrush Color="{DynamicResource ColorFont}"/>
                                         </CheckBox.Foreground>
@@ -2618,7 +2618,7 @@ System.Drawing.Bitmap (как и вообще складирование кар�
                                 </StackPanel>
 
                             </GroupBox>
-                            <CheckBox x:Name="checkBox5" Content="Печатать срок действия" Margin="10,5,10,-20" FontSize="14" FontWeight="Normal" BorderThickness="1" Padding="5,0,0,0" IsChecked="True" Panel.ZIndex="1">
+                            <CheckBox x:Name="checkBox5" Content="Печатать срок действия" Margin="10,5,10,-20" FontSize="14" FontWeight="Normal" BorderThickness="1" Padding="5,0,0,0" IsChecked="True" Panel.ZIndex="1" MouseEnter="Object_MouseEnter" MouseLeave="Object_MouseLeave">
                                 <CheckBox.Foreground>
                                     <SolidColorBrush Color="{DynamicResource ColorFont}"/>
                                 </CheckBox.Foreground>
@@ -2640,7 +2640,7 @@ System.Drawing.Bitmap (как и вообще складирование кар�
                                 </GroupBox.BorderBrush>
 
                                 <StackPanel VerticalAlignment="Top">
-                                    <RadioButton Content="На сегодня" Margin="10,10,10,5" FontSize="14">
+                                    <RadioButton Content="На сегодня" Margin="10,10,10,5" FontSize="14" MouseEnter="Object_MouseEnter" MouseLeave="Object_MouseLeave">
                                         <RadioButton.Background>
                                             <SolidColorBrush Color="{DynamicResource ColorMain}"/>
                                         </RadioButton.Background>
@@ -2651,7 +2651,7 @@ System.Drawing.Bitmap (как и вообще складирование кар�
                                             <SolidColorBrush Color="{DynamicResource ColorFont}"/>
                                         </RadioButton.Foreground>
                                     </RadioButton>
-                                    <RadioButton Content="На следующий день" Margin="10,5" IsChecked="True" FontSize="14">
+                                    <RadioButton Content="На следующий день" Margin="10,5" IsChecked="True" FontSize="14" MouseEnter="Object_MouseEnter" MouseLeave="Object_MouseLeave">
                                         <RadioButton.Background>
                                             <SolidColorBrush Color="{DynamicResource ColorMain}"/>
                                         </RadioButton.Background>
@@ -2662,7 +2662,7 @@ System.Drawing.Bitmap (как и вообще складирование кар�
                                             <SolidColorBrush Color="{DynamicResource ColorFont}"/>
                                         </RadioButton.Foreground>
                                     </RadioButton>
-                                    <RadioButton Content="Выбрать даты" Margin="10,5" FontSize="14">
+                                    <RadioButton Content="Выбрать даты" Margin="10,5" FontSize="14" MouseEnter="Object_MouseEnter" MouseLeave="Object_MouseLeave">
                                         <RadioButton.Background>
                                             <SolidColorBrush Color="{DynamicResource ColorMain}"/>
                                         </RadioButton.Background>
@@ -2673,7 +2673,7 @@ System.Drawing.Bitmap (как и вообще складирование кар�
                                             <SolidColorBrush Color="{DynamicResource ColorFont}"/>
                                         </RadioButton.Foreground>
                                     </RadioButton>
-                                    <CheckBox Content="На два дня" Margin="10,5" FontSize="14" FontWeight="Normal" BorderThickness="1" Padding="5,0,0,0" >
+                                    <CheckBox Content="На два дня" Margin="10,5" FontSize="14" FontWeight="Normal" BorderThickness="1" Padding="5,0,0,0" MouseEnter="Object_MouseEnter" MouseLeave="Object_MouseLeave">
                                         <CheckBox.Foreground>
                                             <SolidColorBrush Color="{DynamicResource ColorFont}"/>
                                         </CheckBox.Foreground>
@@ -2685,7 +2685,7 @@ System.Drawing.Bitmap (как и вообще складирование кар�
                                         </CheckBox.Background>
 
                                     </CheckBox>
-                                    <CheckBox Content="Только месяц и год" Margin="10,5" FontSize="14" FontWeight="Normal" BorderThickness="1" Padding="5,0,0,0" >
+                                    <CheckBox Content="Только месяц и год" Margin="10,5" FontSize="14" FontWeight="Normal" BorderThickness="1" Padding="5,0,0,0" MouseEnter="Object_MouseEnter" MouseLeave="Object_MouseLeave">
                                         <CheckBox.Foreground>
                                             <SolidColorBrush Color="{DynamicResource ColorFont}"/>
                                         </CheckBox.Foreground>
@@ -2772,7 +2772,7 @@ System.Drawing.Bitmap (как и вообще складирование кар�
                                 </Ellipse>-->
                                     <StackPanel x:Name="stackPanel" Grid.Column="0" Margin="0,10" VerticalAlignment="Center" >
 
-                                        <CheckBox x:Name="checkBox6" Content="1" Margin="0" FontSize="14" FontWeight="Normal" BorderThickness="1" Padding="5,0,0,0" VerticalContentAlignment="Center" UseLayoutRounding="True" Width="{Binding ActualWidth, ElementName=checkBox, Mode=OneWay}" IsChecked="True" VerticalAlignment="Center" HorizontalAlignment="Left">
+                                        <CheckBox x:Name="checkBox6" Content="1" Margin="0" FontSize="14" FontWeight="Normal" BorderThickness="1" Padding="5,0,0,0" VerticalContentAlignment="Center" UseLayoutRounding="True" Width="{Binding ActualWidth, ElementName=checkBox, Mode=OneWay}" IsChecked="True" VerticalAlignment="Center" HorizontalAlignment="Left" MouseEnter="Object_MouseEnter" MouseLeave="Object_MouseLeave">
                                             <CheckBox.Background>
                                                 <SolidColorBrush Color="{DynamicResource ColorMain}"/>
                                             </CheckBox.Background>
@@ -2786,7 +2786,7 @@ System.Drawing.Bitmap (как и вообще складирование кар�
 
                                     </StackPanel>
                                     <StackPanel x:Name="stackPanel2" Grid.Column="1" VerticalAlignment="Center" MaxWidth="270" Grid.ColumnSpan="2" Margin="0,1">
-                                        <ComboBox x:Name="comboBox" Margin="20,5,0,5" FontSize="14" MinWidth="175" VerticalAlignment="Center" Padding="6,4,5,2" IsEditable="True" FontWeight="Normal" ScrollViewer.CanContentScroll="True" MaxWidth="250" IsEnabled="{Binding IsChecked, ElementName=checkBox6}">
+                                        <ComboBox x:Name="comboBox" Margin="20,5,0,5" FontSize="14" MinWidth="175" VerticalAlignment="Center" Padding="6,4,5,2" IsEditable="True" FontWeight="Normal" ScrollViewer.CanContentScroll="True" MaxWidth="250" IsEnabled="{Binding IsChecked, ElementName=checkBox6}" MouseEnter="Object_MouseEnter" MouseLeave="Object_MouseLeave">
                                             <ComboBox.Foreground>
                                                 <LinearGradientBrush EndPoint="0.5,1" StartPoint="0.5,0">
                                                     <GradientStop Color="Black" Offset="0"/>
@@ -2802,7 +2802,7 @@ System.Drawing.Bitmap (как и вообще складирование кар�
                                         </ComboBox>
                                     </StackPanel>
                                     <StackPanel x:Name="stackPanel1" Grid.Column="3" VerticalAlignment="Center" Margin="0,1">
-                                        <ComboBox x:Name="comboBox1" Margin="20,5,0,5" FontSize="14" MinWidth="60" VerticalAlignment="Center" Padding="6,4,5,2" IsEditable="True" FontWeight="Normal" IsEnabled="{Binding IsChecked, ElementName=checkBox6}">
+                                        <ComboBox x:Name="comboBox1" Margin="20,5,0,5" FontSize="14" MinWidth="60" VerticalAlignment="Center" Padding="6,4,5,2" IsEditable="True" FontWeight="Normal" IsEnabled="{Binding IsChecked, ElementName=checkBox6}" MouseEnter="Object_MouseEnter" MouseLeave="Object_MouseLeave">
                                             <ComboBox.Background>
                                                 <LinearGradientBrush EndPoint="0,1" StartPoint="0,0">
                                                     <GradientStop Color="{DynamicResource ColorMain}" Offset="0"/>
@@ -2818,7 +2818,7 @@ System.Drawing.Bitmap (как и вообще складирование кар�
                                         </ComboBox>
                                     </StackPanel>
                                     <StackPanel x:Name="stackPanel3" Grid.Column="4" VerticalAlignment="Center" Height="{Binding ActualHeight, ElementName=stackPanel1, Mode=OneWay}" HorizontalAlignment="Left" Margin="0,1">
-                                        <TextBlock Margin="20,-2,0,0" TextWrapping="Wrap" Text="O" FontFamily="Wingdings 2" FontSize="36" Padding="0"  Grid.Column="5" VerticalAlignment="Center" HorizontalAlignment="Center">
+                                        <TextBlock Margin="20,-2,0,0" TextWrapping="Wrap" Text="O" FontFamily="Wingdings 2" FontSize="36" Padding="0"  Grid.Column="5" VerticalAlignment="Center" HorizontalAlignment="Center" MouseEnter="Object_MouseEnter" MouseLeave="Object_MouseLeave">
                                             <TextBlock.Foreground>
                                                 <SolidColorBrush Color="{DynamicResource ColorFont}"/>
                                             </TextBlock.Foreground>
@@ -2826,7 +2826,7 @@ System.Drawing.Bitmap (как и вообще складирование кар�
                                     </StackPanel>
                                 </Grid>
                             </ScrollViewer>
-                            <Button Grid.Row="2" Content="Добавить строку" Margin="0,10,10,10" VerticalAlignment="Top" Width="{Binding ActualWidth, ElementName=GridLine, Mode=OneWay}" HorizontalContentAlignment="Center" FontSize="14" Padding="1,3,1,5" VerticalContentAlignment="Center" FontWeight="Normal" HorizontalAlignment="Left">
+                            <Button Grid.Row="2" Content="Добавить строку" Margin="0,10,10,10" VerticalAlignment="Top" Width="{Binding ActualWidth, ElementName=GridLine, Mode=OneWay}" HorizontalContentAlignment="Center" FontSize="14" Padding="1,3,1,5" VerticalContentAlignment="Center" FontWeight="Normal" HorizontalAlignment="Left" MouseEnter="Object_MouseEnter" MouseLeave="Object_MouseLeave">
                                 <Button.Foreground>
                                     <SolidColorBrush Color="{DynamicResource ColorAltFont}"/>
                                 </Button.Foreground>
@@ -3019,7 +3019,7 @@ System.Drawing.Bitmap (как и вообще складирование кар�
             <ScrollViewer ScrollChanged="ScrollChanged" VerticalScrollBarVisibility="Visible" Margin="0" VerticalContentAlignment="Stretch" Grid.RowSpan="3" HorizontalContentAlignment="Stretch">
                 <StackPanel HorizontalAlignment="Left">
                     <TextBlock TextWrapping="Wrap" Margin="15" HorizontalAlignment="Left"><Run Text="В новой версии программы редактирование данных происходит в стороннем приложении для работы с таблицами&#xA;&#xA;Данные хранятся в формате Таблица XML 2003"/></TextBlock>
-                    <Button Content="Показать подробную информацию по работе с данными" HorizontalAlignment="Left" VerticalAlignment="Center" Padding="15,5" Margin="15" Click="FullInfoEditRulesShow">
+                    <Button Content="Показать подробную информацию по работе с данными" HorizontalAlignment="Left" VerticalAlignment="Center" Padding="15,5" Margin="15" Click="FullInfoEditRulesShow" Tag="Развернуть блок текста" MouseEnter="Object_MouseEnter" MouseLeave="Object_MouseLeave">
                         <Button.BorderBrush>
                             <SolidColorBrush Color="{DynamicResource ColorNuans}"/>
                         </Button.BorderBrush>
@@ -3034,7 +3034,7 @@ System.Drawing.Bitmap (как и вообще складирование кар�
                         
                     </TextBlock>
                     <TextBlock TextWrapping="Wrap" Text="Настоятельно рекомендуется вручную сделать копию файла 'db.xml' перед его редактированием на тот случай, если данные будут отредактированы некорректно&#xA;&#xA;Для применения изменений после редактирования БД программу Прометей необходимо перезапустить" Margin="15" HorizontalAlignment="Left"/>
-                    <Button Content="Открыть файл в Excel" HorizontalAlignment="Left" VerticalAlignment="Center" Padding="15,5" Margin="15" Click="FullInfoVersionShow">
+                    <Button Content="Открыть файл в Excel" HorizontalAlignment="Left" VerticalAlignment="Center" Padding="15,5" Margin="15" Click="FullInfoVersionShow" MouseEnter="Object_MouseEnter" MouseLeave="Object_MouseLeave">
                         <Button.BorderBrush>
                             <SolidColorBrush Color="{DynamicResource ColorNuans}"/>
                         </Button.BorderBrush>
@@ -3045,7 +3045,7 @@ System.Drawing.Bitmap (как и вообще складирование кар�
                             <SolidColorBrush Color="{DynamicResource ColorFont}"/>
                         </Button.Foreground>
                     </Button>
-                    <CheckBox Content="Не показывать это окно. Сразу открывать файл" HorizontalAlignment="Left" Margin="15,0,15,15">
+                    <CheckBox Content="Не показывать это окно. Сразу открывать файл" HorizontalAlignment="Left" Margin="15,0,15,15" MouseEnter="Object_MouseEnter" MouseLeave="Object_MouseLeave">
                         <CheckBox.Foreground>
                             <SolidColorBrush Color="{DynamicResource ColorFont}"/>
                         </CheckBox.Foreground>
@@ -3439,7 +3439,7 @@ System.Drawing.Bitmap (как и вообще складирование кар�
             </StackPanel>
 
         </Grid>
-        <Grid x:Name="SettingsPage" Margin="0" Grid.Column="1" ScrollViewer.VerticalScrollBarVisibility="Auto" d:IsHidden="True">
+        <Grid x:Name="SettingsPage" Margin="0" Grid.Column="1" ScrollViewer.VerticalScrollBarVisibility="Auto">
             <Grid.Background>
                 <SolidColorBrush Color="{DynamicResource ColorSub}"/>
             </Grid.Background>
@@ -3460,12 +3460,12 @@ System.Drawing.Bitmap (как и вообще складирование кар�
                         <SolidColorBrush Color="{DynamicResource ColorNuans}"/>
                     </TabItem.BorderBrush>
                     <StackPanel Margin="15">
-                        <ComboBox x:Name="ThemeComboBox" Margin="15" HorizontalAlignment="Left" SelectedIndex="1" Initialized="SettingsInitialized" SelectionChanged="CheckChange" ToolTip="Выбор темы оформления. Для принятия изменений необходимо перезапустить программу.">
+                        <ComboBox x:Name="ThemeComboBox" Margin="15" HorizontalAlignment="Left" SelectedIndex="1" Initialized="SettingsInitialized" SelectionChanged="CheckChange" ToolTip="Выбор темы оформления. Для принятия изменений необходимо перезапустить программу." MouseEnter="Object_MouseEnter" MouseLeave="Object_MouseLeave" Tag="Тема изменится после перезагрузки программы">
                             <ComboBoxItem Content="Тёмная РЕН ТВ" IsSelected="True"/>
                             <ComboBoxItem Content="Светлая МИЦ ИЗВЕСТИЯ"/>
                             <ComboBoxItem Content="Светлая Пятый Канал"/>
                         </ComboBox>
-                        <CheckBox x:Name="SaveWinSizeCheckBox" Content="Сохранять размеры окна при выходе" VerticalAlignment="Center" HorizontalAlignment="Left" IsChecked="True" VerticalContentAlignment="Center" Margin="15" Initialized="SettingsInitialized" Checked="CheckChange" Unchecked="CheckChange">
+                        <CheckBox x:Name="SaveWinSizeCheckBox" Content="Сохранять размеры окна при выходе" VerticalAlignment="Center" HorizontalAlignment="Left" IsChecked="True" VerticalContentAlignment="Center" Margin="15" Initialized="SettingsInitialized" Checked="CheckChange" Unchecked="CheckChange" MouseEnter="Object_MouseEnter" MouseLeave="Object_MouseLeave">
                             <CheckBox.BorderBrush>
                                 <SolidColorBrush Color="{DynamicResource ColorNuans}"/>
                             </CheckBox.BorderBrush>
@@ -3476,7 +3476,7 @@ System.Drawing.Bitmap (как и вообще складирование кар�
                                 <SolidColorBrush Color="{DynamicResource ColorFont}"/>
                             </CheckBox.Foreground>
                         </CheckBox>
-                        <CheckBox x:Name="NoShowStartPageCheckBox2" Margin="15" VerticalContentAlignment="Center" Padding="5,0,0,0" ScrollViewer.VerticalScrollBarVisibility="Disabled" Content="Не показывать окно приветствия" FontSize="14" VerticalAlignment="Center" HorizontalAlignment="Left" IsChecked="{Binding IsChecked, ElementName=NoShowStartPageCheckBox, Mode=TwoWay}" Checked="NoShowStartPageCheckBox2_CheckedUnChecked" Unchecked="NoShowStartPageCheckBox2_CheckedUnChecked">
+                        <CheckBox x:Name="NoShowStartPageCheckBox2" Margin="15" VerticalContentAlignment="Center" Padding="5,0,0,0" ScrollViewer.VerticalScrollBarVisibility="Disabled" Content="Не показывать окно приветствия" FontSize="14" VerticalAlignment="Center" HorizontalAlignment="Left" IsChecked="{Binding IsChecked, ElementName=NoShowStartPageCheckBox, Mode=TwoWay}" Checked="NoShowStartPageCheckBox2_CheckedUnChecked" Unchecked="NoShowStartPageCheckBox2_CheckedUnChecked" MouseEnter="Object_MouseEnter" MouseLeave="Object_MouseLeave">
                             <CheckBox.BorderBrush>
                                 <SolidColorBrush Color="{DynamicResource ColorNuans}"/>
                             </CheckBox.BorderBrush>
@@ -3487,7 +3487,7 @@ System.Drawing.Bitmap (как и вообще складирование кар�
                                 <SolidColorBrush Color="{DynamicResource ColorFont}"/>
                             </CheckBox.Foreground>
                         </CheckBox>
-                        <Button Content="По умолчанию" HorizontalAlignment="Left" VerticalAlignment="Top" FontSize="14" Click="Button_ClickUserDef" Margin="15" Padding="15,5" ToolTip="Сброс настроек. Для принятия изменений необходимо перезапустить программу.">
+                        <Button Content="По умолчанию" HorizontalAlignment="Left" VerticalAlignment="Top" FontSize="14" Click="Button_ClickUserDef" Margin="15" Padding="15,5" ToolTip="Сброс настроек. Для принятия изменений необходимо перезапустить программу." MouseEnter="Object_MouseEnter" MouseLeave="Object_MouseLeave" Tag="Сбросить настройки">
                             <Button.Foreground>
                                 <SolidColorBrush Color="{DynamicResource ColorFont}"/>
                             </Button.Foreground>
@@ -3538,7 +3538,7 @@ System.Drawing.Bitmap (как и вообще складирование кар�
                     </TabItem.Foreground>
 
                 </TabItem>
-                <TabItem Header="Global" Padding="10" IsSelected="True" FontSize="14">
+                <TabItem Header="Global" Padding="10" IsSelected="True" FontSize="14" MouseEnter="Object_MouseEnter" MouseLeave="Object_MouseLeave" Tag="Не изменяйте настройки, если не знаете точно зачем это нужно">
                     <TabItem.Foreground>
                         <SolidColorBrush Color="{DynamicResource ColorAltFont}"/>
                     </TabItem.Foreground>
@@ -3712,11 +3712,11 @@ System.Drawing.Bitmap (как и вообще складирование кар�
                     </TextBlock.Foreground>
                 </TextBlock>
                 <StackPanel Margin="0" Orientation="Horizontal">
-                    <TextBlock x:Name="ProductVersionTextBlock" Margin="15,10" TextWrapping="WrapWithOverflow" Height="Auto" VerticalAlignment="Center" HorizontalAlignment="Left">
+                    <TextBlock x:Name="ProductVersionTextBlock" Margin="15,10" TextWrapping="WrapWithOverflow" Height="Auto" VerticalAlignment="Center" HorizontalAlignment="Left" MouseEnter="Object_MouseEnter" MouseLeave="Object_MouseLeave">
                         <TextBlock.Foreground>
                             <SolidColorBrush Color="{DynamicResource ColorFont}"/>
                         </TextBlock.Foreground><Run Text="Версия &lt;version&gt;"/></TextBlock>
-                    <Button Content="Показать полную информацию о версии" HorizontalAlignment="Left" VerticalAlignment="Center" Padding="15,5" Margin="15,0" Click="FullInfoVersionShow">
+                    <Button Content="Показать полную информацию о версии" HorizontalAlignment="Left" VerticalAlignment="Center" Padding="15,5" Margin="15,0" Click="FullInfoVersionShow" MouseEnter="Object_MouseEnter" MouseLeave="Object_MouseLeave" Tag="Развернуть блок текста">
                         <Button.BorderBrush>
                             <SolidColorBrush Color="{DynamicResource ColorNuans}"/>
                         </Button.BorderBrush>
@@ -3894,7 +3894,7 @@ System.Drawing.Bitmap (как и вообще складирование кар�
                     <TextBlock.Foreground>
                         <SolidColorBrush Color="{DynamicResource ColorFont}"/>
                     </TextBlock.Foreground></TextBlock>
-                <CheckBox x:Name="NoShowStartPageCheckBox" Margin="15" VerticalContentAlignment="Center" Padding="5,0,0,0" ScrollViewer.VerticalScrollBarVisibility="Disabled" Content="Больше не показывать" FontSize="14" Initialized="SettingsInitialized" Checked="CheckChange" Unchecked="CheckChange">
+                <CheckBox x:Name="NoShowStartPageCheckBox" Margin="15" VerticalContentAlignment="Center" Padding="5,0,0,0" ScrollViewer.VerticalScrollBarVisibility="Disabled" Content="Больше не показывать" FontSize="14" Initialized="SettingsInitialized" Checked="CheckChange" Unchecked="CheckChange" MouseEnter="Object_MouseEnter" MouseLeave="Object_MouseLeave">
                     <CheckBox.BorderBrush>
                         <SolidColorBrush Color="{DynamicResource ColorNuans}"/>
                     </CheckBox.BorderBrush>

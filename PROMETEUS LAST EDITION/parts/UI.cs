@@ -59,6 +59,7 @@ namespace PROMETEUS_LAST_EDITION
             Application.Current.Resources.MergedDictionaries.Add(dictZ);
             return true;
         }
+        
         /// <summary>
         /// Применяет словари ресурсов темы оформления в зависимости от настроек
         /// https://stackoverflow.com/questions/786183/wpf-changing-resources-colors-from-the-app-xaml-during-runtime   
@@ -100,11 +101,12 @@ namespace PROMETEUS_LAST_EDITION
             }
             return flag;
         }                
-       /// <summary>
-       /// Выставить всем страничкам невидимость
-       /// </summary>
-       /// <param name="mw">ссылка на объект</param>
-       /// <returns>булево</returns>
+       
+        /// <summary>
+        /// Выставить всем страничкам невидимость
+        /// </summary>
+        /// <param name="mw">ссылка на объект</param>
+        /// <returns>булево</returns>
         public bool ViewPageInitVisible(MainWindow mw)
         {
            
@@ -181,7 +183,7 @@ namespace PROMETEUS_LAST_EDITION
             if (m2 != null) { sm += m2.ToString(); }
             TextBlock tb = mw.FindName("FooterPrompt") as TextBlock;
             if (tb != null) tb.Text = sm;
-        }
+        }        
 
         public void VersionIngect(MainWindow mw)
         {
@@ -193,5 +195,58 @@ namespace PROMETEUS_LAST_EDITION
         }
 
        
+    }
+
+    public partial class MainWindow : Window {
+
+        private void Object_MouseEnter(object sender, MouseEventArgs e)
+        {            
+            string sm = "";string sm2 = "";            //string preType = "System.Windows.Controls.";
+            string objType = sender.GetType().ToString().Substring(sender.GetType().ToString().LastIndexOf(".")+1);
+            switch (objType)
+            {                
+                case "Button":
+                    Button but = (Button)sender;
+                    if (but.Tag!=null)
+                        sm = but.Tag.ToString();
+                    break;
+                case "CheckBox":
+                    CheckBox chb = (CheckBox)sender;
+                    if (chb.Tag != null)
+                        sm = chb.Tag.ToString();
+                    break;
+                case "ComboBox":
+                    ComboBox cbx = (ComboBox)sender;
+                    if (cbx.Tag != null)
+                        sm = cbx.Tag.ToString();
+                    break;
+                case "RadioButton":
+                    RadioButton rbt = (RadioButton)sender;
+                    if (rbt.Tag != null)
+                        sm = rbt.Tag.ToString();
+                    break;
+                case "TabItem":
+                    TabItem tbi = (TabItem)sender;
+                    if (tbi.Tag != null)
+                        sm = tbi.Tag.ToString();
+                    break;
+                case "":
+                    TextBox tbx = (TextBox)sender;
+                    if (tbx.Tag != null)
+                        sm = tbx.Tag.ToString();
+                    break;
+                default:
+                    sm = sender.GetType().ToString();
+                    sm2 = objType;
+                    break;
+            }
+            //sm = sender.GetType().ToString();
+            new UI().FooterPromtShow(this, sm,sm2);
+        }
+        private void Object_MouseLeave(object sender, MouseEventArgs e)
+        {
+            string sm = "";
+            new UI().FooterPromtShow(this, sm);
+        }
     }
 }
