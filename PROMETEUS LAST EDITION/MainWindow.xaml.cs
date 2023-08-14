@@ -390,13 +390,9 @@ namespace PROMETEUS_LAST_EDITION
 
         private void OpenDBinExcel(object sender, RoutedEventArgs e)
         {
- new UI().FooterPromtShow(this, "Открытие Excel...");
-           
-
+            new UI().FooterPromtShow(this, "Открытие Excel...");
             new FileFX().OpenDBinExcel(System.IO.Directory.GetCurrentDirectory() + "\\" +dbDefPath);
             //Application.Current.Shutdown();
-
-            
         }
     }
 
