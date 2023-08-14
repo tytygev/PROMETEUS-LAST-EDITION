@@ -9,7 +9,6 @@ using System.Windows.Input;
 using System.Windows.Media;
 using Microsoft.Office.Interop;
 using Excel = Microsoft.Office.Interop.Excel;
-
 using System.IO;
 using System.Collections;
 
@@ -21,7 +20,7 @@ namespace PROMETEUS_LAST_EDITION
     public partial class MainWindow : Window
     {
         public SoundPlayer wav = new SoundPlayer(); //тупо эксперименты
-        private Grid currentVisibleView; //это что то для такси (уже не помню)
+        private Grid currentVisibleView;
         public static DefUserSettings UserSettings = new DefUserSettings();//static
         private bool flagInitEnd = false;
 
@@ -30,8 +29,8 @@ namespace PROMETEUS_LAST_EDITION
         public static List<List<string>> drivers;
         public static List<List<string>> medical;
         public static List<List<string>> staff;
-
-        const string dbDefPath = "db.xml";
+              
+        public string dbDefPath = "db.xml";
 
         public MainWindow()
         {
@@ -49,7 +48,6 @@ namespace PROMETEUS_LAST_EDITION
 
             InitializeComponent();
             InitializeButtons();
-
             
             //загрузка БД
             if (new DBMS().XMLloadManager(dbDefPath))
@@ -63,6 +61,7 @@ namespace PROMETEUS_LAST_EDITION
                 new DBMS().XMLloadManager("backup_db.xml");
                 LOG(">>> Загрузка из файла " + dbDefPath + " не удалась. Загружены данные из файла бекапа.");
                 new DBMS().XMLInfoExtractor(this, File.ReadAllText("backup_db.xml"),false);
+                dbDefPath = "backup_db.xml";
             }
 
             //Завершение загрузки
@@ -75,82 +74,10 @@ namespace PROMETEUS_LAST_EDITION
             
         }
 
-        private void InitializeButtons()
-        {
-            KitSetButton.MouseUp += (s, e) => ShowView(KitSetPage);
-            PriceButton.MouseUp += (s, e) => ShowView(PricePage);
-            DBEditButton.MouseUp += (s, e) => ShowView(DBEditPage);
-            TaxiButton.MouseUp += (s, e) => ShowView(TaxiPage);
-            SettingsButton.MouseUp += (s, e) => ShowView(SettingsPage);
-            AboutButton.MouseUp += (s, e) => ShowView(AboutPage);
-            ExitButton.MouseUp += (s, e) => Application.Current.Shutdown();
+        
 
-            NewKitSetButton.MouseUp += (s, e) => ShowView(KitSetPage);
-            OpenKitSetButton.MouseUp += (s, e) => ShowView(KitSetPage);
-            SaveKitSetButton.MouseUp += (s, e) => ShowView(KitSetPage);
-            SaveasKitSetButton.MouseUp += (s, e) => ShowView(KitSetPage);
-            PrintfKitSetButton.MouseUp += (s, e) => ShowView(KitSetPage);
-            PrintKitSetButton.MouseUp += (s, e) => ShowView(KitSetPage);
-        }
-        private void ShowView(Grid view)
-        {
-            if (view == currentVisibleView)
-                return;
-            if (currentVisibleView != null)
-                currentVisibleView.Visibility = Visibility.Hidden;
-            view.Visibility = Visibility.Visible;
-            currentVisibleView = view;
-        }
-        private void MenuButton_MouseEnter(object sender, MouseEventArgs e)
-        {
-            if (sender is SubMenuButton ) ((SubMenuButton)sender).Background = new SolidColorBrush((Color)Application.Current.Resources[key: "ColorNuans"]);
-            if (sender is MainMenuButton) ((MainMenuButton)sender).Background = new SolidColorBrush((Color)Application.Current.Resources[key: "ColorSub"]);             
-        }
-        private void MenuButton_MouseLeave(object sender, MouseEventArgs e)
-        {
-            if (sender is SubMenuButton) ((SubMenuButton)sender).Background = new SolidColorBrush((Color)Application.Current.Resources[key: "ColorSub"]);
-            if (sender is MainMenuButton) if (((MainMenuButton)sender).Checked !=true) ((MainMenuButton)sender).Background = new SolidColorBrush((Color)Application.Current.Resources[key: "ColorMain"] );
-        }
-        private void MenuButton_MouseUp(object sender, MouseButtonEventArgs e)
-        {
-            wav.Stream = Properties.Resources.ding; wav.Play();
-            
-        }
-        private void OpenDB(object sender, RoutedEventArgs e)
-        {
-            //new DBMS().CreateDataGrid(this, new DBMS().ParseDB(this, 0));
-            MenuItem menuI = sender as MenuItem;
-            int file=100; bool flag = true;
-            switch (menuI.Header.ToString())
-            {
-                case "Авто":
-                    file = 0;
-                    break;
-                case "Водители":
-                    file = 1;
-                    break;
-                case "Компании":
-                    file = 2;
-                    break;
-                case "Медицина":
-                    file = 3;
-                    break;
-                case "Персонал":
-                    file = 4;
-                    break;
-                default:
-                    flag = false;
-                    break;                   
-            }
-           
-        }
-        private void ScrollChanged(object sender, ScrollChangedEventArgs e)
-        {
 
-            //DataGridHeaderScroll.ScrollToVerticalOffset(e.VerticalOffset);
-            DataGridHeaderScroll.ScrollToHorizontalOffset(e.HorizontalOffset);
-           
-        }
+
         //установка значений свойств объектов в соотвествии с настройками
         private void SettingsInitialized(object sender, EventArgs e)
         {
@@ -161,7 +88,7 @@ namespace PROMETEUS_LAST_EDITION
                     LOG("\t объект типа " + sender.GetType().ToString().Substring(sender.GetType().ToString().LastIndexOf('.') + 1));
                     ComboBox cb = sender as ComboBox;
                     LOG("\t поле Name = " + cb.Name);
-                    cb.SelectedIndex = Convert.ToInt32(UserSettings[cb.Name]);                    
+                    cb.SelectedIndex = Convert.ToInt32(UserSettings[cb.Name]);
                     LOG("\t полю SelectedIndex присвоено значение: " + Convert.ToString(UserSettings[cb.Name]) + " из объекта UserSettings");
                     break;
                 case "TextBox":
@@ -192,48 +119,50 @@ namespace PROMETEUS_LAST_EDITION
         }
         private void CheckChange(object sender, EventArgs e)
         {
-            if (flagInitEnd) { 
-            string typeElem = sender.GetType().ToString().Substring(sender.GetType().ToString().LastIndexOf('.') + 1);
-
-                LOG("!!! СОБЫТИЕ Checked/UnChecked на объекте "+ typeElem+": ");
-                switch (typeElem)
+            if (flagInitEnd)
             {
-                case "RadioButton":
-                    RadioButton rb = sender as RadioButton;
-                    UserSettings[rb.Name] = rb.IsChecked;
-                    LOG("\tПолю " + rb.Name+ " класса UserSettings присвоено значение " + Convert.ToString(rb.IsChecked));
-                    break;
-                case "CheckBox":
-                    CheckBox chb = sender as CheckBox;
-                    UserSettings[chb.Name] = chb.IsChecked;
-                    LOG("\tПолю " + chb.Name + " класса UserSettings присвоено значение " + Convert.ToString(chb.IsChecked));
-                    break;
-                case "TextBox":
-                    TextBox tb = sender as TextBox;
-                    UserSettings[tb.Name] = tb.Text;
-                    LOG("\tПолю " + tb.Name + " класса UserSettings присвоено значение " + Convert.ToString(tb.Text));
-                    break;
-                case "ComboBox":
-                    ComboBox cb = sender as ComboBox;
-                    UserSettings[cb.Name] = cb.SelectedIndex;
-                    LOG("\tПолю " + cb.Name + " класса UserSettings присвоено значение " + Convert.ToString(cb.SelectedIndex));                   
-                    
-                    //if (cb.Name== "ThemeComboBox")
-                    //{
+                string typeElem = sender.GetType().ToString().Substring(sender.GetType().ToString().LastIndexOf('.') + 1);
 
-                    //    bool flag = new UI().InitializeUserSettingsTheme((int)UserSettings["ThemeComboBox"]);
-                    //    if (flag) LOG(">>> Тема изменена");
-                    //    else LOG("ОШИБКА::: Значение параметра SettingsThemeComboBox не соответствует ни одному значению в перечеслителе Themes. Настройки темы не были изменены", true);
-                    //}
-                    break;
-                default:
-                    //код, выполняемый если выражение не имеет ни одно из выше указанных значений
-                    LOG("ОШИБКА::: не известный тип объекта", true);
-                    break;
-            }
+                LOG("!!! СОБЫТИЕ Checked/UnChecked на объекте " + typeElem + ": ");
+                switch (typeElem)
+                {
+                    case "RadioButton":
+                        RadioButton rb = sender as RadioButton;
+                        UserSettings[rb.Name] = rb.IsChecked;
+                        LOG("\tПолю " + rb.Name + " класса UserSettings присвоено значение " + Convert.ToString(rb.IsChecked));
+                        break;
+                    case "CheckBox":
+                        CheckBox chb = sender as CheckBox;
+                        UserSettings[chb.Name] = chb.IsChecked;
+                        LOG("\tПолю " + chb.Name + " класса UserSettings присвоено значение " + Convert.ToString(chb.IsChecked));
+                        break;
+                    case "TextBox":
+                        TextBox tb = sender as TextBox;
+                        UserSettings[tb.Name] = tb.Text;
+                        LOG("\tПолю " + tb.Name + " класса UserSettings присвоено значение " + Convert.ToString(tb.Text));
+                        break;
+                    case "ComboBox":
+                        ComboBox cb = sender as ComboBox;
+                        UserSettings[cb.Name] = cb.SelectedIndex;
+                        LOG("\tПолю " + cb.Name + " класса UserSettings присвоено значение " + Convert.ToString(cb.SelectedIndex));
+
+                        //if (cb.Name== "ThemeComboBox")
+                        //{
+
+                        //    bool flag = new UI().InitializeUserSettingsTheme((int)UserSettings["ThemeComboBox"]);
+                        //    if (flag) LOG(">>> Тема изменена");
+                        //    else LOG("ОШИБКА::: Значение параметра SettingsThemeComboBox не соответствует ни одному значению в перечеслителе Themes. Настройки темы не были изменены", true);
+                        //}
+                        break;
+                    default:
+                        //код, выполняемый если выражение не имеет ни одно из выше указанных значений
+                        LOG("ОШИБКА::: не известный тип объекта", true);
+                        break;
+                }
             }
         }
-        private void NoShowStartPageCheckBox2_CheckedUnChecked(object sender, RoutedEventArgs e){
+        private void NoShowStartPageCheckBox2_CheckedUnChecked(object sender, RoutedEventArgs e)
+        {
             if (flagInitEnd)
             {
                 LOG("!!! СОБЫТИЕ Checked/UnChecked на объекте NoShowStartPageCheckBox2: ");
@@ -245,7 +174,8 @@ namespace PROMETEUS_LAST_EDITION
                 //CheckChange(myFieldInfo, e);
             }
         }
-        private void Window_SizeChanged(object sender, SizeChangedEventArgs e) {
+        private void Window_SizeChanged(object sender, SizeChangedEventArgs e)
+        {
             if ((bool)UserSettings["SaveWinSizeCheckBox"])
             {
                 UserSettings["WindowSizeW"] = Convert.ToInt32(this.Width);
@@ -282,9 +212,10 @@ namespace PROMETEUS_LAST_EDITION
         private void ResetUserSettingsProp(object sender, RoutedEventArgs e) //Очистка параметра с настройками юзера
         {
             if (MessageBox.Show("Это действие полностью и безвозвратно аннигилирует ВСЕ данные пользователей касательно настроек программы. \n\nВы уверены???",
-                "АХТУНГ!", MessageBoxButton.YesNo,MessageBoxImage.Warning) == MessageBoxResult.Yes)
-            {new SettingsFX().SettingsClear();
-            
+                "АХТУНГ!", MessageBoxButton.YesNo, MessageBoxImage.Warning) == MessageBoxResult.Yes)
+            {
+                new SettingsFX().SettingsClear();
+
             }
         }
         private void ResetGlobalProperties(object sender, RoutedEventArgs e)
@@ -293,10 +224,12 @@ namespace PROMETEUS_LAST_EDITION
                "АХТУНГ!", MessageBoxButton.YesNo, MessageBoxImage.Warning) == MessageBoxResult.Yes)
             {
                 new GlobalSettings().ResetGeneralProperties(this);
-                LOG("Глобальные настройки сброшены. Перезагрузите программу.",true);
+                LOG("Глобальные настройки сброшены. Перезагрузите программу.", true);
             }
         }
-        private void Button_ClickUserDef(object sender, RoutedEventArgs e) {new SettingsFX().SetupDefaultUser();
+        private void Button_ClickUserDef(object sender, RoutedEventArgs e)
+        {
+            new SettingsFX().SetupDefaultUser();
             InitializeComponent();
             InitializeButtons();
             OnInitialized(e);
@@ -304,25 +237,10 @@ namespace PROMETEUS_LAST_EDITION
             StartPage.Visibility = Visibility.Hidden;
             SettingsPage.Visibility = Visibility.Visible;
         }
-        private void Button_ClickCloseStart(object sender, RoutedEventArgs e) {this.StartPage.Visibility = Visibility.Hidden;}
+        private void Button_ClickCloseStart(object sender, RoutedEventArgs e) { this.StartPage.Visibility = Visibility.Hidden; }
         private void FullInfoVersionShow(object sender, RoutedEventArgs e) { if (FullInfoVersionTextBlock.Visibility == Visibility.Collapsed) FullInfoVersionTextBlock.Visibility = Visibility.Visible; else FullInfoVersionTextBlock.Visibility = Visibility.Collapsed; }
         private void FullInfoEditRulesShow(object sender, RoutedEventArgs e) { if (FullInfoEditRulesTextBlock.Visibility == Visibility.Collapsed) FullInfoEditRulesTextBlock.Visibility = Visibility.Visible; else FullInfoEditRulesTextBlock.Visibility = Visibility.Collapsed; }
 
-        /// <summary>
-        /// Выводит сообщение в файл LOG.txt и в окно MessageBox
-        /// </summary>
-        /// <param name = "m" >Значение для вывода</param >
-        /// <param name = "newLine" >добавляет в конце строки символ новой (true по умолчанию)</param >
-        /// <param name = "showMB" >выводит сообщение в MessageBox (false по умолчанию)</param >
-        /// <returns>Ничего не возвращает</returns>
-        public static void LOG(object m, bool showMB = false, bool newLine = true)//static
-        {
-            string sm = m.ToString();
-            if (newLine) { sm += Environment.NewLine; }
-            File.AppendAllText("LOG.txt", sm);           
-            if (showMB) { MessageBox.Show(sm); }
-            //return;
-        }
 
 
         //////  //////  //////    //    //
@@ -331,6 +249,44 @@ namespace PROMETEUS_LAST_EDITION
         //      //  //  ////    //////  //
         //      //////  //  //  //  //  //////  //foral
 
+        //наработки к старой бд
+        //работа меню
+        private void OpenDB(object sender, RoutedEventArgs e)
+        {
+            //new DBMS().CreateDataGrid(this, new DBMS().ParseDB(this, 0));
+            MenuItem menuI = sender as MenuItem;
+            int file=100; bool flag = true;
+            switch (menuI.Header.ToString())
+            {
+                case "Авто":
+                    file = 0;
+                    break;
+                case "Водители":
+                    file = 1;
+                    break;
+                case "Компании":
+                    file = 2;
+                    break;
+                case "Медицина":
+                    file = 3;
+                    break;
+                case "Персонал":
+                    file = 4;
+                    break;
+                default:
+                    flag = false;
+                    break;                   
+            }
+           
+        }
+        //скроллинг
+        private void ScrollChanged(object sender, ScrollChangedEventArgs e)
+        {
+
+            //DataGridHeaderScroll.ScrollToVerticalOffset(e.VerticalOffset);
+            DataGridHeaderScroll.ScrollToHorizontalOffset(e.HorizontalOffset);
+           
+        }
         //эксперименты с такси
         private void InitializeTaxiSettings()
         {// habr.com/ru/post/271483/
@@ -430,7 +386,18 @@ namespace PROMETEUS_LAST_EDITION
             return ListSettings;
         }
 
-        
+      
+
+        private void OpenDBinExcel(object sender, RoutedEventArgs e)
+        {
+ new UI().FooterPromtShow(this, "Открытие Excel...");
+           
+
+            new FileFX().OpenDBinExcel(System.IO.Directory.GetCurrentDirectory() + "\\" +dbDefPath);
+            //Application.Current.Shutdown();
+
+            
+        }
     }
 
 

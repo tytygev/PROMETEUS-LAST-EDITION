@@ -17,6 +17,7 @@ using System.Media;
 using Microsoft.Office.Interop;
 using Excel = Microsoft.Office.Interop.Excel;
 using System.IO;
+using Microsoft.Office.Interop.Excel;
 
 namespace PROMETEUS_LAST_EDITION
 {
@@ -104,7 +105,31 @@ namespace PROMETEUS_LAST_EDITION
                 System.GC.Collect();
             }
         }
+        public void OpenDBinExcel(string xlFileName)
+        {
+            
+            //Excel.Application excel = new Excel.Application();
+            //Workbook wb = excel.Workbooks.Open(xlFileName);
+            //ObjWorkExcel.Visible = true;
 
+            Excel.Application ObjWorkExcel = new Excel.Application(); //открыть эксель
+            Excel.Workbook ObjWorkBook = ObjWorkExcel.Workbooks.Open(xlFileName); //открыть файл
+            Excel.Worksheet ObjWorkSheet = ObjWorkBook.Worksheets[1];     //получить 1 лист
+            ObjWorkExcel.Visible = true; //отображаем Excel
+            ////рабоата с Excel
+            //Excel.Workbook xlWB;
+
+            //Excel.Application xlApp = new Excel.Application(); //создаём приложение Excel
+            //xlWB = xlApp.Workbooks.Open(xlFileName); //открываем наш файл           
+
+
+            ////закрытие Excel
+            //xlWB.Close(true); //сохраняем и закрываем файл
+            //xlApp.Quit();
+            //ReleaseObject(xlSht);
+            //ReleaseObject(xlWB);
+            //ReleaseObject(xlApp);
+        }
     }
 
 

@@ -3034,7 +3034,7 @@ System.Drawing.Bitmap (как и вообще складирование кар�
                         
                     </TextBlock>
                     <TextBlock TextWrapping="Wrap" Text="Настоятельно рекомендуется вручную сделать копию файла 'db.xml' перед его редактированием на тот случай, если данные будут отредактированы некорректно&#xA;&#xA;Для применения изменений после редактирования БД программу Прометей необходимо перезапустить" Margin="15" HorizontalAlignment="Left"/>
-                    <Button Content="Открыть файл в Excel" HorizontalAlignment="Left" VerticalAlignment="Center" Padding="15,5" Margin="15" Click="FullInfoVersionShow" MouseEnter="Object_MouseEnter" MouseLeave="Object_MouseLeave">
+                    <Button Content="Открыть файл в Excel" HorizontalAlignment="Left" VerticalAlignment="Center" Padding="15,5" Margin="15" Click="OpenDBinExcel" MouseEnter="Object_MouseEnter" MouseLeave="Object_MouseLeave">
                         <Button.BorderBrush>
                             <SolidColorBrush Color="{DynamicResource ColorNuans}"/>
                         </Button.BorderBrush>
@@ -3439,7 +3439,7 @@ System.Drawing.Bitmap (как и вообще складирование кар�
             </StackPanel>
 
         </Grid>
-        <Grid x:Name="SettingsPage" Margin="0" Grid.Column="1" ScrollViewer.VerticalScrollBarVisibility="Auto">
+        <Grid x:Name="SettingsPage" Margin="0" Grid.Column="1" ScrollViewer.VerticalScrollBarVisibility="Auto" d:IsHidden="True">
             <Grid.Background>
                 <SolidColorBrush Color="{DynamicResource ColorSub}"/>
             </Grid.Background>

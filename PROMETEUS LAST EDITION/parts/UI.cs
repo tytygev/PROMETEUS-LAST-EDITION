@@ -19,6 +19,7 @@ using Excel = Microsoft.Office.Interop.Excel;
 
 using System.Reflection;
 using System.Diagnostics;
+using System.IO;
 
 namespace PROMETEUS_LAST_EDITION
 {
@@ -195,10 +196,56 @@ namespace PROMETEUS_LAST_EDITION
         }
 
        
+      
     }
 
     public partial class MainWindow : Window {
+        public void InitializeButtons()
+        {
+            KitSetButton.MouseUp += (s, e) => ShowView(KitSetPage);
+            PriceButton.MouseUp += (s, e) => ShowView(PricePage);
+            DBEditButton.MouseUp += (s, e) => ShowView(DBEditPage);
+            TaxiButton.MouseUp += (s, e) => ShowView(TaxiPage);
+            SettingsButton.MouseUp += (s, e) => ShowView(SettingsPage);
+            AboutButton.MouseUp += (s, e) => ShowView(AboutPage);
+            ExitButton.MouseUp += (s, e) => Application.Current.Shutdown();
 
+            NewKitSetButton.MouseUp += (s, e) => ShowView(KitSetPage);
+            OpenKitSetButton.MouseUp += (s, e) => ShowView(KitSetPage);
+            SaveKitSetButton.MouseUp += (s, e) => ShowView(KitSetPage);
+            SaveasKitSetButton.MouseUp += (s, e) => ShowView(KitSetPage);
+            PrintfKitSetButton.MouseUp += (s, e) => ShowView(KitSetPage);
+            PrintKitSetButton.MouseUp += (s, e) => ShowView(KitSetPage);
+        }
+        public void ShowView(Grid view)
+        {
+
+            if (view == currentVisibleView)
+                return;
+            if (currentVisibleView != null)
+                currentVisibleView.Visibility = Visibility.Hidden;
+            view.Visibility = Visibility.Visible;
+            currentVisibleView = view;
+        }
+        //работа главного меню, анимация, открытие вкладок
+
+        private void MenuButton_MouseEnter(object sender, MouseEventArgs e)
+        {
+            if (sender is SubMenuButton) ((SubMenuButton)sender).Background = new SolidColorBrush((Color)Application.Current.Resources[key: "ColorNuans"]);
+            if (sender is MainMenuButton) ((MainMenuButton)sender).Background = new SolidColorBrush((Color)Application.Current.Resources[key: "ColorSub"]);
+        }
+        private void MenuButton_MouseLeave(object sender, MouseEventArgs e)
+        {
+            if (sender is SubMenuButton) ((SubMenuButton)sender).Background = new SolidColorBrush((Color)Application.Current.Resources[key: "ColorSub"]);
+            if (sender is MainMenuButton) if (((MainMenuButton)sender).Checked != true) ((MainMenuButton)sender).Background = new SolidColorBrush((Color)Application.Current.Resources[key: "ColorMain"]);
+        }
+        private void MenuButton_MouseUp(object sender, MouseButtonEventArgs e)
+        {
+            wav.Stream = Properties.Resources.ding; wav.Play();
+
+        }
+
+        //Получает и выводит текст из Tag в трей программы
         private void Object_MouseEnter(object sender, MouseEventArgs e)
         {            
             string sm = "";string sm2 = "";            //string preType = "System.Windows.Controls.";
@@ -248,5 +295,22 @@ namespace PROMETEUS_LAST_EDITION
             string sm = "";
             new UI().FooterPromtShow(this, sm);
         }
+
+        /// <summary>
+        /// Выводит сообщение в файл LOG.txt и в окно MessageBox
+        /// </summary>
+        /// <param name = "m" >Значение для вывода</param >
+        /// <param name = "newLine" >добавляет в конце строки символ новой (true по умолчанию)</param >
+        /// <param name = "showMB" >выводит сообщение в MessageBox (false по умолчанию)</param >
+        /// <returns>Ничего не возвращает</returns>
+        public static void LOG(object m, bool showMB = false, bool newLine = true)//static
+        {
+            string sm = m.ToString();
+            if (newLine) { sm += Environment.NewLine; }
+            File.AppendAllText("LOG.txt", sm);
+            if (showMB) { MessageBox.Show(sm); }
+            //return;
+        }
+
     }
 }
