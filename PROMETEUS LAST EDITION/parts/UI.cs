@@ -277,7 +277,7 @@ namespace PROMETEUS_LAST_EDITION
                     if (tbi.Tag != null)
                         sm = tbi.Tag.ToString();
                     break;
-                case "":
+                case "TextBox":
                     TextBox tbx = (TextBox)sender;
                     if (tbx.Tag != null)
                         sm = tbx.Tag.ToString();
