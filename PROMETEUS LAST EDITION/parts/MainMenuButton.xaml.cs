@@ -29,7 +29,8 @@ namespace PROMETEUS_LAST_EDITION
         public bool Checked
         {
             get => _checked;
-            protected set
+            set
+            //protected set
             {
                 if (value != _checked)
                     Background = value ? checkedBrush : uncheckedBrush;

@@ -165,6 +165,11 @@ namespace PROMETEUS_LAST_EDITION
             else { MainWindow.LOG("\t\t...отменена!"); }
             nameElem = "NoShowStartPageCheckBox";
             if (Convert.ToBoolean(MainWindow.UserSettings[nameElem])) { mw.StartPage.Visibility = Visibility.Hidden; MainWindow.LOG(">>> Стартовое окно скрыто по просьбам трудящихся"); }
+            nameElem = "NoShowBDMSiWinCheckBox2";
+            if (Convert.ToBoolean(MainWindow.UserSettings[nameElem])) { 
+                mw.DBEditButton.Visibility = Visibility.Collapsed;
+                mw.DBOpenButton.Visibility = Visibility.Visible;
+            }
 
             return true;
         }
@@ -204,6 +209,13 @@ namespace PROMETEUS_LAST_EDITION
         {
             KitSetButton.MouseUp += (s, e) => ShowView(KitSetPage);
             PriceButton.MouseUp += (s, e) => ShowView(PricePage);
+            //if ((bool)NoShowBDMSiWinCheckBox2.IsChecked ){
+            //    DBEditButton.MouseUp += (s, e) => OpenDB();
+            //}
+            //else{ 
+            //    DBEditButton.MouseUp += (s, e) => ShowView(DBEditPage);
+            //}
+            DBOpenButton.MouseUp += (s, e) => OpenDB();
             DBEditButton.MouseUp += (s, e) => ShowView(DBEditPage);
             TaxiButton.MouseUp += (s, e) => ShowView(TaxiPage);
             SettingsButton.MouseUp += (s, e) => ShowView(SettingsPage);
@@ -227,6 +239,13 @@ namespace PROMETEUS_LAST_EDITION
             view.Visibility = Visibility.Visible;
             currentVisibleView = view;
         }
+        public void OpenDB()
+        {
+            DBOpenButton.Checked = false;
+            new UI().FooterPromtShow(this, "Открытие Excel...");
+            new FileFX().OpenDBinExcel(System.IO.Directory.GetCurrentDirectory() + "\\" + dbDefPath);
+            //Application.Current.Shutdown();
+        }
         //работа главного меню, анимация, открытие вкладок
 
         private void MenuButton_MouseEnter(object sender, MouseEventArgs e)
@@ -241,8 +260,7 @@ namespace PROMETEUS_LAST_EDITION
         }
         private void MenuButton_MouseUp(object sender, MouseButtonEventArgs e)
         {
-            wav.Stream = Properties.Resources.ding; wav.Play();
-
+            wav.Stream = Properties.Resources.ding; wav.Play();           
         }
 
         //Получает и выводит текст из Tag в трей программы
