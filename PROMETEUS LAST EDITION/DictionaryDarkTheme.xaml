@@ -30,7 +30,7 @@
     <Color x:Key="ItemsviewHoverFocus_Border">#FFFF9523</Color>
 
     <BitmapImage x:Key="KitSet" UriSource="pack://siteoforigin:,,,/pict/_KitSet_o.png" ></BitmapImage>
-    <BitmapImage x:Key="Price" >pict/_Price_o.png</BitmapImage>
+    <BitmapImage x:Key="Price" UriSource="pack://siteoforigin:,,,/pict/_Price_o.png" ></BitmapImage>
     <BitmapImage x:Key="DBedit" UriSource="pack://siteoforigin:,,,/pict/_DBedit_o.png" ></BitmapImage>
     <BitmapImage x:Key="Taxi" UriSource="pack://siteoforigin:,,,/pict/_Taxi_g.png" ></BitmapImage>
     <BitmapImage x:Key="Settings" UriSource="pack://siteoforigin:,,,/pict/_Settings_o.png" ></BitmapImage>
