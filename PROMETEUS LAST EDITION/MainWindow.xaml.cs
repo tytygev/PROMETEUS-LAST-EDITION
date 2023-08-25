@@ -30,7 +30,7 @@ namespace PROMETEUS_LAST_EDITION
         public static List<List<string>> medical;
         public static List<List<string>> staff;
               
-        public string dbDefPath = "db.xml";
+        
 
         public MainWindow()
         {
@@ -73,10 +73,6 @@ namespace PROMETEUS_LAST_EDITION
             flagInitEnd = true;
             
         }
-
-        
-
-
 
         //установка значений свойств объектов в соотвествии с настройками
         private void SettingsInitialized(object sender, EventArgs e)
@@ -161,30 +157,11 @@ namespace PROMETEUS_LAST_EDITION
                 }
             }
         }
-        private void NoShowStartPageCheckBox2_CheckedUnChecked(object sender, RoutedEventArgs e)
-        {
-            if (flagInitEnd)
-            {
-                LOG("!!! СОБЫТИЕ Checked/UnChecked на объекте NoShowStartPageCheckBox2: ");
-                NoShowStartPageCheckBox.IsChecked = NoShowStartPageCheckBox2.IsChecked;
-                UserSettings["NoShowStartPageCheckBox"] = NoShowStartPageCheckBox2.IsChecked;
-                LOG("\tПолю NoShowStartPageCheckBox класса UserSettings присвоено значение " + Convert.ToString(NoShowStartPageCheckBox2.IsChecked));
-                //Type myTypeA = typeof(CheckBox);
-                //FieldInfo myFieldInfo = typeof(CheckBox).GetField("NoShowStartPageCheckBox");
-                //CheckChange(myFieldInfo, e);
-            }
-        }
-        private void Window_SizeChanged(object sender, SizeChangedEventArgs e)
-        {
-            if ((bool)UserSettings["SaveWinSizeCheckBox"])
-            {
-                UserSettings["WindowSizeW"] = Convert.ToInt32(this.Width);
-                UserSettings["WindowSizeH"] = Convert.ToInt32(this.Height);
-                LOG("~~~ Поле UserSettings.WindowSizeW = " + Convert.ToString(this.Width));
-                LOG("~~~ Поле UserSettings.WindowSizeH = " + Convert.ToString(this.Height));
-            }
-        }
-        private void Window_StateChanged(object sender, EventArgs e) { if ((bool)UserSettings["SaveWinSizeCheckBox"]) { UserSettings["WindowState"] = this.WindowState; LOG("~~~ Поле UserSettings.WindowState = " + Convert.ToString(this.WindowState)); } }
+
+
+
+
+
         protected override void OnInitialized(EventArgs e)
         {
             base.OnInitialized(e);
@@ -240,7 +217,10 @@ namespace PROMETEUS_LAST_EDITION
         private void Button_ClickCloseStart(object sender, RoutedEventArgs e) { this.StartPage.Visibility = Visibility.Hidden; }
         private void FullInfoVersionShow(object sender, RoutedEventArgs e) { if (FullInfoVersionTextBlock.Visibility == Visibility.Collapsed) FullInfoVersionTextBlock.Visibility = Visibility.Visible; else FullInfoVersionTextBlock.Visibility = Visibility.Collapsed; }
         private void FullInfoEditRulesShow(object sender, RoutedEventArgs e) { if (FullInfoEditRulesTextBlock.Visibility == Visibility.Collapsed) FullInfoEditRulesTextBlock.Visibility = Visibility.Visible; else FullInfoEditRulesTextBlock.Visibility = Visibility.Collapsed; }
-
+        private void OpenDBinExcel(object sender, RoutedEventArgs e)
+        {
+            OpenDB();
+        }
 
 
         //////  //////  //////    //    //
@@ -388,12 +368,9 @@ namespace PROMETEUS_LAST_EDITION
 
       
 
-        private void OpenDBinExcel(object sender, RoutedEventArgs e)
-        {
-            new UI().FooterPromtShow(this, "Открытие Excel...");
-            new FileFX().OpenDBinExcel(System.IO.Directory.GetCurrentDirectory() + "\\" +dbDefPath);
-            //Application.Current.Shutdown();
-        }
+        
+
+       
     }
 
 

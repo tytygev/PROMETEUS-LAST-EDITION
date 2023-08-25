@@ -7,9 +7,28 @@ using System.Threading.Tasks;
 
 using System.IO;
 using System.Collections;
+using System.Windows;
+using System.Windows.Controls;
 
 namespace PROMETEUS_LAST_EDITION
 {
+    public partial class MainWindow : Window
+    {
+        public string dbDefPath = "db.xml";
+      
+        private void Window_SizeChanged(object sender, SizeChangedEventArgs e)
+        {
+            if ((bool)UserSettings["SaveWinSizeCheckBox"])
+            {
+                UserSettings["WindowSizeW"] = Convert.ToInt32(this.Width);
+                UserSettings["WindowSizeH"] = Convert.ToInt32(this.Height);
+                LOG("~~~ Поле UserSettings.WindowSizeW = " + Convert.ToString(this.Width));
+                LOG("~~~ Поле UserSettings.WindowSizeH = " + Convert.ToString(this.Height));
+            }
+        }
+        private void Window_StateChanged(object sender, EventArgs e) { if ((bool)UserSettings["SaveWinSizeCheckBox"]) { UserSettings["WindowState"] = this.WindowState; LOG("~~~ Поле UserSettings.WindowState = " + Convert.ToString(this.WindowState)); } }
+
+    }
     public class SettingsFX
     {
         public MainWindow mw;
@@ -202,11 +221,14 @@ namespace PROMETEUS_LAST_EDITION
         {
             //flagResetUserSettings,
             NoShowStartPageCheckBox,
+            NoShowStartPageCheckBox2,
             ThemeComboBox,
             SaveWinSizeCheckBox,
             WindowState,
             WindowSizeW,
-            WindowSizeH
+            WindowSizeH,
+            NoShowBDMSiWinCheckBox,
+            NoShowBDMSiWinCheckBox2
         }        
 
         public object this[string propertyName]
@@ -215,12 +237,15 @@ namespace PROMETEUS_LAST_EDITION
             set { this.GetType().GetProperty(propertyName).SetValue(this, value, null); }
         }
         //public static bool flagResetUserSettings { get; set; } = false;
-        public  bool NoShowStartPageCheckBox { get; set; } = false;//static
+        public bool NoShowStartPageCheckBox { get; set; } = false;//static
+        public bool NoShowStartPageCheckBox2 { get; set; } = false;
         public  int ThemeComboBox { get; set; } = 0;
         public  bool SaveWinSizeCheckBox { get; set; } = false;
         public  int WindowState { get; set; } = 0;
         public  int WindowSizeW { get; set; } = 1024;
         public  int WindowSizeH { get; set; } = 768;
+        public bool NoShowBDMSiWinCheckBox { get; set; } = false;
+        public bool NoShowBDMSiWinCheckBox2 { get; set; } = false;
     }
 
 

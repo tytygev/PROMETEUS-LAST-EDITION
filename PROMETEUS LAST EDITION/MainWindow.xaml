@@ -2219,6 +2219,11 @@ System.Drawing.Bitmap (как и вообще складирование кар�
                         <SolidColorBrush Color="{DynamicResource ColorMain}"/>
                     </local:MainMenuButton.Background>
                 </local:MainMenuButton>
+                <local:MainMenuButton x:Name="DBOpenButton"  Margin="20,0" LabelButtonProperty="Открыть БД"  MouseEnter="MenuButton_MouseEnter" MouseLeave="MenuButton_MouseLeave" MouseUp="MenuButton_MouseUp" Padding="0,5" ImageSourceProperty="{StaticResource DBedit}" Visibility="Collapsed" >
+                    <local:MainMenuButton.Background>
+                        <SolidColorBrush Color="{DynamicResource ColorMain}"/>
+                    </local:MainMenuButton.Background>
+                </local:MainMenuButton>
                 <local:MainMenuButton x:Name="TaxiButton" Margin="20,0,0,0" LabelButtonProperty="Подсчёт такси" MouseEnter="MenuButton_MouseEnter" MouseLeave="MenuButton_MouseLeave" MouseUp="MenuButton_MouseUp"  Padding="0,5" ImageSourceProperty="{StaticResource Taxi}" IsEnabled="False" >
                     <local:MainMenuButton.Background>
                         <SolidColorBrush Color="{DynamicResource ColorMain}"/>
@@ -3958,7 +3963,7 @@ System.Drawing.Bitmap (как и вообще складирование кар�
             </StackPanel>
 
         </Grid>
-        <Grid x:Name="SettingsPage" Margin="0" Grid.Column="1" ScrollViewer.VerticalScrollBarVisibility="Auto" d:IsHidden="True">
+        <Grid x:Name="SettingsPage" Margin="0" Grid.Column="1" ScrollViewer.VerticalScrollBarVisibility="Auto">
             <Grid.Background>
                 <SolidColorBrush Color="{DynamicResource ColorSub}"/>
             </Grid.Background>
@@ -3984,7 +3989,7 @@ System.Drawing.Bitmap (как и вообще складирование кар�
                             <ComboBoxItem Content="Светлая МИЦ ИЗВЕСТИЯ"/>
                             <ComboBoxItem Content="Светлая Пятый Канал"/>
                         </ComboBox>
-                        <CheckBox x:Name="SaveWinSizeCheckBox" Content="Сохранять размеры окна при выходе" VerticalAlignment="Center" HorizontalAlignment="Left" IsChecked="True" VerticalContentAlignment="Center" Margin="15" Initialized="SettingsInitialized" Checked="CheckChange" Unchecked="CheckChange" MouseEnter="Object_MouseEnter" MouseLeave="Object_MouseLeave">
+                        <CheckBox x:Name="SaveWinSizeCheckBox" Content="Сохранять размеры окна при выходе" VerticalAlignment="Center" HorizontalAlignment="Left" IsChecked="True" VerticalContentAlignment="Center" Margin="15" Initialized="SettingsInitialized" Checked="CheckChange" Unchecked="CheckChange" MouseEnter="Object_MouseEnter" MouseLeave="Object_MouseLeave" Padding="5,0,0,0">
                             <CheckBox.BorderBrush>
                                 <SolidColorBrush Color="{DynamicResource ColorNuans}"/>
                             </CheckBox.BorderBrush>
@@ -3995,7 +4000,7 @@ System.Drawing.Bitmap (как и вообще складирование кар�
                                 <SolidColorBrush Color="{DynamicResource ColorFont}"/>
                             </CheckBox.Foreground>
                         </CheckBox>
-                        <CheckBox x:Name="NoShowStartPageCheckBox2" Margin="15" VerticalContentAlignment="Center" Padding="5,0,0,0" ScrollViewer.VerticalScrollBarVisibility="Disabled" Content="Не показывать окно приветствия" FontSize="14" VerticalAlignment="Center" HorizontalAlignment="Left" IsChecked="{Binding IsChecked, ElementName=NoShowStartPageCheckBox, Mode=TwoWay}" Checked="NoShowStartPageCheckBox2_CheckedUnChecked" Unchecked="NoShowStartPageCheckBox2_CheckedUnChecked" MouseEnter="Object_MouseEnter" MouseLeave="Object_MouseLeave">
+                        <CheckBox x:Name="NoShowStartPageCheckBox2" Margin="15" VerticalContentAlignment="Center" Padding="5,0,0,0" ScrollViewer.VerticalScrollBarVisibility="Disabled" Content="Не показывать окно приветствия" FontSize="14" VerticalAlignment="Center" HorizontalAlignment="Left" IsChecked="{Binding IsChecked, ElementName=NoShowStartPageCheckBox, Mode=TwoWay}" Checked="CheckChange" MouseEnter="Object_MouseEnter" MouseLeave="Object_MouseLeave">
                             <CheckBox.BorderBrush>
                                 <SolidColorBrush Color="{DynamicResource ColorNuans}"/>
                             </CheckBox.BorderBrush>
@@ -4046,7 +4051,19 @@ System.Drawing.Bitmap (как и вообще складирование кар�
                     <TabItem.Foreground>
                         <SolidColorBrush Color="{DynamicResource ColorFont}"/>
                     </TabItem.Foreground>
-                    <StackPanel  Margin="15" AllowDrop="True" HorizontalAlignment="Left" VerticalAlignment="Center"/>
+                    <StackPanel  Margin="15" AllowDrop="True" VerticalAlignment="Center">
+                        <CheckBox x:Name="NoShowBDMSiWinCheckBox2" Content="Не показать окно информации" VerticalAlignment="Center" HorizontalAlignment="Left" IsChecked="True" VerticalContentAlignment="Center" Margin="15,15,0,15" Initialized="SettingsInitialized" Checked="CheckChange" Unchecked="CheckChange" MouseEnter="Object_MouseEnter" MouseLeave="Object_MouseLeave" Padding="5,0,0,0">
+                            <CheckBox.BorderBrush>
+                                <SolidColorBrush Color="{DynamicResource ColorNuans}"/>
+                            </CheckBox.BorderBrush>
+                            <CheckBox.Background>
+                                <SolidColorBrush Color="{DynamicResource ColorMain}"/>
+                            </CheckBox.Background>
+                            <CheckBox.Foreground>
+                                <SolidColorBrush Color="{DynamicResource ColorFont}"/>
+                            </CheckBox.Foreground>
+                        </CheckBox>
+                    </StackPanel>
                 </TabItem>
                 <TabItem Header="Такси"  Padding="10" FontSize="14">
                     <TabItem.Background>
