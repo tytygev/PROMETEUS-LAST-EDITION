@@ -2510,7 +2510,7 @@ System.Drawing.Bitmap (как и вообще складирование кар�
                                 </TextBox>
 
                             </Grid>
-                            <CheckBox x:Name="checkBox4" Content="Печатать дату печати" Margin="10,5,10,-20" FontSize="14" FontWeight="Normal" BorderThickness="1" Padding="5,0,0,0" IsChecked="True" Panel.ZIndex="1" MouseEnter="Object_MouseEnter" MouseLeave="Object_MouseLeave">
+                            <CheckBox x:Name="checkBox4" Content="Печатать дату печати" Margin="10,10,10,-35" FontSize="14" FontWeight="Normal" BorderThickness="1" Padding="5,0,0,0" IsChecked="True" Panel.ZIndex="1" MouseEnter="Object_MouseEnter" MouseLeave="Object_MouseLeave">
                                 <CheckBox.Foreground>
                                     <SolidColorBrush Color="{DynamicResource ColorFont}"/>
                                 </CheckBox.Foreground>
@@ -2569,7 +2569,7 @@ System.Drawing.Bitmap (как и вообще складирование кар�
                                 </StackPanel>
 
                             </GroupBox>
-                            <CheckBox x:Name="checkBox5" Content="Печатать срок действия" Margin="10,5,10,-20" FontSize="14" FontWeight="Normal" BorderThickness="1" Padding="5,0,0,0" IsChecked="True" Panel.ZIndex="1" MouseEnter="Object_MouseEnter" MouseLeave="Object_MouseLeave">
+                            <CheckBox x:Name="checkBox5" Content="Печатать срок действия" Margin="10,10,10,-35" FontSize="14" FontWeight="Normal" BorderThickness="1" Padding="5,0,0,0" IsChecked="True" Panel.ZIndex="1" MouseEnter="Object_MouseEnter" MouseLeave="Object_MouseLeave">
                                 <CheckBox.Foreground>
                                     <SolidColorBrush Color="{DynamicResource ColorFont}"/>
                                 </CheckBox.Foreground>
@@ -2819,7 +2819,7 @@ System.Drawing.Bitmap (как и вообще складирование кар�
                                     </StackPanel>
                                 </Grid>
                             </ScrollViewer>
-                            <CheckBox Content="Не печатать пустые" Margin="0,10,0,5" FontSize="14" FontWeight="Normal" BorderThickness="1" Padding="5,0,0,0" IsChecked="True" MouseEnter="Object_MouseEnter" MouseLeave="Object_MouseLeave" Tag="Путёвки с некорректными данными будут пропущены" Grid.Row="3" HorizontalAlignment="Left">
+                            <CheckBox Content="Не печатать с неполными данными" Margin="0,10,0,5" FontSize="14" FontWeight="Normal" BorderThickness="1" Padding="5,0,0,0" IsChecked="True" MouseEnter="Object_MouseEnter" MouseLeave="Object_MouseLeave" Tag="Путёвки с некорректными данными будут пропущены" Grid.Row="3" HorizontalAlignment="Left">
                                 <CheckBox.Foreground>
                                     <SolidColorBrush Color="{DynamicResource ColorFont}"/>
                                 </CheckBox.Foreground>
@@ -2881,7 +2881,7 @@ System.Drawing.Bitmap (как и вообще складирование кар�
                 </Grid>
             </GroupBox>
         </Grid>
-        <Grid x:Name="PricePage" Margin="0" Grid.Column="1" ScrollViewer.VerticalScrollBarVisibility="Auto">
+        <Grid x:Name="PricePage" Margin="0" Grid.Column="1" ScrollViewer.VerticalScrollBarVisibility="Auto" d:IsHidden="True">
             <Grid.Background>
                 <SolidColorBrush Color="{DynamicResource ColorSub}"/>
             </Grid.Background>
@@ -4051,19 +4051,7 @@ System.Drawing.Bitmap (как и вообще складирование кар�
                     <TabItem.Foreground>
                         <SolidColorBrush Color="{DynamicResource ColorFont}"/>
                     </TabItem.Foreground>
-                    <StackPanel  Margin="15" AllowDrop="True" VerticalAlignment="Center">
-                        <CheckBox x:Name="NoShowBDMSiWinCheckBox2" Content="Не показать окно информации" VerticalAlignment="Center" HorizontalAlignment="Left" IsChecked="True" VerticalContentAlignment="Center" Margin="15,15,0,15" Initialized="SettingsInitialized" Checked="CheckChange" Unchecked="CheckChange" MouseEnter="Object_MouseEnter" MouseLeave="Object_MouseLeave" Padding="5,0,0,0">
-                            <CheckBox.BorderBrush>
-                                <SolidColorBrush Color="{DynamicResource ColorNuans}"/>
-                            </CheckBox.BorderBrush>
-                            <CheckBox.Background>
-                                <SolidColorBrush Color="{DynamicResource ColorMain}"/>
-                            </CheckBox.Background>
-                            <CheckBox.Foreground>
-                                <SolidColorBrush Color="{DynamicResource ColorFont}"/>
-                            </CheckBox.Foreground>
-                        </CheckBox>
-                    </StackPanel>
+                    <StackPanel  Margin="15" AllowDrop="True" VerticalAlignment="Center"/>
                 </TabItem>
                 <TabItem Header="Такси"  Padding="10" FontSize="14">
                     <TabItem.Background>

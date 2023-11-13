@@ -241,7 +241,7 @@ namespace PROMETEUS_LAST_EDITION
         }
         public void OpenDB()
         {
-            DBOpenButton.Checked = false;
+            //DBOpenButton.Checked = false;
             new UI().FooterPromtShow(this, "Открытие Excel...");
             new FileFX().OpenDBinExcel(System.IO.Directory.GetCurrentDirectory() + "\\" + dbDefPath);
             //Application.Current.Shutdown();
