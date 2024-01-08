@@ -8,6 +8,7 @@ using System.Windows.Controls;
 using System.Windows.Input;
 using System.Windows.Media;
 using Microsoft.Office.Interop;
+using PROMETEUS_LAST_EDITION.models.database;
 using Excel = Microsoft.Office.Interop.Excel;
 
 namespace PROMETEUS_LAST_EDITION
@@ -56,18 +57,56 @@ namespace PROMETEUS_LAST_EDITION
             wav = new SoundPlayer();
             wav.Stream = Properties.Resources.ding;
 
-            currentVisibleView = StartPage;//
-
+            currentVisibleView = StartPage;
 
 
             var database = new DataBase();
-            database.Data.City = new City("Mahachkala", false);
-
-            database.Data.City = new City("Bahta", true);
-            database.Save();
+            RunDatabaseCreate(database);
+            //RunDatabaseLoadAddAndSave(database);
 
             var settings = new Settings();
             settings.Save();
+        }
+
+        private void RunDatabaseCreate(DataBase database)
+        {
+            var drivers = new List<Person>()
+            {
+                Person.Default,
+                new Person("Иван Иваныч", "+78023453535", false, new Car(Car.BrandType.Huynahuydai, "Sonatis", "л001ох177")),
+
+            };
+
+            drivers.Add(new Person("Петр Петрович", "+72343485611", false, new Car(Car.BrandType.Kia, "Pio", "х015то71")));
+
+
+            var cities = new List<City>()
+            {
+                City.Default,
+                new City("Bahta", true),
+                new City("Ebantuy", false)
+            };
+
+            cities.Add(new City("Assalabad", true));
+
+
+            database.Data.Drivers = drivers;
+            database.Data.Cities = cities;
+
+            database.Save();
+        }
+
+        void RunDatabaseLoadAddAndSave(DataBase database)
+        {
+            database.Load();
+
+            database.Data.Drivers.Add(new Person("Michelangelo Buonarroti", "+72281231488", false, Car.Default));
+
+            database.Data.Drivers[0].Cars.Add(new Car(Car.BrandType.Huynahuydai, "h1", "б001мв99"));
+
+            database.Data.Cities.Add(new City("Phantasmogorsk", false));
+
+            database.Save();
         }
 
         private void InitializeDefaultSettings()

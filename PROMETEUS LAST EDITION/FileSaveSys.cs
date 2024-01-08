@@ -6,6 +6,8 @@ using System.Threading.Tasks;
 using System.Text.Json;
 using System.Text.Json.Serialization;
 using System.IO;
+using PROMETEUS_LAST_EDITION.models.database;
+using PROMETEUS_LAST_EDITION.models.settings;
 
 namespace PROMETEUS_LAST_EDITION
 {
@@ -55,65 +57,4 @@ namespace PROMETEUS_LAST_EDITION
             Data = SettingsData.Default;
         }
 	}
-
-
-    // модель данных для DataBase
-    public class DatabaseData
-    {
-        public Person Person { get; set; }
-        public City City { get; set; }
-
-        public DatabaseData() { } // конструкторы без параметров нужны для сериализуемых классов, если в них есть конструкторы с параметрами
-
-        public DatabaseData(Person person, City city)
-		{
-            this.Person = person;
-            this.City = city;
-		}
-
-        public static DatabaseData Default => new DatabaseData(Person.Default, City.Default);
-    }
-
-    public class City
-    {
-        public string Name { get; set; }
-        public bool Concern { get; set; }
-
-        public City() { }
-
-        public City(string name, bool concern)
-		{
-            this.Name = name;
-            this.Concern = concern;
-		}
-
-        public static City Default => new City("moscow", true);
-
-    }
-
-    public class Person
-    {
-        public string Name { get; set; }
-        public string Phone { get; set; }
-        public bool Concern { get; set; }
-
-        public Person() { }
-
-        public Person(string name, string phone, bool concern)
-		{
-            this.Name = name;
-            this.Phone = phone;
-            this.Concern = concern;
-		}
-
-        public static Person Default => new Person("tytygev", "+78005553535", true);
-    }
-
-    // модель данных для Settings
-    public class SettingsData
-    {
-        public float SomeValue { get; set; }
-
-        public static SettingsData Default => new SettingsData { SomeValue = 37.0f };
-    }
 }
