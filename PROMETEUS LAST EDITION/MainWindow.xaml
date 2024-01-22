@@ -7,7 +7,7 @@
         xmlns:local="clr-namespace:PROMETEUS_LAST_EDITION" xmlns:System="clr-namespace:System;assembly=mscorlib" xmlns:Themes="clr-namespace:Microsoft.Windows.Themes;assembly=PresentationFramework.Aero2"
         mc:Ignorable="d"
         
-        Title="Prometeus LE"  MinHeight="768" MinWidth="1024"  Height="768" Width="1024" SizeChanged="Window_SizeChanged" StateChanged="Window_StateChanged" Background="{x:Null}" WindowState="Maximized" >
+        Title="Prometeus LE"  MinHeight="768" MinWidth="1024"  Height="768" Width="1024" SizeChanged="Window_SizeChanged" StateChanged="Window_StateChanged" Background="{x:Null}" WindowState="Maximized" Loaded="Window_Loaded" >
 
 
 

@@ -366,11 +366,10 @@ namespace PROMETEUS_LAST_EDITION
             return ListSettings;
         }
 
-      
+        private void Window_Loaded(object sender, RoutedEventArgs e)
+        {
 
-        
-
-       
+        }
     }
 
 
